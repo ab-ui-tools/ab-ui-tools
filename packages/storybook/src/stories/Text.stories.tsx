@@ -1,0 +1,63 @@
+import type { TextPropTypes } from 'ab-ui-library/components/Text/types';
+import type { StoryFn } from '@storybook/react';
+
+import React from 'react';
+import { Text as _Text } from 'ab-ui-library/components/Text';
+
+export default {
+  title: 'Text',
+  component: _Text,
+  argTypes: {
+    type: {
+      options: [
+        'primary',
+        'secondary',
+        'tertiary',
+        'disabled',
+        'inverse',
+        'selected',
+        'brand',
+        'danger',
+        'warning',
+        'success',
+        'information',
+        'discovery',
+      ],
+      control: { type: 'radio' },
+    },
+    size: {
+      options: ['xxsmall', 'xsmall', 'small', 'standard', 'medium', 'large'],
+      control: { type: 'radio' },
+    },
+    as: {
+      options: ['p', 'span', 'div', 'h1'],
+      control: { type: 'radio' },
+    },
+    lineHeight: {
+      options: ['xsmall', 'small', 'medium', 'large'],
+      control: { type: 'radio' },
+    },
+    weight: {
+      options: ['regular', 'semibold', 'bold', 'bolder'],
+      control: { type: 'radio' },
+    },
+  },
+};
+
+const Template: StoryFn<TextPropTypes & { text: string }> = args => {
+  return (
+    <div style={{ padding: '20px', backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}` }}>
+      <_Text {...args}>{args.text}</_Text>
+    </div>
+  );
+};
+
+export const Text = Template.bind({});
+Text.args = {
+  type: 'primary',
+  as: 'p',
+  size: 'standard',
+  lineHeight: 'large',
+  weight: 'regular',
+  text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+};

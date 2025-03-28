@@ -1,0 +1,33 @@
+import type { JSX } from 'react';
+
+import React from 'react';
+
+import type { TSelectFooterPropTypes } from '../types';
+
+import { Checkbox } from '../../Checkbox';
+import { Button } from '../../Button';
+
+export const Footer = (props: TSelectFooterPropTypes): JSX.Element => {
+  const { buttonProps, onApply, onCancel, hasChange = true, checkboxInfo } = props;
+  const [isSelected, setIsSelected] = React.useState(checkboxInfo?.isChecked || false);
+
+  return (
+    <div className="select__footer">
+      <div>
+        {checkboxInfo ? (
+          <Checkbox label={checkboxInfo.label} selectedValue={isSelected} onClick={setIsSelected} />
+        ) : null}
+      </div>
+      <div className={'select__footer__right flexbox'}>
+        <Button {...(buttonProps.cancel || {})} type="tertiary" size="medium" className="mr-12" onClick={onCancel} />
+        <Button
+          disabled={!hasChange && isSelected === !!checkboxInfo?.isChecked}
+          {...buttonProps.confirm}
+          type="primary"
+          size="medium"
+          onClick={() => onApply(isSelected)}
+        />
+      </div>
+    </div>
+  );
+};

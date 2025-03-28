@@ -1,0 +1,18 @@
+.otp {
+  --otp-input-gap: var(--ds-space-8);
+  --otp-input-width: var(--ds-size-40);
+  --otp-input-padding: 0;
+
+  &__inner {
+    gap: var(--otp-input-gap);
+  }
+
+  .input {
+    --ds-input-padding: var(--otp-input-padding);
+
+    input {
+      width: var(--otp-input-width);
+      text-align: center;
+    }
+  }
+}

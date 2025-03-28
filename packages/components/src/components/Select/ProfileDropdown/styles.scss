@@ -1,0 +1,39 @@
+@use "../../../assets/styles/helpers/mixin";
+
+.profile-dropdown {
+  width: 360px;
+  box-shadow: var(--ds-shadow-2);
+  border-radius: var(--ds-border-radius-lg);
+  background-color: var(--ds-color-bg-white);
+  overflow: hidden;
+  @include mixin.absolute(calc(100% + var(--ds-space-8)), 0, unset, unset);
+
+  &__top {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    padding: var(--ds-space-16);
+    border-bottom: 1px solid var(--grey-50);
+  }
+
+  &__nav {
+    list-style: none;
+
+    &__link {
+      @include mixin.flexbox;
+      @include mixin.align-items(center);
+      color: var(--ds-color-text-primary);
+      text-decoration: none;
+      padding: var(--ds-space-10) var(--ds-space-16);
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--grey-20);
+        color: var(--ds-color-text-primary)
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid var(--grey-50);
+  }
+}
