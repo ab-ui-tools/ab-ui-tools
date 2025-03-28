@@ -12,8 +12,7 @@ import image from '@rollup/plugin-image'
 import postcss from 'rollup-plugin-postcss'
 import { renderSync } from 'sass'
 
-const extensions = ['.ts', '.tsx', '.js', '.jsx']
-const ignoreExtensions = ['.stories.tsx', '.stories.d.ts']
+const extensions = ['.ts', '.tsx', '.js', '.jsx'];
 
 const external = [
   ...Object.keys(pkg.peerDependencies || {}),
@@ -29,10 +28,7 @@ const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
     } else {
       const regexExecResult = /(.+?)(\.[^.]*$|$)/g.exec(current)
       const chunkName = `${localPath}/${regexExecResult[1]}`.replace(/^src\/?/g, '')
-      if (
-        extensions.includes(regexExecResult[2]) &&
-        !ignoreExtensions.some((e) => regexExecResult[0].endsWith(e))
-      ) {
+      if (extensions.includes(regexExecResult[2])) {
         initial[chunkName] = `${localPath}/${current}`
       }
     }
