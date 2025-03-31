@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.6 (2025-03-31)
+
+
+### Bug Fixes
+
+* change in yml ([bfcba90](https://github.com/ab-devtools/uilibrary/commit/bfcba90b9e15e0b44bde72d4575340f2ba29ff71))
+
+
+
+
+
 ## 1.1.5 (2025-03-31)
 
 
