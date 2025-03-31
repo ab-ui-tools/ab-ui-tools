@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.3 (2025-03-31)
+
+
+### Bug Fixes
+
+* testing publish ([56af4eb](https://github.com/ab-devtools/uilibrary/commit/56af4ebe005a8394cfaba6fc717e0c171cf48f12))
+
+
+
+
+
 ## 1.1.2 (2025-03-31)
 
 
