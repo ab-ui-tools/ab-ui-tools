@@ -11,7 +11,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "compile": "tsc --build tsconfig.json --force",
+    "compile": "tsc && cp package.json dist/",
     "build": "yarn compile"
   },
   "peerDependencies": {
