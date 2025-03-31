@@ -38,6 +38,18 @@ jobs:
           echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
 
+      - name: Get npm profile
+        run: npm profile get
+
+      - name: Debug npm configuration
+        run: |
+          echo "NPM whoami:"
+          npm whoami
+          echo "NPM config:"
+          npm config list
+          echo "Package publishConfig:"
+          find packages -name package.json -exec grep -l "publishConfig" {} \; -exec sh -c 'echo "\n{}:"; cat {}' \;
+
       - name: Build packages with Lerna
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
