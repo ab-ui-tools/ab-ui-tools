@@ -32,8 +32,15 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Create .npmrc file
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+      - name: Authenticate with Registry
+        run: |
+            yarn logout
+            echo "@apollo-elements:registry=http://registry.npmjs.org/" > .npmrc
+            echo "registry=http://registry.npmjs.org/" >> .npmrc
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+            npm whoami
+          env:
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build packages with Lerna
         env:
@@ -41,26 +48,10 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: yarn build
 
-      - name: Debug NPM Auth
-        run: cat ~/.npmrc
-
-      - name: Check NPM Authentication
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: npm whoami
-
-      - name: Set up .npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
-
-      - name: Verify NPM Authentication
-        run: npm whoami
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
       - name: Publish packages with Lerna
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: npx lerna publish from-package --yes
 
       - name: Extract version and package name
