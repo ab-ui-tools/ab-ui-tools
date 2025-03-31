@@ -42,6 +42,7 @@ const OPTIONS: TSelectOptions = [
 
 export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps<TData>) {
   const [navigatePage, setNavigatePage] = useState<string>('1');
+
   const pageIndex = table.getState().pagination.pageIndex;
   const pageSize = table.getState().pagination.pageSize;
 
