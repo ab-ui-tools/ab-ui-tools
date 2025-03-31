@@ -3,14 +3,14 @@ name: Publish Package
 on:
   push:
     branches:
-      - 'master'  # You can change this to 'main' if you're using 'main' instead of 'master'
+      - 'master'  # Change to 'main' if you're using 'main' as your default branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write  # Make sure to use the appropriate permissions for your needs
+      contents: write  # Ensure the appropriate permissions for your workflow
 
     steps:
       - name: Checkout code
@@ -34,13 +34,13 @@ jobs:
 
       - name: Authenticate with Registry
         run: |
-            yarn logout
-            echo "@apollo-elements:registry=http://registry.npmjs.org/" > .npmrc
-            echo "registry=http://registry.npmjs.org/" >> .npmrc
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-            npm whoami
-          env:
-            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          yarn logout
+          echo "@apollo-elements:registry=https://registry.npmjs.org/" > .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build packages with Lerna
         env:
@@ -101,5 +101,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token for deploying
-          publish_dir: ./storybook-static  # Directory to deploy
-          enable_jekyll: false  # Disable Jekyll (unless you need it)
+          publish_dir: ./storybook-static_
