@@ -3,20 +3,20 @@ name: Publish Package
 on:
   push:
     branches:
-      - 'master'
+      - 'master'  # You can change this to 'main' if you're using 'main' instead of 'master'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
+      contents: write  # Make sure to use the appropriate permissions for your needs
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}  # Use the bot access token for GitHub actions
 
       - name: Setup Git
         run: |
@@ -40,7 +40,7 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
           echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
-          npm config set @ab-ui-tools:registry https://registry.npmjs.org/
+          npm config set @ab-ui-tools:registry https://registry.npmjs.org/  
 
       - name: Debug npm configuration
         env:
@@ -105,13 +105,13 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
-
+      # Deployment on GitHub Pages
       - name: Build Storybook
-        run: yarn build:storybook
+        run: yarn build:storybook  # Ensure Storybook is being built
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token for deploying
           publish_dir: ./storybook-static  # Directory to deploy
           enable_jekyll: false  # Disable Jekyll (unless you need it)
