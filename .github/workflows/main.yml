@@ -41,11 +41,14 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: yarn build
 
+      - name: Debug NPM Auth
+        run: cat ~/.npmrc
+
       - name: Publish packages with Lerna
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: npx lerna publish from-package --yes
+        run: npx lerna publish from-package --yes --registry=https://registry.npmjs.org/
 
       - name: Extract version and package name
         run: |
