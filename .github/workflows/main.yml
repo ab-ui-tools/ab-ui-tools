@@ -21,7 +21,7 @@ jobs:
       - name: Setup Git
         run: |
           git config --global user.name "uilibrary"
-          git config --global user.email "uilibrary.dev@gmail.com"
+          git config --global user.email "ab.uitools@gmail.com"
 
       - name: Specify Node Version
         uses: actions/setup-node@v3
