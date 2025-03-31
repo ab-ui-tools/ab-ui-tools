@@ -1,6 +1,7 @@
 {
   "name": "ab-ui-tools",
   "homepage": "https://github.com/ab-ui-tools/ab-ui-tools",
+  "private": true,
   "scripts": {
     "build": "lerna run build --scope=@ab-ui-tools/components",
     "start": "yarn start:storybook",
