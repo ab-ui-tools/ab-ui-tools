@@ -3,20 +3,20 @@ name: Publish Package
 on:
   push:
     branches:
-      - 'master'  # You can change this to 'main' if you're using 'main' instead of 'master'
+      - 'master'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write  # Make sure to use the appropriate permissions for your needs
+      contents: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}  # Use the bot access token for GitHub actions
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
 
       - name: Setup Git
         run: |
