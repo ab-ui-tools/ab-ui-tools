@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "name": "@ab.uitools/base",
+  "private": false,
+  "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "compile": "tsc --build tsconfig.json --force",
+    "build": "yarn compile"
+  },
+  "peerDependencies": {
+    "@ab.uitools/components": "^1.0.0",
+    "axios": "^1.3.5",
+    "i18next": "^22.4.14",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.2.0",
+    "react-router-dom": "^6.10.0"
+  },
+  "peerDependenciesMeta": {
+    "react-i18next": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "compare-versions": "^5.0.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.1",
+    "@ab.uitools/components": "^1.0.0",
+    "axios": "^1.3.5",
+    "i18next": "^22.4.14",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.2.0"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ]
+}

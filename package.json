@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "lerna run build --scope=@ab.uitools/components",
+    "lerna-build": "lerna run build",
     "start": "yarn start:storybook",
     "build:storybook": "lerna run build-storybook --scope=@ab.uitools/storybook",
     "start:storybook": "lerna run storybook --scope=@ab.uitools/storybook",
