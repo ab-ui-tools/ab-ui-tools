@@ -39,7 +39,7 @@ jobs:
         run: yarn build
 
       - name: Publish packages with Lerna
-        run: npx lerna publish from-package --ignore-changes "boilerplate" --ignore-changes "base" --ignore-changes "storybook"--yes
+        run: npx lerna publish from-package --ignore-changes "boilerplate" --ignore-changes "base" --ignore-changes "@ab-ui-tools/storybook"--yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 

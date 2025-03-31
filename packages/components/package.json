@@ -1,6 +1,6 @@
 {
   "homepage": "https://github.com/ab-ui-tools/ab-ui-tools",
-  "name": "components",
+  "name": "@ab-ui-tools/components",
   "version": "1.0.0",
   "description": "UI library for AM",
   "private": false,
