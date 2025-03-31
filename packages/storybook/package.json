@@ -1,7 +1,7 @@
 {
   "homepage": "https://github.com/ab-ui-tools/ab-ui-tools",
   "name": "@ab-ui-tools/storybook",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "description": "UI library for AM",
   "private": false,
   "main": "index.js",
