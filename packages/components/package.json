@@ -125,5 +125,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ab-devtools/uilibrary"
-  }
+  },
+  "gitHead": "75e3486e1c898ee249cd0e6bb6d2b0ac8dd4abc1"
 }
