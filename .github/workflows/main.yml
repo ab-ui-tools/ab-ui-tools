@@ -3,20 +3,19 @@ name: Publish Package
 on:
   push:
     branches:
-      - 'master'  # You can change this to 'main' if you're using 'main' instead of 'master'
+      - 'master'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     permissions:
-      contents: write  # Make sure to use the appropriate permissions for your needs
+      contents: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.BOT_ACCESS_TOKEN }}  # Use the bot access token for GitHub actions
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
 
       - name: Setup Git
         run: |
@@ -32,16 +31,21 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Create .npmrc file
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+      - name: Configure npm for private packages
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+          echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
+          echo "always-auth=true" >> ~/.npmrc
+          npm config set access private  # Ensure all packages are published as private
 
       - name: Build packages with Lerna
         run: yarn build
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-      - name: Publish packages with Lerna
-        run: npx lerna publish from-package --yes
+      - name: Publish private packages with Lerna
+        run: |
+          npx lerna publish from-package --yes \
+            --no-verify-access \
+            --no-verify-registry
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
@@ -52,9 +56,7 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
 
-      # Slack notification
       - name: Post to Slack channel
-        id: slack
         uses: slackapi/slack-github-action@v1.17.0
         with:
           payload: |
@@ -85,13 +87,12 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
-      # Deployment on GitHub Pages
       - name: Build Storybook
-        run: yarn build:storybook  # Ensure Storybook is being built
+        run: yarn build:storybook
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token for deploying
-          publish_dir: ./storybook-static  # Directory to deploy
-          enable_jekyll: false  # Disable Jekyll (unless you need it)
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static
+          enable_jekyll: false
