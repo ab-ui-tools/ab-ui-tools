@@ -33,6 +33,9 @@ jobs:
         run: yarn
 
       - name: Configure npm for private packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
           echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
@@ -40,6 +43,9 @@ jobs:
           npm config set @ab-ui-tools:registry https://registry.npmjs.org/  
 
       - name: Debug npm configuration
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
           echo "NPM whoami:"
           npm whoami
