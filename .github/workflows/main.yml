@@ -43,7 +43,7 @@ jobs:
 
       - name: Publish private packages
         run: |
-          yarn lerna from-package publish --yes
+          yarn lerna publish from-package --yes
         env:
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
