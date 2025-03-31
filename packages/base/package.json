@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "@ab.uitools/base",
   "private": false,
   "license": "UNLICENSED",
@@ -33,7 +33,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@ab.uitools/components": "^1.1.10",
+    "@ab.uitools/components": "^1.1.11",
     "@types/uuid": "^9.0.1",
     "axios": "^1.3.5",
     "i18next": "^22.4.14",

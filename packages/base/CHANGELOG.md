@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.2 (2025-03-31)
+
+### Bug Fixes
+
+- fix ts build ([d974647](https://github.com/ab-ui-tools/ab-ui-tools/commit/d9746471f7bdd9a9a5aff67fb83980cf839276b9))
+
 ## 1.0.1 (2025-03-31)
 
 ### Bug Fixes

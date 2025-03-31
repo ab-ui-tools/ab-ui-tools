@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.11 (2025-03-31)
+
+
+### Bug Fixes
+
+* fix ts build ([d974647](https://github.com/ab-devtools/uilibrary/commit/d9746471f7bdd9a9a5aff67fb83980cf839276b9))
+
+
+
+
+
 ## 1.1.10 (2025-03-31)
 
 
