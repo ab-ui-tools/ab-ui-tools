@@ -48,52 +48,52 @@ jobs:
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-      - name: Extract version and package name
-        run: |
-          VERSION=$(npm run version --silent)
-          PACKAGE_NAME=$(npm run name --silent)
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
-
-      - name: Post to Slack channel
-        id: slack
-        uses: slackapi/slack-github-action@v1.17.0
-        with:
-          payload: |
-            {
-              "attachments": [
-                {
-                  "color": "#70aeff",
-                  "blocks": [
-                    {
-                      "type": "section",
-                      "text": {
-                        "type": "mrkdwn",
-                        "text": "Notification sent from <${{ env.PIPE_URL }}>"
-                      }
-                    },
-                    {
-                      "type": "section",
-                      "text": {
-                        "type": "mrkdwn",
-                        "text": "${{ env.PACKAGE_NAME }}@${{ env.VERSION }} has been published successfully!"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-
-      # Deployment on GitHub Pages
-      - name: Build Storybook
-        run: yarn build:storybook  # Ensure Storybook is being built
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token for deploying
-          publish_dir: ./storybook-static  # Directory to deploy
-          enable_jekyll: false  # Disable Jekyll (unless you need it)
+#      - name: Extract version and package name
+#        run: |
+#          VERSION=$(npm run version --silent)
+#          PACKAGE_NAME=$(npm run name --silent)
+#          echo "VERSION=$VERSION" >> $GITHUB_ENV
+#          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+#
+#      - name: Post to Slack channel
+#        id: slack
+#        uses: slackapi/slack-github-action@v1.17.0
+#        with:
+#          payload: |
+#            {
+#              "attachments": [
+#                {
+#                  "color": "#70aeff",
+#                  "blocks": [
+#                    {
+#                      "type": "section",
+#                      "text": {
+#                        "type": "mrkdwn",
+#                        "text": "Notification sent from <${{ env.PIPE_URL }}>"
+#                      }
+#                    },
+#                    {
+#                      "type": "section",
+#                      "text": {
+#                        "type": "mrkdwn",
+#                        "text": "${{ env.PACKAGE_NAME }}@${{ env.VERSION }} has been published successfully!"
+#                      }
+#                    }
+#                  ]
+#                }
+#              ]
+#            }
+#        env:
+#          SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
+#          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+#
+#      # Deployment on GitHub Pages
+#      - name: Build Storybook
+#        run: yarn build:storybook  # Ensure Storybook is being built
+#
+#      - name: Deploy to GitHub Pages
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token for deploying
+#          publish_dir: ./storybook-static  # Directory to deploy
+#          enable_jekyll: false  # Disable Jekyll (unless you need it)

@@ -6,8 +6,7 @@
   "command": {
     "version": {
       "conventionalCommits": true,
-      "changelogPreset": "angular",
-      "message": "chore(release): %v [skip ci]",
+      "message": "chore(release): publish",
       "allowBranch": ["master", "alpha"]
     },
     "publish": {
