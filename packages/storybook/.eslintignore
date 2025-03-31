@@ -1,5 +1,0 @@
-build
-node_modules
-.github
-**/storybook/**
-**/stories/**

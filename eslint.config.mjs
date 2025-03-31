@@ -1,3 +1,4 @@
+import { defineConfig, globalIgnores } from 'eslint/config';
 import js from '@eslint/js'
 import globals from 'globals'
 import typescriptParser from  '@typescript-eslint/parser'
@@ -38,7 +39,7 @@ const baseConfig = tseslint.config({
             "error",
             {
                 "ts-expect-error": "allow-with-description",
-                "ts-ignore": false // Disable enforcement of @ts-expect-error over @ts-ignore
+                "ts-ignore": false
             }
         ],
         "@typescript-eslint/consistent-type-imports": [ "error", { "prefer": "type-imports" } ],
@@ -87,11 +88,12 @@ const baseConfig = tseslint.config({
 const storybookConfig = tseslint.config({
   files: ['packages/storybook/**/*.{ts,tsx}'],
   rules: {
-    "@typescript-eslint/no-explicit-any": "off" // Disable for Storybook
+    "@typescript-eslint/no-explicit-any": "off"
   }
 })
 
-export default tseslint.config(
+export default defineConfig([
+    globalIgnores(['**/dist/**', '**/node_modules/**']),
     baseConfig,
-    storybookConfig
-)
+    storybookConfig,
+]);

@@ -1,5 +1,18 @@
 {
-  "packages": ["packages/*"],
   "version": "independent",
-  "npmClient": "yarn"
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "packages": ["packages/*"],
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "changelogPreset": "angular",
+      "message": "chore(release): %v [skip ci]",
+      "allowBranch": ["master", "alpha"]
+    },
+    "publish": {
+      "registry": "https://registry.npmjs.org/",
+      "contents": "dist"
+    }
+  }
 }
