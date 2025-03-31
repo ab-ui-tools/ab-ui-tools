@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "description": "UI library for AM",
   "private": false,
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org/"
+  },
   "main": "index.js",
   "scripts": {
     "version": "echo $npm_package_version",
