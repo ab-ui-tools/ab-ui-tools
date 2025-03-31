@@ -37,9 +37,7 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
           echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
-
-      - name: Get npm profile
-        run: npm profile get
+          npm config set @ab-ui-tools:registry https://registry.npmjs.org/  
 
       - name: Debug npm configuration
         run: |
