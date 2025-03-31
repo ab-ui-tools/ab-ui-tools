@@ -39,7 +39,7 @@ jobs:
         run: yarn build
 
       - name: Publish packages with Lerna
-        run: npx lerna publish from-package --yes
+        run: npx lerna publish from-package --ignore "boilerplate" --ignore "base" --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
