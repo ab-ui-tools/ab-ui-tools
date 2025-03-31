@@ -7,10 +7,10 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "lerna run build --scope=@ab-ui-tools/components",
+    "build": "lerna run build --scope=@ab.uitools/components",
     "start": "yarn start:storybook",
-    "build:storybook": "lerna run build-storybook --scope=@ab-ui-tools/storybook",
-    "start:storybook": "lerna run storybook --scope=@ab-ui-tools/storybook",
+    "build:storybook": "lerna run build-storybook --scope=@ab.uitools/storybook",
+    "start:storybook": "lerna run storybook --scope=@ab.uitools/storybook",
     "lint": "eslint . --ignore-pattern 'dist/'"
   },
   "workspaces": [
