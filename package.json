@@ -3,10 +3,10 @@
   "homepage": "https://github.com/ab-ui-tools/ab-ui-tools",
   "private": true,
   "scripts": {
-    "build": "lerna run build --scope=components",
+    "build": "lerna run build --scope=@ab-ui-tools/components",
     "start": "yarn start:storybook",
-    "build:storybook": "lerna run build-storybook --scope=storybook",
-    "start:storybook": "lerna run storybook --scope=storybook",
+    "build:storybook": "lerna run build-storybook --scope=@ab-ui-tools/storybook",
+    "start:storybook": "lerna run storybook --scope=@ab-ui-tools/storybook",
     "lint": "eslint . --ignore-pattern 'dist/'"
   },
   "workspaces": [
