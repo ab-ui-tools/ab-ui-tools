@@ -61,7 +61,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
           echo "Checking package permissions:"
-          npm access ls-packages @ab-ui-tools
           echo "Billing status:"
           npm profile get
 
