@@ -1,12 +1,10 @@
 ## [1.1.1](https://github.com/ab-devtools/uilibrary/compare/1.1.0...1.1.1) (2025-03-25)
 
-
 ### Bug Fixes
 
-* add input icons disabled ([a25348d](https://github.com/ab-devtools/uilibrary/commit/a25348d92e9861570f51cdf5f09226355ccb37c7))
+* added input icons disabled ([a25348d](https://github.com/ab-devtools/uilibrary/commit/a25348d92e9861570f51cdf5f09226355ccb37c7))
 
 # [1.1.0](https://github.com/ab-devtools/uilibrary/compare/1.0.8...1.1.0) (2025-03-25)
-
 
 ### Bug Fixes
 
@@ -15,14 +13,12 @@
 * refactor link component and check disable ([53c437d](https://github.com/ab-devtools/uilibrary/commit/53c437dbcea7fa3d66c4956f07d015e87b8e69b7))
 * slack notification ([e971ffc](https://github.com/ab-devtools/uilibrary/commit/e971ffc01d9be251957c9009b06d595063407b14))
 
-
 ### Features
 
 * added disabled state ui for link component ([b3c3de7](https://github.com/ab-devtools/uilibrary/commit/b3c3de779ba32c06f5ec176b2c96d654c12eb617))
 * added disabled state ui for link component ([f0a9e26](https://github.com/ab-devtools/uilibrary/commit/f0a9e26035250659de379de2b15adc82fa562bca))
 
 ## [1.0.8](https://github.com/ab-devtools/uilibrary/compare/1.0.7...1.0.8) (2025-03-25)
-
 
 ### Bug Fixes
 
@@ -39,13 +35,11 @@
 
 ## [1.0.7](https://github.com/ab-devtools/uilibrary/compare/1.0.6...1.0.7) (2025-03-24)
 
-
 ### Bug Fixes
 
 * added id for popover and changed capsLock state functionality ([4ed3a7b](https://github.com/ab-devtools/uilibrary/commit/4ed3a7b5bab4eef6b3dd975ca43086ad01c1af24))
 
 ## [1.0.6](https://github.com/ab-devtools/uilibrary/compare/1.0.5...1.0.6) (2025-03-24)
-
 
 ### Bug Fixes
 
@@ -57,14 +51,12 @@
 
 ## [1.0.5](https://github.com/ab-devtools/uilibrary/compare/1.0.4...1.0.5) (2025-03-21)
 
-
 ### Bug Fixes
 
 * fixed alert ui icon alignment ([a690e9b](https://github.com/ab-devtools/uilibrary/commit/a690e9bf6f35708242ee7748ea866cbd6b72d65e))
 * fixed alert ui icon alignment ([02f21bd](https://github.com/ab-devtools/uilibrary/commit/02f21bd3345997d4c06f0486807c99f639f60f35))
 
 ## [1.0.4](https://github.com/ab-devtools/uilibrary/compare/1.0.3...1.0.4) (2025-03-21)
-
 
 ### Bug Fixes
 
@@ -75,13 +67,11 @@
 
 ## [1.0.3](https://github.com/uilibrarydev/uilibrary/compare/1.0.2...1.0.3) (2025-03-19)
 
-
 ### Bug Fixes
 
 * test ([9f88322](https://github.com/uilibrarydev/uilibrary/commit/9f883229b374ae55db1291b0de756c6d79bcf077))
 
 ## [1.0.2](https://github.com/uilibrarydev/uilibrary/compare/1.0.1...1.0.2) (2025-03-19)
-
 
 ### Bug Fixes
 
@@ -89,13 +79,11 @@
 
 ## [1.0.1](https://github.com/uilibrarydev/uilibrary/compare/1.0.0...1.0.1) (2025-03-19)
 
-
 ### Bug Fixes
 
 * updated name of library ([2656431](https://github.com/uilibrarydev/uilibrary/commit/2656431a964d8981d9ab122aab418048f083f74c))
 
 # 1.0.0 (2025-03-19)
-
 
 ### Bug Fixes
 
@@ -410,7 +398,6 @@
 * updated releaserc again ([2032952](https://github.com/uilibrarydev/uilibrary/commit/2032952ecd05208bdee03750f3de600a03ac6da9))
 * validations only when user typing ([011cae7](https://github.com/uilibrarydev/uilibrary/commit/011cae73ef990e18a60fab1068d7b8877acd4080))
 
-
 ### Features
 
 * accept expend icon for navigation item component (not required) ([c223b6b](https://github.com/uilibrarydev/uilibrary/commit/c223b6bf1d8577303203eb079fd2d2ab0c820ba5))
@@ -510,7 +497,6 @@
 
 ## [2.42.5](https://github.com/uilibrarydev/uilibrary/compare/2.42.4...2.42.5) (2025-03-19)
 
-
 ### Bug Fixes
 
 * testing migration ([e2f918e](https://github.com/uilibrarydev/uilibrary/commit/e2f918e38e324c111ccfb404cbfc14cce7626f83))
@@ -518,14 +504,12 @@
 
 ## [2.42.4](https://github.com/uilibrarydev/uilibrary/compare/2.42.3...2.42.4) (2025-03-19)
 
-
 ### Bug Fixes
 
 * testing migration ([20e4b31](https://github.com/uilibrarydev/uilibrary/commit/20e4b318a3af6dc20bb81726774fdcd21145dced))
 * testing migration ([751da16](https://github.com/uilibrarydev/uilibrary/commit/751da16312f363007dc27b427a4f0c483c286321))
 
 ## [2.42.3](https://github.com/dinofrontend/dino_ui_library/compare/2.42.2...2.42.3) (2025-03-18)
-
 
 ### Bug Fixes
 
@@ -537,7 +521,6 @@
 
 ## [2.42.2](https://github.com/dinofrontend/dino_ui_library/compare/2.42.1...2.42.2) (2025-03-18)
 
-
 ### Bug Fixes
 
 * advancet table types ([29fd0b0](https://github.com/dinofrontend/dino_ui_library/commit/29fd0b096bf44de9b363ad51c1102048c8b91277))
@@ -545,14 +528,12 @@
 
 ## [2.42.1](https://github.com/dinofrontend/dino_ui_library/compare/2.42.0...2.42.1) (2025-03-18)
 
-
 ### Bug Fixes
 
 * advancet table types ([b033f2e](https://github.com/dinofrontend/dino_ui_library/commit/b033f2eed8a6f0ff3ac9aa66823ba57761f92995))
 * advancet table types ([81e61ec](https://github.com/dinofrontend/dino_ui_library/commit/81e61eccbcffb030f24b6ef33a83bb6a09108f09))
 
 # [2.42.0](https://github.com/dinofrontend/dino_ui_library/compare/2.41.0...2.42.0) (2025-03-17)
-
 
 ### Bug Fixes
 
@@ -574,7 +555,6 @@
 * ts errors ([1aece60](https://github.com/dinofrontend/dino_ui_library/commit/1aece6092d09d2e4dc8bce2abb0a29ef79e64add))
 * ui fixes for advanced table pagination ([63955a9](https://github.com/dinofrontend/dino_ui_library/commit/63955a9fc5e5df1ec9fb0d160c8809455b918078))
 
-
 ### Features
 
 * tanstack table ([af2006f](https://github.com/dinofrontend/dino_ui_library/commit/af2006f9b95596ebf634fe49bb0071ebd3a38a35))
@@ -585,13 +565,11 @@
 
 # [2.41.0](https://github.com/dinofrontend/dino_ui_library/compare/2.40.0...2.41.0) (2025-03-12)
 
-
 ### Features
 
 * added shower icon ([6a47f52](https://github.com/dinofrontend/dino_ui_library/commit/6a47f521ad85e863cc54bfb32e5a8411afcb3545))
 
 # [2.40.0](https://github.com/dinofrontend/dino_ui_library/compare/2.39.3...2.40.0) (2025-03-12)
-
 
 ### Features
 
@@ -600,13 +578,11 @@
 
 ## [2.39.3](https://github.com/dinofrontend/dino_ui_library/compare/2.39.2...2.39.3) (2025-03-12)
 
-
 ### Bug Fixes
 
 * select uptudate value ([73d9b08](https://github.com/dinofrontend/dino_ui_library/commit/73d9b08f2b53b07ed8ba8aa5c5aacd3001af1bbb))
 
 ## [2.39.2](https://github.com/dinofrontend/dino_ui_library/compare/2.39.1...2.39.2) (2025-03-12)
-
 
 ### Bug Fixes
 
@@ -616,7 +592,6 @@
 
 ## [2.39.1](https://github.com/dinofrontend/dino_ui_library/compare/2.39.0...2.39.1) (2025-03-11)
 
-
 ### Bug Fixes
 
 * fixed lineheight ([1588963](https://github.com/dinofrontend/dino_ui_library/commit/1588963e832e3bc2a1723f33eabedddd7f1bc9a9))
@@ -625,11 +600,9 @@
 
 # [2.39.0](https://github.com/dinofrontend/dino_ui_library/compare/2.38.0...2.39.0) (2025-03-10)
 
-
 ### Bug Fixes
 
 * fixed modal confirmation sizes ([f6406f3](https://github.com/dinofrontend/dino_ui_library/commit/f6406f3f4840560c7792188bc4a1c6485c908222))
-
 
 ### Features
 
@@ -638,13 +611,11 @@
 
 # [2.38.0](https://github.com/dinofrontend/dino_ui_library/compare/2.37.0...2.38.0) (2025-03-10)
 
-
 ### Features
 
 * added tin and loan icons ([c891481](https://github.com/dinofrontend/dino_ui_library/commit/c891481fbdf3197ec9be7f841cafe3a2f30bd0bd))
 
 # [2.37.0](https://github.com/dinofrontend/dino_ui_library/compare/2.36.8...2.37.0) (2025-03-07)
-
 
 ### Features
 
@@ -653,20 +624,17 @@
 
 ## [2.36.8](https://github.com/dinofrontend/dino_ui_library/compare/2.36.7...2.36.8) (2025-03-06)
 
-
 ### Bug Fixes
 
 * fixed checkbox invalid ui ([ac8daf4](https://github.com/dinofrontend/dino_ui_library/commit/ac8daf4b31415722caff3995d90de51c1cdc3a06))
 
 ## [2.36.7](https://github.com/dinofrontend/dino_ui_library/compare/2.36.6...2.36.7) (2025-02-25)
 
-
 ### Bug Fixes
 
 * autofocus issue ([213176b](https://github.com/dinofrontend/dino_ui_library/commit/213176b6fbf809e1a242b7eb14a6b610b1960e8e))
 
 ## [2.36.6](https://github.com/dinofrontend/dino_ui_library/compare/2.36.5...2.36.6) (2025-02-24)
-
 
 ### Bug Fixes
 
@@ -675,14 +643,12 @@
 
 ## [2.36.5](https://github.com/dinofrontend/dino_ui_library/compare/2.36.4...2.36.5) (2025-02-20)
 
-
 ### Bug Fixes
 
 * fix  radius for large buttonIcon ([9bb7596](https://github.com/dinofrontend/dino_ui_library/commit/9bb759624712cf0baa87f97d12677d6e6607ed7a))
 * remove additional tokens ([2241dfa](https://github.com/dinofrontend/dino_ui_library/commit/2241dfa23ac3919face85e8c1a824ca96280751b))
 
 ## [2.36.4](https://github.com/dinofrontend/dino_ui_library/compare/2.36.3...2.36.4) (2025-02-19)
-
 
 ### Bug Fixes
 
@@ -691,20 +657,17 @@
 
 ## [2.36.3](https://github.com/dinofrontend/dino_ui_library/compare/2.36.2...2.36.3) (2025-02-19)
 
-
 ### Bug Fixes
 
 * fix for profile dropdown ([3a53264](https://github.com/dinofrontend/dino_ui_library/commit/3a53264c2e4a5a3dbbb3d9d849282ec893f6dc29))
 
 ## [2.36.2](https://github.com/dinofrontend/dino_ui_library/compare/2.36.1...2.36.2) (2025-02-18)
 
-
 ### Bug Fixes
 
 * fix for language dropdown ([5f3cb83](https://github.com/dinofrontend/dino_ui_library/commit/5f3cb833b22d75331953485ff595fd0b19d26374))
 
 ## [2.36.1](https://github.com/dinofrontend/dino_ui_library/compare/2.36.0...2.36.1) (2025-02-17)
-
 
 ### Bug Fixes
 
@@ -713,13 +676,11 @@
 
 # [2.36.0](https://github.com/dinofrontend/dino_ui_library/compare/2.35.2...2.36.0) (2025-02-13)
 
-
 ### Features
 
 * add link properties for alert ([6bd55f1](https://github.com/dinofrontend/dino_ui_library/commit/6bd55f1ef821547ca8e262b92651a43722ca6e60))
 
 ## [2.35.2](https://github.com/dinofrontend/dino_ui_library/compare/2.35.1...2.35.2) (2025-02-13)
-
 
 ### Bug Fixes
 
@@ -729,13 +690,11 @@
 
 ## [2.35.1](https://github.com/dinofrontend/dino_ui_library/compare/2.35.0...2.35.1) (2025-02-12)
 
-
 ### Bug Fixes
 
 * show popover only in hide mode ([d0a5a26](https://github.com/dinofrontend/dino_ui_library/commit/d0a5a26c54f89f2c7c651cde7f8c9d0269854aca))
 
 # [2.35.0](https://github.com/dinofrontend/dino_ui_library/compare/2.34.3...2.35.0) (2025-02-12)
-
 
 ### Features
 
@@ -743,13 +702,11 @@
 
 ## [2.34.3](https://github.com/dinofrontend/dino_ui_library/compare/2.34.2...2.34.3) (2025-02-12)
 
-
 ### Bug Fixes
 
 * change tooltip and popover radiuses, remove padding form tab-item ([3dca179](https://github.com/dinofrontend/dino_ui_library/commit/3dca179238b6dade563a827a6febbd9e1dd9f3fd))
 
 ## [2.34.2](https://github.com/dinofrontend/dino_ui_library/compare/2.34.1...2.34.2) (2025-02-10)
-
 
 ### Bug Fixes
 
@@ -757,19 +714,16 @@
 
 ## [2.34.1](https://github.com/dinofrontend/dino_ui_library/compare/2.34.0...2.34.1) (2025-02-10)
 
-
 ### Bug Fixes
 
 * password input focus at once ([c2f0729](https://github.com/dinofrontend/dino_ui_library/commit/c2f0729cdf37763dbbf254eb466856e0f77deee1))
 
 # [2.34.0](https://github.com/dinofrontend/dino_ui_library/compare/2.33.0...2.34.0) (2025-02-10)
 
-
 ### Bug Fixes
 
 * change input focus state functionality after show or hide password ([93b8497](https://github.com/dinofrontend/dino_ui_library/commit/93b8497ead30c0eaf861cc62cb358a7bfad9cc06))
 * remove duplicate method ([a37753d](https://github.com/dinofrontend/dino_ui_library/commit/a37753d7035aaf794dddde75c6f2e31c9da885f2))
-
 
 ### Features
 
@@ -777,13 +731,11 @@
 
 # [2.33.0](https://github.com/dinofrontend/dino_ui_library/compare/2.32.1...2.33.0) (2025-02-07)
 
-
 ### Features
 
 * add tooltips for password icons ([014ba23](https://github.com/dinofrontend/dino_ui_library/commit/014ba23e3f6776770504fc4bd1ce8915c9d1a2e7))
 
 ## [2.32.1](https://github.com/dinofrontend/dino_ui_library/compare/2.32.0...2.32.1) (2025-02-06)
-
 
 ### Bug Fixes
 
@@ -794,20 +746,17 @@
 
 # [2.32.0](https://github.com/dinofrontend/dino_ui_library/compare/2.31.10...2.32.0) (2025-02-06)
 
-
 ### Features
 
 * add hasError property for input password ([b9c37af](https://github.com/dinofrontend/dino_ui_library/commit/b9c37afc606905c10ed5dc0a78e9303f81988d2e))
 
 ## [2.31.10](https://github.com/dinofrontend/dino_ui_library/compare/2.31.9...2.31.10) (2025-02-06)
 
-
 ### Bug Fixes
 
 * remove has error ([7148d08](https://github.com/dinofrontend/dino_ui_library/commit/7148d08e38442d3920e1e0f456baace6417fb7f6))
 
 ## [2.31.9](https://github.com/dinofrontend/dino_ui_library/compare/2.31.8...2.31.9) (2025-02-06)
-
 
 ### Bug Fixes
 
@@ -817,7 +766,6 @@
 
 ## [2.31.8](https://github.com/dinofrontend/dino_ui_library/compare/2.31.7...2.31.8) (2025-02-05)
 
-
 ### Bug Fixes
 
 * fixed validation spacing issue ([d10272c](https://github.com/dinofrontend/dino_ui_library/commit/d10272c62620b1b4574f013f15d65c5c72b69d4a))
@@ -825,13 +773,11 @@
 
 ## [2.31.7](https://github.com/dinofrontend/dino_ui_library/compare/2.31.6...2.31.7) (2025-02-05)
 
-
 ### Bug Fixes
 
 * added broder radius size, and spacing size ([620e20a](https://github.com/dinofrontend/dino_ui_library/commit/620e20a55af9ff1222f552662c04d71915643461))
 
 ## [2.31.6](https://github.com/dinofrontend/dino_ui_library/compare/2.31.5...2.31.6) (2025-02-05)
-
 
 ### Bug Fixes
 
@@ -840,7 +786,6 @@
 
 ## [2.31.5](https://github.com/dinofrontend/dino_ui_library/compare/2.31.4...2.31.5) (2025-02-05)
 
-
 ### Bug Fixes
 
 * fixed input password ui ([0bbfcac](https://github.com/dinofrontend/dino_ui_library/commit/0bbfcac66b30f2bdfefd4f1db6fe84d62134bd2a))
@@ -848,13 +793,11 @@
 
 ## [2.31.4](https://github.com/dinofrontend/dino_ui_library/compare/2.31.3...2.31.4) (2025-02-05)
 
-
 ### Bug Fixes
 
 * fixed profile dropdown item hover state ui ([b66ebc4](https://github.com/dinofrontend/dino_ui_library/commit/b66ebc40907a31ad8b7bfc8ffea0db9173889aa3))
 
 ## [2.31.3](https://github.com/dinofrontend/dino_ui_library/compare/2.31.2...2.31.3) (2025-02-04)
-
 
 ### Bug Fixes
 
@@ -864,7 +807,6 @@
 
 ## [2.31.2](https://github.com/dinofrontend/dino_ui_library/compare/2.31.1...2.31.2) (2025-02-04)
 
-
 ### Bug Fixes
 
 * extend props from input and fix icon show ([02feded](https://github.com/dinofrontend/dino_ui_library/commit/02feded565af42fd947998d39f142d88469bc14d))
@@ -873,13 +815,11 @@
 
 ## [2.31.1](https://github.com/dinofrontend/dino_ui_library/compare/2.31.0...2.31.1) (2025-02-03)
 
-
 ### Bug Fixes
 
 * icon color ([45ea9f4](https://github.com/dinofrontend/dino_ui_library/commit/45ea9f4ea0cf13d2b4d624bc0a77b11bfb7a8724))
 
 # [2.31.0](https://github.com/dinofrontend/dino_ui_library/compare/2.30.11...2.31.0) (2025-02-03)
-
 
 ### Features
 
@@ -889,7 +829,6 @@
 
 ## [2.30.11](https://github.com/dinofrontend/dino_ui_library/compare/2.30.10...2.30.11) (2025-01-23)
 
-
 ### Bug Fixes
 
 * fixed position of options container if top offset is provided ([25f7666](https://github.com/dinofrontend/dino_ui_library/commit/25f7666cc5bbec3cf06a6beac8dc84776cd7664d))
@@ -897,7 +836,6 @@
 * fixed position of options container if top offset is provided ([aa5b943](https://github.com/dinofrontend/dino_ui_library/commit/aa5b9434c7e90f5786339e527694def2f5b7edd4))
 
 ## [2.30.10](https://github.com/dinofrontend/dino_ui_library/compare/2.30.9...2.30.10) (2025-01-20)
-
 
 ### Bug Fixes
 
@@ -908,7 +846,6 @@
 
 ## [2.30.9](https://github.com/dinofrontend/dino_ui_library/compare/2.30.8...2.30.9) (2025-01-20)
 
-
 ### Bug Fixes
 
 * added classname props for sideNavigation, and added logo, profile cases ([91ddc51](https://github.com/dinofrontend/dino_ui_library/commit/91ddc5155b4e8ed79c5430192fa506bbb2878525))
@@ -918,13 +855,11 @@
 
 ## [2.30.8](https://github.com/dinofrontend/dino_ui_library/compare/2.30.7...2.30.8) (2025-01-14)
 
-
 ### Bug Fixes
 
 * added underline on button text type ([06b94aa](https://github.com/dinofrontend/dino_ui_library/commit/06b94aac182a197666704f057f09bb8baa9b791e))
 
 ## [2.30.7](https://github.com/dinofrontend/dino_ui_library/compare/2.30.6...2.30.7) (2025-01-13)
-
 
 ### Bug Fixes
 
@@ -933,13 +868,11 @@
 
 ## [2.30.6](https://github.com/dinofrontend/dino_ui_library/compare/2.30.5...2.30.6) (2025-01-13)
 
-
 ### Bug Fixes
 
 * add new icons folder with flag icons ([c4761e5](https://github.com/dinofrontend/dino_ui_library/commit/c4761e5d224d3a4c46bed38be7d33fe5b3db2969))
 
 ## [2.30.5](https://github.com/dinofrontend/dino_ui_library/compare/2.30.4...2.30.5) (2025-01-10)
-
 
 ### Bug Fixes
 
@@ -948,7 +881,6 @@
 * fix for sidebar naviagtion active state, added cursor base classes ([2fda8de](https://github.com/dinofrontend/dino_ui_library/commit/2fda8de8ec23c84eec2ee79af368878ab4714783))
 
 ## [2.30.4](https://github.com/dinofrontend/dino_ui_library/compare/2.30.3...2.30.4) (2025-01-10)
-
 
 ### Bug Fixes
 
@@ -959,7 +891,6 @@
 
 ## [2.30.3](https://github.com/dinofrontend/dino_ui_library/compare/2.30.2...2.30.3) (2025-01-09)
 
-
 ### Bug Fixes
 
 * added sortIconProps for table ([8542c60](https://github.com/dinofrontend/dino_ui_library/commit/8542c6039660cf11b744b4a8eb9b955218b95bf3))
@@ -969,13 +900,11 @@
 
 ## [2.30.2](https://github.com/dinofrontend/dino_ui_library/compare/2.30.1...2.30.2) (2025-01-09)
 
-
 ### Bug Fixes
 
 * show hide toggle button ([3a2975b](https://github.com/dinofrontend/dino_ui_library/commit/3a2975b88c32c25b91f9d5f5f01d68abd605df56))
 
 ## [2.30.1](https://github.com/dinofrontend/dino_ui_library/compare/2.30.0...2.30.1) (2025-01-08)
-
 
 ### Bug Fixes
 
@@ -986,11 +915,9 @@
 
 # [2.30.0](https://github.com/dinofrontend/dino_ui_library/compare/2.29.8...2.30.0) (2025-01-03)
 
-
 ### Bug Fixes
 
 * update button secondary type ui ([753b9fa](https://github.com/dinofrontend/dino_ui_library/commit/753b9fa000b1367f1f4805d7b3f63da96732fcac))
-
 
 ### Features
 
@@ -998,14 +925,12 @@
 
 ## [2.29.8](https://github.com/dinofrontend/dino_ui_library/compare/2.29.7...2.29.8) (2024-12-23)
 
-
 ### Bug Fixes
 
 * size fixes ([afeea9a](https://github.com/dinofrontend/dino_ui_library/commit/afeea9adcac608bcb039654d80468e2b24e5219f))
 * update lineheight ([618592b](https://github.com/dinofrontend/dino_ui_library/commit/618592b19aca288f1ec4791fc25b8cbbe3f7f710))
 
 ## [2.29.7](https://github.com/dinofrontend/dino_ui_library/compare/2.29.6...2.29.7) (2024-12-23)
-
 
 ### Bug Fixes
 
@@ -1015,7 +940,6 @@
 
 ## [2.29.6](https://github.com/dinofrontend/dino_ui_library/compare/2.29.5...2.29.6) (2024-12-18)
 
-
 ### Bug Fixes
 
 * fixed useOnOutsideClick ([96fdc0a](https://github.com/dinofrontend/dino_ui_library/commit/96fdc0a36937c177d1c02996dfcb6d5e839eca75))
@@ -1023,13 +947,11 @@
 
 ## [2.29.5](https://github.com/dinofrontend/dino_ui_library/compare/2.29.4...2.29.5) (2024-12-17)
 
-
 ### Bug Fixes
 
 * fixes for upload item ui ([915a8f1](https://github.com/dinofrontend/dino_ui_library/commit/915a8f19c78285a4f0576559ee7a8ae016d84a70))
 
 ## [2.29.4](https://github.com/dinofrontend/dino_ui_library/compare/2.29.3...2.29.4) (2024-12-16)
-
 
 ### Bug Fixes
 
@@ -1040,7 +962,6 @@
 
 ## [2.29.3](https://github.com/dinofrontend/dino_ui_library/compare/2.29.2...2.29.3) (2024-12-16)
 
-
 ### Bug Fixes
 
 * sidebar icon type ([b4095fa](https://github.com/dinofrontend/dino_ui_library/commit/b4095fa833f6cdaabee0efdc100b473cd0620861))
@@ -1048,13 +969,11 @@
 
 ## [2.29.2](https://github.com/dinofrontend/dino_ui_library/compare/2.29.1...2.29.2) (2024-12-16)
 
-
 ### Bug Fixes
 
 * fix svg icon color change logic ([802cc74](https://github.com/dinofrontend/dino_ui_library/commit/802cc748f3acbd3d09e17e0c739bbe56312298e5))
 
 ## [2.29.1](https://github.com/dinofrontend/dino_ui_library/compare/2.29.0...2.29.1) (2024-12-13)
-
 
 ### Bug Fixes
 
@@ -1062,14 +981,12 @@
 
 # [2.29.0](https://github.com/dinofrontend/dino_ui_library/compare/2.28.2...2.29.0) (2024-12-13)
 
-
 ### Features
 
 * create new tab type ([d00160d](https://github.com/dinofrontend/dino_ui_library/commit/d00160d1eebc66ad2889ca2da0563ffacb61a4ff))
 * create new tab type ([35665a9](https://github.com/dinofrontend/dino_ui_library/commit/35665a9077e5edb6698bb503a4315871c8826923))
 
 ## [2.28.2](https://github.com/dinofrontend/dino_ui_library/compare/2.28.1...2.28.2) (2024-12-13)
-
 
 ### Bug Fixes
 
@@ -1080,7 +997,6 @@
 
 ## [2.28.1](https://github.com/dinofrontend/dino_ui_library/compare/2.28.0...2.28.1) (2024-12-12)
 
-
 ### Bug Fixes
 
 * change primary style for link component ([4ce461b](https://github.com/dinofrontend/dino_ui_library/commit/4ce461be4a61e5ff692325e7795115339e682ef6))
@@ -1088,11 +1004,9 @@
 
 # [2.28.0](https://github.com/dinofrontend/dino_ui_library/compare/2.27.11...2.28.0) (2024-12-11)
 
-
 ### Bug Fixes
 
 * fix comments ([f4724de](https://github.com/dinofrontend/dino_ui_library/commit/f4724deab51dd923d54d4298f708b441e6f6fe94))
-
 
 ### Features
 
@@ -1101,13 +1015,11 @@
 
 ## [2.27.11](https://github.com/dinofrontend/dino_ui_library/compare/2.27.10...2.27.11) (2024-12-10)
 
-
 ### Bug Fixes
 
 * fix underline for link ([0aac23f](https://github.com/dinofrontend/dino_ui_library/commit/0aac23f4cc36d4c757ce24d119f006ba9e94fc25))
 
 ## [2.27.10](https://github.com/dinofrontend/dino_ui_library/compare/2.27.9...2.27.10) (2024-12-09)
-
 
 ### Bug Fixes
 
@@ -1116,13 +1028,11 @@
 
 ## [2.27.9](https://github.com/dinofrontend/dino_ui_library/compare/2.27.8...2.27.9) (2024-12-03)
 
-
 ### Bug Fixes
 
 * change helper text condition ([5d4fa76](https://github.com/dinofrontend/dino_ui_library/commit/5d4fa7611aed7e6531e23d6d2552987830c0fc31))
 
 ## [2.27.8](https://github.com/dinofrontend/dino_ui_library/compare/2.27.7...2.27.8) (2024-11-30)
-
 
 ### Bug Fixes
 
@@ -1130,13 +1040,11 @@
 
 ## [2.27.7](https://github.com/dinofrontend/dino_ui_library/compare/2.27.6...2.27.7) (2024-11-26)
 
-
 ### Bug Fixes
 
 * otp input fix to accept 0 ([9082ca0](https://github.com/dinofrontend/dino_ui_library/commit/9082ca0f3ebb4a9c93d9a9b2a1a06b709c10a2dc))
 
 ## [2.27.6](https://github.com/dinofrontend/dino_ui_library/compare/2.27.5...2.27.6) (2024-11-26)
-
 
 ### Bug Fixes
 
@@ -1144,20 +1052,17 @@
 
 ## [2.27.5](https://github.com/dinofrontend/dino_ui_library/compare/2.27.4...2.27.5) (2024-11-20)
 
-
 ### Bug Fixes
 
 * add height for button link type ([7ded3e9](https://github.com/dinofrontend/dino_ui_library/commit/7ded3e96e37fe96a15130c1ec5415bcca2765ee9))
 
 ## [2.27.4](https://github.com/dinofrontend/dino_ui_library/compare/2.27.3...2.27.4) (2024-11-20)
 
-
 ### Bug Fixes
 
 * added icon props for link component, update link and button link type ui ([c3f1913](https://github.com/dinofrontend/dino_ui_library/commit/c3f1913d8ff1f79d24a4c618b4454a817dbb080d))
 
 ## [2.27.3](https://github.com/dinofrontend/dino_ui_library/compare/2.27.2...2.27.3) (2024-11-19)
-
 
 ### Bug Fixes
 
@@ -1167,14 +1072,12 @@
 
 ## [2.27.2](https://github.com/dinofrontend/dino_ui_library/compare/2.27.1...2.27.2) (2024-11-15)
 
-
 ### Bug Fixes
 
 * added grey  type ([6bca24f](https://github.com/dinofrontend/dino_ui_library/commit/6bca24f45d0713950e62846fe7c8901de896c3e7))
 * remove additional consolelogs ([8e8704c](https://github.com/dinofrontend/dino_ui_library/commit/8e8704c0986b46f16a97dbfb95b91a3f3d206c35))
 
 ## [2.27.1](https://github.com/dinofrontend/dino_ui_library/compare/2.27.0...2.27.1) (2024-11-15)
-
 
 ### Bug Fixes
 
@@ -1183,20 +1086,17 @@
 
 # [2.27.0](https://github.com/dinofrontend/dino_ui_library/compare/2.26.3...2.27.0) (2024-11-15)
 
-
 ### Features
 
 * added framedIcon component, updte grey-30 and grey-40 tokens value ([263ad71](https://github.com/dinofrontend/dino_ui_library/commit/263ad718c4aaf3c5c5976f8f3151deda0073528b))
 
 ## [2.26.3](https://github.com/dinofrontend/dino_ui_library/compare/2.26.2...2.26.3) (2024-11-14)
 
-
 ### Bug Fixes
 
 * updated eslint and typescript version, fixed eslint issues related eslint ([befc16e](https://github.com/dinofrontend/dino_ui_library/commit/befc16e2668ef48decf0a283d923198afd16a707))
 
 ## [2.26.2](https://github.com/dinofrontend/dino_ui_library/compare/2.26.1...2.26.2) (2024-11-13)
-
 
 ### Bug Fixes
 
@@ -1205,13 +1105,11 @@
 
 ## [2.26.1](https://github.com/dinofrontend/dino_ui_library/compare/2.26.0...2.26.1) (2024-11-13)
 
-
 ### Bug Fixes
 
 * add hasError props in otp props type ([8ca8e20](https://github.com/dinofrontend/dino_ui_library/commit/8ca8e20ed0ef111909d2a8ac29b92df713436ee7))
 
 # [2.26.0](https://github.com/dinofrontend/dino_ui_library/compare/2.25.3...2.26.0) (2024-11-13)
-
 
 ### Features
 
@@ -1219,13 +1117,11 @@
 
 ## [2.25.3](https://github.com/dinofrontend/dino_ui_library/compare/2.25.2...2.25.3) (2024-11-11)
 
-
 ### Bug Fixes
 
 * tab component icon props ([02c94e5](https://github.com/dinofrontend/dino_ui_library/commit/02c94e51e017fd07e91b7e46f367c250e2118cd2))
 
 ## [2.25.2](https://github.com/dinofrontend/dino_ui_library/compare/2.25.1...2.25.2) (2024-11-11)
-
 
 ### Bug Fixes
 
@@ -1237,20 +1133,17 @@
 
 ## [2.25.1](https://github.com/dinofrontend/dino_ui_library/compare/2.25.0...2.25.1) (2024-11-08)
 
-
 ### Bug Fixes
 
 * fix for chips label, and added min-width for svg-icons ([659f6ea](https://github.com/dinofrontend/dino_ui_library/commit/659f6ea21594bbf7cbd61f8e8c9ad8db84afdc01))
 
 # [2.25.0](https://github.com/dinofrontend/dino_ui_library/compare/2.24.0...2.25.0) (2024-11-08)
 
-
 ### Features
 
 * add deSelectable prop to itemSelect component ([887227f](https://github.com/dinofrontend/dino_ui_library/commit/887227f20436953858b8abf2db18c697026db4ca))
 
 # [2.24.0](https://github.com/dinofrontend/dino_ui_library/compare/2.23.0...2.24.0) (2024-11-07)
-
 
 ### Features
 
@@ -1261,7 +1154,6 @@
 
 # [2.23.0](https://github.com/dinofrontend/dino_ui_library/compare/2.22.2...2.23.0) (2024-11-07)
 
-
 ### Features
 
 * added error state to Progress component ([11783d2](https://github.com/dinofrontend/dino_ui_library/commit/11783d25bd48a3a6ac90abc0f62c6d396ca0fa22))
@@ -1270,13 +1162,11 @@
 
 ## [2.22.2](https://github.com/dinofrontend/dino_ui_library/compare/2.22.1...2.22.2) (2024-11-06)
 
-
 ### Bug Fixes
 
 * font-size, border-radius and spacing fixes ([68756f2](https://github.com/dinofrontend/dino_ui_library/commit/68756f28bb3c24c7f2722992f0314998a0af1edb))
 
 ## [2.22.1](https://github.com/dinofrontend/dino_ui_library/compare/2.22.0...2.22.1) (2024-11-04)
-
 
 ### Bug Fixes
 
@@ -1284,13 +1174,11 @@
 
 # [2.22.0](https://github.com/dinofrontend/dino_ui_library/compare/2.21.9...2.22.0) (2024-11-04)
 
-
 ### Features
 
 * add type props for button icon component ([3373afa](https://github.com/dinofrontend/dino_ui_library/commit/3373afa731042a1940193effeb6abb7a02e9e1e8))
 
 ## [2.21.9](https://github.com/dinofrontend/dino_ui_library/compare/2.21.8...2.21.9) (2024-10-31)
-
 
 ### Bug Fixes
 
@@ -1300,13 +1188,11 @@
 
 ## [2.21.8](https://github.com/dinofrontend/dino_ui_library/compare/2.21.7...2.21.8) (2024-10-29)
 
-
 ### Bug Fixes
 
 * add forward ref in collapse group component ([05b2371](https://github.com/dinofrontend/dino_ui_library/commit/05b23717bca656132458c16b0533fa34ae80cb2e))
 
 ## [2.21.7](https://github.com/dinofrontend/dino_ui_library/compare/2.21.6...2.21.7) (2024-10-29)
-
 
 ### Bug Fixes
 
@@ -1315,13 +1201,11 @@
 
 ## [2.21.6](https://github.com/dinofrontend/dino_ui_library/compare/2.21.5...2.21.6) (2024-10-29)
 
-
 ### Bug Fixes
 
 * added isOpen output props for profileDropdown ([dafb4ec](https://github.com/dinofrontend/dino_ui_library/commit/dafb4ec4151e7d188f0f5b6e0ac8be72ddbf1e94))
 
 ## [2.21.5](https://github.com/dinofrontend/dino_ui_library/compare/2.21.4...2.21.5) (2024-10-28)
-
 
 ### Bug Fixes
 
@@ -1330,7 +1214,6 @@
 
 ## [2.21.4](https://github.com/dinofrontend/dino_ui_library/compare/2.21.3...2.21.4) (2024-10-28)
 
-
 ### Bug Fixes
 
 * fixed Select close logic ([8a9b0d6](https://github.com/dinofrontend/dino_ui_library/commit/8a9b0d62e7cc85ab732f1e5b905333fda96455f3))
@@ -1338,20 +1221,17 @@
 
 ## [2.21.3](https://github.com/dinofrontend/dino_ui_library/compare/2.21.2...2.21.3) (2024-10-28)
 
-
 ### Bug Fixes
 
 * fix for profileDropdown list footer ([7468878](https://github.com/dinofrontend/dino_ui_library/commit/746887804552c288fc47dc94f92209ecee1cb31f))
 
 ## [2.21.2](https://github.com/dinofrontend/dino_ui_library/compare/2.21.1...2.21.2) (2024-10-25)
 
-
 ### Bug Fixes
 
 * added rightInfoProps for profileDropdown list ([de2d392](https://github.com/dinofrontend/dino_ui_library/commit/de2d392ff87dbf0920c68dbff172eea57ee753b1))
 
 ## [2.21.1](https://github.com/dinofrontend/dino_ui_library/compare/2.21.0...2.21.1) (2024-10-25)
-
 
 ### Bug Fixes
 
@@ -1362,18 +1242,15 @@
 
 # [2.21.0](https://github.com/dinofrontend/dino_ui_library/compare/2.20.0...2.21.0) (2024-10-25)
 
-
 ### Features
 
 * added DocumentEdit icon ([297fb85](https://github.com/dinofrontend/dino_ui_library/commit/297fb851e597e9190978f57a7d65374dd29dbb09))
 
 # [2.20.0](https://github.com/dinofrontend/dino_ui_library/compare/2.19.5...2.20.0) (2024-10-25)
 
-
 ### Bug Fixes
 
 * ts types ([91e4f5c](https://github.com/dinofrontend/dino_ui_library/commit/91e4f5cfa143090e953ea50c46c23b7f770814d1))
-
 
 ### Features
 
@@ -1381,13 +1258,11 @@
 
 ## [2.19.5](https://github.com/dinofrontend/dino_ui_library/compare/2.19.4...2.19.5) (2024-10-24)
 
-
 ### Bug Fixes
 
 * added border top for modal footer ([29f98d4](https://github.com/dinofrontend/dino_ui_library/commit/29f98d4d06011a41a42e55106bed32ff088e647f))
 
 ## [2.19.4](https://github.com/dinofrontend/dino_ui_library/compare/2.19.3...2.19.4) (2024-10-24)
-
 
 ### Bug Fixes
 
@@ -1396,20 +1271,17 @@
 
 ## [2.19.3](https://github.com/dinofrontend/dino_ui_library/compare/2.19.2...2.19.3) (2024-10-22)
 
-
 ### Bug Fixes
 
 * fixed form fields border and label ui ([bda6034](https://github.com/dinofrontend/dino_ui_library/commit/bda6034b0e3a1bef0e806839059c70625e5b7d5d))
 
 ## [2.19.2](https://github.com/dinofrontend/dino_ui_library/compare/2.19.1...2.19.2) (2024-10-22)
 
-
 ### Bug Fixes
 
 * fixed selected state ui ([71f2802](https://github.com/dinofrontend/dino_ui_library/commit/71f2802d60e2d2151195f023785fe11eec89714c))
 
 ## [2.19.1](https://github.com/dinofrontend/dino_ui_library/compare/2.19.0...2.19.1) (2024-10-22)
-
 
 ### Bug Fixes
 
@@ -1420,20 +1292,17 @@
 
 # [2.19.0](https://github.com/dinofrontend/dino_ui_library/compare/2.18.3...2.19.0) (2024-10-21)
 
-
 ### Features
 
 * added card icon ([aeb243e](https://github.com/dinofrontend/dino_ui_library/commit/aeb243e739058e6cbcc195d47ffc8390f67bbb8d))
 
 ## [2.18.3](https://github.com/dinofrontend/dino_ui_library/compare/2.18.2...2.18.3) (2024-10-18)
 
-
 ### Bug Fixes
 
 * added bolder type for heading ([2316358](https://github.com/dinofrontend/dino_ui_library/commit/2316358d5fd3f3729ae59d1f7508dc8798f33093))
 
 ## [2.18.2](https://github.com/dinofrontend/dino_ui_library/compare/2.18.1...2.18.2) (2024-10-18)
-
 
 ### Bug Fixes
 
@@ -1442,18 +1311,15 @@
 
 ## [2.18.1](https://github.com/dinofrontend/dino_ui_library/compare/2.18.0...2.18.1) (2024-10-18)
 
-
 ### Bug Fixes
 
 * change spacing between items ([6ca38e6](https://github.com/dinofrontend/dino_ui_library/commit/6ca38e65df0a2c30913836ca60a85e131b4aac34))
 
 # [2.18.0](https://github.com/dinofrontend/dino_ui_library/compare/2.17.0...2.18.0) (2024-10-17)
 
-
 ### Bug Fixes
 
 * modal and modalConfirmation ui fixes ([5fd594b](https://github.com/dinofrontend/dino_ui_library/commit/5fd594bce621bd0646b84f64cc7e2763172f90ae))
-
 
 ### Features
 
@@ -1462,13 +1328,11 @@
 
 # [2.17.0](https://github.com/dinofrontend/dino_ui_library/compare/2.16.1...2.17.0) (2024-10-17)
 
-
 ### Features
 
 * added CardBody component ([528b66a](https://github.com/dinofrontend/dino_ui_library/commit/528b66af6bf6d0fe02edaa13a282fc45fbbbd9a7))
 
 ## [2.16.1](https://github.com/dinofrontend/dino_ui_library/compare/2.16.0...2.16.1) (2024-10-17)
-
 
 ### Bug Fixes
 
@@ -1476,7 +1340,6 @@
 * card select ui fix ([e149167](https://github.com/dinofrontend/dino_ui_library/commit/e1491675fad325c53f05dc0c58bb55f40fb487c4))
 
 # [2.16.0](https://github.com/dinofrontend/dino_ui_library/compare/2.15.1...2.16.0) (2024-10-17)
-
 
 ### Bug Fixes
 
@@ -1488,14 +1351,12 @@
 * delete additional style for item-select ([2a106f6](https://github.com/dinofrontend/dino_ui_library/commit/2a106f6eb3664cde686cd6173deec17e017cc0cf))
 * fix title weight ([691033e](https://github.com/dinofrontend/dino_ui_library/commit/691033e55592c42b32caa8160960fdfc1e113f8d))
 
-
 ### Features
 
 * add cart item component ([7af6356](https://github.com/dinofrontend/dino_ui_library/commit/7af6356e437d58624a1ebe08e947b12201c30de5))
 * create ButtonIcon component ([a451fe4](https://github.com/dinofrontend/dino_ui_library/commit/a451fe4b6af97bcaa7bbd3e9e84a62d971dbb205))
 
 ## [2.15.1](https://github.com/dinofrontend/dino_ui_library/compare/2.15.0...2.15.1) (2024-10-16)
-
 
 ### Bug Fixes
 
@@ -1504,20 +1365,17 @@
 
 # [2.15.0](https://github.com/dinofrontend/dino_ui_library/compare/2.14.0...2.15.0) (2024-10-15)
 
-
 ### Features
 
 * added secondary type ui for tabs ([850b687](https://github.com/dinofrontend/dino_ui_library/commit/850b687c5184cf42d55af66ed9c3b011187fdcb2))
 
 # [2.14.0](https://github.com/dinofrontend/dino_ui_library/compare/2.13.1...2.14.0) (2024-10-14)
 
-
 ### Features
 
 * menu accept children ([35e694b](https://github.com/dinofrontend/dino_ui_library/commit/35e694b45da5b73f9cd8ac8eac510479dfaab09e))
 
 ## [2.13.1](https://github.com/dinofrontend/dino_ui_library/compare/2.13.0...2.13.1) (2024-10-10)
-
 
 ### Bug Fixes
 
@@ -1527,13 +1385,11 @@
 
 # [2.13.0](https://github.com/dinofrontend/dino_ui_library/compare/2.12.5...2.13.0) (2024-10-10)
 
-
 ### Features
 
 * accept sidebar open icon from sidebar navigation component ([1dd80b7](https://github.com/dinofrontend/dino_ui_library/commit/1dd80b72bb3fd4de676da8c209050d91322282c3))
 
 ## [2.12.5](https://github.com/dinofrontend/dino_ui_library/compare/2.12.4...2.12.5) (2024-10-10)
-
 
 ### Bug Fixes
 
@@ -1541,13 +1397,11 @@
 
 ## [2.12.4](https://github.com/dinofrontend/dino_ui_library/compare/2.12.3...2.12.4) (2024-10-10)
 
-
 ### Bug Fixes
 
 * navigation item expend icon size ([5a53b49](https://github.com/dinofrontend/dino_ui_library/commit/5a53b498512f172925df5aae163581ad2f2f32c7))
 
 ## [2.12.3](https://github.com/dinofrontend/dino_ui_library/compare/2.12.2...2.12.3) (2024-10-10)
-
 
 ### Bug Fixes
 
@@ -1556,14 +1410,12 @@
 
 ## [2.12.2](https://github.com/dinofrontend/dino_ui_library/compare/2.12.1...2.12.2) (2024-10-09)
 
-
 ### Bug Fixes
 
 * fix ([c2cf6af](https://github.com/dinofrontend/dino_ui_library/commit/c2cf6af53643772fb91950ef3dcc05016f363747))
 * remove additional imports ([774a3bc](https://github.com/dinofrontend/dino_ui_library/commit/774a3bc460402bb06539b505b981ca40eb741230))
 
 ## [2.12.1](https://github.com/dinofrontend/dino_ui_library/compare/2.12.0...2.12.1) (2024-10-08)
-
 
 ### Bug Fixes
 
@@ -1572,20 +1424,17 @@
 
 # [2.12.0](https://github.com/dinofrontend/dino_ui_library/compare/2.11.5...2.12.0) (2024-10-08)
 
-
 ### Features
 
 * accept expend icon for navigation item component (not required) ([c223b6b](https://github.com/dinofrontend/dino_ui_library/commit/c223b6bf1d8577303203eb079fd2d2ab0c820ba5))
 
 ## [2.11.5](https://github.com/dinofrontend/dino_ui_library/compare/2.11.4...2.11.5) (2024-10-08)
 
-
 ### Bug Fixes
 
 * fix width and values for language ([55e3f90](https://github.com/dinofrontend/dino_ui_library/commit/55e3f906702889b2173509883570e5078b5b27db))
 
 ## [2.11.4](https://github.com/dinofrontend/dino_ui_library/compare/2.11.3...2.11.4) (2024-10-08)
-
 
 ### Bug Fixes
 
@@ -1594,14 +1443,12 @@
 
 ## [2.11.3](https://github.com/dinofrontend/dino_ui_library/compare/2.11.2...2.11.3) (2024-10-08)
 
-
 ### Bug Fixes
 
 * changed icons for language-select ([d7285d7](https://github.com/dinofrontend/dino_ui_library/commit/d7285d760e5f91ed72c3d4743033a71226c9f727))
 * changed icons for language-select ([cbdc0f0](https://github.com/dinofrontend/dino_ui_library/commit/cbdc0f0e7fee81cfc16a1e2aefa36743b5e0f622))
 
 ## [2.11.2](https://github.com/dinofrontend/dino_ui_library/compare/2.11.1...2.11.2) (2024-10-08)
-
 
 ### Bug Fixes
 
@@ -1615,13 +1462,11 @@
 
 ## [2.11.1](https://github.com/dinofrontend/dino_ui_library/compare/2.11.0...2.11.1) (2024-10-07)
 
-
 ### Bug Fixes
 
 * select empty space ([bb52bf1](https://github.com/dinofrontend/dino_ui_library/commit/bb52bf17466518ef1239085701f611129e832788))
 
 # [2.11.0](https://github.com/dinofrontend/dino_ui_library/compare/2.10.0...2.11.0) (2024-10-07)
-
 
 ### Features
 
@@ -1630,14 +1475,12 @@
 
 # [2.10.0](https://github.com/dinofrontend/dino_ui_library/compare/2.9.2...2.10.0) (2024-10-07)
 
-
 ### Features
 
 * change version ([b51f742](https://github.com/dinofrontend/dino_ui_library/commit/b51f742c08c69283dbe816447660967e9d287fd1))
 * new properties in select for languages ([371f5ac](https://github.com/dinofrontend/dino_ui_library/commit/371f5ac00ac3c83ad571975a1d44f9279daf9162))
 
 ## [2.9.2](https://github.com/dinofrontend/dino_ui_library/compare/2.9.1...2.9.2) (2024-10-01)
-
 
 ### Bug Fixes
 
@@ -1646,7 +1489,6 @@
 * pull from master ([e4e324b](https://github.com/dinofrontend/dino_ui_library/commit/e4e324b096082b0e419156fa38318bebef4dd247))
 
 ## [2.9.1](https://github.com/dinofrontend/dino_ui_library/compare/2.9.0...2.9.1) (2024-09-27)
-
 
 ### Bug Fixes
 
@@ -1657,7 +1499,6 @@
 
 # [2.9.0](https://github.com/dinofrontend/dino_ui_library/compare/2.8.5...2.9.0) (2024-09-25)
 
-
 ### Features
 
 * added building-bank icon ([19fdcfc](https://github.com/dinofrontend/dino_ui_library/commit/19fdcfc1d67bb9bb5de6772c425c3456e0074f00))
@@ -1665,20 +1506,17 @@
 
 ## [2.8.5](https://github.com/dinofrontend/dino_ui_library/compare/2.8.4...2.8.5) (2024-09-24)
 
-
 ### Bug Fixes
 
 * ui fix for snackbar ([60a03b7](https://github.com/dinofrontend/dino_ui_library/commit/60a03b71a4d92351e42e99aacb16fe3ea4f3173f))
 
 ## [2.8.4](https://github.com/dinofrontend/dino_ui_library/compare/2.8.3...2.8.4) (2024-09-20)
 
-
 ### Bug Fixes
 
 * remove link spacing ([d1acd53](https://github.com/dinofrontend/dino_ui_library/commit/d1acd53b0d421f07e7371e286f483641d6be0630))
 
 ## [2.8.3](https://github.com/dinofrontend/dino_ui_library/compare/2.8.2...2.8.3) (2024-09-20)
-
 
 ### Bug Fixes
 
@@ -1687,7 +1525,6 @@
 
 ## [2.8.2](https://github.com/dinofrontend/dino_ui_library/compare/2.8.1...2.8.2) (2024-09-20)
 
-
 ### Bug Fixes
 
 * added click for Link component, added click prop for profile dropdown item ([224b675](https://github.com/dinofrontend/dino_ui_library/commit/224b6759a24a01b5bf2cf0ddf87fc1b372a3a30d))
@@ -1695,13 +1532,11 @@
 
 ## [2.8.1](https://github.com/dinofrontend/dino_ui_library/compare/2.8.0...2.8.1) (2024-09-20)
 
-
 ### Bug Fixes
 
 * profile dropdown ui fixes, and added chat-multiple icon ([45a7738](https://github.com/dinofrontend/dino_ui_library/commit/45a773865e37a63e0aa36c5d366332d3bba41dda))
 
 # [2.8.0](https://github.com/dinofrontend/dino_ui_library/compare/2.7.10...2.8.0) (2024-09-18)
-
 
 ### Features
 
@@ -1709,13 +1544,11 @@
 
 ## [2.7.10](https://github.com/dinofrontend/dino_ui_library/compare/2.7.9...2.7.10) (2024-09-18)
 
-
 ### Bug Fixes
 
 * select right alignment ([edf8710](https://github.com/dinofrontend/dino_ui_library/commit/edf8710e337c9877ca510c81b5a741277904137c))
 
 ## [2.7.9](https://github.com/dinofrontend/dino_ui_library/compare/2.7.8...2.7.9) (2024-09-17)
-
 
 ### Bug Fixes
 
@@ -1725,7 +1558,6 @@
 
 ## [2.7.8](https://github.com/dinofrontend/dino_ui_library/compare/2.7.7...2.7.8) (2024-09-13)
 
-
 ### Bug Fixes
 
 * color fix ([3ff3fff](https://github.com/dinofrontend/dino_ui_library/commit/3ff3fffc5d31c090fecafd37b10d4a48181ff2c7))
@@ -1734,13 +1566,11 @@
 
 ## [2.7.7](https://github.com/dinofrontend/dino_ui_library/compare/2.7.6...2.7.7) (2024-09-10)
 
-
 ### Bug Fixes
 
 * fix forward ref warnings in checkbox and range date picker ([67fd5b8](https://github.com/dinofrontend/dino_ui_library/commit/67fd5b84f15c7b46f989519bcc405aa2e34f8890))
 
 ## [2.7.6](https://github.com/dinofrontend/dino_ui_library/compare/2.7.5...2.7.6) (2024-09-09)
-
 
 ### Bug Fixes
 
@@ -1748,13 +1578,11 @@
 
 ## [2.7.5](https://github.com/dinofrontend/dino_ui_library/compare/2.7.4...2.7.5) (2024-09-06)
 
-
 ### Bug Fixes
 
 * set tobase64 files when prop is passed in Fileupload ([654b2bf](https://github.com/dinofrontend/dino_ui_library/commit/654b2bf49b038666b141dee85cac941df4cb9b2d))
 
 ## [2.7.4](https://github.com/dinofrontend/dino_ui_library/compare/2.7.3...2.7.4) (2024-09-05)
-
 
 ### Bug Fixes
 
@@ -1763,13 +1591,11 @@
 
 ## [2.7.3](https://github.com/dinofrontend/dino_ui_library/compare/2.7.2...2.7.3) (2024-09-05)
 
-
 ### Bug Fixes
 
 * Update version ([b6a3489](https://github.com/dinofrontend/dino_ui_library/commit/b6a3489e09f1b640bf579fbc470b13df058865e4))
 
 ## [2.7.2](https://github.com/dinofrontend/dino_ui_library/compare/2.7.1...2.7.2) (2024-09-05)
-
 
 ### Bug Fixes
 
@@ -1779,19 +1605,16 @@
 
 ## [2.7.1](https://github.com/dinofrontend/dino_ui_library/compare/2.7.0...2.7.1) (2024-09-05)
 
-
 ### Bug Fixes
 
 * item-select ([025edc4](https://github.com/dinofrontend/dino_ui_library/commit/025edc422973027380ac904a01dad1507787df1b))
 
 # [2.7.0](https://github.com/dinofrontend/dino_ui_library/compare/2.6.3...2.7.0) (2024-09-04)
 
-
 ### Bug Fixes
 
 * fixes ([564c5ec](https://github.com/dinofrontend/dino_ui_library/commit/564c5ec12233009589c3c1e8bbda925f26498bbd))
 * fixes for item select ([12a93fd](https://github.com/dinofrontend/dino_ui_library/commit/12a93fd9097c239eab59b4457e061117735ddedb))
-
 
 ### Features
 
@@ -1806,13 +1629,11 @@
 
 ## [2.6.3](https://github.com/dinofrontend/dino_ui_library/compare/2.6.2...2.6.3) (2024-09-04)
 
-
 ### Bug Fixes
 
 * allow to have both placeholder and label in `Textarea` component. ([9aa90f2](https://github.com/dinofrontend/dino_ui_library/commit/9aa90f21e3d5201ebb3333eb565f914d04fd31ae))
 
 ## [2.6.2](https://github.com/dinofrontend/dino_ui_library/compare/2.6.1...2.6.2) (2024-09-03)
-
 
 ### Bug Fixes
 
@@ -1822,13 +1643,11 @@
 
 ## [2.6.1](https://github.com/dinofrontend/dino_ui_library/compare/2.6.0...2.6.1) (2024-08-30)
 
-
 ### Bug Fixes
 
 * changed red-50 token value ([83064b4](https://github.com/dinofrontend/dino_ui_library/commit/83064b47705c8cb717584bd1454a5acaeda428ee))
 
 # [2.6.0](https://github.com/dinofrontend/dino_ui_library/compare/2.5.4...2.6.0) (2024-08-29)
-
 
 ### Features
 
@@ -1837,14 +1656,12 @@
 
 ## [2.5.4](https://github.com/dinofrontend/dino_ui_library/compare/2.5.3...2.5.4) (2024-08-29)
 
-
 ### Bug Fixes
 
 * more component ui correction ([c8ce9a5](https://github.com/dinofrontend/dino_ui_library/commit/c8ce9a5da1f59e6c0bf1f7197eee9beddb98bacf))
 * more component ui correction ([09ce8d0](https://github.com/dinofrontend/dino_ui_library/commit/09ce8d091c82236e6afbed04a40b686073bd628d))
 
 ## [2.5.3](https://github.com/dinofrontend/dino_ui_library/compare/2.5.2...2.5.3) (2024-08-28)
-
 
 ### Bug Fixes
 
@@ -1853,7 +1670,6 @@
 
 ## [2.5.2](https://github.com/dinofrontend/dino_ui_library/compare/2.5.1...2.5.2) (2024-08-27)
 
-
 ### Bug Fixes
 
 * disable selected year and month in SimpleDatePicker ([89cf97c](https://github.com/dinofrontend/dino_ui_library/commit/89cf97ce41c2f21afa12b1fb40b92a0ff2dc000c))
@@ -1861,19 +1677,16 @@
 
 ## [2.5.1](https://github.com/dinofrontend/dino_ui_library/compare/2.5.0...2.5.1) (2024-08-27)
 
-
 ### Bug Fixes
 
 * chips sizes ([47b9850](https://github.com/dinofrontend/dino_ui_library/commit/47b9850bead429635516b26e4b133e1cd44f264c))
 
 # [2.5.0](https://github.com/dinofrontend/dino_ui_library/compare/2.4.3...2.5.0) (2024-08-26)
 
-
 ### Bug Fixes
 
 * text fix ([22d77f8](https://github.com/dinofrontend/dino_ui_library/commit/22d77f817a112fdafdece393963753499b098842))
 * text fix ([a86bc0f](https://github.com/dinofrontend/dino_ui_library/commit/a86bc0f73cb8eeb6795a1b9c1ac5a2661c2e34b4))
-
 
 ### Features
 
@@ -1882,13 +1695,11 @@
 
 ## [2.4.3](https://github.com/dinofrontend/dino_ui_library/compare/2.4.2...2.4.3) (2024-08-23)
 
-
 ### Bug Fixes
 
 * test dino user bot access token for direct push on protected branches ([1cac788](https://github.com/dinofrontend/dino_ui_library/commit/1cac7881a298a3efeaf450b6dce99f3886bfaf09))
 
 ## [2.4.2](https://github.com/dinofrontend/dino_ui_library/compare/2.4.1...2.4.2) (2024-08-23)
-
 
 ### Bug Fixes
 
@@ -1897,26 +1708,22 @@
 
 ## [2.4.1](https://github.com/dinofrontend/dino_ui_library/compare/2.4.0...2.4.1) (2024-08-22)
 
-
 ### Bug Fixes
 
 * trying fix publish issue ([330de4e](https://github.com/dinofrontend/dino_ui_library/commit/330de4ebc0a33b31c3d857f963913337143d03ff))
 
 # [2.4.0](https://github.com/dinofrontend/dino_ui_library/compare/2.3.0...2.4.0) (2024-08-22)
 
-
 ### Bug Fixes
 
 * publish test ([2fb5926](https://github.com/dinofrontend/dino_ui_library/commit/2fb59268fd09826b2c30c791bdc21432a922aae5))
 * publish test ([369b90d](https://github.com/dinofrontend/dino_ui_library/commit/369b90dcaebd2201a9bcef07c55a5824b9625dc6))
-
 
 ### Features
 
 * testing publish 12 ([051a820](https://github.com/dinofrontend/dino_ui_library/commit/051a820dcfe2193520d9a0efc5df2a8009a38c0c))
 
 # [2.3.0](https://github.com/dinofrontend/dino_ui_library/compare/2.2.8...2.3.0) (2024-08-22)
-
 
 ### Features
 
@@ -1928,7 +1735,6 @@
 
 ## [2.2.8](https://github.com/dinofrontend/dino_ui_library/compare/2.2.7...2.2.8) (2024-08-22)
 
-
 ### Bug Fixes
 
 * stabilized v1 ([618e2ae](https://github.com/dinofrontend/dino_ui_library/commit/618e2aecaf7278a38ed8770ee0ed9c13039aa4eb))
@@ -1936,13 +1742,11 @@
 
 ## [2.2.7](https://github.com/dinofrontend/dino_ui_library/compare/2.2.6...2.2.7) (2024-08-22)
 
-
 ### Bug Fixes
 
 * stabilized ([cc41bfd](https://github.com/dinofrontend/dino_ui_library/commit/cc41bfd259efab4a627873020b12549d90e00457))
 
 ## [2.2.6](https://github.com/dinofrontend/dino_ui_library/compare/2.2.5...2.2.6) (2024-08-22)
-
 
 ### Bug Fixes
 
@@ -1950,13 +1754,11 @@
 
 ## [2.2.5](https://github.com/dinofrontend/dino_ui_library/compare/2.2.4...2.2.5) (2024-08-22)
 
-
 ### Bug Fixes
 
 * test for .releaserc ([25a75cf](https://github.com/dinofrontend/dino_ui_library/commit/25a75cfd02eb586616995e8e24cd90c00802ea5b))
 
 ## [2.2.4](https://github.com/dinofrontend/dino_ui_library/compare/2.2.3...2.2.4) (2024-08-22)
-
 
 ### Bug Fixes
 
@@ -1964,20 +1766,17 @@
 
 ## [2.2.3](https://github.com/dinofrontend/dino_ui_library/compare/2.2.2...2.2.3) (2024-08-22)
 
-
 ### Bug Fixes
 
 * test for root file ([5f17e0b](https://github.com/dinofrontend/dino_ui_library/commit/5f17e0b5efe90a3ba5042ffebe124d2a2b4df139))
 
 ## [2.2.2](https://github.com/dinofrontend/dino_ui_library/compare/2.2.1...2.2.2) (2024-08-22)
 
-
 ### Bug Fixes
 
 * text for root file ([a4acbf2](https://github.com/dinofrontend/dino_ui_library/commit/a4acbf22e857ac0529ead653643578c11ab1758e))
 
 ## [2.2.1](https://github.com/dinofrontend/dino_ui_library/compare/2.2.0...2.2.1) (2024-08-22)
-
 
 ### Bug Fixes
 
@@ -1989,7 +1788,6 @@
 * updated releaserc again ([2032952](https://github.com/dinofrontend/dino_ui_library/commit/2032952ecd05208bdee03750f3de600a03ac6da9))
 
 # [2.2.0](https://github.com/dinofrontend/dino_ui_library/compare/2.1.16...2.2.0) (2024-08-22)
-
 
 ### Features
 
@@ -2006,13 +1804,11 @@
 
 ## [2.1.16](https://github.com/dinofrontend/dino_ui_library/compare/2.1.15...2.1.16) (2024-08-21)
 
-
 ### Bug Fixes
 
 * update releaserc file ([e1ab72d](https://github.com/dinofrontend/dino_ui_library/commit/e1ab72d653d3e3be4a98448448e9b2eeacbfbf0f))
 
 ## [2.1.15](https://github.com/dinofrontend/dino_ui_library/compare/2.1.14...2.1.15) (2024-08-21)
-
 
 ### Bug Fixes
 
@@ -2020,13 +1816,11 @@
 
 ## [2.1.14](https://github.com/dinofrontend/dino_ui_library/compare/v2.1.13...2.1.14) (2024-08-21)
 
-
 ### Bug Fixes
 
 * test semver ([5c66af4](https://github.com/dinofrontend/dino_ui_library/commit/5c66af462c1a4bd63f17f84955485ba8677bbc91))
 
 # 1.0.0 (2024-08-21)
-
 
 ### Bug Fixes
 
@@ -2036,7 +1830,6 @@
 * updated branches in github actions yaml ([da141f1](https://github.com/dinofrontend/dino_ui_library/commit/da141f1f9a3256616cb91caf0cae2e8f6d690f9f))
 * updated node version in yaml ([a1e4c59](https://github.com/dinofrontend/dino_ui_library/commit/a1e4c592d218f8c11da1c917bca55813e1116120))
 * updated node version to 20  in yaml ([3933a82](https://github.com/dinofrontend/dino_ui_library/commit/3933a822b393a0d6856ef07df6a8beb5a2c7c3c7))
-
 
 ### Features
 
