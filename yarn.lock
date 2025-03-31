@@ -6282,9 +6282,9 @@ JSONStream@^1.3.5:
     through ">=2.2.7 <3"
 
 ab-ui-library@^1.1.2:
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/ab-ui-library/-/ab-ui-library-1.1.11.tgz#bba1401075a40dce184b402d9defd4335b597787"
-  integrity sha512-lLftwoMA9ME+9nkHZdpDrldkqhtOrA0Qqbj72rw7+UWE8JDadfpHE/9BV5eGh3ADIPpV1iVVImDBaI81iGf6fA==
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/ab-ui-library/-/ab-ui-library-1.1.12.tgz#a7dc02dacfaf7a20c90c7a63c8f0bff8e21e7a91"
+  integrity sha512-fq+d9NRf0OhABqEbfnan7l2b0ZS0ialMaHt6fYKyZbLeEhQv75MhUeDzRNDagAXWHuYKBiO/aYW2rTFPHCqTpA==
   dependencies:
     "@dnd-kit/core" "^6.3.1"
     "@dnd-kit/sortable" "^10.0.0"
