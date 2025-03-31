@@ -36,7 +36,7 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
 
       - name: Build
-        run: npm run build
+        run: yarn build
 
       - name: Publish packages with Lerna
         run: npx lerna publish from-package --yes
@@ -60,7 +60,7 @@ jobs:
 
       # Deployment on GitHub Pages
       - name: Build Storybook
-        run: npm run build-storybook
+        run: yarn build:storybook
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
