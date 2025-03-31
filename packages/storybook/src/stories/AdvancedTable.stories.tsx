@@ -3,7 +3,6 @@ import type { ColumnDef } from '@tanstack/react-table';
 import type { StoryFn } from '@storybook/react';
 
 import React from 'react';
-import { ICellProps } from 'ab-ui-library/components/AdvancedTable/types';
 import { AdvancedTable as _Table, AdvancedPagination, ColumnSettings } from 'ab-ui-library/components/AdvancedTable';
 
 const data: any[] = [
