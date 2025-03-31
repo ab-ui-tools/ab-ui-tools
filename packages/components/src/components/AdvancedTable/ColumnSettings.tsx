@@ -22,6 +22,7 @@ export function ColumnSettings<T>({ table, hiddenColumnSettings }: ColumnSetting
 
   const handleClick = (column: Column<T>) => {
     const toggle = column.getToggleVisibilityHandler();
+
     if (toggle) {
       toggle({ target: { checked: !column.getIsVisible() } });
     }
