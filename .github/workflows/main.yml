@@ -44,6 +44,12 @@ jobs:
       - name: Debug NPM Auth
         run: cat ~/.npmrc
 
+      - name: Check NPM Authentication
+        run: npm whoami
+
+      - name: Export NPM Token
+        run: echo "NODE_AUTH_TOKEN=${{ secrets.NPM_TOKEN }}" >> $GITHUB_ENV
+
       - name: Publish packages with Lerna
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
