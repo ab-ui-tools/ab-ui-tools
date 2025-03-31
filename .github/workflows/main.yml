@@ -32,15 +32,16 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Configure npm for private packages
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - name: Configure npm for private publishing
         run: |
+          # Create proper .npmrc configuration
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
-          echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
+          echo "@ab-ui-tools:registry=https://registry.npmjs.org/" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" >> ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
-          npm config set @ab-ui-tools:registry https://registry.npmjs.org/  
+
+          # Verify billing status (requires npm v8+)
+          npm profile get || echo "Warning: Couldn't verify billing status"
 
       - name: Debug npm configuration
         env:
@@ -54,17 +55,28 @@ jobs:
           echo "Package publishConfig:"
           find packages -name package.json -exec grep -l "publishConfig" {} \; -exec sh -c 'echo "\n{}:"; cat {}' \;
 
+      - name: Debug package info
+        run: |
+          echo "Checking package permissions:"
+          npm access ls-packages @ab-ui-tools
+          echo "Billing status:"
+          npm profile get
+
       - name: Build packages with Lerna
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: yarn build
 
-      - name: Publish packages with Lerna
+      - name: Publish private packages
+        run: |
+          npx lerna publish from-package --yes \
+            --no-verify-access \
+            --no-verify-registry \
+            --exact
         env:
+          NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: npx lerna publish from-package --yes --no-verify-access
 
       - name: Extract version and package name
         run: |
