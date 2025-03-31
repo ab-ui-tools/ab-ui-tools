@@ -56,6 +56,9 @@ jobs:
           find packages -name package.json -exec grep -l "publishConfig" {} \; -exec sh -c 'echo "\n{}:"; cat {}' \;
 
       - name: Debug package info
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
           echo "Checking package permissions:"
           npm access ls-packages @ab-ui-tools
