@@ -41,9 +41,16 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: yarn build
 
+      - name: Version packages using Lerna
+        run: |
+          yarn lerna version --conventional-commits --yes  # This will handle version bump based on conventional commit messages
+        env:
+          NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
       - name: Publish private packages
         run: |
-          yarn lerna publish --yes
+          yarn lerna publish from-package --yes  # Publish only the packages with version bumps
         env:
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
