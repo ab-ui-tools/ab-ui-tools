@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.15](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/components@1.1.14...@ab.uitools/components@1.1.15) (2025-04-01)
+
+
+### Bug Fixes
+
+* testing ([504d7d5](https://github.com/ab-devtools/uilibrary/commit/504d7d5c5432a059fcde8cadd25d8bef01c10cf3))
+
+
+
+
+
 ## 1.1.14 (2025-04-01)
 
 
