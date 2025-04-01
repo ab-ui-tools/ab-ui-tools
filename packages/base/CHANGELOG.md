@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.5 (2025-04-01)
+
+### Bug Fixes
+
+- testing ([14708fe](https://github.com/ab-ui-tools/ab-ui-tools/commit/14708fe357563b90388fbd7c96f6297a72f07f7d))
+
 ## 1.0.4 (2025-04-01)
 
 ### Bug Fixes
