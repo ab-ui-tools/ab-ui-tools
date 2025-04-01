@@ -15,7 +15,6 @@
     "build": "yarn compile"
   },
   "peerDependencies": {
-    "@ab.uitools/components": "^1.0.0",
     "axios": "^1.3.5",
     "i18next": "^22.4.14",
     "react": "^18.2.0",
@@ -33,7 +32,6 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@ab.uitools/components": "^1.1.11",
     "@types/uuid": "^9.0.1",
     "axios": "^1.3.5",
     "i18next": "^22.4.14",
