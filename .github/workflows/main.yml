@@ -42,9 +42,15 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: yarn lerna-build
 
+      - name: Check Lerna version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: yarn lerna changed
+
       - name: Version packages using Lerna
         run: |
-          yarn lerna version --conventional-commits --yes  # This will handle version bump based on conventional commit messages
+          yarn lerna version --conventional-commits --yes
         env:
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
