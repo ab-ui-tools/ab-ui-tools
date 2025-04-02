@@ -12,11 +12,19 @@
     "start": "yarn start:storybook",
     "build:storybook": "lerna run build-storybook --scope=@ab.uitools/storybook",
     "start:storybook": "lerna run storybook --scope=@ab.uitools/storybook",
-    "lint": "eslint . --ignore-pattern 'dist/'"
+    "lint": "eslint . --ignore-pattern 'dist/'",
+    "lint:fix": "eslint . --ignore-pattern 'dist/' --fix",
+    "prepare": "husky"
   },
   "workspaces": [
     "packages/*"
   ],
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint:fix",
+      "git add"
+    ]
+  },
   "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",
