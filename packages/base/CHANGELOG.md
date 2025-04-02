@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/base@1.0.6...@ab.uitools/base@1.1.0) (2025-04-02)
+
+### Features
+
+- added husky ([937975e](https://github.com/ab-ui-tools/ab-ui-tools/commit/937975e396acfa8c7ca8dc3cdf435537f619d6ed))
+- added husky ([39576b8](https://github.com/ab-ui-tools/ab-ui-tools/commit/39576b8c0fe703922936880e827da35bafaf1cdf))
+
 ## [1.0.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/base@1.0.5...@ab.uitools/base@1.0.6) (2025-04-01)
 
 ### Bug Fixes
