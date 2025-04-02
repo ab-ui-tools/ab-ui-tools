@@ -13,12 +13,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- testing ([14708fe](https://github.com/ab-ui-tools/ab-ui-tools/commit/14708fe357563b90388fbd7c96f6297a72f07f7d))
-
-## 1.0.4 (2025-04-01)
-
-### Bug Fixes
-
 - some fix ([7c2851b](https://github.com/ab-ui-tools/ab-ui-tools/commit/7c2851bd4e4ccb410eb4f46b7212951badeb9b8e))
 
 ## 1.0.3 (2025-04-01)
