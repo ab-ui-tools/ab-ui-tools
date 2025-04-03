@@ -11,7 +11,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "compile": "tsc && cp package.json dist/",
+    "compile": "tsc && cp -R ./package.json ./dist",
     "build": "yarn compile"
   },
   "peerDependencies": {

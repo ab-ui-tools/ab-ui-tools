@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "react-jsx",
+    "sourceMap": false,
+    "composite": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@ab.uitools/*": [
+        "packages/*/src"
+      ]
+    },
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "typeRoots": [
+      "../../node_modules/@types",
+      "./node_modules/@types",
+      "./src/@types"
+    ]
+  },
+  "include": [
+    "./src"
+  ],
+  //  "references": [
+  //    {
+  //      "path": "../components/tsconfig.json"
+  //    },
+  //  ]
+}

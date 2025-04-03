@@ -1,3 +1,3 @@
-const test = () => {
+const useHook = () => {
   return 'test';
 };

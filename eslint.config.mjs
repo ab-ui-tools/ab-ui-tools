@@ -57,6 +57,7 @@ const baseConfig = tseslint.config({
             },
         ],
         '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/no-require-imports': 'off',
         'unused-imports/no-unused-vars': [
             'warn',
             { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
