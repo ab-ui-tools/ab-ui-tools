@@ -3,18 +3,19 @@
     "module": "esnext",
     "target": "esnext",
     "declaration": true,
-    "outDir": "dist",
-    "allowJs": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "allowJs": false, // Changed from true to false
     "checkJs": false,
     "jsx": "react-jsx",
     "sourceMap": false,
-    "composite": true,
+    "composite": false, // Changed from true unless you need project references
     "strict": true,
     "esModuleInterop": true,
-//    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "emitDeclarationOnly": false
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]  // Explicitly exclude node_modules
+  "include": ["src/**/*.ts", "src/**/*.tsx"], // More specific
+  "exclude": ["node_modules", "**/*.js", "**/*.d.ts"] // Exclude JS and declaration files
 }
