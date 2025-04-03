@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/base@1.1.2...@ab.uitools/base@1.1.3) (2025-04-03)
+
+### Bug Fixes
+
+- some fix ([e013a27](https://github.com/ab-ui-tools/ab-ui-tools/commit/e013a27a4240c7ba14f01c0e9d755d3dc1bc2de1))
+- trying publish base ([6082dd4](https://github.com/ab-ui-tools/ab-ui-tools/commit/6082dd4b009611213c1aad717593a3b8414d6031))
+
 ## [1.1.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/base@1.1.1...@ab.uitools/base@1.1.2) (2025-04-03)
 
 ### Bug Fixes
