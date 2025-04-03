@@ -3,15 +3,15 @@
   "name": "@ab.uitools/base",
   "private": false,
   "license": "UNLICENSED",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
   "publishConfig": {
     "access": "restricted",
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && cp package.json dist/",
     "dev": "tsup --watch"
   },
   "peerDependencies": {
