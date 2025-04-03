@@ -2,7 +2,6 @@ import typescript from '@rollup/plugin-typescript';
 import { createRequire } from 'module';
 import generatePackageJson from 'rollup-plugin-generate-package-json';
 
-// Create require function for JSON import
 const require = createRequire(import.meta.url);
 const pkg = require('./package.json');
 
@@ -33,9 +32,9 @@ export default {
         name: pkg.name,
         version: pkg.version,
         description: pkg.description,
-        main: './index.cjs',  // Changed to match your output file
-        module: './index.mjs', // Changed to match your output file
-        types: './index.d.ts', // Added TypeScript types
+        main: './index.cjs',
+        module: './index.mjs',
+        types: './index.d.ts',
         author: pkg.author,
         license: pkg.license,
         repository: pkg.repository,
@@ -43,7 +42,7 @@ export default {
         dependencies: pkg.dependencies,
         sideEffects: false,
         homepage: pkg.homepage,
-        files: ["*"]  // Added to ensure all dist files are included
+        files: ["*"]
       }
     })
   ]

@@ -1,3 +1,0 @@
-const useHook = () => {
-  return 'test';
-};
