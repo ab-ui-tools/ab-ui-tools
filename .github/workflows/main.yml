@@ -36,18 +36,18 @@ jobs:
       - name: Create .npmrc file
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
 
-      - name: Check Lerna version
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: yarn lerna changed
-
-#      - name: Version packages using Lerna
-#        run: |
-#          yarn lerna version --conventional-commits --yes
+#      - name: Check Lerna version
 #        env:
-#          NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
 #          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+#          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+#        run: yarn lerna changed
+
+      - name: Version packages using Lerna
+        run: |
+          yarn lerna version --conventional-commits --yes
+        env:
+          NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Build packages with Lerna
         env:
