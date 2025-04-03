@@ -1,1 +1,1 @@
-import './hooks/useDebouncedCallback';
+import './hooks';
