@@ -8,5 +8,6 @@ package-lock.json
 ./idea
 build-storybook.log
 /storybook-static
+storybook-static
 .rollup.cache
 tsconfig.tsbuildinfo
