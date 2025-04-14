@@ -53,13 +53,13 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: yarn lerna-build --ignore packages/storybook --yes
+        run: yarn lerna-build
 
 #          yarn lerna publish from-package --yes
 
       - name: Publish private packages
         run: |
-          yarn lerna publish from-package --yes
+          yarn lerna publish from-package --ignore packages/storybook --yes
         env:
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
