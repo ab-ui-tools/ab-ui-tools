@@ -4,20 +4,20 @@ import type {
   TButtonSelectPropTypes,
   TMultiSelectPropTypes,
   TSingleSelectPropTypes,
-} from '@ab.uitools/ui-library/components/Select/types';
+} from '@ab.uitools/ui-library/dist/components/Select/types';
 
 import React, { useState } from 'react';
-import { Positions } from '@ab.uitools/ui-library/components/Tooltip/types';
-import IconSignOut from '@ab.uitools/ui-library/components/SVGIcons/IconSignOut';
-import IconQuestion from '@ab.uitools/ui-library/components/SVGIcons/IconQuestion';
-import IconPerson from '@ab.uitools/ui-library/components/SVGIcons/IconPerson';
-import IconMore from '@ab.uitools/ui-library/components/SVGIcons/IconMore';
-import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
-import IconGb from '@ab.uitools/ui-library/components/SVGIcons/IconGb';
-import IconChevronUp from '@ab.uitools/ui-library/components/SVGIcons/IconChevronUp';
-import IconChevronDown from '@ab.uitools/ui-library/components/SVGIcons/IconChevronDown';
-import IconChatMultiple from '@ab.uitools/ui-library/components/SVGIcons/IconChatMultiple';
-import IconAm from '@ab.uitools/ui-library/components/SVGIcons/IconAm';
+import { Positions } from '@ab.uitools/ui-library/dist/components/Tooltip/types';
+import IconSignOut from '@ab.uitools/ui-library/dist/components/SVGIcons/IconSignOut';
+import IconQuestion from '@ab.uitools/ui-library/dist/components/SVGIcons/IconQuestion';
+import IconPerson from '@ab.uitools/ui-library/dist/components/SVGIcons/IconPerson';
+import IconMore from '@ab.uitools/ui-library/dist/components/SVGIcons/IconMore';
+import IconInfo from '@ab.uitools/ui-library/dist/components/SVGIcons/IconInfo';
+import IconGb from '@ab.uitools/ui-library/dist/components/SVGIcons/IconGb';
+import IconChevronUp from '@ab.uitools/ui-library/dist/components/SVGIcons/IconChevronUp';
+import IconChevronDown from '@ab.uitools/ui-library/dist/components/SVGIcons/IconChevronDown';
+import IconChatMultiple from '@ab.uitools/ui-library/dist/components/SVGIcons/IconChatMultiple';
+import IconAm from '@ab.uitools/ui-library/dist/components/SVGIcons/IconAm';
 import {
   Button,
   Select as _Select,
@@ -28,7 +28,7 @@ import {
   Menu,
   Avatar,
   Badge,
-} from '@ab.uitools/ui-library';
+} from '@ab.uitools/ui-library/dist';
 
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg';

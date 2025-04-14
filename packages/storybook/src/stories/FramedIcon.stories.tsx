@@ -1,9 +1,9 @@
 import type { StoryFn } from '@storybook/react';
-import type { TButtonIconPropTypes } from '@ab.uitools/ui-library/components/ButtonIcon/types';
+import type { TButtonIconPropTypes } from '@ab.uitools/ui-library/dist/components/ButtonIcon/types';
 
 import React from 'react';
-import IconDelete from '@ab.uitools/ui-library/components/SVGIcons/IconDelete';
-import { FramedIcon as _FramedIcon } from '@ab.uitools/ui-library/components/FramedIcon';
+import IconDelete from '@ab.uitools/ui-library/dist/components/SVGIcons/IconDelete';
+import { FramedIcon as _FramedIcon } from '@ab.uitools/ui-library/dist/components/FramedIcon';
 
 export default {
   title: 'FramedIcon',

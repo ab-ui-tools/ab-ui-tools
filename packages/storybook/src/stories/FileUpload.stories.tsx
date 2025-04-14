@@ -1,10 +1,10 @@
 import type { StoryFn } from '@storybook/react';
-import type { TFileUploadProps } from '@ab.uitools/ui-library/components/FileUpload';
+import type { TFileUploadProps } from '@ab.uitools/ui-library/dist/components/FileUpload';
 
 // @ts-nocheck
 import React, { useState } from 'react';
-import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
-import { FileUpload as _FileUpload } from '@ab.uitools/ui-library/components/FileUpload';
+import IconInfo from '@ab.uitools/ui-library/dist/components/SVGIcons/IconInfo';
+import { FileUpload as _FileUpload } from '@ab.uitools/ui-library/dist/components/FileUpload';
 
 export default {
   title: 'FileUpload',

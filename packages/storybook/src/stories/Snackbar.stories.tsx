@@ -1,9 +1,9 @@
 import type { StoryFn } from '@storybook/react';
 
 import React, { useEffect, useState } from 'react';
-import { Snackbar as _Snackbar } from '@ab.uitools/ui-library/components/Snackbar';
-import { notify } from '@ab.uitools/ui-library/components/Snackbar';
-import { Button } from '@ab.uitools/ui-library/components/Button';
+import { Snackbar as _Snackbar } from '@ab.uitools/ui-library/dist/components/Snackbar';
+import { notify } from '@ab.uitools/ui-library/dist/components/Snackbar';
+import { Button } from '@ab.uitools/ui-library/dist/components/Button';
 
 export default {
   title: 'Snackbar',

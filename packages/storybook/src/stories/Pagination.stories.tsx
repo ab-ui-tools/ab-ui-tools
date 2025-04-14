@@ -1,8 +1,8 @@
 import type { StoryFn } from '@storybook/react';
-import type { TPaginationProps } from '@ab.uitools/ui-library/components/Pagination/types';
+import type { TPaginationProps } from '@ab.uitools/ui-library/dist/components/Pagination/types';
 
 import React from 'react';
-import { Pagination as _Pagination } from '@ab.uitools/ui-library/components/Pagination';
+import { Pagination as _Pagination } from '@ab.uitools/ui-library/dist/components/Pagination';
 
 export default {
   title: 'Pagination',

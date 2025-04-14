@@ -1,9 +1,9 @@
 import type { StoryFn } from '@storybook/react';
-import type { TEmptyProps } from '@ab.uitools/ui-library/components/Empty/types';
+import type { TEmptyProps } from '@ab.uitools/ui-library/dist/components/Empty/types';
 
 import React from 'react';
-import IconAdd from '@ab.uitools/ui-library/components/SVGIcons/IconAdd';
-import { Empty as _Empty } from '@ab.uitools/ui-library/components/Empty';
+import IconAdd from '@ab.uitools/ui-library/dist/components/SVGIcons/IconAdd';
+import { Empty as _Empty } from '@ab.uitools/ui-library/dist/components/Empty';
 
 export default {
   title: 'Empty',

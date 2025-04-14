@@ -1,5 +1,5 @@
 import type { StoryFn } from '@storybook/react';
-import type { LinkPropTypes } from '@ab.uitools/ui-library/components/Link/types';
+import type { LinkPropTypes } from '@ab.uitools/ui-library/dist/components/Link/types';
 
 import React, { useState } from 'react';
 import {
@@ -11,9 +11,9 @@ import {
   IconEdit,
   IconAddFilled,
   IconMore,
-} from '@ab.uitools/ui-library/components/SVGIcons';
-import { Menu as _Menu, NestedMenu as _NestedMenu } from '@ab.uitools/ui-library/components/Menu';
-import { Button } from '@ab.uitools/ui-library/components/Button';
+} from '@ab.uitools/ui-library/dist/components/SVGIcons';
+import { Menu as _Menu, NestedMenu as _NestedMenu } from '@ab.uitools/ui-library/dist/components/Menu';
+import { Button } from '@ab.uitools/ui-library/dist/components/Button';
 
 export default {
   title: 'Menu',

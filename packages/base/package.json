@@ -86,6 +86,7 @@
     "@hookform/resolvers": "^2.9.11",
     "@tanstack/react-table": "^8.21.2",
     "@types/react-input-mask": "^3.0.2",
+    "@ab.uitools/ui-library": "^1.0.1",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",
     "framer-motion": "^12.5.0",

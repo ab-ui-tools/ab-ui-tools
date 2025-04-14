@@ -2,10 +2,10 @@ import type { JSX } from 'react';
 
 import * as yup from 'yup';
 import React from 'react';
-import { Input } from '@ab.uitools/ui-library/components/Input';
-import { FormField } from '@ab.uitools/ui-library/components/FormField';
-import { FormContainer as _FormContainer } from '@ab.uitools/ui-library/components/FormContainer';
-import { Button } from '@ab.uitools/ui-library/components/Button';
+import { Input } from '@ab.uitools/ui-library/dist/components/Input';
+import { FormField } from '@ab.uitools/ui-library/dist/components/FormField';
+import { FormContainer as _FormContainer } from '@ab.uitools/ui-library/dist/components/FormContainer';
+import { Button } from '@ab.uitools/ui-library/dist/components/Button';
 
 export default {
   title: 'Form Container',
