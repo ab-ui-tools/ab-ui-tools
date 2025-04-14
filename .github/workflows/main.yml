@@ -59,7 +59,7 @@ jobs:
 
       - name: Publish private packages
         run: |
-          yarn lerna publish from-package --ignore packages/storybook --yes
+          yarn lerna publish from-package --ignore-changes packages/storybook --yes
         env:
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
