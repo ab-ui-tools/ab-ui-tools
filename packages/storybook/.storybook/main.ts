@@ -16,7 +16,6 @@ const config: StorybookConfig = {
     // '@storybook/addon-outline',
     '@storybook/addon-links',
   ],
-
   webpackFinal: async (config, { configType }) => {
     // @ts-ignore
     config.module.rules.push(

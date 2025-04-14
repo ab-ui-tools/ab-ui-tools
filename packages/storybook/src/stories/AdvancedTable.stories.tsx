@@ -3,7 +3,16 @@ import type { ColumnDef } from '@tanstack/react-table';
 import type { StoryFn } from '@storybook/react';
 
 import React from 'react';
-import { AdvancedTable as _Table, AdvancedPagination, ColumnSettings } from 'ab-ui-library/components/AdvancedTable';
+import {
+  AdvancedTable as _Table,
+  AdvancedPagination,
+  ColumnSettings,
+  Button,
+  IconDelete,
+  IconEdit,
+  IconAdd,
+  Chips,
+} from 'ab-ui-library';
 
 const data: any[] = [
   {
@@ -51,6 +60,7 @@ const Template: StoryFn<TTableProps<any>> = args => {
       header: 'Status',
       id: 'status',
       accessorKey: 'status',
+      cell: row => <Chips text={'Created'} type={'accent'} color={'information'} />,
     },
     {
       id: 'age',
@@ -78,9 +88,32 @@ const Template: StoryFn<TTableProps<any>> = args => {
       accessorKey: 'visits',
     },
     {
+      header: 'Test 4',
+      id: 'test_4',
+      accessorKey: 'visits',
+    },
+    {
+      header: 'Test 5',
+      id: 'test_5',
+      accessorKey: 'visits',
+      enableHiding: false,
+    },
+    {
       header: 'Visits',
       id: 'visits',
       accessorKey: 'visits',
+    },
+    {
+      header: 'Actions',
+      id: 'actions',
+      accessorKey: 'actions',
+      cell: () => (
+        <div className="flexbox align-items--center">
+          <Button className="mr-8" iconProps={{ Component: IconAdd }} type="secondary" />
+          <Button className="mr-8" iconProps={{ Component: IconEdit }} type="secondary" />
+          <Button iconProps={{ Component: IconDelete }} type="secondary" />
+        </div>
+      ),
     },
   ];
 
@@ -89,12 +122,13 @@ const Template: StoryFn<TTableProps<any>> = args => {
       <_Table
         {...args}
         data={data}
+        totalCount={100}
         columns={columns}
         emptyTitle="Empty title"
         emptySubTitle="Please try to reload the page or use another keyword."
         renderHeader={table => (
           <div className="advanced-table__header justify-content--end">
-            <ColumnSettings hiddenColumnSettings={['select', 'actions']} table={table} />
+            <ColumnSettings tooltipText="Column is disabled" table={table} />
           </div>
         )}
         renderFooter={table => (
@@ -119,7 +153,10 @@ AdvancedTable.args = {
   data: [],
   columns: [],
   withBorder: false,
+  isActionsVisible: false,
+  isLoading: false,
   onSortChange: state => console.log(state),
   onRowSelection: state => console.log(state),
   onPaginationChange: state => console.log(state),
+  onRowClick: row => console.log(row),
 };

@@ -17,6 +17,7 @@ const getFiles = (files: FileList) => {
 
 const Template: StoryFn<TFileUploadProps> = args => {
   const [files, setFiles] = useState([]);
+  // @ts-ignore
   const getFiles = _files => {
     if (_files && _files.length) {
       setFiles(_files);

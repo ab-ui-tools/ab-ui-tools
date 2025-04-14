@@ -26,8 +26,8 @@ export const Alert = Template.bind({});
 Alert.args = {
   type: 'information',
   position: 'sticky',
-  subtext: 'Become a legendary UX/UI designer through real world and practical courses.',
   text: 'Alert line which displays the main function or reason of the alert.',
+  subtext: 'Become a legendary UX/UI designer through real world and practical courses.',
   closeIcon: true,
   buttonProps: {
     confirm: {

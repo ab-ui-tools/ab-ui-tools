@@ -2,7 +2,7 @@ import type { TAvatarGroupProps, TAvatarProps } from 'ab-ui-library/components/A
 import type { StoryFn } from '@storybook/react';
 
 import React from 'react';
-import { Avatar as _Avatar, AvatarGroup as _AvatarGroup } from 'ab-ui-library/components/Avatar';
+import { Avatar as _Avatar, AvatarGroup as _AvatarGroup } from 'ab-ui-library';
 
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg';

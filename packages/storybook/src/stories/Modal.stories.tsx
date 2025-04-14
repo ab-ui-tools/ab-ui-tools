@@ -14,10 +14,6 @@ export default {
       options: ['xlarge', 'large', 'medium', 'small'],
       control: { type: 'radio' },
     },
-    type: {
-      options: ['secondary', 'danger', 'warning', 'success', 'brand', 'information'],
-      control: { type: 'radio' },
-    },
   },
 };
 

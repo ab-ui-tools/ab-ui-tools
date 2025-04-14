@@ -6,9 +6,6 @@ import React, { useRef, useState } from 'react';
 import IconPerson from 'ab-ui-library/components/SVGIcons/IconPerson';
 import IconMore from 'ab-ui-library/components/SVGIcons/IconMore';
 import IconInfo from 'ab-ui-library/components/SVGIcons/IconInfo';
-import IconDismissFilled from 'ab-ui-library/components/SVGIcons/IconDismissFilled';
-import IconAttach from 'ab-ui-library/components/SVGIcons/IconAttach';
-import IconArrowLeft from 'ab-ui-library/components/SVGIcons/IconArrowLeft';
 import { Button, Modal, SideSheet as _SideSheet, FormContainer, MultiSelect as _MultiSelect } from 'ab-ui-library';
 
 export default {
@@ -164,8 +161,11 @@ const Template: StoryFn<TSideSheetPropTypes> = args => {
   };
 
   return (
-    <div>
-      <button onClick={handleOpenSheet}>Open Side Sheet</button>
+    <div className={'flexbox'} style={{ overflow: 'hidden' }}>
+      <div style={{ flex: 1, border: '1px solid grey' }}>
+        Lorem ipsum dolor sit amet consectetu
+        <button onClick={handleOpenSheet}>Open Side Sheet</button>
+      </div>
       <_SideSheet
         {...args}
         size="small"
@@ -173,6 +173,7 @@ const Template: StoryFn<TSideSheetPropTypes> = args => {
         isOpen={isOpen}
         shouldRemoveCallback={false}
         onSubmit={onSubmit}
+        headerContent={<p>Lorem ipsum dolor sit amet consectetu </p>}
         scrollToTopOptions={{
           onPixel: 200,
         }}
@@ -299,23 +300,6 @@ export const SideSheet = Template.bind({});
 
 SideSheet.args = {
   title: 'Side sheet title',
-  headerButtons: {
-    close: {
-      iconProps: {
-        Component: IconDismissFilled,
-      },
-    },
-    back: {
-      iconProps: {
-        Component: IconArrowLeft,
-      },
-    },
-    pin: {
-      iconProps: {
-        Component: IconAttach,
-      },
-    },
-  },
   footerButtons: {
     confirm: {
       buttonText: 'Save',
@@ -327,5 +311,21 @@ SideSheet.args = {
     label: 'Agree to terms',
     isChecked: false,
   },
+  tabItemsProps: {
+    tabItems: [
+      {
+        label: 'tab 1',
+        value: 'tab1',
+      },
+      {
+        label: 'tab 2',
+        value: 'tab2',
+      },
+    ],
+    selectedValue: 'tab1',
+    onSelect: value => 'tab1',
+  },
   // position: 'left'
+  withOverlay: false,
+  isPositioned: false,
 };
