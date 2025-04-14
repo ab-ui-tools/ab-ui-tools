@@ -1,8 +1,8 @@
-import type { HeadingPropTypes } from 'ab-ui-library/components/Heading/types';
 import type { StoryFn } from '@storybook/react';
+import type { HeadingPropTypes } from '@ab.uitools/ui-library/components/Heading/types';
 
 import React from 'react';
-import { Heading as _Heading } from 'ab-ui-library/components/Heading';
+import { Heading as _Heading } from '@ab.uitools/ui-library/components/Heading';
 
 export default {
   title: 'Heading',

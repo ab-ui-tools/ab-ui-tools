@@ -1,8 +1,8 @@
-import type { TCardBodyProps } from 'ab-ui-library/components/CardBody/types';
 import type { StoryFn } from '@storybook/react';
+import type { TCardBodyProps } from '@ab.uitools/ui-library/components/CardBody/types';
 
 import React from 'react';
-import { CardBody as _TCardBody } from 'ab-ui-library/components/CardBody';
+import { CardBody as _TCardBody } from '@ab.uitools/ui-library/components/CardBody';
 
 // @ts-ignore
 import cardImg from '../assets/images/cards-img.png';

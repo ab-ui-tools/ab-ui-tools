@@ -1,8 +1,8 @@
-import type { TCopyProps } from 'ab-ui-library/components/Copy/types';
 import type { StoryFn } from '@storybook/react';
+import type { TCopyProps } from '@ab.uitools/ui-library/components/Copy/types';
 
 import React from 'react';
-import { Copy as _Copy } from 'ab-ui-library/components/Copy';
+import { Copy as _Copy } from '@ab.uitools/ui-library/components/Copy';
 
 export default {
   title: 'Copy',

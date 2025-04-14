@@ -1,12 +1,18 @@
-import type { TSideSheetPropTypes } from 'ab-ui-library/components/SideSheet/types';
 import type { StoryFn } from '@storybook/react';
+import type { TSideSheetPropTypes } from '@ab.uitools/ui-library/components/SideSheet/types';
 
 import * as yup from 'yup';
 import React, { useRef, useState } from 'react';
-import IconPerson from 'ab-ui-library/components/SVGIcons/IconPerson';
-import IconMore from 'ab-ui-library/components/SVGIcons/IconMore';
-import IconInfo from 'ab-ui-library/components/SVGIcons/IconInfo';
-import { Button, Modal, SideSheet as _SideSheet, FormContainer, MultiSelect as _MultiSelect } from 'ab-ui-library';
+import IconPerson from '@ab.uitools/ui-library/components/SVGIcons/IconPerson';
+import IconMore from '@ab.uitools/ui-library/components/SVGIcons/IconMore';
+import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
+import {
+  Button,
+  Modal,
+  SideSheet as _SideSheet,
+  FormContainer,
+  MultiSelect as _MultiSelect,
+} from '@ab.uitools/ui-library';
 
 export default {
   title: 'Side Sheet',

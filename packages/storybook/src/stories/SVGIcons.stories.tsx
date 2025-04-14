@@ -1,8 +1,8 @@
-import type { ISVGIconProps } from 'ab-ui-library/components/SVGIcons/types';
 import type { StoryFn } from '@storybook/react';
+import type { ISVGIconProps } from '@ab.uitools/ui-library/components/SVGIcons/types';
 
-import { Text } from 'ab-ui-library/components/Text';
-import * as Icons from 'ab-ui-library/components/SVGIcons';
+import { Text } from '@ab.uitools/ui-library/components/Text';
+import * as Icons from '@ab.uitools/ui-library/components/SVGIcons';
 
 export default {
   title: 'SVG Icons',

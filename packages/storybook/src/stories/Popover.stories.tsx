@@ -1,8 +1,8 @@
-import type { TPopoverProps } from 'ab-ui-library/components/Popover/types';
 import type { StoryFn } from '@storybook/react';
+import type { TPopoverProps } from '@ab.uitools/ui-library/components/Popover/types';
 
 import React from 'react';
-import { Popover as _Popover } from 'ab-ui-library/components/Popover';
+import { Popover as _Popover } from '@ab.uitools/ui-library/components/Popover';
 
 export default {
   title: 'Popover',

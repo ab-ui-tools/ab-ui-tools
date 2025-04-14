@@ -1,8 +1,8 @@
-import type { ImagePropTypes } from 'ab-ui-library/components/Image/types';
 import type { Meta, StoryFn } from '@storybook/react';
+import type { ImagePropTypes } from '@ab.uitools/ui-library/components/Image/types';
 
 import React from 'react';
-import { Image as _Image } from 'ab-ui-library/components/Image';
+import { Image as _Image } from '@ab.uitools/ui-library/components/Image';
 
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg';

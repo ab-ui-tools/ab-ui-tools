@@ -4,16 +4,16 @@ See [UI library]([https://github.com/uilibrarydev/uilibrary]) for live demos and
 
 # Installation and usage
 ```
-npm install ab-ui-library
+npm install @ab.uitools/ui-library
 ```
 
 Then use it in your app:
 ```jsx
 import React from 'react';
-import { Button } from 'ab-ui-library/components/Button';
-import 'ab-ui-library/assets/styles/styles.scss'; 
+import { Button } from '@ab.uitools/ui-library/components/Button';
+import '@ab.uitools/ui-library/assets/styles/styles.scss'; 
 // Or you can import the styles.css file
-// import 'ab-ui-library/assets/styles/styles.css';
+// import '@ab.uitools/ui-library/assets/styles/styles.css';
 
 const App = () => {
   return <Button>Click me</Button>;
@@ -23,7 +23,7 @@ const App = () => {
 How to use mixins:
 
 ```scss
-@use "../../node_modules/ab-ui-library/assets/styles/helpers/mixin";
+@use "../../node_modules/@ab.uitools/ui-library/assets/styles/helpers/mixin";
 
 .divider {
   @include mixin.flexbox();

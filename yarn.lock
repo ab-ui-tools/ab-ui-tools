@@ -6908,29 +6908,6 @@ JSONStream@^1.3.5:
     jsonparse "^1.2.0"
     through ">=2.2.7 <3"
 
-ab-ui-library@^1.1.2, ab-ui-library@^1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/ab-ui-library/-/ab-ui-library-1.3.2.tgz#0258c41ff4ef4ba4c6ba4b13ce389f3d91278963"
-  integrity sha512-5nSGB+TCwef3HKmIl1qFWC5B128rcigX5pKaNvUGNTiLBRVaqZjC4nXp4jnUX+dX81SEefrpnoM9NublOYzVFA==
-  dependencies:
-    "@dnd-kit/core" "^6.3.1"
-    "@dnd-kit/sortable" "^10.0.0"
-    "@hookform/error-message" "^2.0.1"
-    "@hookform/resolvers" "^2.9.11"
-    "@tanstack/react-table" "^8.21.2"
-    classnames "^2.3.2"
-    dayjs "^1.11.10"
-    framer-motion "^12.5.0"
-    react-datepicker "^4.25.0"
-    react-hook-form "^7.50.0"
-    react-input-mask "^2.0.4"
-    react-loading-skeleton "^3.5.0"
-    react-number-format "^5.3.1"
-    react-paginate "^8.2.0"
-    react-syntax-highlighter "^15.5.0"
-    react-table "^7.8.0"
-    react-toastify "10.0.5"
-
 abab@^2.0.3, abab@^2.0.5, abab@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.6.tgz#41b80f2c871d19686216b82309231cfd3cb3d291"
@@ -12342,9 +12319,9 @@ fragment-cache@^0.2.1:
     map-cache "^0.2.2"
 
 framer-motion@^12.5.0:
-  version "12.6.5"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.6.5.tgz#5777760290f2011ec71afe1bdd7053e91459bc47"
-  integrity sha512-MKvnWov0paNjvRJuIy6x418w23tFqRfS6CXHhZrCiSEpXVlo/F+usr8v4/3G6O0u7CpsaO1qop+v4Ip7PRCBqQ==
+  version "12.7.0"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.7.0.tgz#428ebdcaedeaf318ccf7e228b62bcae976ab5097"
+  integrity sha512-BBRndpEpu61SpJj+VSuLTTglikhZRL/kdVqivqNIXF0szIJQrnGM6cASApK8eKYNVMCj1Jgh9ek6QtJroZFTRQ==
   dependencies:
     motion-dom "^12.6.5"
     motion-utils "^12.6.5"

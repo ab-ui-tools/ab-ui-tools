@@ -7,7 +7,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "lerna run build --scope=@ab.uitools/components",
+    "build": "lerna run build --scope=@ab.uitools/ui-library",
     "lerna-build": "lerna run build",
     "start": "yarn start:storybook",
     "build:storybook": "lerna run build-storybook --scope=@ab.uitools/storybook",

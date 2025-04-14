@@ -1,12 +1,12 @@
-import type { TStatusProps } from 'ab-ui-library/components/Status/types';
 import type { StoryFn } from '@storybook/react';
+import type { TStatusProps } from '@ab.uitools/ui-library/components/Status/types';
 
 import React from 'react';
-import { Text } from 'ab-ui-library/components/Text';
-import IconPerson from 'ab-ui-library/components/SVGIcons/IconPerson';
-import IconInfo from 'ab-ui-library/components/SVGIcons/IconInfo';
-import { Status as _Status } from 'ab-ui-library/components/Status';
-import { Popover } from 'ab-ui-library/components/Popover';
+import { Text } from '@ab.uitools/ui-library/components/Text';
+import IconPerson from '@ab.uitools/ui-library/components/SVGIcons/IconPerson';
+import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
+import { Status as _Status } from '@ab.uitools/ui-library/components/Status';
+import { Popover } from '@ab.uitools/ui-library/components/Popover';
 
 export default {
   title: 'Status',

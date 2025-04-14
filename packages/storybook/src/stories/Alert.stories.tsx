@@ -1,8 +1,8 @@
-import type { TAlertProps } from 'ab-ui-library/components/Alert/types';
 import type { StoryFn } from '@storybook/react';
+import type { TAlertProps } from '@ab.uitools/ui-library/components/Alert/types';
 
 import React from 'react';
-import { Alert as AlertComp } from 'ab-ui-library/components/Alert';
+import { Alert as AlertComp } from '@ab.uitools/ui-library/components/Alert';
 
 export default {
   title: 'Alert',

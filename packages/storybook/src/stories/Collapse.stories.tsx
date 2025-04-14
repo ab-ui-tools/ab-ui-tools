@@ -1,7 +1,10 @@
 import type { StoryFn } from '@storybook/react';
 
 import React, { useState } from 'react';
-import { CollapseItem as _CollapseItem, CollapseGroup as _CollapseGroup } from 'ab-ui-library/components/Collapse';
+import {
+  CollapseItem as _CollapseItem,
+  CollapseGroup as _CollapseGroup,
+} from '@ab.uitools/ui-library/components/Collapse';
 
 import type { TCollapseGroupProps, TCollapseProps } from '../components/Collapse/types';
 

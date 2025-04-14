@@ -1,10 +1,10 @@
-import type { TModalConfirmationPropTypes, TModalPropTypes } from 'ab-ui-library/components/Modal/types';
 import type { StoryFn } from '@storybook/react';
+import type { TModalConfirmationPropTypes, TModalPropTypes } from '@ab.uitools/ui-library/components/Modal/types';
 
 import React, { useState } from 'react';
-import IconDelete from 'ab-ui-library/components/SVGIcons/IconDelete';
-import { Modal as _Modal } from 'ab-ui-library/components/Modal';
-import { ModalConfirmation as _ModalConfirmation } from 'ab-ui-library/components/Modal';
+import IconDelete from '@ab.uitools/ui-library/components/SVGIcons/IconDelete';
+import { Modal as _Modal } from '@ab.uitools/ui-library/components/Modal';
+import { ModalConfirmation as _ModalConfirmation } from '@ab.uitools/ui-library/components/Modal';
 
 export default {
   title: 'Modal',

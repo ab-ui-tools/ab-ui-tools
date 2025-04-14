@@ -1,10 +1,10 @@
-import type { TButtonPropTypes } from 'ab-ui-library/components/Button/types';
 import type { StoryFn } from '@storybook/react';
+import type { TButtonPropTypes } from '@ab.uitools/ui-library/components/Button/types';
 
 import React from 'react';
-import { CodeBlock } from 'ab-ui-library/helperComponents';
-import IconChevronDown from 'ab-ui-library/components/SVGIcons/IconChevronDown';
-import { Button as _Button } from 'ab-ui-library/components/Button';
+import { CodeBlock } from '@ab.uitools/ui-library/helperComponents';
+import IconChevronDown from '@ab.uitools/ui-library/components/SVGIcons/IconChevronDown';
+import { Button as _Button } from '@ab.uitools/ui-library/components/Button';
 
 export default {
   title: 'Button',

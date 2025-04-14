@@ -1,9 +1,9 @@
-import type { TSwitcherProps } from 'ab-ui-library/components/Switcher/types';
 import type { StoryFn } from '@storybook/react';
+import type { TSwitcherProps } from '@ab.uitools/ui-library/components/Switcher/types';
 
 import React, { useState } from 'react';
-import { Switcher as _Switcher } from 'ab-ui-library/components/Switcher';
-import IconInfo from 'ab-ui-library/components/SVGIcons/IconInfo';
+import { Switcher as _Switcher } from '@ab.uitools/ui-library/components/Switcher';
+import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
 
 export default {
   title: 'Switcher',

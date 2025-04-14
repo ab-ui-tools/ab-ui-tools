@@ -1,10 +1,10 @@
-import type { TProgressStepProps, TSteps, TStepValue } from 'ab-ui-library/components/ProgressStep/types';
 import type { StoryFn } from '@storybook/react';
+import type { TProgressStepProps, TSteps, TStepValue } from '@ab.uitools/ui-library/components/ProgressStep/types';
 
 import React, { useState } from 'react';
-import { PROGRESS_STATUSES } from 'ab-ui-library/components/ProgressStep/consts';
-import { ProgressStep as _ProgressStep } from 'ab-ui-library/components/ProgressStep';
-import { Button } from 'ab-ui-library/components/Button';
+import { PROGRESS_STATUSES } from '@ab.uitools/ui-library/components/ProgressStep/consts';
+import { ProgressStep as _ProgressStep } from '@ab.uitools/ui-library/components/ProgressStep';
+import { Button } from '@ab.uitools/ui-library/components/Button';
 
 const STEPS = [
   {
