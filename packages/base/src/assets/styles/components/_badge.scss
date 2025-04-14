@@ -1,0 +1,52 @@
+@use "../helpers/mixin";
+
+.badge {
+  $this: &;
+
+  --ds-badge-primary-bg: var(--red-500);
+  --ds-badge-secondary-bg: var(--grey-50);
+  --ds-badge-secondary-bg-dark: var(--grey-100);
+  --ds-badge-tertiary-bg: var(--green-500);
+
+  --ds-badge-border-radius: var(--ds-border-radius-4xl);
+  --ds-badge-padding-lg: var(--ds-space-6);
+  --ds-badge-padding-sm: var(--ds-space-4);
+  --ds-badge-inner-padding-lg: 0 var(--ds-space-2);
+  --ds-badge-inner-padding-sm: 0 var(--ds-space-4);
+
+  @include mixin.inline-flex;
+  @include mixin.align-items(center);
+  border-radius: var(--ds-badge-border-radius);
+
+  &--red {
+    background-color: var(--ds-badge-primary-bg);
+  }
+
+  &--grey {
+    background-color: var(--ds-badge-secondary-bg);
+  }
+
+  &--greyDark {
+    background-color: var(--ds-badge-secondary-bg-dark);
+  }
+
+  &--green {
+    background-color: var(--ds-badge-tertiary-bg);
+  }
+
+  &--large {
+    padding: var(--ds-badge-padding-lg);
+
+    #{$this}__inner {
+      line-height: 0.858;
+    }
+  }
+
+  &--small {
+    padding: var(--ds-badge-padding-sm);
+
+    #{$this}__inner {
+      line-height: 1;
+    }
+  }
+}

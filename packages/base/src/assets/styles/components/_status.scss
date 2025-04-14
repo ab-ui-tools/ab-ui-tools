@@ -1,0 +1,60 @@
+@use "../helpers/mixin";
+
+.status {
+  $this: &;
+
+  --ds-status-circle-size-lg: var(--ds-size-8);
+  --ds-status-circle-size-sm: var(--ds-size-6);
+
+  --ds-status-circle-bg-primary: var(--ds-color-icon-primary);
+  --ds-status-circle-bg-information: var(--ds-color-icon-info);
+  --ds-status-circle-bg-brand: var(--ds-color-icon-brand);
+  --ds-status-circle-bg-danger: var(--ds-color-icon-danger);
+  --ds-status-circle-bg-warning: var(--ds-color-icon-warning);
+  --ds-status-circle-bg-success: var(--ds-color-icon-success);
+  --ds-status-circle-bg-discovery: var(--ds-color-icon-discovery);
+  --ds-status-circle-bg-disabled: var(--ds-color-icon-disabled);
+
+  @include mixin.inline-flex;
+  @include mixin.align-items(center);
+
+  &__circle {
+    display: block;
+    border-radius: var(--ds-border-radius-full);
+    width: var(--ds-status-circle-size-lg);
+    min-width: var(--ds-status-circle-size-lg);
+    height: var(--ds-status-circle-size-lg);
+  }
+  &__circle--primary {
+    background-color: var(--ds-status-circle-bg-primary);
+  }
+  &__circle--information {
+    background-color: var(--ds-status-circle-bg-information);
+  }
+  &__circle--brand {
+    background-color: var(--ds-status-circle-bg-brand);
+  }
+  &__circle--danger {
+    background-color: var(--ds-status-circle-bg-danger);
+  }
+  &__circle--success {
+    background-color: var(--ds-status-circle-bg-success);
+  }
+  &__circle--warning {
+    background-color: var(--ds-status-circle-bg-warning);
+  }
+  &__circle--discovery {
+    background-color: var(--ds-status-circle-bg-discovery);
+  }
+  &__circle--disabled {
+    background-color: var(--ds-status-circle-bg-disabled);
+  }
+
+  &--small {
+    #{$this}__circle {
+      width: var(--ds-status-circle-size-sm);
+      min-width: var(--ds-status-circle-size-sm);
+      height: var(--ds-status-circle-size-sm);
+    }
+  }
+}
