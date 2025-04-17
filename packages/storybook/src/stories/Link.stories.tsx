@@ -1,9 +1,9 @@
 import type { StoryFn } from '@storybook/react';
-import type { LinkPropTypes } from '@ab.uitools/ui-library/dist/components/Link/types';
+import type { LinkPropTypes } from '@ab.uitools/ui-library/components/Link/types';
 
 import React from 'react';
-import IconChevronDown from '@ab.uitools/ui-library/dist/components/SVGIcons/IconChevronDown';
-import { Link as _Link } from '@ab.uitools/ui-library/dist/components/Link';
+import IconChevronDown from '@ab.uitools/ui-library/components/SVGIcons/IconChevronDown';
+import { Link as _Link } from '@ab.uitools/ui-library/components/Link';
 
 export default {
   title: 'Link',

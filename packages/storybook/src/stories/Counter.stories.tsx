@@ -1,8 +1,8 @@
 import type { StoryFn } from '@storybook/react';
-import type { ICounterProps } from '@ab.uitools/ui-library/dist/components/Counter/types';
+import type { ICounterProps } from '@ab.uitools/ui-library/components/Counter/types';
 
 import React, { useState } from 'react';
-import { Counter as _Counter } from '@ab.uitools/ui-library/dist/components/Counter';
+import { Counter as _Counter } from '@ab.uitools/ui-library/components/Counter';
 
 export default {
   title: 'Counter',

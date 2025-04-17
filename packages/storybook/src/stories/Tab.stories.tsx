@@ -1,11 +1,11 @@
 import type { StoryFn } from '@storybook/react';
-import type { TTabProps } from '@ab.uitools/ui-library/dist/components/Tab/types';
+import type { TTabProps } from '@ab.uitools/ui-library/components/Tab/types';
 
 import React, { ReactElement, useState } from 'react';
-import { Tab as _Tab } from '@ab.uitools/ui-library/dist/components/Tab';
-import IconHome from '@ab.uitools/ui-library/dist/components/SVGIcons/IconHome';
-import IconDismissCircle from '@ab.uitools/ui-library/dist/components/SVGIcons/IconDismissCircle';
-import IconApple from '@ab.uitools/ui-library/dist/components/SVGIcons/IconApple';
+import { Tab as _Tab } from '@ab.uitools/ui-library/components/Tab';
+import IconHome from '@ab.uitools/ui-library/components/SVGIcons/IconHome';
+import IconDismissCircle from '@ab.uitools/ui-library/components/SVGIcons/IconDismissCircle';
+import IconApple from '@ab.uitools/ui-library/components/SVGIcons/IconApple';
 
 export default {
   title: 'Tab',

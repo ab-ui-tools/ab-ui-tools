@@ -1,9 +1,9 @@
 import type { StoryFn } from '@storybook/react';
-import type { TTextAreaTypeProps } from '@ab.uitools/ui-library/dist/components/Textarea/types';
+import type { TTextAreaTypeProps } from '@ab.uitools/ui-library/components/Textarea/types';
 
 import React, { useState } from 'react';
-import { Textarea as _Textarea } from '@ab.uitools/ui-library/dist/components/Textarea';
-import IconInfo from '@ab.uitools/ui-library/dist/components/SVGIcons/IconInfo';
+import { Textarea as _Textarea } from '@ab.uitools/ui-library/components/Textarea';
+import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
 
 type TChangeEventType = React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>;
 

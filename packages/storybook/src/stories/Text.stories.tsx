@@ -1,8 +1,8 @@
 import type { StoryFn } from '@storybook/react';
-import type { TextPropTypes } from '@ab.uitools/ui-library/dist/components/Text/types';
+import type { TextPropTypes } from '@ab.uitools/ui-library/components/Text/types';
 
 import React from 'react';
-import { Text as _Text } from '@ab.uitools/ui-library/dist/components/Text';
+import { Text as _Text } from '@ab.uitools/ui-library/components/Text';
 
 export default {
   title: 'Text',

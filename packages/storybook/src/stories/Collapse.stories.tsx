@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import {
   CollapseItem as _CollapseItem,
   CollapseGroup as _CollapseGroup,
-} from '@ab.uitools/ui-library/dist/components/Collapse';
+} from '@ab.uitools/ui-library/components/Collapse';
 
 import type { TCollapseGroupProps, TCollapseProps } from '../components/Collapse/types';
 

@@ -1,9 +1,9 @@
 import type { StoryFn } from '@storybook/react';
-import type { TCardItemProps } from '@ab.uitools/ui-library/dist/components/Cards/types';
+import type { TCardItemProps } from '@ab.uitools/ui-library/components/Cards/types';
 
-import { IconDelete, IconEdit, IconInfo, IconPerson } from '@ab.uitools/ui-library/dist/components/SVGIcons';
-import { CardItem as _TCardItem } from '@ab.uitools/ui-library/dist/components/Cards';
-import { ButtonIcon } from '@ab.uitools/ui-library/dist/components/ButtonIcon';
+import { IconDelete, IconEdit, IconInfo, IconPerson } from '@ab.uitools/ui-library/components/SVGIcons';
+import { CardItem as _TCardItem } from '@ab.uitools/ui-library/components/Cards';
+import { ButtonIcon } from '@ab.uitools/ui-library/components/ButtonIcon';
 
 import imageFile1 from '../assets/images/ArCa.svg';
 

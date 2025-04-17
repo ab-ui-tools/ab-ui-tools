@@ -1,10 +1,11 @@
 import type { StoryFn } from '@storybook/react';
-import type { TProgressPropTypes } from '@ab.uitools/ui-library/dist/components/Progress/types';
+import type { TProgressPropTypes } from '@ab.uitools/ui-library/components/Progress/types';
 
 import React from 'react';
-import { CodeBlock } from '@ab.uitools/ui-library/dist/helperComponents';
-import { Progress as _Progress } from '@ab.uitools/ui-library/dist/components/Progress';
-import { ProgressBarWrapper as _ProgressBarWrapper } from '@ab.uitools/ui-library/dist/components/Progress';
+import { Progress as _Progress } from '@ab.uitools/ui-library/components/Progress';
+import { ProgressBarWrapper as _ProgressBarWrapper } from '@ab.uitools/ui-library/components/Progress';
+
+import { CodeBlock } from '../helperComponents/CodeBlock';
 
 export default {
   title: 'Progress',

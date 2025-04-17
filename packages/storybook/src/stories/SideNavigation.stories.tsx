@@ -1,23 +1,20 @@
 import type { StoryFn } from '@storybook/react';
-import type { TSideNavigationPropTypes } from '@ab.uitools/ui-library/dist/components/SideNavigation/types';
+import type { TSideNavigationPropTypes } from '@ab.uitools/ui-library/components/SideNavigation/types';
 
 import React, { ReactElement, useState } from 'react';
-import { Text } from '@ab.uitools/ui-library/dist/components/Text';
-import IconWallet from '@ab.uitools/ui-library/dist/components/SVGIcons/IconWallet';
-import IconSignOut from '@ab.uitools/ui-library/dist/components/SVGIcons/IconSignOut';
-import IconSavings from '@ab.uitools/ui-library/dist/components/SVGIcons/IconSavings';
-import IconLockClosed from '@ab.uitools/ui-library/dist/components/SVGIcons/IconLockClosed';
-import IconHome from '@ab.uitools/ui-library/dist/components/SVGIcons/IconHome';
-import IconDocumentFilled from '@ab.uitools/ui-library/dist/components/SVGIcons/IconDocumentFilled';
-import IconDocument from '@ab.uitools/ui-library/dist/components/SVGIcons/IconDocument';
-import { NavigationItemTypes } from '@ab.uitools/ui-library/dist/components/SideNavigation/NavigationItem/types';
-import { Block } from '@ab.uitools/ui-library/dist/components/SideNavigation/Block';
-import {
-  NavigationItem,
-  SideNavigation as _SideNavigation,
-} from '@ab.uitools/ui-library/dist/components/SideNavigation';
-import { Image } from '@ab.uitools/ui-library/dist/components/Image';
-import { Avatar } from '@ab.uitools/ui-library/dist/components/Avatar';
+import { Text } from '@ab.uitools/ui-library/components/Text';
+import IconWallet from '@ab.uitools/ui-library/components/SVGIcons/IconWallet';
+import IconSignOut from '@ab.uitools/ui-library/components/SVGIcons/IconSignOut';
+import IconSavings from '@ab.uitools/ui-library/components/SVGIcons/IconSavings';
+import IconLockClosed from '@ab.uitools/ui-library/components/SVGIcons/IconLockClosed';
+import IconHome from '@ab.uitools/ui-library/components/SVGIcons/IconHome';
+import IconDocumentFilled from '@ab.uitools/ui-library/components/SVGIcons/IconDocumentFilled';
+import IconDocument from '@ab.uitools/ui-library/components/SVGIcons/IconDocument';
+import { NavigationItemTypes } from '@ab.uitools/ui-library/components/SideNavigation/NavigationItem/types';
+import { Block } from '@ab.uitools/ui-library/components/SideNavigation/Block';
+import { NavigationItem, SideNavigation as _SideNavigation } from '@ab.uitools/ui-library/components/SideNavigation';
+import { Image } from '@ab.uitools/ui-library/components/Image';
+import { Avatar } from '@ab.uitools/ui-library/components/Avatar';
 
 // @ts-ignore
 import logo from '../assets/images/logo.svg';

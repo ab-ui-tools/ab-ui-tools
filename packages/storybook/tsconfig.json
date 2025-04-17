@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "outDir": "dist",
     "target": "es5",
     "lib": [
@@ -21,8 +22,20 @@
     "noEmit": false,
     "jsx": "react-jsx",
     "declaration": true,
-    "declarationDir": "dist"
+    "declarationDir": "dist",
+    "paths": {
+      "@ab.uitools/ui-library/*": ["../ui-library/dist/*"],
+      "@ab.uitools/ui-library": ["../ui-library/dist"]
+    }
   },
+  "references": [
+    {
+      "path": "../base/tsconfig.json"
+    },
+    {
+      "path": "../ui-library/tsconfig.json"
+    },
+  ],
   "include": [
     "src",
     "types.d.ts"

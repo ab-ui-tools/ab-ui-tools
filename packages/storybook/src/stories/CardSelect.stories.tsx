@@ -1,13 +1,13 @@
 import type { ChangeEvent } from 'react';
 import type { StoryFn } from '@storybook/react';
-import type { TCardSelectGroupProps, TCardSelectProps } from '@ab.uitools/ui-library/dist/components/CardSelect/types';
+import type { TCardSelectGroupProps, TCardSelectProps } from '@ab.uitools/ui-library/components/CardSelect/types';
 
 import React, { useState } from 'react';
-import IconQuestion from '@ab.uitools/ui-library/dist/components/SVGIcons/IconQuestion';
-import IconInfo from '@ab.uitools/ui-library/dist/components/SVGIcons/IconInfo';
-import { Popover } from '@ab.uitools/ui-library/dist/components/Popover';
-import { CardSelectGroup as _CardSelectGroup } from '@ab.uitools/ui-library/dist/components/CardSelect';
-import { CardSelect as _CardSelect } from '@ab.uitools/ui-library/dist/components/CardSelect';
+import IconQuestion from '@ab.uitools/ui-library/components/SVGIcons/IconQuestion';
+import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
+import { Popover } from '@ab.uitools/ui-library/components/Popover';
+import { CardSelectGroup as _CardSelectGroup } from '@ab.uitools/ui-library/components/CardSelect';
+import { CardSelect as _CardSelect } from '@ab.uitools/ui-library/components/CardSelect';
 
 import { CARD_SELECT_TYPES } from '../consts';
 import imageFile from '../assets/images/illustrations.svg';

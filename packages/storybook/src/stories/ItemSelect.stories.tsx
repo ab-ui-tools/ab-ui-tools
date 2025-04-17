@@ -1,12 +1,12 @@
 import type { StoryFn } from '@storybook/react';
-import type { TItemSelectGroupProps, TItemSelectProps } from '@ab.uitools/ui-library/dist/components/ItemSelect/types';
+import type { TItemSelectGroupProps, TItemSelectProps } from '@ab.uitools/ui-library/components/ItemSelect/types';
 
 import React, { useState } from 'react';
-import IconQuestion from '@ab.uitools/ui-library/dist/components/SVGIcons/IconQuestion';
-import IconCheckmark from '@ab.uitools/ui-library/dist/components/SVGIcons/IconCheckmark';
-import IconAmd from '@ab.uitools/ui-library/dist/components/SVGIcons/IconAmd';
-import { ItemSelectGroup as _ItemSelectGroup } from '@ab.uitools/ui-library/dist/components/ItemSelect';
-import { ItemSelect as _ItemSelect } from '@ab.uitools/ui-library/dist/components/ItemSelect';
+import IconQuestion from '@ab.uitools/ui-library/components/SVGIcons/IconQuestion';
+import IconCheckmark from '@ab.uitools/ui-library/components/SVGIcons/IconCheckmark';
+import IconAmd from '@ab.uitools/ui-library/components/SVGIcons/IconAmd';
+import { ItemSelectGroup as _ItemSelectGroup } from '@ab.uitools/ui-library/components/ItemSelect';
+import { ItemSelect as _ItemSelect } from '@ab.uitools/ui-library/components/ItemSelect';
 
 import imageFile3 from '../assets/images/Visa.svg';
 import imageFile2 from '../assets/images/Mastercard.svg';

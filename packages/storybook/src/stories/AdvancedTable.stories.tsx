@@ -1,6 +1,6 @@
 import type { ColumnDef } from '@tanstack/react-table';
 import type { StoryFn } from '@storybook/react';
-import type { TTableProps } from '@ab.uitools/ui-library/dist/components/AdvancedTable/types';
+import type { TTableProps } from '@ab.uitools/ui-library/components/AdvancedTable/types';
 
 import React from 'react';
 import {
@@ -12,7 +12,7 @@ import {
   IconEdit,
   IconAdd,
   Chips,
-} from '@ab.uitools/ui-library/dist';
+} from '@ab.uitools/ui-library';
 
 const data: any[] = [
   {

@@ -119,6 +119,7 @@ const plugins = [
 export default [
   {
     input: getInputOptions(),
+    context: 'this',
     output: {
       dir: 'dist',
       assetFileNames: '[name][extname]',

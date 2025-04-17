@@ -1,16 +1,13 @@
 import type { JSX } from 'react';
 import type { StoryFn } from '@storybook/react';
-import type {
-  IRangeDatePickerProps,
-  ISimpleDatePickerProps,
-} from '@ab.uitools/ui-library/dist/components/DatePicker/types';
+import type { IRangeDatePickerProps, ISimpleDatePickerProps } from '@ab.uitools/ui-library/components/DatePicker/types';
 
 import React, { useState } from 'react';
 import {
   SimpleDatePicker as _SimpleDatePicker,
   TimePicker as _TimePicker,
   RangeDatePicker as _RangeDatePicker,
-} from '@ab.uitools/ui-library/dist/components/DatePicker';
+} from '@ab.uitools/ui-library';
 
 export default {
   title: 'DatePicker',
@@ -46,7 +43,7 @@ const SimplePicker: StoryFn<ISimpleDatePickerProps> = args => {
           {...args}
           value={value}
           changeHandler={setValue}
-          format="DD"
+          format="dd"
           // label="ddd"
           placeholderText="Select date"
           size="small"
@@ -87,6 +84,7 @@ const RangePicker: StoryFn<IRangeDatePickerProps> = args => {
         value={value}
         changeHandler={setValue}
         locale={'en'}
+        format={'PPP'}
         label={'Range Label'}
         filterDate={date => date.getDay() !== 0 && date.getDay() !== 6}
       />

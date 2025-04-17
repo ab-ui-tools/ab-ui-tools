@@ -44,6 +44,6 @@ export interface IRangeDatePickerProps extends TDatepickerBaseProps {
 export type TRangePickerValues = [Date | null, Date | null];
 
 export enum DateFormat {
-  LongDate = 'MMMM D, YYYY',
-  ShortDate = 'MMM D, YYYY',
+  LongDate = 'MMMM d, YYYY',
+  ShortDate = 'MMM d, YYYY',
 }

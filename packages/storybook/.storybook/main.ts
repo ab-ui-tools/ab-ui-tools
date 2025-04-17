@@ -33,6 +33,18 @@ const config: StorybookConfig = {
     );
     // @ts-ignore
     config.resolve.extensions.push('.js', '.jsx', '.ts', '.tsx', '.css', '.scss');
+    // if (configType === 'DEVELOPMENT') {
+    config.resolve.alias = {
+      ...(config.resolve.alias ?? {}),
+      '~@ab.uitools/ui-library': path.resolve(__dirname, '../../ui-library/dist'),
+      '@ab.uitools/ui-library/dist': path.resolve(__dirname, '../../ui-library/dist'),
+      '@ab.uitools/ui-library': path.resolve(__dirname, '../../ui-library/dist'),
+      '@ab.uitools/ui-library/*': path.resolve(__dirname, '../../ui-library/dist/*'),
+    };
+
+    config.watch = true;
+    // }
+
     return config;
   },
 };

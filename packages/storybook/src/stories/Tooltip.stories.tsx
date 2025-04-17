@@ -1,8 +1,8 @@
 import type { StoryFn } from '@storybook/react';
-import type { TTooltipProps } from '@ab.uitools/ui-library/dist/components/Tooltip/types';
+import type { TTooltipProps } from '@ab.uitools/ui-library/components/Tooltip/types';
 
 import React from 'react';
-import { Tooltip as _Tooltip } from '@ab.uitools/ui-library/dist/components/Tooltip';
+import { Tooltip as _Tooltip } from '@ab.uitools/ui-library/components/Tooltip';
 
 export default {
   title: 'Tooltip',
