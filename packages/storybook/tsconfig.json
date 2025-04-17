@@ -24,8 +24,11 @@
     "declaration": true,
     "declarationDir": "dist",
     "paths": {
-      "@ab.uitools/ui-library/*": ["../ui-library/dist/*"],
-      "@ab.uitools/ui-library": ["../ui-library/dist"]
+      "@ab.uitools/ui-library/*": ["../ui-library/src/*"],
+      "@ab.uitools/ui-library": ["../ui-library/src"],
+      "@ab.uitools/*": [
+        "packages/*/src"
+      ]
     }
   },
   "references": [
