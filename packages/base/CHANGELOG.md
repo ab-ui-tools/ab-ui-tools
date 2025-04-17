@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.14](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.1.13...@ab.uitools/base@1.1.14) (2025-04-17)
+
+**Note:** Version bump only for package @ab.uitools/base
+
 ## [1.1.13](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.1.12...@ab.uitools/base@1.1.13) (2025-04-14)
 
 ### Bug Fixes
