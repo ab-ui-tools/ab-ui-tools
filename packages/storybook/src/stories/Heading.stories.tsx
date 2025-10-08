@@ -12,12 +12,30 @@ export default {
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       control: { type: 'radio' },
     },
-    size: {
-      options: ['xsmall', 'small', 'standard', 'medium', 'large', 'xlarge'],
+    color: {
+      options: [
+        'primary',
+        'secondary',
+        'tertiary',
+        'disabled',
+        'inverse',
+        'brand-light',
+        'brand-dark',
+        'danger-light',
+        'danger-dark',
+        'warning-light',
+        'warning-dark',
+        'success-light',
+        'success-dark',
+        'information-light',
+        'information-dark',
+        'discovery-light',
+        'discovery-dark',
+      ],
       control: { type: 'radio' },
     },
-    lineHeight: {
-      options: ['xsmall', 'small', 'medium', 'large'],
+    size: {
+      options: ['xsmall', 'small', 'standard', 'medium', 'large', 'xlarge'],
       control: { type: 'radio' },
     },
     weight: {
@@ -36,8 +54,9 @@ const Template: StoryFn<HeadingPropTypes & { text: string }> = args => (
 export const Heading = Template.bind({});
 Heading.args = {
   type: 'h1',
-  size: 'small',
-  lineHeight: 'large',
+  color: 'primary',
+  size: 'large',
   weight: 'regular',
   text: 'heading',
+  lineHeight: 'xsmall',
 };

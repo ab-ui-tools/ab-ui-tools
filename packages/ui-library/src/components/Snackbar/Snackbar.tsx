@@ -18,7 +18,7 @@ const CustomToast = ({ actionProps, toastId, type = 'information', text }: TToas
     <div data-id={`${type}-toast-message`} className="snackbar" key={toastId}>
       <div className="snackbar__content">
         <IconDynamicComponent componentName={ICONS_MAPPING[type]} type={TYPE_MAPPING[type]} size="medium" />
-        <Text className="snackbar__text pl-16 pr-8" type="primary" size="standard" weight="regular" lineHeight="large">
+        <Text className="snackbar__text pl-16 pr-8" type="primary" size="standard" weight="regular">
           {text}
         </Text>
       </div>

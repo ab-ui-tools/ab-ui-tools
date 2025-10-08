@@ -51,7 +51,7 @@ export const Checkbox = forwardRef(
         <div id={`${popoverAddons.id}`}>
           <IconInfo
             dataId={`${dataId}-icon`}
-            type="information"
+            type="information-light"
             size="xsmall"
             className={'ml-4 pointer'}
             onClick={e => {

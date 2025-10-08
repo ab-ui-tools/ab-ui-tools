@@ -3,11 +3,11 @@ import type { ReactElement } from 'react';
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-import type { TNavigationLinkPropTypes } from './types';
+import type { TActionItemProps, TNavigationLinkPropTypes } from './types';
 
 import { NavigationItemTypes } from './types';
 import IconChevronDown from '../../SVGIcons/IconChevronDown';
-import { Badge } from '../../Badge';
+import { ButtonIcon } from '../../ButtonIcon';
 import IconDynamicComponent from '../../../helperComponents/IconDynamicComponent/IconDynamicComponent';
 
 export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
@@ -16,18 +16,18 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
     type,
     isOpen,
     iconName,
-    showBadge,
     expandable = false,
     showAction = false,
     actionElm,
     active = false,
-    badgeType = 'green',
-    badgeContent,
     expandIconProps = {
       Component: IconChevronDown,
       size: 'medium',
     },
     children,
+    actionsList,
+    className = '',
+    rightContent,
   } = props;
 
   const [childOpen, setChildOpen] = useState(false);
@@ -44,28 +44,52 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
   return (
     <>
       <div
-        className={classNames('navigation-item', `navigation-item--${type}`)}
+        className={classNames(
+          'navigation-item',
+          `navigation-item--${type}`,
+          `${expandable ? 'navigation-item--expandable' : ''}`,
+          className
+        )}
         onClick={() => setChildOpen(!childOpen)}
       >
         <div className={classNames('navigation-item__inner', active && 'active')}>
+          {expandable || actionsList?.length ? (
+            <div className={'navigation-item__actions'}>
+              {expandable && (
+                <span className={classNames('navigation-item__actions__expand', childOpen && 'opened')}>
+                  {expandIconProps.Component && (
+                    <expandIconProps.Component size={expandIconProps.size || 'small'} className={'mr-12'} />
+                  )}
+                </span>
+              )}
+              {(actionsList?.length || expandable) && (
+                <div className={'navigation-item__actions__right'}>
+                  {actionsList?.map((item: TActionItemProps, index) => {
+                    return (
+                      <div key={index}>
+                        <ButtonIcon iconProps={{ Component: item.iconProps }} size={'small'} />
+                      </div>
+                    );
+                  })}
+                  {expandable && (
+                    <span className={classNames('navigation-item__actions__expand_mobile', childOpen && 'opened')}>
+                      {expandIconProps.Component && (
+                        <expandIconProps.Component size={expandIconProps.size || 'small'} className={'mr-12'} />
+                      )}
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+          ) : null}
           <>
-            {!isOpen && type === NavigationItemTypes.HEADER && As()}
             {displayHeader}
             {displayNavigationItem()}
             {type === NavigationItemTypes.USER && iconName && isOpen && (
               <IconDynamicComponent componentName={iconName} />
             )}
           </>
-          {showBadge && badgeContent && isOpen && (
-            <Badge type={badgeType} text={badgeContent} size="small" className={'mr-12'} />
-          )}
-          {expandable && isOpen && (
-            <span className={classNames('navigation-item__expandable-icon', childOpen && 'opened')}>
-              {expandIconProps.Component && (
-                <expandIconProps.Component size={expandIconProps.size || 'small'} className={'mr-12'} />
-              )}
-            </span>
-          )}
+          {rightContent ? <div className={'navigation-item__right-content'}>{rightContent}</div> : null}
         </div>
         {children && <div className={classNames('navigation-item__child', childOpen && 'active')}>{children}</div>}
       </div>

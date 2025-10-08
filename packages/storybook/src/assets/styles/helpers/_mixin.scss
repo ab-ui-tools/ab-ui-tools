@@ -11,8 +11,10 @@ $fontSizeMap: (
         --font-size-12: 12px,
         --font-size-14: 14px,
         --font-size-16: 16px,
+        --font-size-18: 18px,
         --font-size-20: 20px,
         --font-size-24: 24px,
+        --font-size-28: 28px,
         --font-size-32: 32px,
         --font-size-36: 36px,
         --font-size-40: 40px,
@@ -32,6 +34,7 @@ $spaceMap: (
         --space-8: 8px,
         --space-12: 12px,
         --space-16: 16px,
+        --space-18: 18px,
         --space-20: 20px,
         --space-24: 24px,
         --space-32: 32px,
@@ -470,8 +473,8 @@ $breakpoints: (
         "desktop-wide": 1440px
 );
 @mixin screen($width, $type: min) {
-        @if map_has_key($breakpoints, $width) {
-                $width: map_get($breakpoints, $width);
+        @if map.has-key($breakpoints, $width) {
+                $width: map.get($breakpoints, $width);
                 @if $type == max {
                         $width: $width - 1px;
                 }

@@ -12,19 +12,21 @@
   --ds-card-select-border-color-default: var(--ds-color-border-tertiary);
   --ds-card-select-border-color-hover: var(--ds-color-border-secondary);
   --ds-card-select-border-color-active: var(--ds-color-border-tertiary);
-  --ds-card-select-border-color-selected: var(--ds-color-border-brand);
+  --ds-card-select-border-color-selected: var(--ds-color-border-grey-light);
   --ds-card-select-border-color-disabled: var(--ds-color-border-disabled);
 
   --ds-card-select-border-radius: var(--ds-border-radius-2xl);
   --ds-card-select-padding: var(--ds-space-16);
-  --ds-card-select-shadow-focused: var(--ds-shadow-brand-2);
-  --ds-card-select-shadow-selected: var(--ds-shadow-brand-1);
+  --ds-card-select-shadow-focused: var(--ds-shadow-secondary);
+  --ds-card-select-shadow-selected: var(--ds-color-border-primary-dark);
 
   --ds-card-select-image-size: var(--ds-size-64);
 
   --ds-card-select-icon-size: var(--ds-size-40);
   --ds-card-select-icon-bg: var(--ds-color-bg-container);
   --ds-card-select-icon-border-radius: var(--ds-border-radius-xl);
+
+  --ds-card-select-chips-gap: var(--ds-space-8);
 
   border-radius: var(--ds-card-select-border-radius);
   padding: var(--ds-card-select-padding);
@@ -48,7 +50,7 @@
   }
 
   &--selected {
-    border-color: var(--ds-card-select-border-color-selected);
+    outline: var(--ds-size-2) solid var(--ds-color-border-primary-dark);
     background-color: var(--ds-card-select-bg-selected);
     box-shadow: var(--ds-card-select-shadow-selected);
 
@@ -80,6 +82,16 @@
 
   &__content {
     flex: 1;
+
+    &__left {
+      flex: 1;
+    }
+  }
+
+  &__chips {
+    @include mixin.flexbox;
+    @include mixin.flex-wrap(wrap);
+    gap: var(--ds-card-select-chips-gap)
   }
 }
 

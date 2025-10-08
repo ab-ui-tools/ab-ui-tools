@@ -16,9 +16,19 @@ import {
 import { OptionItem } from '../../helperComponents';
 
 export const Menu = (props: TMenuProps): ReactElement | null => {
-  const { menuItems = [], parentRef, onClose, isOpen, position = 'bottom-right', className = '', children } = props;
+  const {
+    additionalRef = null,
+    menuItems = [],
+    parentRef,
+    onClose,
+    isOpen,
+    position = 'bottom-right',
+    className = '',
+    withTitleOption = false,
+    children,
+  } = props;
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null);
-  useOnOutsideClick(menuRef, onClose, isOpen, useId());
+  useOnOutsideClick([menuRef, additionalRef], onClose, isOpen, useId());
   useHideOnScroll(onClose);
   const { left, top } = useGetElemPositions(parentRef);
   const { width, height } = useGetElemSizes(parentRef);
@@ -63,6 +73,7 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
               return (
                 <OptionItem
                   dataId={dataId}
+                  withTitleOption={withTitleOption}
                   disabled={disabled}
                   key={value}
                   data={{

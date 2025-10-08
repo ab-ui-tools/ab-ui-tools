@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useCallback, useEffect, useId, useRef, useState } from 'react';
+import React, { useId, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import classnames from 'classnames';
 
@@ -9,11 +9,10 @@ import type { TSideSheetPropTypes } from './types';
 import { Footer } from './Footer/Footer';
 import { Tab } from '../Tab';
 import IconDismiss from '../SVGIcons/IconDismiss';
-import IconCaretUp from '../SVGIcons/IconCaretUp';
 import { Heading } from '../Heading';
+import { Divider } from '../Divider';
 import { ButtonIcon } from '../ButtonIcon';
-import { Button } from '../Button';
-import { useDispatchEventOnScroll } from '../../hooks/useDispatchEventOnScroll';
+import { isMobile } from '../../utils/helpers';
 import { useHideBodyScroll, useOnOutsideClick } from '../../hooks';
 import { AnimatePresenceWrapper } from '../../helperComponents/AnimatePresenceWrapper';
 
@@ -25,60 +24,39 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
     onClose,
     onSubmit,
     title,
+    topLeftActions,
+    topRightActions,
     position = 'right',
     shouldRemoveCallback,
     className = '',
     tabItemsProps,
     footerButtons,
-    scrollToTopOptions,
     children,
     closeOnOutsideClick = true,
     checkboxInfo,
     headerContent,
+    isWithDivider = false,
     isPositioned = false,
+    isBodyHidden = true,
     withOverlay = false,
   } = props;
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null);
-  const [isShownScrollIcon, setIsShownScrollIcon] = useState<boolean>(false);
   const scrollbarContainerRef = useRef<HTMLDivElement>(null);
 
   useOnOutsideClick(containerRef, onClose, isOpen && closeOnOutsideClick, useId(), shouldRemoveCallback);
 
-  useHideBodyScroll(isOpen);
-  const dispatchScrollEvent = useDispatchEventOnScroll();
-
-  useEffect(() => {
-    if (isOpen && scrollToTopOptions) {
-      const handleOnScroll = (e: Event) => {
-        dispatchScrollEvent();
-        if (isOpen) {
-          setIsShownScrollIcon((e.currentTarget as HTMLDivElement).scrollTop > scrollToTopOptions.onPixel);
-        }
-      };
-      scrollbarContainerRef.current?.addEventListener('scroll', handleOnScroll);
-    }
-    if (!isOpen) {
-      handleScrollToTop();
-    }
-  }, [isOpen, scrollToTopOptions]);
-
-  const handleScrollToTop = useCallback(() => {
-    setIsShownScrollIcon(false);
-    scrollbarContainerRef.current?.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }, []);
+  useHideBodyScroll(isOpen && isBodyHidden);
 
   const isFromLeft = position === 'left';
+  const isFromRight = position === 'right';
 
   return (
     <AnimatePresenceWrapper>
       {isOpen ? (
         <motion.div
           className={classnames('side-sheet', {
-            'side-sheet--positioned': isPositioned,
-            'side-sheet--with-overlay': withOverlay,
+            'side-sheet--positioned': isPositioned || isMobile(),
+            'side-sheet--with-overlay': withOverlay || isMobile(),
           })}
           initial={{
             opacity: 0,
@@ -96,10 +74,10 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
           transition={{ duration: 0.2 }}
         >
           <motion.div
-            initial={isFromLeft ? { left: '-100%' } : { right: '-100%' }}
-            animate={isFromLeft ? { left: 0 } : { right: 0 }}
+            initial={isFromLeft ? { left: '-100%' } : isFromRight ? { right: '-100%' } : { bottom: '-100%' }}
+            animate={isFromLeft ? { left: 0 } : isFromRight ? { right: 0 } : { bottom: 0 }}
             exit={{
-              ...(isFromLeft ? { left: '-100%' } : { right: '-100%' }),
+              ...(isFromLeft ? { left: '-100%' } : isFromRight ? { right: '-100%' } : { bottom: '-100%' }),
               transition: {
                 duration: 0.5,
               },
@@ -116,30 +94,24 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
             <div className="side-sheet__header">
               <div className="side-sheet__header__top">
                 <div className="side-sheet__header__top__left pr-16">
-                  <Heading className="side-sheet__title" weight="bold" lineHeight="medium" size="xsmall">
+                  <Heading className="side-sheet__title" weight="bold" size="xsmall">
                     {title}
                   </Heading>
+                  {topLeftActions}
                 </div>
-                <div>
+                <div className="flexbox align-items--center">
+                  {topRightActions}
                   <ButtonIcon size="medium" iconProps={{ Component: IconDismiss }} onClick={onClose} />
                 </div>
-                {isShownScrollIcon && (
-                  <Button
-                    size="large"
-                    type="secondary"
-                    iconProps={{ Component: IconCaretUp }}
-                    className={`side-sheet__header__scroll-top side-sheet__header__scroll-top__${size}`}
-                    onClick={handleScrollToTop}
-                  />
-                )}
               </div>
               {headerContent ? <div className="side-sheet__header__content"> {headerContent} </div> : null}
               {tabItemsProps?.tabItems ? (
                 <Tab type={'primary'} size={'small'} {...tabItemsProps} className={'side-sheet__tabs'} />
               ) : null}
+              {isWithDivider && <Divider isHorizontal />}
             </div>
             <div className="side-sheet__content scrollbar scrollbar--vertical" ref={scrollbarContainerRef}>
-              {children}
+              {typeof children === 'function' ? children({ scrollbarContainerRef }) : children}
             </div>
             {footerButtons ? (
               <Footer

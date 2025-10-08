@@ -6,6 +6,7 @@ import React, { useRef, useState } from 'react';
 import IconPerson from '@ab.uitools/ui-library/components/SVGIcons/IconPerson';
 import IconMore from '@ab.uitools/ui-library/components/SVGIcons/IconMore';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
+import IconEdit from '@ab.uitools/ui-library/components/SVGIcons/IconEdit';
 import {
   Button,
   Modal,
@@ -18,8 +19,16 @@ export default {
   title: 'Side Sheet',
   component: _SideSheet,
   argTypes: {
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'radio' },
+    },
     position: {
-      options: ['left', 'right'],
+      options: ['left', 'right', 'bottom'],
+      control: { type: 'radio' },
+    },
+    isWithDivider: {
+      options: [false, true],
       control: { type: 'radio' },
     },
   },
@@ -174,15 +183,21 @@ const Template: StoryFn<TSideSheetPropTypes> = args => {
       </div>
       <_SideSheet
         {...args}
-        size="small"
         onClose={closeSideSheet}
+        topLeftActions={
+          <div>
+            <Button type="tertiary" iconProps={{ Component: IconEdit }} />
+          </div>
+        }
+        topRightActions={
+          <div>
+            <Button type="tertiary" iconProps={{ Component: IconEdit }} />
+          </div>
+        }
         isOpen={isOpen}
         shouldRemoveCallback={false}
         onSubmit={onSubmit}
         headerContent={<p>Lorem ipsum dolor sit amet consectetu </p>}
-        scrollToTopOptions={{
-          onPixel: 200,
-        }}
       >
         <>
           <div>
@@ -247,7 +262,7 @@ const Template: StoryFn<TSideSheetPropTypes> = args => {
                 options={OPTIONS_GROUPED}
                 placeHolder="Select country"
                 helperText="To be filled in only for USA, Canada and European countries."
-                labelAddons={<IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />}
+                labelAddons={<IconInfo size={'xsmall'} type={'information-light'} className={'ml-4'} />}
                 isGrouped={true}
                 isButtonSelect={true}
                 dropdownWidth={400}
@@ -306,6 +321,7 @@ export const SideSheet = Template.bind({});
 
 SideSheet.args = {
   title: 'Side sheet title',
+  size: 'small',
   footerButtons: {
     confirm: {
       buttonText: 'Save',
@@ -334,4 +350,5 @@ SideSheet.args = {
   // position: 'left'
   withOverlay: false,
   isPositioned: false,
+  isWithDivider: false,
 };

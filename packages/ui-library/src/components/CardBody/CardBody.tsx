@@ -10,7 +10,7 @@ import { Image } from '../Image';
 import { Button } from '../Button';
 
 export const CardBody = (props: TCardBodyProps): JSX.Element => {
-  const { title, description, buttonProps, className, illustration } = props;
+  const { title, description, children, buttonProps, className, illustration } = props;
 
   return (
     <div className={classNames('card-body', className)}>
@@ -21,10 +21,11 @@ export const CardBody = (props: TCardBodyProps): JSX.Element => {
         {title}
       </Text>
       {description ? <Text className={'mt-12'}>{description}</Text> : null}
+      {children}
       {buttonProps ? (
-        <div className="body__buttons mt-32">
-          <Button className="full-width" {...(buttonProps.primary || {})} />
-          <Button type="text" className="full-width mt-24" {...buttonProps.secondary} />
+        <div className="card-body__buttons mt-32">
+          {buttonProps.primary && <Button className="full-width" {...(buttonProps.primary || {})} />}
+          {buttonProps.secondary && <Button type="text" className="full-width" {...buttonProps.secondary} />}
         </div>
       ) : null}
     </div>

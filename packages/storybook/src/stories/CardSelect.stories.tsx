@@ -3,7 +3,7 @@ import type { StoryFn } from '@storybook/react';
 import type { TCardSelectGroupProps, TCardSelectProps } from '@ab.uitools/ui-library/components/CardSelect/types';
 
 import React, { useState } from 'react';
-import IconQuestion from '@ab.uitools/ui-library/components/SVGIcons/IconQuestion';
+import IconQuestionCircle from '@ab.uitools/ui-library/components/SVGIcons/IconQuestionCircle';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
 import { Popover } from '@ab.uitools/ui-library/components/Popover';
 import { CardSelectGroup as _CardSelectGroup } from '@ab.uitools/ui-library/components/CardSelect';
@@ -33,7 +33,7 @@ const CARDS = [
     title: 'Card Select',
     dataId: '1',
     icon: {
-      Component: IconQuestion,
+      Component: IconQuestionCircle,
     },
     chips: [
       {
@@ -77,7 +77,7 @@ const CARDS = [
           position="top-center"
         >
           <div id="beneficiary-tooltip">
-            <IconInfo type="information" size="xsmall" className={'ml-4 pointer'} />
+            <IconInfo type="information-light" size="xsmall" className={'ml-4 pointer'} />
           </div>
         </Popover>
       ),
@@ -90,7 +90,7 @@ const CARDS = [
     value: 2,
     title: 'Card Select 2',
     icon: {
-      Component: IconQuestion,
+      Component: IconQuestionCircle,
     },
     chips: [
       {
@@ -129,7 +129,7 @@ const CARDS = [
           position="top-center"
         >
           <div id="beneficiary-tooltip">
-            <IconInfo type="information" size="xsmall" className={'ml-4 pointer'} />
+            <IconInfo type="information-light" size="xsmall" className={'ml-4 pointer'} />
           </div>
         </Popover>
       ),
@@ -151,9 +151,10 @@ CardSelect.args = {
   type: CARD_SELECT_TYPES.card,
   illustration: imageFile,
   icon: {
-    Component: IconQuestion,
+    Component: IconQuestionCircle,
   },
   title: 'Card Select',
+  subtext: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   chips: [
     {
       text: 'Chip 1',

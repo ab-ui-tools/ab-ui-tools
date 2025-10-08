@@ -1,22 +1,28 @@
 import type { ElementType, MouseEvent, ReactNode } from 'react';
 
-type TTextTypes =
+export type TTextTypes =
   | 'primary'
   | 'secondary'
   | 'tertiary'
+  | 'quaternary'
   | 'disabled'
   | 'inverse'
-  | 'selected'
-  | 'brand'
-  | 'danger'
-  | 'warning'
-  | 'success'
-  | 'information'
-  | 'discovery';
+  | 'brand-light'
+  | 'brand-dark'
+  | 'danger-light'
+  | 'danger-dark'
+  | 'warning-light'
+  | 'warning-dark'
+  | 'success-light'
+  | 'success-dark'
+  | 'information-light'
+  | 'information-dark'
+  | 'discovery-light'
+  | 'discovery-dark';
 
-type TTextSize = 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large';
-type TTextWeight = 'regular' | 'semibold' | 'bold' | 'bolder';
-type TTextLineHeight = 'xsmall' | 'small' | 'medium' | 'large';
+export type TTextSize = 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large';
+export type TTextWeight = 'regular' | 'semibold' | 'bold' | 'bolder';
+export type TTextLineHeight = 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large';
 
 export interface TextPropTypes {
   id?: string;

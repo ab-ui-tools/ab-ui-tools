@@ -19,17 +19,17 @@ import { Divider } from '../Divider';
 
 const getTextType = (password: string, isValid: boolean, isFocused: boolean) => {
   if (password.length === 0) return 'tertiary';
-  if (isValid) return 'success';
-  return isFocused ? 'disabled' : 'danger';
+  if (isValid) return 'success-light';
+  return isFocused ? 'disabled' : 'danger-light';
 };
 
 const getIconType = (password: string, isValid: boolean, isFocused: boolean, disabled: boolean | undefined) => {
   if (password.length === 0) return <IconDismissCircle size={'xsmall'} type="tertiary" />;
-  if (isValid) return <IconCheckmarkCircleFilled size={'xsmall'} type={disabled ? 'disabled' : 'success'} />;
+  if (isValid) return <IconCheckmarkCircleFilled size={'xsmall'} type={disabled ? 'disabled' : 'success-light'} />;
   return isFocused ? (
     <IconDismissCircle size={'xsmall'} type={'tertiary'} />
   ) : (
-    <IconDismissCircleFilled size={'xsmall'} type={'danger'} />
+    <IconDismissCircleFilled size={'xsmall'} type={'danger-light'} />
   );
 };
 const IconEyeOnWithTooltip = (props: ISVGIconProps) => {

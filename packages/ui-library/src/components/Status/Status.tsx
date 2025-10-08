@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import type { TStatusProps } from './types';
 
+import { COLOR_MAPPING } from './consts';
 import { Text } from '../Text';
 
 enum StatusTextSize {
@@ -39,7 +40,11 @@ export const Status = (props: TStatusProps): ReactElement => {
         />
       ) : null}
       <div className="status__label">
-        <Text dataId={`${dataId}-text`} type={!withCircle ? type : 'primary'} size={StatusTextSize[size]}>
+        <Text
+          dataId={`${dataId}-text`}
+          type={!withCircle ? COLOR_MAPPING[type] : 'primary'}
+          size={StatusTextSize[size]}
+        >
           {text}
         </Text>
         {children}

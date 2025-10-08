@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import type { TChipsProps } from './types';
 
 import { ChipCustomType } from './types';
-import { ICON_SIZE_MAPPING, TEXT_SIZE_MAPPING } from './consts';
+import { COLOR_MAPPING, LEFT_ICON_SIZE_MAPPING, RIGHT_ICON_SIZE_MAPPING, TEXT_SIZE_MAPPING } from './consts';
 import { Text } from '../Text';
 import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled';
 
@@ -21,6 +21,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
     leftIconProps,
     withAction,
     onClick,
+    isReadOnly = false,
     dataId = '',
   } = props;
 
@@ -34,20 +35,21 @@ export const Chips = (props: TChipsProps): ReactElement => {
   return (
     <div
       className={classNames(`chips chips--${type} chips--${disabled ? 'disabled' : color} chips--${size}`, className)}
+      aria-readonly={isReadOnly}
     >
       {leftIconProps?.Component ? (
         <leftIconProps.Component
           dataId={`${dataId}-icon`}
-          size={ICON_SIZE_MAPPING[size]}
-          type={customType}
-          className={'mr-6'}
+          size={RIGHT_ICON_SIZE_MAPPING[size]}
+          type={type == ChipCustomType.filled ? 'inverse' : COLOR_MAPPING[customType]}
+          className={'chips__icon'}
           {...leftIconProps}
         />
       ) : null}
       {text ? (
         <Text
           dataId={`${dataId}-text`}
-          type={customType}
+          type={type == ChipCustomType.filled ? 'inverse' : COLOR_MAPPING[customType]}
           size={TEXT_SIZE_MAPPING[size]}
           className="chips__label text-truncate"
         >
@@ -57,9 +59,9 @@ export const Chips = (props: TChipsProps): ReactElement => {
       {withAction && (
         <IconDismissCircleFilled
           dataId={`${dataId}-icon`}
-          size={ICON_SIZE_MAPPING[size]}
-          type={customType}
-          className="chips__delete ml-6"
+          size={LEFT_ICON_SIZE_MAPPING[size]}
+          type={type == ChipCustomType.filled ? 'inverse' : COLOR_MAPPING[customType]}
+          className="chips__delete ml-4"
           onClick={handleClick}
         />
       )}

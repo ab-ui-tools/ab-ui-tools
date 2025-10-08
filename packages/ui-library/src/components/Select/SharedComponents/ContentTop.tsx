@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useMemo } from 'react';
 
 import type { TSelectTranslations } from '../types';
 import type { TMenuItem } from '../../Menu/types';
@@ -42,7 +42,6 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
     menuOptions = [],
     dataIdPrefix,
   } = props;
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const { searchInputPlaceHolder, innerLabel, clearAllLabel, selectAllLabel } = translations || {};
 
@@ -90,11 +89,6 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
   };
 
   const removeFilter = () => setSearchValue && setSearchValue('');
-  useEffect(() => {
-    if (inputRef && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [inputRef]);
 
   return (
     <div className="content-top">
@@ -105,7 +99,6 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
       ) : null}
       {isSearchAvailable && (
         <Input
-          ref={inputRef}
           className="content-top__search"
           size="small"
           placeholder={searchInputPlaceHolder}

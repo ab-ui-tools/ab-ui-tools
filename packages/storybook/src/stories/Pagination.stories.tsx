@@ -7,12 +7,7 @@ import { Pagination as _Pagination } from '@ab.uitools/ui-library/components/Pag
 export default {
   title: 'Pagination',
   component: _Pagination,
-  argTypes: {
-    size: {
-      options: ['large', 'medium', 'small'],
-      control: { type: 'radio' },
-    },
-  },
+  argTypes: {},
 };
 const Template: StoryFn<TPaginationProps> = ({ pageSize, ...args }) => (
   <_Pagination
@@ -30,6 +25,5 @@ export const Pagination = Template.bind({});
 
 // @ts-ignore
 Pagination.args = {
-  size: 'large',
   totalCount: 100,
 };

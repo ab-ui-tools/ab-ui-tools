@@ -8,21 +8,13 @@ import { Chips } from '../../Chips';
 
 interface TCardChips {
   chips: TChipsProps[];
-  disabled?: boolean;
 }
 export const CardChips = (props: TCardChips): ReactElement => {
-  const { chips, disabled } = props;
+  const { chips } = props;
   return (
-    <div>
+    <div className={'card-select__chips mt-16'}>
       {chips.map(chip => (
-        <Chips
-          {...chip}
-          key={chip.id}
-          disabled={disabled}
-          className={'mt-8 mr-8'}
-          onClick={chip.onClick}
-          withAction={chip.withAction}
-        />
+        <Chips {...chip} key={chip.id} onClick={chip.onClick} withAction={chip.withAction} />
       ))}
     </div>
   );

@@ -4,7 +4,9 @@ import React, { useCallback, useMemo, useRef } from 'react';
 
 import type { TSelectTranslations } from '../types';
 
+import { RadioSelectGrouped } from './RadioSelectGrouped/RadioSelectGrouped';
 import { MultiSelectWithTabs } from './MultiSelectWithTabs/MultiSelectWithTabs';
+import { MultiSelectTree } from './MultiSelectTree/MultiSelectTree';
 import { MultiSelectGrouped } from './MultiSelectGrouped/MultiSelectGrouped';
 import { MultiBase } from './MultiBase/MultiBase';
 import { Loading } from '../SharedComponents';
@@ -16,6 +18,8 @@ type TProps = {
   isLoading?: boolean;
   withTabs?: boolean;
   isGrouped?: boolean;
+  isMultiSelectTree?: boolean;
+  isRadioGrouped?: boolean;
   isOpen: boolean;
   translations: TSelectTranslations;
   containerRef: HTMLDivElement | null;
@@ -30,6 +34,8 @@ export const OptionsWrapper = (props: TProps): ReactElement => {
     isLoading,
     withTabs,
     isGrouped,
+    isMultiSelectTree,
+    isRadioGrouped,
     isOpen,
     translations,
     containerRef,
@@ -46,7 +52,15 @@ export const OptionsWrapper = (props: TProps): ReactElement => {
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const SelectComp = withTabs ? MultiSelectWithTabs : isGrouped ? MultiSelectGrouped : MultiBase;
+  const SelectComp = isMultiSelectTree
+    ? MultiSelectTree
+    : withTabs
+      ? MultiSelectWithTabs
+      : isRadioGrouped
+        ? RadioSelectGrouped
+        : isGrouped
+          ? MultiSelectGrouped
+          : MultiBase;
 
   const checkIsValueOverflowed = useCallback(
     (value: string) => {
@@ -118,6 +132,7 @@ export const OptionsWrapper = (props: TProps): ReactElement => {
       scrollableContentStyle={{
         ...(!hasBottomSpace && !hasTopSpace ? { maxHeight: bottomSpace - 65 - 56 } : {}),
       }} // 65 - height of the top content, 56 - height of the footer
+      isMultiSelectTree={isMultiSelectTree}
       {...rest}
     />
   );

@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 
+import { Fragment } from 'react';
 import React, { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
@@ -18,6 +19,7 @@ import {
   useGetElemSizes,
   useGetHasBottomSpace,
   useGetHasTopSpace,
+  useHideOnResize,
 } from '../../../hooks';
 import { OptionItem } from '../../../helperComponents';
 import { DROPDOWN_AND_INPUT_GAP } from '../../../consts';
@@ -34,14 +36,18 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     hasError,
     isLoading,
     isValid,
-    withSearch,
+    isSearchable = false,
+    isDynamicSearchable = false,
+    trimSearchValue = false,
     disabled,
     dataId = '',
     placeHolder,
-    isCreatable,
+    isCreateOnOutsideClick,
     selectedItem = null,
     setFieldValue,
     setSelectedItem,
+    onInputChange,
+    onInputFormatting,
     outerHelperText,
     innerHelperText,
     isRequiredField,
@@ -59,6 +65,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     labelAddons,
     tooltipAddons,
     renderOptions,
+    isAllowed,
   } = props;
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -69,7 +76,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null);
 
   const isDynamicSearchEnabled = useMemo(() => {
-    if (isOpen) {
+    if (isOpen && isDynamicSearchable) {
       const scrollHeight = scrollRef.current?.scrollHeight || 0;
       const optionsContentHeight = dropdownRef?.offsetHeight || 0;
 
@@ -81,11 +88,22 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const currentSelection = (value as TItemValue) || selectedItem;
   const [selectedOption, setSelectedOption] = useState<TSelectOption | null>(null);
 
-  const isWithSearch = (withSearch && isDynamicSearchEnabled) || isCreatable;
+  const isWithSearch = isSearchable || isDynamicSearchEnabled || isCreateOnOutsideClick;
+
+  const getFormatedValue = (value: string) => {
+    if (onInputFormatting && value) {
+      return onInputFormatting(value);
+    }
+    return value;
+  };
+
+  const getSelectedOption = () => {
+    return options.find(item => item.value === currentSelection) as TSelectOption;
+  };
 
   const setCurrentSelectedLabel = useCallback(() => {
-    const selectedItem = options.find(item => item.value === currentSelection) as TSelectOption;
-    setSelectedOption(selectedItem);
+    const selectedItem = getSelectedOption();
+    setSelectedOption({ ...selectedItem, label: getFormatedValue(selectedItem?.label as string) });
   }, [currentSelection, options]);
 
   const leftIconProps = selectedOption?.optionLeftIcon?.Component
@@ -101,16 +119,17 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const openDropdown = () => setIsOpen(true);
   const closeDropdown = () => {
     setIsOpen(false);
-    if (!isCreatable) {
+    if (!isCreateOnOutsideClick) {
       setSearchValue('');
       setCurrentSelectedLabel();
     }
   };
 
   const handleOutsideClick = () => {
-    if (!searchValue) {
+    const selected = getSelectedOption();
+    if (!searchValue && selected) {
       setCurrentSelectedLabel();
-    } else if (isCreatable) {
+    } else if (isCreateOnOutsideClick) {
       setSelectedOption({ label: searchValue, value: searchValue });
       onItemSelect(searchValue);
     }
@@ -127,8 +146,10 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
       return options;
     }
 
+    const processedSearchValue = trimSearchValue ? searchValue.trim().toLowerCase() : searchValue.toLowerCase();
+
     return options.filter(dataItem => {
-      return typeof dataItem.label === 'string' && dataItem.label.toLowerCase().includes(searchValue.toLowerCase());
+      return typeof dataItem.label === 'string' && dataItem.label.toLowerCase().includes(processedSearchValue);
     });
   }, [searchValue, options]);
 
@@ -174,7 +195,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const onSearch = (e: TChangeEventType) => {
     setSelectedOption(null);
-    setSearchValue(e.target.value);
+    setSearchValue(getFormatedValue(e.target.value));
   };
   const { hasBottomSpace } = useGetHasBottomSpace({
     element: dropdownRef,
@@ -192,6 +213,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     hasBottomSpace,
   });
 
+  useHideOnResize(closeDropdown);
+
   return (
     <div
       data-id={`${dataId}-content`}
@@ -208,16 +231,18 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         className="select__input"
         label={label}
         onChange={onSearch}
+        onInput={onInputChange}
         required={isRequiredField}
         leftIconProps={leftIconProps}
         rightIconProps={isOpen ? selectRightIconOpenedProps : selectRightIconProps}
         readonly={!searchValue && !isWithSearch}
         placeholder={placeHolder}
-        value={selectedOption?.label || searchValue || ''}
+        value={searchValue || selectedOption?.label || ''}
         isValid={isValid}
         disabled={disabled}
         helperText={outerHelperText}
         ref={inputRef}
+        isAllowed={isAllowed}
         labelAddons={labelAddons}
         autoComplete="false"
       />
@@ -254,15 +279,15 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
                 </div>
               ) : null}
 
-              {filteredData.map((item: TSelectOption) => {
+              {filteredData.map((item: TSelectOption, i: number) => {
                 const isSelected = item.value === currentSelection;
                 return (
-                  <>
+                  <Fragment key={item.value}>
                     {renderOptions ? (
                       renderOptions({
-                        key: item.value as string,
                         onClick: clickHandler(isSelected),
                         data: item,
+                        index: i,
                         disabled: item.disabled,
                         isSelected: isSelected,
                       })
@@ -270,7 +295,6 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
                       <OptionItem
                         tooltipAddons={tooltipAddons}
                         data={item}
-                        key={item.value}
                         onClick={clickHandler(isSelected)}
                         optionLeftIcon={item?.optionLeftIcon}
                         labelLeftIconProps={labelLeftIconProps}
@@ -281,7 +305,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
                         isSelected={isSelected}
                       />
                     )}
-                  </>
+                  </Fragment>
                 );
               })}
             </div>

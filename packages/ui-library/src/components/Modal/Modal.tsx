@@ -10,6 +10,7 @@ import { Positions } from '../Tooltip/types';
 import { Tooltip } from '../Tooltip';
 import { Text } from '../Text';
 import IconDismiss from '../SVGIcons/IconDismiss';
+import { Checkbox } from '../Checkbox';
 import { ButtonIcon } from '../ButtonIcon';
 import { Button } from '../Button';
 import { useHideBodyScroll, useOnOutsideClick } from '../../hooks';
@@ -38,13 +39,13 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     isOpen,
     onClose,
     onSubmit,
-    title,
+    titleProps,
     subtitle,
     closeIcon,
     className = '',
     size = 'medium',
-    withFooter = true,
     buttonProps,
+    checkProps,
     children,
     dataIdPrefix,
     closeOnOutsideClick = true,
@@ -54,6 +55,31 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null);
   useOnOutsideClick(containerRef, onClose, closeOnOutsideClick && isOpen, useId());
   useHideBodyScroll(isOpen);
+
+  const checkbox = checkProps ? <Checkbox {...checkProps} /> : null;
+
+  const buttons = buttonProps ? (
+    <div className={`flexbox ${checkProps ? '' : 'full-width justify-content--end'}`}>
+      <Button
+        type="tertiary"
+        className="modal__footer__btn mr-16"
+        onClick={onClose}
+        dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
+        {...(buttonProps.cancel || {})}
+      />
+      {confirmBtnTooltipText ? (
+        <Tooltip text={confirmBtnTooltipText as string} id={'confirm-btn-tooltip'} position={Positions.TOP_CENTER} />
+      ) : null}
+      <Button
+        id={'confirm-btn-tooltip'}
+        className={'modal__footer__btn'}
+        type="primary"
+        onClick={onSubmit}
+        dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
+        {...buttonProps.confirm}
+      />
+    </div>
+  ) : null;
 
   return (
     <AnimatePresenceWrapper>
@@ -70,21 +96,20 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
           transition={{ duration: 0.4 }}
         >
           <div className="modal__container" ref={setContainerRef} {...DESKTOP_ANIMATION}>
-            {title ? (
+            {titleProps?.title ? (
               <div className="modal__header">
                 <div>
                   <Text
-                    lineHeight="large"
-                    size="large"
-                    weight={'bolder'}
+                    size={titleProps.size}
+                    className={`modal__title-${titleProps.size || 'small'}`}
+                    weight={'bold'}
                     dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
                   >
-                    {title}
+                    {titleProps.title}
                   </Text>
                   {subtitle ? (
                     <Text
                       className={'mt-12'}
-                      lineHeight={'large'}
                       type={'secondary'}
                       dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
                     >
@@ -95,6 +120,7 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
                 {closeIcon ? (
                   <ButtonIcon
                     className={'modal__close ml-16'}
+                    size={'large'}
                     dataId={dataIdPrefix ? `${dataIdPrefix}-modal-close-button` : ''}
                     iconProps={{ Component: IconDismiss }}
                     onClick={onClose}
@@ -104,30 +130,10 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
             ) : null}
 
             <div className="modal__content scrollbar scrollbar--vertical">{children}</div>
-            {withFooter && buttonProps ? (
-              <div className="modal__footer">
-                <Button
-                  type="tertiary"
-                  className="modal__footer__btn mr-16"
-                  onClick={onClose}
-                  dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
-                  {...(buttonProps.cancel || {})}
-                />
-                {confirmBtnTooltipText ? (
-                  <Tooltip
-                    text={confirmBtnTooltipText as string}
-                    id={'confirm-btn-tooltip'}
-                    position={Positions.TOP_CENTER}
-                  />
-                ) : null}
-                <Button
-                  id={'confirm-btn-tooltip'}
-                  className={'modal__footer__btn'}
-                  type="primary"
-                  onClick={onSubmit}
-                  dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
-                  {...buttonProps.confirm}
-                />
+            {buttons || checkbox ? (
+              <div className={`modal__footer ${checkbox ? 'justify-content--between' : 'justify-content--end'}`}>
+                {checkbox}
+                {buttons}
               </div>
             ) : null}
           </div>

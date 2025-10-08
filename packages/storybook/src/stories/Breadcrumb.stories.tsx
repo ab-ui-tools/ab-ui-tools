@@ -1,9 +1,8 @@
 import type { StoryFn } from '@storybook/react';
+import type { TBreadCrumbProps } from '@ab.uitools/ui-library/components/Breadcrumb/types';
 
 import React, { useState } from 'react';
 import { Breadcrumb as _Breadcrumb } from '@ab.uitools/ui-library/components/Breadcrumb';
-
-import type { TBreadCrumbProps } from '../components/Breadcrumb/types';
 
 import { noop } from '../utils/helpers';
 

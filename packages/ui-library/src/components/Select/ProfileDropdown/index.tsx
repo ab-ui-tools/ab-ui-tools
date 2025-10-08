@@ -1,17 +1,19 @@
 import type { JSX } from 'react';
 
 import React, { useId, useRef } from 'react';
+import classNames from 'classnames';
+
+import './styles.scss';
 
 import type { TProfileDropdownProps } from '../types';
 
-import './styles.scss';
 import { Text } from '../../Text';
 import { Link } from '../../Link';
 import { useOnOutsideClick } from '../../../hooks';
 
 export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
   const menuRef = useRef<HTMLDivElement>(null);
-  const { avatar, name, email, bodyItems, footerItems, className } = props;
+  const { avatar, name, email, bodyItems, footerItems, className, headerContent, userInfoAlignment = 'left' } = props;
   const [isOpen, setIsOpen] = React.useState(false);
 
   const closeDropdown = () => setIsOpen(false);
@@ -22,15 +24,16 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
       <div onClick={() => setIsOpen(!isOpen)}>{avatar}</div>
       {isOpen && (
         <div className="profile-dropdown">
-          <div className="profile-dropdown__top">
+          <div className={classNames(`profile-dropdown__top profile-dropdown__top--${userInfoAlignment}`)}>
             {avatar}
-            <div className={'pl-12'}>
-              <Text size={'medium'} weight={'bold'} lineHeight={'large'}>
+            <div>
+              <Text size={'medium'} weight={'bold'}>
                 {name}
               </Text>
               <Text type={'tertiary'}>{email}</Text>
             </div>
           </div>
+          {headerContent ? <div className="profile-dropdown__header">{headerContent}</div> : null}
           <div className="profile-dropdown__menu">
             <ul className={'profile-dropdown__nav'}>
               {bodyItems?.map((item, index) => (

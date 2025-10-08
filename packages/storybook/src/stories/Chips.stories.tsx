@@ -38,4 +38,5 @@ Chips.args = {
   },
   disabled: false,
   withAction: false,
+  isReadOnly: false,
 };

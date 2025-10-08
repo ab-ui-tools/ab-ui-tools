@@ -4,6 +4,7 @@
 
 body {
   font-family: var(--ds-font-family);
+  font-size: var(--font-size-14);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -15,6 +16,7 @@ body {
 .fs-12 { @include mixin.font('--font-size-12'); }
 .fs-14 { @include mixin.font('--font-size-14'); }
 .fs-16 { @include mixin.font('--font-size-16'); }
+.fs-18 { @include mixin.font('--font-size-18'); }
 .fs-20 { @include mixin.font('--font-size-20'); }
 .fs-24 { @include mixin.font('--font-size-24'); }
 .fs-32 { @include mixin.font('--font-size-32'); }
@@ -42,6 +44,7 @@ $space-values: (
                 10,
                 12,
                 16,
+                18,
                 20,
                 24,
                 28,
@@ -58,27 +61,41 @@ $space-values: (
 
 //shorthands
 $space-prefixes: (
-         m : margin,
+        m : margin,
         mt : margin-top,
         mr : margin-right,
         mb : margin-bottom,
         ml : margin-left,
+        mx : (margin-left, margin-right),
+        my : (margin-top, margin-bottom),
 
-         p : padding,
+        p : padding,
         pt : padding-top,
         pr : padding-right,
         pb : padding-bottom,
-        pl : padding-left
+        pl : padding-left,
+        px : (padding-left, padding-right),
+        py : (padding-top, padding-bottom)
 ) !default;
 
 @mixin make-spaces() {
   @each $attr-short, $attr-long in $space-prefixes {
     @each $value in $space-values {
       .#{$attr-short}-#{$value} {
-        @if $value == 'auto' { /*add the @if loop*/
-          #{$attr-long}: #{$value};
+        @if meta.type-of($attr-long) == 'list' {
+          @each $prop in $attr-long {
+            @if $value == 'auto' {
+              #{$prop}: #{$value};
+            } @else {
+              #{$prop}: #{$value}px;
+            }
+          }
         } @else {
-          #{$attr-long}: #{$value}#{'px'};
+          @if $value == 'auto' {
+            #{$attr-long}: #{$value};
+          } @else {
+            #{$attr-long}: #{$value}px;
+          }
         }
       }
     }
@@ -367,6 +384,27 @@ $space-prefixes: (
   }
 }
 
+//label text
+
+.label {
+  $label-type: (
+    large: var(--ds-label-lg),
+    medium: var(--ds-label-md),
+    standard: var(--ds-label-std),
+    small: var(--ds-label-sm),
+    xsmall: var(--ds-label-xs),
+    xxsmall: var(--ds-label-xs),
+  );
+
+  font-family: var(--ds-font-family);
+
+  @each $type, $size in $label-type {
+    &-#{$type} {
+      font-size: $size;
+    }
+  }
+}
+
 //weight
 
 .regular { font-weight: var(--ds-font-weight-default); }
@@ -376,15 +414,51 @@ $space-prefixes: (
 
 //line height
 
-.lh {
-  $lineHeight-type: (
-    large: var(--ds-line-height-heading),
-    medium: var(--ds-line-height-caption),
-    small: var(--ds-line-height-tight),
-    xsmall: var(--ds-line-height-default),
+.lh-heading {
+  $lineHeightHeading-type: (
+    xlarge: var(--ds-line-height-heading-xl),
+    large: var(--ds-line-height-heading-lg),
+    medium: var(--ds-line-height-heading-md),
+    standard: var(--ds-line-height-heading-std),
+    small: var(--ds-line-height-heading-sm),
+    xsmall: var(--ds-line-height-heading-xs),
   );
 
-  @each $type, $size in $lineHeight-type {
+  @each $type, $size in $lineHeightHeading-type {
+    &-#{$type} {
+      line-height: $size;
+    }
+  }
+}
+
+.lh-body {
+  $lineHeightBody-type: (
+    large: var(--ds-line-height-paragraph-lg),
+    medium: var(--ds-line-height-paragraph-md),
+    standard: var(--ds-line-height-paragraph-std),
+    small: var(--ds-line-height-paragraph-sm),
+    xsmall: var(--ds-line-height-paragraph-xs),
+    xxsmall: var(--ds-line-height-paragraph-xs),
+  );
+
+  @each $type, $size in $lineHeightBody-type {
+    &-#{$type} {
+      line-height: $size;
+    }
+  }
+}
+
+.lh-label {
+  $lineHeightLabel-type: (
+    large: var(--ds-line-height-label-lg),
+    medium: var(--ds-line-height-label-md),
+    standard: var(--ds-line-height-label-std),
+    small: var(--ds-line-height-label-sm),
+    xsmall: var(--ds-line-height-label-xs),
+    xxsmall: var(--ds-line-height-label-xs),
+  );
+
+  @each $type, $size in $lineHeightLabel-type {
     &-#{$type} {
       line-height: $size;
     }
@@ -398,15 +472,21 @@ $space-prefixes: (
     primary: var(--ds-color-text-primary),
     secondary: var(--ds-color-text-secondary),
     tertiary: var(--ds-color-text-tertiary),
+    quaternary: var(--ds-color-text-quaternary),
     disabled: var(--ds-color-text-disabled),
-    selected: var(--ds-color-text-selected),
     inverse: var(--ds-color-text-inverse),
-    brand: var(--ds-color-text-brand),
-    success: var(--ds-color-text-success),
-    information: var(--ds-color-text-info),
-    warning: var(--ds-color-text-warning),
-    danger: var(--ds-color-text-danger),
-    discovery: var(--ds-color-text-discovery),
+    brand-light: var(--ds-color-text-brand-light),
+    brand-dark: var(--ds-color-text-brand-dark),
+    success-light: var(--ds-color-text-success-light),
+    success-dark: var(--ds-color-text-success-dark),
+    information-light: var(--ds-color-text-info-light),
+    information-dark: var(--ds-color-text-info-dark),
+    warning-light: var(--ds-color-text-warning-light),
+    warning-dark: var(--ds-color-text-warning-dark),
+    danger-light: var(--ds-color-text-danger-light),
+    danger-dark: var(--ds-color-text-danger-dark),
+    discovery-light: var(--ds-color-text-discovery-light),
+    discovery-dark: var(--ds-color-text-discovery-dark),
   );
 
   @each $type, $color in $color-type {
@@ -489,7 +569,7 @@ $space-prefixes: (
       margin: var(--ds-space-8) 0;
     }
     &::-webkit-scrollbar {
-      width: var(--ds-size-4);
+      width: var(--ds-size-6);
     }
   }
 
@@ -501,7 +581,7 @@ $space-prefixes: (
       margin: 0 var(--ds-space-8);
     }
     &::-webkit-scrollbar {
-      height: var(--ds-size-4);
+      height: var(--ds-size-6);
     }
   }
 }
@@ -618,4 +698,8 @@ $space-prefixes: (
   &-not-allowed {
     cursor: not-allowed;
   }
+}
+
+.pointer-events-none {
+  pointer-events: none;
 }

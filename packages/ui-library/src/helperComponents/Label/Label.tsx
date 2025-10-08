@@ -1,26 +1,45 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import type { LabelPropTypes } from './types';
 
-import { Text } from '../../components/Text';
-
 export const Label: React.FC<LabelPropTypes> = (props: LabelPropTypes) => {
-  const { text, size = 'standard', required = false, disabled = false, className = '', labelAddons } = props;
+  const {
+    text,
+    className = '',
+    size = 'standard',
+    lineHeight = size,
+    weight = 'semibold',
+    type = 'primary',
+    required = false,
+    disabled = false,
+    labelAddons,
+    as: As = 'p',
+  } = props;
   if (!text) {
     return null;
   }
   return (
-    <Text
+    <As
       size={size}
       weight={'semibold'}
       type={disabled ? 'disabled' : 'primary'}
-      className={`label flexbox align-items--start mb-8 ${className}`}
+      className={classNames(
+        'label flexbox align-items--start mb-8',
+        size && `label-${size}`,
+        type && `color-${type}`,
+        weight,
+        `lh-label-${lineHeight}`,
+        className
+      )}
     >
       <>
-        {text}
-        {required ? <sup>*</sup> : null}
+        <span>
+          {text}
+          {required ? <sup className={'ml-2'}>*</sup> : null}
+        </span>
         {labelAddons}
       </>
-    </Text>
+    </As>
   );
 };

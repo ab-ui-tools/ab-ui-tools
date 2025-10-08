@@ -30,7 +30,7 @@ export const Step = (props: TStepProps): ReactElement => {
 
   const textType = useMemo(() => {
     if (isActive && !isRejected) {
-      return 'brand';
+      return 'brand-light';
     }
     if (isCompleted || isRejected) {
       return 'inverse';
@@ -84,12 +84,7 @@ export const Step = (props: TStepProps): ReactElement => {
         <div className="step__circle">{stepItemContent}</div>
       </div>
       <div className="step__label">
-        <Text
-          size={stepSize == 'large' ? 'standard' : 'small'}
-          weight="semibold"
-          lineHeight={'large'}
-          className="text-truncate"
-        >
+        <Text size={stepSize == 'large' ? 'standard' : 'small'} weight="semibold" className="text-truncate">
           {label}
         </Text>
         <Text size={stepSize == 'large' ? 'small' : 'xsmall'} className="text-truncate">

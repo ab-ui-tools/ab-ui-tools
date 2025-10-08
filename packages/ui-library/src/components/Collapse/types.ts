@@ -1,43 +1,36 @@
 import type { ReactElement, ReactNode } from 'react';
 
-export type TCollapseTitleColor = 'selected' | 'primary';
-
-export interface ICollapseTitleProps {
-  size?: 'small' | 'medium';
-  color?: TCollapseTitleColor;
-}
-
-interface TCollapseItemTitle extends ICollapseTitleProps {
-  text: string | ReactNode;
-}
 export type TCollapseProps = {
   isOpen: boolean;
   toggle: () => void;
   children: ReactNode;
-  title: TCollapseItemTitle;
-  reverse?: boolean;
+  title: string | ReactElement;
+  subtext?: string;
   additionalInfo?: ReactNode;
-  dataId?: string | undefined;
-  labelLeftIconProps?: TSelectIconProps;
+  iconProps?: TSelectIconProps;
+  reverse?: boolean;
+  disabled?: boolean;
   id?: string | number;
   className?: string;
 };
 
 export type TCollapseValue = string | number;
 
-export type TCollapseItem = {
-  title: string;
+export type TCollapseGroupItem = {
+  title: string | ReactElement;
+  subtext?: string;
+  additionalInfo?: ReactNode;
   value: TCollapseValue;
   content?: ReactElement | null;
   iconProps?: TSelectIconProps;
   isOpen?: boolean;
-  dataId?: string;
+  disabled?: boolean;
+  reverse?: boolean;
   id?: string | number;
 };
 
 export type TCollapseGroupProps = {
-  items: TCollapseItem[];
+  items: TCollapseGroupItem[];
   singleSelection?: boolean;
-  titleProps?: ICollapseTitleProps;
   className?: string;
 };

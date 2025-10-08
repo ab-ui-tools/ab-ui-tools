@@ -36,6 +36,8 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
     checkboxInfo,
     translations,
     hasError,
+    autoApplyOnClose = false,
+    autoApplyOnChooseItem = false,
     ...rest
   } = props;
 
@@ -46,21 +48,39 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(initialSelected);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const hasOpenedRef = useRef(false);
 
   const closeDropdown = () => setIsOpen(false);
   const openDropdown = () => setIsOpen(true);
 
+  const toggleDropdown = () => {
+    setIsOpen(prev => !prev);
+  };
+
   const hasChange = useMemo(() => {
-    if (selectedValues?.length !== initialSelected?.length) {
-      return true;
+    const initial = (initialSelected || []).map(i => i.value).sort();
+    const current = (selectedValues || []).map(i => i.value).sort();
+
+    if (initial.length !== current.length) return true;
+
+    return initial.some((val, index) => val !== current[index]);
+  }, [initialSelected, selectedValues]);
+
+  useEffect(() => {
+    if (autoApplyOnChooseItem) {
+      submitSelectedValue(selectedValues, false, false);
+    }
+  }, [selectedValues, autoApplyOnChooseItem]);
+
+  useEffect(() => {
+    if (isOpen) {
+      hasOpenedRef.current = true;
     }
 
-    return (
-      selectedValues?.findIndex(
-        value => initialSelected?.findIndex((i: TSelectOption) => i.value === value.value) === -1
-      ) !== -1
-    );
-  }, [selectedValues, initialSelected]);
+    if (!isOpen && autoApplyOnClose && hasOpenedRef.current && hasChange) {
+      submitSelectedValue(selectedValues, false);
+    }
+  }, [isOpen, autoApplyOnClose, hasChange]);
 
   useEffect(() => {
     setSelectedValues((value as TSelectedValue[]) || []);
@@ -77,9 +97,9 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
     closeDropdown();
   };
 
-  useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen, useId());
+  useOnOutsideClick(containerRef.current, autoApplyOnClose ? closeDropdown : cancelSelectedItems, isOpen, useId());
 
-  const submitSelectedValue = (selections: TSelectedValue[], isChecked: boolean) => {
+  const submitSelectedValue = (selections: TSelectedValue[], isChecked: boolean, closeDropdownOnApply = true) => {
     if (setSelectedItems) {
       setSelectedItems(selections, isChecked);
     }
@@ -87,7 +107,9 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
       setFieldValue(name, selections);
     }
 
-    closeDropdown();
+    if (closeDropdownOnApply) {
+      closeDropdown();
+    }
   };
 
   const applySelectedItems = (isChecked: boolean) => {
@@ -104,6 +126,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
       dropdownRef={dropdownRef}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
+      toggleDropdown={toggleDropdown}
       containerRef={containerRef?.current}
       setContainerRef={containerRef}
       dropdownWidth={dropdownWidth}
@@ -134,7 +157,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
           containerRef={containerRef?.current}
           {...rest}
         />
-        {options.length ? (
+        {!autoApplyOnClose && options.length ? (
           <Footer
             checkboxInfo={checkboxInfo}
             hasChange={hasChange}

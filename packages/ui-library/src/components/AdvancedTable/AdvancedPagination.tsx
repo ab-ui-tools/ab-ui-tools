@@ -3,7 +3,9 @@ import type { Table } from '@tanstack/react-table';
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
+import { OPTIONS } from './constants';
 import { Text } from '../Text';
+import IconMore from '../SVGIcons/IconMore';
 import IconChevronRight from '../SVGIcons/IconChevronRight';
 import IconChevronLeft from '../SVGIcons/IconChevronLeft';
 import IconChevronDoubleRight from '../SVGIcons/IconChevronDoubleRight';
@@ -17,29 +19,6 @@ interface PaginationProps<T> {
   totalCount: number;
   buttonText?: string;
 }
-
-const OPTIONS: TSelectOptions = [
-  {
-    value: '10',
-    label: '10',
-  },
-  {
-    value: '20',
-    label: '20',
-  },
-  {
-    value: '30',
-    label: '30',
-  },
-  {
-    value: '40',
-    label: '40',
-  },
-  {
-    value: '50',
-    label: '50',
-  },
-];
 
 export function AdvancedPagination<TData>({ table, totalCount, buttonText }: PaginationProps<TData>) {
   const [navigatePage, setNavigatePage] = useState<string>('1');
@@ -78,11 +57,11 @@ export function AdvancedPagination<TData>({ table, totalCount, buttonText }: Pag
     visiblePages.push(1);
 
     if (currentPage <= 3) {
-      visiblePages.push(2, 3, 4, 5, '...', totalPages);
-    } else if (currentPage >= totalPages - 5) {
-      visiblePages.push('...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+      visiblePages.push(2, 3, 4, 5, '+++', totalPages);
+    } else if (currentPage > totalPages - 5) {
+      visiblePages.push('---', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
     } else {
-      visiblePages.push('...', currentPage, currentPage + 1, currentPage + 2, '...', totalPages);
+      visiblePages.push('---', currentPage, currentPage + 1, currentPage + 2, '+++', totalPages);
     }
 
     return visiblePages;
@@ -115,63 +94,56 @@ export function AdvancedPagination<TData>({ table, totalCount, buttonText }: Pag
           />
           <Button onClick={onGoToPage} type="secondary" size="medium" buttonText={buttonText ?? 'Go to page'} />
         </div>
-        <div className="advanced-table__pagination__counts">
-          <Button
-            onClick={() => table.firstPage()}
-            type="tertiary"
-            size="medium"
-            iconProps={{
-              Component: IconChevronDoubleLeft,
-            }}
-            disabled={!table.getCanPreviousPage()}
-          />
-          <Button
-            onClick={() => table.previousPage()}
-            size="medium"
-            type="tertiary"
-            iconProps={{
-              Component: IconChevronLeft,
-            }}
-            disabled={!table.getCanPreviousPage()}
-          />
+        <ul className="pagination">
+          <li className={`previous ${!table.getCanPreviousPage() ? 'disabled' : ''}`}>
+            <a rel={'prev'} role={'button'} onClick={() => table.firstPage()}>
+              <IconChevronDoubleLeft size={'small'} />
+            </a>
+          </li>
+          <li className={`previous ${!table.getCanPreviousPage() ? 'disabled' : ''}`}>
+            <a rel={'prev'} role={'button'} onClick={() => table.previousPage()}>
+              <IconChevronLeft size={'small'} />
+            </a>
+          </li>
+
           {getVisiblePageNumbers().map((pageNumber, index) =>
-            pageNumber === '...' ? (
-              <p key={`ellipsis-${index}`} className="ellipsis">
-                ...
-              </p>
+            pageNumber === '---' ? (
+              <li key={`ellipsis-${index}`} className={'pagination__more'}>
+                <a role={'button'} onClick={() => table.setPageIndex(+pageIndex - 3)}>
+                  <IconMore size={'small'} />
+                </a>
+              </li>
+            ) : pageNumber === '+++' ? (
+              <li key={`ellipsis-${index}`} className={'pagination__more'}>
+                <a role={'button'} onClick={() => table.setPageIndex(+pageIndex + 3)}>
+                  <IconMore size={'small'} />
+                </a>
+              </li>
             ) : (
-              <Button
-                key={pageNumber}
-                size="medium"
-                type="tertiary"
+              <li
                 className={classnames({
-                  ['active-page']: pageNumber === pageIndex + 1,
+                  ['active']: pageNumber === pageIndex + 1,
                 })}
-                onClick={() => table.setPageIndex(+pageNumber - 1)}
+                key={pageNumber}
               >
-                {pageNumber}
-              </Button>
+                <a role={'button'} onClick={() => table.setPageIndex(+pageNumber - 1)}>
+                  {pageNumber}
+                </a>
+              </li>
             )
           )}
-          <Button
-            onClick={() => table.nextPage()}
-            size="medium"
-            type="tertiary"
-            iconProps={{
-              Component: IconChevronRight,
-            }}
-            disabled={!table.getCanNextPage()}
-          />
-          <Button
-            onClick={() => table.lastPage()}
-            size="medium"
-            type="tertiary"
-            iconProps={{
-              Component: IconChevronDoubleRight,
-            }}
-            disabled={!table.getCanNextPage()}
-          />
-        </div>
+
+          <li className={`next ${!table.getCanNextPage() ? 'disabled' : ''}`}>
+            <a rel={'next'} role={'button'} onClick={() => table.nextPage()}>
+              <IconChevronRight size={'small'} />
+            </a>
+          </li>
+          <li className={`next ${!table.getCanNextPage() ? 'disabled' : ''}`}>
+            <a rel={'next'} role={'button'} onClick={() => table.lastPage()}>
+              <IconChevronDoubleRight size={'small'} />
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );

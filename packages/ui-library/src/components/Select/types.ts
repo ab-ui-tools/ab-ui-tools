@@ -1,4 +1,4 @@
-import type { JSX, LegacyRef, ReactElement, ReactNode } from 'react';
+import type { FormEvent, JSX, LegacyRef, ReactElement, ReactNode } from 'react';
 
 import type { TTooltipProps } from '../Tooltip/types';
 import type { TMenuItem } from '../Menu/types';
@@ -27,6 +27,7 @@ interface TSelectBaseProps {
   size?: 'small' | 'large' | 'medium';
   className?: string;
 }
+
 export interface TNestedSelectProps {
   options: TSelectOptions;
   isRequiredField?: boolean;
@@ -62,6 +63,7 @@ interface TMultiSelectCompProps extends IFormCompProps, TSelectBaseProps {
   onItemSelect: (item: TSelectedValue) => void;
   onItemDeselect: (item: TSelectedValue) => void;
   menuOptions?: TMenuItem[];
+  isMultiSelectTree?: boolean;
 }
 
 export interface TMultySingleTabPropTypes extends TMultiSelectCompProps {
@@ -70,6 +72,10 @@ export interface TMultySingleTabPropTypes extends TMultiSelectCompProps {
 
 export interface TMultiSelectGroupedProps extends TMultiSelectCompProps {
   options: TSelectGroupOptions;
+}
+
+export interface TMultiSelectTreeProps extends TMultiSelectCompProps {
+  options: TSelectTreeOptions;
 }
 
 export type TCheckboxInfo = {
@@ -85,6 +91,8 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
   isSearchAvailable?: boolean;
   withTabs?: boolean;
   isGrouped?: boolean;
+  isMultiSelectTree?: boolean;
+  isRadioGrouped?: boolean;
   checkboxInfo?: TCheckboxInfo;
   selectedItems?: TSelectedValue[];
   translations: TSelectTranslations;
@@ -94,6 +102,8 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
     cancel: TButtonPropTypes;
     confirm: TButtonPropTypes;
   };
+  autoApplyOnClose?: boolean;
+  autoApplyOnChooseItem?: boolean;
   labelAddons?: JSX.Element;
   className?: string;
   isButtonSelect?: boolean;
@@ -117,18 +127,24 @@ export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps
 
 export interface IRenderOptionItemProps extends TSelectItemProps {
   key?: string;
+  index: number;
 }
 
 export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   options: TSelectOptions;
   selectedItem?: TItemValue;
   setSelectedItem?: (items: TItemValue | undefined) => void;
-  withSearch?: boolean;
+  onInputChange?: (event: FormEvent<HTMLInputElement>) => void;
+  onInputFormatting?: (value: string) => string;
+  isSearchable?: boolean;
+  isDynamicSearchable?: boolean;
+  trimSearchValue?: boolean;
   outerHelperText?: string;
   innerHelperText?: string;
   labelAddons?: JSX.Element;
   tooltipAddons?: TTooltipProps;
-  isCreatable?: boolean;
+  isCreateOnOutsideClick?: boolean;
+  isAllowed?: (values: { formattedValue: string; value: string; floatValue: number | undefined }) => boolean;
   renderOptions?: (props: IRenderOptionItemProps) => JSX.Element;
 }
 
@@ -212,6 +228,7 @@ export type TSelectWrapperProps = {
     left?: number;
     right?: number;
   };
+  toggleDropdown?: () => void;
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   containerRef: HTMLDivElement | null;
@@ -237,10 +254,12 @@ export type TProfileDropdownBodyItems = {
   rightInfoProps?: ReactElement;
   target?: string;
 };
+
 export interface TProfileDropdownBodyItemsWithText extends TProfileDropdownBodyItems {
   text: string;
   children?: never;
 }
+
 export interface TProfileDropdownBodyItemsWithChildren extends TProfileDropdownBodyItems {
   text?: never;
   children: ReactNode;
@@ -254,5 +273,7 @@ export type TProfileDropdownProps = {
   name: string;
   bodyItems: TNavItemValue[];
   footerItems: TNavItemValue[];
+  headerContent?: ReactNode;
   className?: string;
+  userInfoAlignment?: 'left' | 'center';
 };

@@ -3,16 +3,15 @@ import type { ForwardedRef, ReactElement } from 'react';
 import React, { forwardRef, useState } from 'react';
 import classNames from 'classnames';
 
-import type { TCollapseGroupProps, TCollapseItem, TCollapseValue } from '../types';
+import type { TCollapseGroupProps, TCollapseGroupItem, TCollapseValue } from '../types';
 
 import { CollapseItem } from '../CollapseItem/CollapseItem';
 
 export const CollapseGroup = forwardRef(
   (props: TCollapseGroupProps, ref: ForwardedRef<HTMLDivElement>): ReactElement => {
-    const { items, singleSelection, titleProps = {}, className } = props;
-    const { size, color } = titleProps;
+    const { items, singleSelection, className } = props;
     const [openValues, setOpenValues] = useState<TCollapseValue[]>(
-      items.filter((item: TCollapseItem) => item.isOpen).map(item => item.value)
+      items.filter((item: TCollapseGroupItem) => item.isOpen).map(item => item.value)
     );
 
     const onCollapseSelect = (value: TCollapseValue) => {
@@ -28,18 +27,21 @@ export const CollapseGroup = forwardRef(
 
     return (
       <div className={classNames('collapse-group', className)} ref={ref}>
-        {items.map(({ id, title, value, content, dataId, iconProps }) => {
+        {items.map(({ id, title, subtext, additionalInfo, value, content, iconProps, disabled, reverse }) => {
           const isOpen = openValues.indexOf(value) !== -1;
           return (
             <CollapseItem
               className={'collapse-group__item'}
               id={id}
               isOpen={isOpen}
+              disabled={disabled}
               key={value}
-              dataId={dataId}
-              title={{ size, color, text: title }}
+              title={title}
+              subtext={subtext}
+              additionalInfo={additionalInfo}
               toggle={() => (isOpen ? onCollapseDeselect(value) : onCollapseSelect(value))}
-              labelLeftIconProps={iconProps}
+              iconProps={iconProps}
+              reverse={reverse}
             >
               {content}
             </CollapseItem>

@@ -83,7 +83,6 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
         className="tooltip__inner"
         type="primary"
         weight="regular"
-        lineHeight="small"
         size={`${size == 'small' ? 'xsmall' : 'small'}`}
       >
         {text}

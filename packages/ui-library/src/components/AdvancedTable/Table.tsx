@@ -1,27 +1,50 @@
 import type { CSSProperties } from 'react';
-import type { Column, Row } from '@tanstack/react-table';
+import type { Column, Row, ColumnDef } from '@tanstack/react-table';
 
 import Skeleton from 'react-loading-skeleton';
-import React from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import classnames from 'classnames';
-import classNames from 'classnames';
 import { flexRender } from '@tanstack/react-table';
 import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable';
 import { DndContext, DragOverlay, closestCenter } from '@dnd-kit/core';
 
-import type { TTableProps } from './types';
+import type { TableData, TTableProps, ExpandColumnProps } from './types';
 
-import { useTable } from './useTable';
+import { useTableControl } from './hooks/useTableControl';
 import { ColumnHeader } from './ColumnHeader';
 import { Text } from '../Text';
+import { IconChevronUp } from '../SVGIcons/IconChevronUp';
+import { IconChevronDown } from '../SVGIcons/IconChevronDown';
 import { Empty } from '../Empty';
+import { Button } from '../Button';
 
 import 'react-loading-skeleton/dist/skeleton.css';
 
 enum ColumnId {
   Select = 'select',
   Actions = 'actions',
+  Expand = 'expand',
 }
+
+const ExpandColumn = <TData,>({ row, expandedRows, onToggle }: ExpandColumnProps<TData>) => {
+  const hasSubRows = (row.original as TableData)?.subRows && (row.original as TableData)?.subRows?.length > 0;
+  if (!hasSubRows) return null;
+
+  return (
+    <Button
+      type="tertiary"
+      size="medium"
+      className="advanced-table__expand-button"
+      iconProps={{
+        Component: expandedRows.has(row.id) ? IconChevronUp : IconChevronDown,
+      }}
+      onClick={e => {
+        e.stopPropagation();
+        onToggle(row.id);
+      }}
+    />
+  );
+};
 
 export function Table<TData>({
   data,
@@ -37,21 +60,63 @@ export function Table<TData>({
   withBorder = true,
   defaultPageIndex,
   defaultPageSize,
+  defaultHiddenColumns,
+  collapsibleRows = false,
+  renderExpandedContent,
   renderHeader,
   renderFooter,
   onSortChange,
   onRowClick,
+  tableSettings,
   onRowSelection,
   onColumnSizing,
   onPaginationChange,
+  rowEventsProps,
 }: TTableProps<TData>) {
-  const { table, sensors, handleDragStart, handleDragEnd, handleDragCancel, activeHeader } = useTable({
+  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+
+  const handleToggleRow = useCallback((rowId: string) => {
+    setExpandedRows(prev => {
+      const next = new Set(prev);
+      if (next.has(rowId)) {
+        next.delete(rowId);
+      } else {
+        next.add(rowId);
+      }
+      return next;
+    });
+  }, []);
+
+  const expandColumn: ColumnDef<TData> = useMemo(
+    () => ({
+      id: ColumnId.Expand,
+      accessorKey: 'expand',
+      header: () => <span style={{ display: 'none' }}>Expand</span>,
+      size: 50,
+      minSize: 50,
+      maxSize: 50,
+      cell: ({ row }) => <ExpandColumn row={row} expandedRows={expandedRows} onToggle={handleToggleRow} />,
+      meta: {
+        enableHiding: false,
+        enableColumnDragging: false,
+        enablePinning: true,
+        enableResizing: false,
+        headerVisible: false,
+        enableSorting: false,
+      },
+    }),
+    [expandedRows, handleToggleRow]
+  );
+
+  const { table, sensors, handleDragStart, handleDragEnd, handleDragCancel, activeHeader } = useTableControl({
     data,
-    columns,
+    tableSettings,
+    columns: collapsibleRows ? [expandColumn, ...columns] : columns,
     withSelect,
     totalCount,
     defaultPageIndex,
     defaultPageSize,
+    defaultHiddenColumns,
     onSortChange,
     onRowSelection,
     onColumnSizing,
@@ -79,9 +144,21 @@ export function Table<TData>({
       onRowClick(row);
     }
   };
+
+  const tableStyle = useMemo(
+    () => ({
+      minWidth: data?.length ? table.getCenterTotalSize() : undefined,
+    }),
+    [data?.length, table]
+  );
+
+  const skeletonRowSize = useMemo(() => {
+    return Array.from({ length: table.getState().pagination.pageSize });
+  }, [table.getState().pagination.pageSize]);
+
   return (
     <div
-      className={classNames('advanced-table', {
+      className={classnames('advanced-table', {
         'with-border': withBorder,
       })}
     >
@@ -95,8 +172,8 @@ export function Table<TData>({
           onDragCancel={handleDragCancel}
         >
           <div>
-            <table style={{ minWidth: data?.length && table.getCenterTotalSize() }}>
-              {!data?.length || hasError ? (
+            <table style={tableStyle}>
+              {!isLoading && (!data?.length || hasError) ? (
                 <Empty mainMessage={emptyTitle} paragraphMessage={emptySubTitle} illustration={emptyIllustration} />
               ) : (
                 <>
@@ -108,7 +185,7 @@ export function Table<TData>({
                           strategy={horizontalListSortingStrategy}
                         >
                           {headerGroup.headers.map(header => {
-                            if (header.id === ColumnId.Actions && !isActionsVisible) return;
+                            if (header.id === ColumnId.Actions && !isActionsVisible) return null;
                             return (
                               <ColumnHeader
                                 pinnedStyles={{ ...getCommonPinningStyles(header.column) }}
@@ -122,33 +199,57 @@ export function Table<TData>({
                     ))}
                   </thead>
                   <tbody>
-                    {table.getRowModel().rows.map(row => (
-                      <tr className={classnames({ ['selected']: row.getIsSelected() })} key={row.id}>
-                        {row.getVisibleCells().map(cell => (
-                          <td
-                            className={classnames({
-                              ['with-checkbox']: cell.column.id === ColumnId.Select,
-                              ['pinned-cell']: cell.column.getIsPinned(),
-                              ['action-column']: cell.column.id === ColumnId.Actions && !isActionsVisible,
-                            })}
-                            id={cell.id}
-                            key={cell.id}
-                            onClick={() => handleRowClick(cell.column, row)}
-                            style={{ ...getCommonPinningStyles(cell.column) }}
-                          >
-                            {isLoading ? (
-                              <Skeleton />
-                            ) : cell.column.id === ColumnId.Actions && !isActionsVisible ? (
-                              <div className="actions-list__right">
-                                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                              </div>
-                            ) : (
-                              flexRender(cell.column.columnDef.cell, cell.getContext())
+                    {isLoading
+                      ? skeletonRowSize.map((_, i) => (
+                          <tr key={`skeleton-row-${i}`}>
+                            {table.getVisibleFlatColumns().map(column => (
+                              <td
+                                className={classnames({
+                                  'with-checkbox': column.id === ColumnId.Select,
+                                  'pinned-cell': column.getIsPinned(),
+                                  'action-column': column.id === ColumnId.Actions && !isActionsVisible,
+                                })}
+                                key={column.id}
+                                style={{ ...getCommonPinningStyles(column) }}
+                              >
+                                <Skeleton />
+                              </td>
+                            ))}
+                          </tr>
+                        ))
+                      : table.getRowModel().rows.map(row => (
+                          <React.Fragment key={row.id}>
+                            <tr {...rowEventsProps} className={classnames({ selected: row.getIsSelected() })}>
+                              {row.getVisibleCells().map(cell => (
+                                <td
+                                  className={classnames({
+                                    'with-checkbox': cell.column.id === ColumnId.Select,
+                                    'pinned-cell': cell.column.getIsPinned(),
+                                    'action-column': cell.column.id === ColumnId.Actions && !isActionsVisible,
+                                    'expand-column': cell.column.id === ColumnId.Expand,
+                                  })}
+                                  id={cell.id}
+                                  key={cell.id}
+                                  onClick={() => handleRowClick(cell.column, row)}
+                                  style={{ ...getCommonPinningStyles(cell.column) }}
+                                >
+                                  {cell.column.id === ColumnId.Actions && !isActionsVisible ? (
+                                    <div className="actions-list__right">
+                                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    </div>
+                                  ) : (
+                                    flexRender(cell.column.columnDef.cell, cell.getContext())
+                                  )}
+                                </td>
+                              ))}
+                            </tr>
+                            {collapsibleRows && expandedRows.has(row.id) && renderExpandedContent && (
+                              <tr className="advanced-table__expanded-row">
+                                <td colSpan={row.getVisibleCells().length}>{renderExpandedContent(row)}</td>
+                              </tr>
                             )}
-                          </td>
+                          </React.Fragment>
                         ))}
-                      </tr>
-                    ))}
                   </tbody>
                 </>
               )}

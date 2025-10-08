@@ -39,6 +39,7 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
     className = '',
     size = 'small',
     buttonProps,
+    isFooterInline = true,
     dataIdPrefix,
     closeOnOutsideClick = true,
     iconProps,
@@ -70,33 +71,43 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
                 <FramedIcon className={'modal__icon mb-32'} size={'medium'} iconProps={iconProps} />
               ) : null}
               {title ? (
-                <Text
-                  weight="bolder"
-                  lineHeight="large"
-                  size="large"
-                  dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
-                >
+                <Text weight="bold" size="large" dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}>
                   {title}
                 </Text>
               ) : null}
               {subtitle ? <Text className={'mt-12'}>{subtitle}</Text> : null}
 
               {buttonProps ? (
-                <div className="modal__footer mt-32">
-                  <Button
-                    type="secondary"
-                    className="modal__footer__btn mr-16"
-                    onClick={onClose}
-                    dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
-                    {...(buttonProps.cancel || {})}
-                  />
-                  <Button
-                    type="danger"
-                    className={'modal__footer__btn'}
-                    onClick={onSubmit}
-                    dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
-                    {...buttonProps.confirm}
-                  />
+                <div
+                  className={`modal__footer mt-32 ${isFooterInline ? 'modal__footer-inline' : 'modal__footer-block'}`}
+                >
+                  {buttonProps?.cancel ? (
+                    <Button
+                      type="secondary"
+                      className="modal__footer__btn"
+                      onClick={onClose}
+                      dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
+                      {...(buttonProps?.cancel || {})}
+                    />
+                  ) : null}
+                  {buttonProps?.deactivate ? (
+                    <Button
+                      type="secondary"
+                      className={'modal__footer__btn'}
+                      onClick={onSubmit}
+                      dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
+                      {...buttonProps?.deactivate}
+                    />
+                  ) : null}
+                  {buttonProps?.confirm ? (
+                    <Button
+                      type="danger"
+                      className={'modal__footer__btn'}
+                      onClick={onSubmit}
+                      dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
+                      {...buttonProps.confirm}
+                    />
+                  ) : null}
                 </div>
               ) : null}
             </div>

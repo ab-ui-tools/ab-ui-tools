@@ -33,18 +33,24 @@
 
   &__type {
     $types: (
-        primary: var(--ds-color-text-primary),
-        secondary: var(--ds-color-text-secondary),
-        tertiary: var(--ds-color-text-tertiary),
-        disabled: var(--ds-color-text-disabled),
-        selected: var(--ds-color-text-selected),
-        inverse: var(--ds-color-text-inverse),
-        brand: var(--ds-color-text-brand),
-        success: var(--ds-color-text-success),
-        information: var(--ds-color-text-info),
-        warning: var(--ds-color-text-warning),
-        danger: var(--ds-color-text-danger),
-        discovery: var(--ds-color-text-discovery),
+        primary: var(--ds-color-icon-primary),
+        secondary: var(--ds-color-icon-secondary),
+        tertiary: var(--ds-color-icon-tertiary),
+        quaternary: var(--ds-color-icon-quaternary),
+        disabled: var(--ds-color-icon-disabled),
+        inverse: var(--ds-color-icon-inverse),
+        brand-light: var(--ds-color-icon-brand-light),
+        brand-dark: var(--ds-color-icon-brand-dark),
+        success-light: var(--ds-color-icon-success-light),
+        success-dark: var(--ds-color-icon-success-dark),
+        information-light: var(--ds-color-icon-info-light),
+        information-dark: var(--ds-color-icon-info-dark),
+        warning-light: var(--ds-color-icon-warning-light),
+        warning-dark: var(--ds-color-icon-warning-dark),
+        danger-light: var(--ds-color-icon-danger-light),
+        danger-dark: var(--ds-color-icon-danger-dark),
+        discovery-light: var(--ds-color-icon-discovery-light),
+        discovery-dark: var(--ds-color-icon-discovery-dark),
     );
     @each $key, $value in $types {
       &-#{$key} path[fill] {

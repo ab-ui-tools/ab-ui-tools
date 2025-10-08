@@ -1,11 +1,15 @@
+import type { TTooltipProps } from '../Tooltip/types';
+import type { TPopoverProps } from '../Popover/types';
 import type { InputCustomProps } from '../Input/types';
 import type { TChipsProps } from '../Chips/types';
 import type { CARD_SELECT_TYPES } from '../../consts';
+
 export interface TCardSelectProps extends IFormCompProps {
   id?: number | string;
   type?: CARD_SELECT_TYPES;
   title: string;
-  description: string;
+  subtext?: string;
+  description?: string;
   chips?: TChipsProps[];
   inputProps?: InputCustomProps;
   className?: string;
@@ -20,6 +24,8 @@ export interface TCardSelectProps extends IFormCompProps {
   cardValue?: number | string;
   illustration?: string;
   icon?: TSelectIconProps;
+  popoverAddons?: TPopoverProps;
+  tooltipAddons?: TTooltipProps;
 }
 export interface TCardSelectGroupProps extends IFormCompProps {
   cards: TCardSelectProps[];

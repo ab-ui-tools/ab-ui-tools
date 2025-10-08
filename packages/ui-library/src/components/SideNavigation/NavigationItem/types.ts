@@ -1,4 +1,5 @@
 import type { JSX, ReactNode } from 'react';
+import type { ReactElement } from 'react';
 
 import type { ISVGIconProps } from '../../SVGIcons/types';
 
@@ -11,6 +12,10 @@ export enum NavigationItemTypes {
   ACTION = 'action',
 }
 
+export type TActionItemProps = {
+  iconProps: TSVGIconComponent;
+  onClick?: () => void;
+};
 export interface TNavigationLinkPropTypes {
   As: () => JSX.Element;
   expandIconProps?: ISVGIconProps;
@@ -22,7 +27,8 @@ export interface TNavigationLinkPropTypes {
   showAction?: boolean;
   actionElm?: JSX.Element;
   active?: boolean;
-  badgeContent?: string;
-  badgeType?: 'red' | 'grey' | 'greyDark' | 'green' | 'transparent';
   children?: ReactNode;
+  actionsList?: TActionItemProps[];
+  className?: string;
+  rightContent?: ReactElement;
 }

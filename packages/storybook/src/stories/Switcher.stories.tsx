@@ -29,5 +29,5 @@ Switcher.args = {
   inlineType: false,
   disabled: false,
   label: 'label',
-  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />,
+  labelAddons: <IconInfo size={'xsmall'} type={'information-light'} className={'ml-4'} />,
 };

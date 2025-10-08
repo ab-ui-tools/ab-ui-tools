@@ -19,23 +19,30 @@ export const ItemSelectGroup = (props: TItemSelectGroupProps): JSX.Element => {
         className
       )}
     >
-      {items.map(({ value: itemValue, label, image, leftIconProps, id, disabled, deSelectable }, index) => {
-        return (
-          <ItemSelect
-            name={name}
-            key={id || index}
-            label={label}
-            image={image}
-            icon={iconGroup}
-            leftIconProps={leftIconProps}
-            handleChange={handleChange}
-            itemValue={itemValue}
-            value={value}
-            disabled={disabled}
-            deSelectable={deSelectable}
-          />
-        );
-      })}
+      {items.map(
+        (
+          { value: itemValue, title, subtitle, image, leftIconProps, rightContent, id, disabled, deSelectable },
+          index
+        ) => {
+          return (
+            <ItemSelect
+              name={name}
+              key={id || index}
+              title={title}
+              subtitle={subtitle}
+              image={image}
+              leftIconProps={leftIconProps}
+              rightContent={rightContent}
+              rightIconProps={iconGroup}
+              handleChange={handleChange}
+              itemValue={itemValue}
+              value={value}
+              disabled={disabled}
+              deSelectable={deSelectable}
+            />
+          );
+        }
+      )}
     </div>
   );
 };

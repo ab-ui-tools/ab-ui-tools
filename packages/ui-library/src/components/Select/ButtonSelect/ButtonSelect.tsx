@@ -31,6 +31,7 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
     placeHolder,
     offsets,
     dataId,
+    disabled,
     type,
   } = props;
 
@@ -86,6 +87,7 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
       dropdownRef={dropdownRef}
       setDropdownRef={setDropdownRef}
       placeHolder={placeHolder}
+      disabled={disabled}
       dataId={dataId}
       type={type}
     >

@@ -23,24 +23,19 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
     val,
     onClick,
     dataId,
+    title,
   } = props;
 
   return (
     <div
+      title={title}
       onClick={disabled ? noop : onClick}
       className={classNames('tab', { 'tab--disabled': disabled }, { 'tab--selected': isSelected }, className)}
     >
       {iconProps?.Component ? (
         <iconProps.Component className="tab__icon mr-8" size={ICON_SIZE_MAPPING[size]} {...iconProps} />
       ) : null}
-      <Text
-        as={'span'}
-        weight={'semibold'}
-        className={'tab__label'}
-        data-id={dataId}
-        lineHeight={'xsmall'}
-        size={TEXT_SIZE_MAPPING[size]}
-      >
+      <Text as={'span'} weight={'semibold'} className={'tab__label'} dataId={dataId} size={TEXT_SIZE_MAPPING[size]}>
         {label}
       </Text>
       {rightIconProps?.Component ? (

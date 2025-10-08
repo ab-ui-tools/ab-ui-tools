@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import { NumericFormat } from 'react-number-format';
+import { NumericFormat, PatternFormat } from 'react-number-format';
 import InputMask from 'react-input-mask';
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
@@ -22,6 +22,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       label,
       mask,
       maskChar,
+      format,
       maskPlaceholder,
       currentValue,
       name,
@@ -45,26 +46,53 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       hideCounter = false,
       labelAddons,
       witUpperCase = false,
+      allowEmptyFormatting,
       isAllowed,
+      isTrimValues = false,
       ...rest
     },
     ref
   ): JSX.Element => {
+    const { onChange, onBlur, ...cleanRest } = rest;
+
     const isErrorVisible = hasError !== undefined ? hasError : !!error;
     const placeHolder = label === placeholder ? '' : placeholder || datePlaceHolderText;
     const changeHandler = (event: TChangeEventType) => {
       const eventValue = event.target.value;
+
       const valueWithoutSeparator =
         type === 'numeric' ? eventValue.replace(new RegExp(thousandSeparator, 'g'), '') : eventValue;
 
-      if (eventValue.length - 1 === maxCount) {
+      const formatedValue = witUpperCase ? valueWithoutSeparator.toUpperCase() : valueWithoutSeparator;
+
+      if (formatedValue.length - 1 === maxCount) {
         return;
       }
+
+      event.target.value = formatedValue;
+
       if (setFieldValue && name) {
-        setFieldValue(name, valueWithoutSeparator);
+        setFieldValue(name, formatedValue);
       }
+
       if (handleChange) {
-        handleChange(event, !witUpperCase ? valueWithoutSeparator : valueWithoutSeparator.toUpperCase());
+        handleChange(event, formatedValue);
+      }
+      if (onChange) {
+        onChange(event);
+      }
+    };
+
+    const blurHandler = (event: React.FocusEvent<HTMLInputElement>) => {
+      if (isTrimValues) {
+        const trimmedValue = event.target.value.trim();
+        if (trimmedValue !== event.target.value) {
+          event.target.value = trimmedValue;
+          changeHandler(event);
+        }
+      }
+      if (onBlur) {
+        onBlur(event);
       }
     };
 
@@ -78,15 +106,32 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       return 0;
     }, [rest, currentValue]);
 
-    const input = mask ? (
+    const input = format ? (
+      // @ts-ignore
+      <PatternFormat
+        {...cleanRest}
+        format={format}
+        name={name}
+        onBlur={blurHandler}
+        onChange={changeHandler}
+        placeholder={placeHolder}
+        readOnly={readonly}
+        data-id={dataId}
+        disabled={disabled}
+        maxLength={maxCount}
+        allowEmptyFormatting={allowEmptyFormatting}
+        {...(currentValue ? { value: currentValue } : { value: '' })}
+      />
+    ) : mask ? (
       // @ts-ignore
       <InputMask
         name={name}
         mask={mask}
         // @ts-ignore
         ref={() => ref && ref()}
-        {...rest}
+        {...cleanRest}
         placeholder={placeHolder}
+        onBlur={blurHandler}
         onChange={changeHandler}
         disabled={disabled}
         data-id={dataId}
@@ -98,8 +143,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
     ) : type === 'numeric' ? (
       // @ts-ignore
       <NumericFormat
-        {...rest}
+        {...cleanRest}
         name={name}
+        onBlur={blurHandler}
         onChange={changeHandler}
         placeholder={placeHolder}
         readOnly={readonly}
@@ -110,6 +156,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         inputMode={'numeric'}
         disabled={disabled}
         isAllowed={isAllowed}
+        getInputRef={ref}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
     ) : (
@@ -121,9 +168,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         ref={ref}
         type={type}
         placeholder={placeHolder}
+        onBlur={blurHandler}
         onChange={changeHandler}
         data-id={dataId}
-        {...rest}
+        {...cleanRest}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
     );
@@ -165,9 +213,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           <div className="input__message mt-8">
             {isErrorVisible && error ? <ErrorMessage message={error} icon="infoFilled" dataId={dataId} /> : null}
             {successMessage ? (
-              <Text size="small" type="success" className="flexbox align-items--center">
+              <Text size="small" type="success-light" className="flexbox align-items--center">
                 <>
-                  <IconCheckmarkCircleFilled type="success" size="xsmall" />
+                  <IconCheckmarkCircleFilled type="success-light" size="xsmall" />
                   <span className="ml-4">{successMessage}</span>
                 </>
               </Text>

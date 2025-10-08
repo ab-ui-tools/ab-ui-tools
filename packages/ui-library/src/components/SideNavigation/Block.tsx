@@ -1,21 +1,26 @@
 import type { ReactElement } from 'react';
 
 import React from 'react';
+import classNames from 'classnames';
 
 import type { TBlock } from './types';
 
-import { Text } from '../Text';
 import { Divider } from '../Divider';
+import { Label } from '../../helperComponents/Label';
 
 export const Block = (props: TBlock): ReactElement => {
-  const { children, label } = props;
+  const { children, label, className = '' } = props;
   return (
-    <div className="navigation-block">
+    <div className={classNames('navigation-block', className)}>
       <div className="navigation-block__label">
         <>
-          <Text size="standard" type="tertiary" className={'navigation-block__label__text'}>
-            {label}
-          </Text>
+          <Label
+            type="tertiary"
+            size={'small'}
+            weight={'semibold'}
+            className={'navigation-block__label__text'}
+            text={label}
+          />
           <Divider type={'primary'} isHorizontal={true} className={'navigation-block__label__divider'} />
         </>
       </div>

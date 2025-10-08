@@ -13,11 +13,11 @@ export const ErrorMessage = (props: TErrorMessageProps): JSX.Element => {
     <Text
       className={`error-message ${className}`}
       size="small"
-      type="danger"
+      type="danger-light"
       dataId={dataId ? `${dataId}-error-message` : ''}
     >
       <>
-        {icon && <IconDynamicComponent componentName={icon} className="mr-4" size="xsmall" type="danger" />}
+        {icon && <IconDynamicComponent componentName={icon} className="mr-4" size="xsmall" type="danger-light" />}
         <span>{message}</span>
       </>
     </Text>

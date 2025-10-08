@@ -6,6 +6,8 @@ export interface InputCustomProps
   extends IFormCompProps,
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onFocus' | 'value' | 'onChange' | 'autoComplete'> {
   mask?: string;
+  format?: string;
+  prefix?: string;
   maskChar?: string | null;
   maskPlaceholder?: string | null;
   className?: string;
@@ -37,6 +39,8 @@ export interface InputCustomProps
   labelAddons?: ReactElement;
   autoComplete?: string;
   witUpperCase?: boolean;
+  allowEmptyFormatting?: boolean;
+  isTrimValues?: boolean;
   isAllowed?: (values: { formattedValue: string; value: string; floatValue: number | undefined }) => boolean;
 }
 

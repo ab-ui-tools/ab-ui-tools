@@ -20,11 +20,13 @@ export const ButtonIcon = (props: TButtonIconPropTypes): ReactElement => {
     dataId = '',
     onClick,
     refHandler = null,
+    id,
     ...rest
   } = props;
 
   return (
     <button
+      id={id}
       ref={refHandler}
       data-id={dataId}
       disabled={disabled}
@@ -37,7 +39,10 @@ export const ButtonIcon = (props: TButtonIconPropTypes): ReactElement => {
       {isLoading ? (
         <Loader size={size} type={'dark'} />
       ) : (
-        <iconProps.Component size={ICON_SIZE_MAPPING[size]} type={disabled ? 'disabled' : 'tertiary'} />
+        <iconProps.Component
+          size={ICON_SIZE_MAPPING[size]}
+          type={disabled ? 'disabled' : iconProps.type || 'tertiary'}
+        />
       )}
     </button>
   );

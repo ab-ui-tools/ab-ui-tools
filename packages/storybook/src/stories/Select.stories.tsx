@@ -9,7 +9,7 @@ import type {
 import React, { useState } from 'react';
 import { Positions } from '@ab.uitools/ui-library/components/Tooltip/types';
 import IconSignOut from '@ab.uitools/ui-library/components/SVGIcons/IconSignOut';
-import IconQuestion from '@ab.uitools/ui-library/components/SVGIcons/IconQuestion';
+import IconQuestionCircle from '@ab.uitools/ui-library/components/SVGIcons/IconQuestionCircle';
 import IconPerson from '@ab.uitools/ui-library/components/SVGIcons/IconPerson';
 import IconMore from '@ab.uitools/ui-library/components/SVGIcons/IconMore';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
@@ -41,6 +41,7 @@ type TSelectOption = {
   label: TItemLabel;
   meta?: string;
   disabled?: boolean;
+  parentId?: string | number | null;
   children?: TSelectOption[];
 };
 
@@ -64,6 +65,10 @@ export default {
   argTypes: {
     size: {
       options: ['large', 'small'],
+      control: { type: 'radio' },
+    },
+    userInfoAlignment: {
+      options: ['left', 'center'],
       control: { type: 'radio' },
     },
   },
@@ -122,8 +127,7 @@ const BUTTON_SELECT_OPTIONS = [
 const OPTIONS: TSelectOptions = [
   {
     value: 1,
-    label:
-      'Armeniaaasdasdasdasdlkashdkjlashdkjasdkjashkdjhaskjdhdaskjdhaskjhdkajsdkjasdkjashdjkashdkjhaskdhaskjdhaskjdhaskjdhaskjhdkjas',
+    label: 'Armenia',
     meta: 'AM',
   },
   {
@@ -204,6 +208,39 @@ const OPTIONS_GROUPED: TSelectGroupOptions = [
   {
     title: 'Cities',
     data: OPTIONS_CITIES,
+  },
+];
+const OPTIONS_YEREVAN: TSelectOptions = [
+  {
+    value: 1,
+    parentId: 59,
+    label: 'Kentron',
+  },
+  {
+    value: 2,
+    parentId: 59,
+    label: 'Nor Nork',
+  },
+];
+
+const OPTIONS_ARMAVIR: TSelectOptions = [
+  {
+    value: 3,
+    parentId: 60,
+    label: 'Vagharshapat',
+  },
+];
+
+const OPTIONS_TREE: TSelectTreeOptions = [
+  {
+    title: 'Yerevan',
+    parentId: null,
+    data: OPTIONS_YEREVAN,
+  },
+  {
+    title: 'Armavir',
+    parentId: null,
+    data: OPTIONS_ARMAVIR,
   },
 ];
 
@@ -297,7 +334,7 @@ const Template: StoryFn<TSingleSelectPropTypes> = args => {
           outerHelperText="helper text"
           selectedItem={selectedValue}
           setSelectedItem={setSelectedValue}
-          withSearch={true}
+          isSearchable={true}
           optionRightIconComponent={value => <>{value}</>}
         />
       </div>
@@ -378,8 +415,8 @@ Select.args = {
   label: 'country',
   avatar: image.src,
   placeHolder: 'Select country',
-  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />,
-  isCreatable: false,
+  labelAddons: <IconInfo size={'xsmall'} type={'information-light'} className={'ml-4'} />,
+  isCreateOnOutsideClick: false,
 };
 
 // -----------MULTISELECT---------
@@ -395,6 +432,7 @@ const MultiSelectTemplate: StoryFn<TMultiSelectPropTypes> = args => {
       <_MultiSelect
         {...args}
         isGrouped={true}
+        isSearchAvailable={true}
         isButtonSelect={true}
         dropdownWidth={400}
         align="right"
@@ -428,11 +466,16 @@ export const MultiSelect = MultiSelectTemplate.bind({});
 MultiSelect.args = {
   isLoading: false,
   label: 'Select',
-  options: OPTIONS_GROUPED,
-  avatar: image.src,
+  // options: OPTIONS_GROUPED,
+  options: OPTIONS_TREE,
+  // avatar: image.src,
   placeHolder: 'Select country',
-  helperText: 'To be filled in only for USA, Canada and European countries.',
-  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />,
+  isMultiSelectTree: true,
+  // isRadioGrouped: true,
+  // autoApplyOnClose: true,
+  // helperText: 'To be filled in only for USA, Canada and European countries.',
+  // autoApplyOnChooseItem: true,
+  labelAddons: <IconInfo size={'xsmall'} type={'information-light'} className={'ml-4'} />,
   // disabled: true
   // labelRightIconComponent: <IconPerson size="xsmall" className="mr-4" />,
   // optionRightIconComponent: <IconPerson size="xsmall" />
@@ -471,7 +514,7 @@ NestedSelect.args = {
       }}
     />
   ),
-  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />,
+  labelAddons: <IconInfo size={'xsmall'} type={'information-light'} className={'ml-4'} />,
 };
 
 // ----------LANGUAGE-SELECT----------------
@@ -515,7 +558,7 @@ const ProfileDropdownTemplate = (args: any): JSX.Element => {
       }}
     >
       <div style={{ position: 'absolute', left: 300 }}>
-        <_ProfileDropdown {...args} />
+        <_ProfileDropdown {...args} headerContent={<h1>test</h1>} />
       </div>
     </div>
   );
@@ -528,10 +571,11 @@ ProfileDropdown.args = {
   avatar: <Avatar size={'medium'} initials={'RG'} />,
   name: 'Mariam Yeghiazaryan',
   email: 'mariam.yeghiazaryan@gmail.com',
-  isCreatable: false,
+  userInfoAlignment: 'left',
+  isCreateOnOutsideClick: false,
   bodyItems: [
     {
-      icon: <IconQuestion size={'small'} className={'mr-8'} />,
+      icon: <IconQuestionCircle size={'small'} className={'mr-8'} />,
       text: 'Հաճախ տրվող հարցեր',
       url: '#s',
       rightInfoProps: <Badge text={'5'} type={'green'} className={'ml-12'} />,

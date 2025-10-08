@@ -4,16 +4,17 @@
   $this: &;
 
   --ds-chips-height-lg: var(--ds-size-32);
-  --ds-chips-height-md: var(--ds-size-24);
-  --ds-chips-height-sm: var(--ds-size-20);
-  --ds-chips-height-xs: var(--ds-size-16);
+  --ds-chips-height-md: var(--ds-size-28);
+  --ds-chips-height-sm: var(--ds-size-24);
+  --ds-chips-height-xs: var(--ds-size-20);
 
   --ds-chips-border-radius: var(--ds-border-radius-4xl);
 
+  --ds-chips-padding: 0 var(--ds-space-6);
   --ds-chips-padding-lg: 0 var(--ds-space-10);
-  --ds-chips-padding-md: 0 var(--ds-space-6);
-  --ds-chips-padding-sm: 0 var(--ds-space-4);
-  --ds-chips-padding-xs: 0 var(--ds-space-4);
+
+  --ds-chips-icon-spacing: var(--ds-space-4);
+  --ds-chips-icon-spacing-lg: var(--ds-space-6);
 
   --ds-chips-filled-bg-primary: var(--grey-400);
   --ds-chips-filled-bg-primary-hover: var(--grey-500);
@@ -30,20 +31,20 @@
   --ds-chips-filled-bg-discovery: var(--purple-300);
   --ds-chips-filled-bg-discovery-hover: var(--purple-500);
 
-  --ds-chips-accent-bg-primary: var(--grey-50);
-  --ds-chips-accent-bg-primary-hover: var(--grey-100);
-  --ds-chips-accent-bg-information: var(--blue-50);
-  --ds-chips-accent-bg-information-hover: var(--blue-100);
+  --ds-chips-accent-bg-primary: var(--grey-20);
+  --ds-chips-accent-bg-primary-hover: var(--grey-50);
+  --ds-chips-accent-bg-information: var(--blue-20);
+  --ds-chips-accent-bg-information-hover: var(--blue-50);
   --ds-chips-accent-bg-brand: var(--brand-20);
   --ds-chips-accent-bg-brand-hover: var(--brand-30);
-  --ds-chips-accent-bg-danger: var(--red-50);
-  --ds-chips-accent-bg-danger-hover: var(--red-100);
-  --ds-chips-accent-bg-warning: var(--yellow-50);
-  --ds-chips-accent-bg-warning-hover: var(--yellow-100);
-  --ds-chips-accent-bg-success: var(--green-50);
-  --ds-chips-accent-bg-success-hover: var(--green-100);
-  --ds-chips-accent-bg-discovery: var(--purple-50);
-  --ds-chips-accent-bg-discovery-hover: var(--purple-100);
+  --ds-chips-accent-bg-danger: var(--red-20);
+  --ds-chips-accent-bg-danger-hover: var(--red-50);
+  --ds-chips-accent-bg-warning: var(--yellow-20);
+  --ds-chips-accent-bg-warning-hover: var(--yellow-50);
+  --ds-chips-accent-bg-success: var(--green-20);
+  --ds-chips-accent-bg-success-hover: var(--green-50);
+  --ds-chips-accent-bg-discovery: var(--purple-20);
+  --ds-chips-accent-bg-discovery-hover: var(--purple-50);
 
   --ds-chips-outlined-bg: var(--white);
   --ds-chips-outlined-bg-primary-hover: var(--grey-50);
@@ -55,16 +56,26 @@
   --ds-chips-outlined-bg-discovery-hover: var(--purple-50);
 
   --ds-chips-bg-disabled: var(--grey-50);
+
+
   --ds-chips-border-color-disabled: var(--ds-color-border-disabled);
+  --ds-chips-border-color-information: var(--blue-100);
+  --ds-chips-border-color-brand: var(--brand-40);
+  --ds-chips-border-color-danger: var(--red-100);
+  --ds-chips-border-color-warning: var(--yellow-100);
+  --ds-chips-border-color-success: var(--green-100);
+  --ds-chips-border-color-discovery: var(--purple-100);
+  --ds-chips-border-color-grey: var(--grey-100);
 
   @include mixin.inline-flex;
   @include mixin.align-items(center);
   @include mixin.justify-content(center);
   @include mixin.truncate(100%);
   border-radius: var(--ds-chips-border-radius);
+  padding: var(--ds-chips-padding);
 
   &:not(&#{$this}--disabled) {
-    &:hover {
+    &[aria-readonly = false]:hover {
       cursor: pointer;
     }
   }
@@ -73,25 +84,30 @@
     cursor: default;
   }
 
+  &__icon {
+    margin-right: var(--ds-chips-icon-spacing);
+  }
+
   &--large {
     height: var(--ds-chips-height-lg);
     min-width: var(--ds-chips-height-lg);
     padding: var(--ds-chips-padding-lg);
+
+    #{$this}__icon {
+      margin-right: var(--ds-chips-icon-spacing-lg);
+    }
   }
   &--medium {
     height: var(--ds-chips-height-md);
     min-width: var(--ds-chips-height-md);
-    padding: var(--ds-chips-padding-md);
   }
   &--small {
     height: var(--ds-chips-height-sm);
     min-width: var(--ds-chips-height-sm);
-    padding: var(--ds-chips-padding-sm);
   }
   &--xsmall {
-    height: var(--ds-chips-height-sm);
-    min-width: var(--ds-chips-height-sm);
-    padding: var(--ds-chips-padding-xs);
+    height: var(--ds-chips-height-xs);
+    min-width: var(--ds-chips-height-xs);
   }
 
   &--filled {
@@ -99,7 +115,7 @@
       &#{$this}--primary {
         background-color: var(--ds-chips-filled-bg-primary);
 
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-filled-bg-primary-hover)
         }
       }
@@ -107,7 +123,7 @@
       &#{$this}--information {
         background-color: var(--ds-chips-filled-bg-information);
 
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-filled-bg-information-hover)
         }
       }
@@ -115,7 +131,7 @@
       &#{$this}--brand {
         background-color: var(--ds-chips-filled-bg-brand);
 
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-filled-bg-brand-hover)
         }
       }
@@ -123,7 +139,7 @@
       &#{$this}--danger {
         background-color: var(--ds-chips-filled-bg-danger);
 
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-filled-bg-danger-hover)
         }
       }
@@ -131,7 +147,7 @@
       &#{$this}--success {
         background-color: var(--ds-chips-filled-bg-success);
 
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-filled-bg-success-hover)
         }
       }
@@ -139,7 +155,7 @@
       &#{$this}--warning {
         background-color: var(--ds-chips-filled-bg-warning);
 
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-filled-bg-warning-hover)
         }
       }
@@ -147,7 +163,7 @@
       &#{$this}--discovery {
         background-color: var(--ds-chips-filled-bg-discovery);
 
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-filled-bg-discovery-hover)
         }
       }
@@ -157,52 +173,72 @@
     }
   }
   &--accent {
+    border: 1px solid;
     &:not(&#{$this}--disabled) {
       &#{$this}--primary {
         background-color: var(--ds-chips-accent-bg-primary);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-accent-bg-primary-hover)
         }
       }
-
+      //--ds-chips-border-color-information: var(--blue-100);
+      //--ds-chips-border-color-brand: var(--brand-40);
+      //--ds-chips-border-color-danger: var(--red-100);
+      //--ds-chips-border-color-warning: var(--yellow-100);
+      //--ds-chips-border-color-success: var(--green-100);
+      //--ds-chips-border-color-discovery: var(--purple-100);
+      //--ds-chips-border-color-grey: var(--grey-100);
+      &#{$this}--primary {
+        border-color: var(--ds-chips-border-color-grey);
+        background-color: var(--ds-chips-accent-bg-primary);
+        &[aria-readonly = false]:hover {
+          background-color: var(--ds-chips-accent-bg-primary-hover)
+        }
+      }
       &#{$this}--information {
+        border-color: var(--ds-chips-border-color-information);
         background-color: var(--ds-chips-accent-bg-information);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-accent-bg-information-hover)
         }
       }
 
       &#{$this}--brand {
+        border-color: var(--ds-chips-border-color-brand);
         background-color: var(--ds-chips-accent-bg-brand);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-accent-bg-brand-hover)
         }
       }
 
       &#{$this}--danger {
+        border-color: var(--ds-chips-border-color-danger);
         background-color: var(--ds-chips-accent-bg-danger);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-accent-bg-danger-hover)
         }
       }
 
       &#{$this}--success {
+        border-color: var(--ds-chips-border-color-success);
         background-color: var(--ds-chips-accent-bg-success);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-accent-bg-success-hover)
         }
       }
 
       &#{$this}--warning {
+        border-color: var(--ds-chips-border-color-warning);
         background-color: var(--ds-chips-accent-bg-warning);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-accent-bg-warning-hover)
         }
       }
 
       &#{$this}--discovery {
+        border-color: var(--ds-chips-border-color-discovery);
         background-color: var(--ds-chips-accent-bg-discovery);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-accent-bg-discovery-hover)
         }
       }
@@ -218,43 +254,43 @@
     &:not(&#{$this}--disabled) {
       &#{$this}--primary {
         border-color: var(--ds-chips-filled-bg-primary);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-outlined-bg-primary-hover)
         }
       }
       &#{$this}--information {
         border-color: var(--ds-chips-filled-bg-information);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-outlined-bg-information-hover)
         }
       }
       &#{$this}--brand {
         border-color: var(--ds-chips-filled-bg-brand);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-outlined-bg-brand-hover)
         }
       }
       &#{$this}--danger {
         border-color: var(--ds-chips-filled-bg-danger);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-outlined-bg-danger-hover)
         }
       }
       &#{$this}--success {
         border-color: var(--ds-chips-filled-bg-success);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-outlined-bg-success-hover)
         }
       }
       &#{$this}--warning {
         border-color: var(--ds-chips-filled-bg-warning);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-outlined-bg-warning-hover)
         }
       }
       &#{$this}--discovery {
         border-color: var(--ds-chips-filled-bg-discovery);
-        &:hover {
+        &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-outlined-bg-discovery-hover)
         }
       }

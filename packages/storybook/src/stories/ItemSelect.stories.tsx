@@ -2,14 +2,13 @@ import type { StoryFn } from '@storybook/react';
 import type { TItemSelectGroupProps, TItemSelectProps } from '@ab.uitools/ui-library/components/ItemSelect/types';
 
 import React, { useState } from 'react';
-import IconQuestion from '@ab.uitools/ui-library/components/SVGIcons/IconQuestion';
+import { IconQuestionCircle } from '@ab.uitools/ui-library/components/SVGIcons/IconQuestionCircle';
 import IconCheckmark from '@ab.uitools/ui-library/components/SVGIcons/IconCheckmark';
 import IconAmd from '@ab.uitools/ui-library/components/SVGIcons/IconAmd';
 import { ItemSelectGroup as _ItemSelectGroup } from '@ab.uitools/ui-library/components/ItemSelect';
 import { ItemSelect as _ItemSelect } from '@ab.uitools/ui-library/components/ItemSelect';
 
 import imageFile3 from '../assets/images/Visa.svg';
-import imageFile2 from '../assets/images/Mastercard.svg';
 import imageFile1 from '../assets/images/ArCa.svg';
 
 export default {
@@ -21,7 +20,7 @@ const ITEMS = [
   {
     value: 1,
     image: imageFile1,
-    label: 'Arca',
+    title: 'Arca',
     disabled: false,
     onClick: (e: any) => {
       console.log(e);
@@ -30,8 +29,9 @@ const ITEMS = [
   },
   {
     value: 2,
-    image: imageFile2,
-    label: 'MasterCard',
+    leftIconProps: <IconAmd size={'medium'} />,
+    title: 'MasterCard',
+    subtitle: 'Subtitle text',
     disabled: true,
     onClick: (e: any) => {
       console.log(e);
@@ -43,6 +43,8 @@ const ITEMS = [
     image: imageFile3,
     label: 'Visa',
     disabled: false,
+    // @ts-ignore
+    rightContent: <Text type={'tertiary'}>Right Content</Text>,
     onClick: (e: any) => {
       console.log(e);
     },
@@ -61,12 +63,16 @@ const Template: StoryFn<TItemSelectProps> = args => {
 export const ItemSelect = Template.bind({});
 
 ItemSelect.args = {
-  leftIconProps: <IconAmd size={'small'} />,
-  icon: {
-    Component: IconQuestion,
+  leftIconProps: <IconAmd />,
+  rightIconProps: {
+    Component: IconQuestionCircle,
+    className: 'ml-16',
   },
   // image: '',
-  label: 'Item Select',
+  title: 'Title',
+  subtitle: 'Subtitle text',
+  // @ts-ignore
+  rightContent: <Text type={'tertiary'}>Right Content</Text>,
   disabled: false,
   deSelectable: true,
   // value: null,
@@ -96,6 +102,7 @@ ItemSelectGroup.args = {
   isHorizontal: false,
   iconGroup: {
     Component: IconCheckmark,
-    type: 'brand',
+    type: 'brand-light',
+    className: 'ml-16',
   },
 };

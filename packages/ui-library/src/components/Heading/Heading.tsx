@@ -12,7 +12,8 @@ export const Heading = (props: HeadingPropTypes): ReactElement => {
     children,
     className = '',
     size = 'small',
-    lineHeight = 'large',
+    color = 'primary',
+    lineHeight = size,
     type: As = 'h1',
     weight = 'regular',
     onClick = noop,
@@ -23,7 +24,14 @@ export const Heading = (props: HeadingPropTypes): ReactElement => {
     <As
       dataid={dataId}
       onClick={onClick}
-      className={classNames('heading', size && `heading-${size}`, weight, lineHeight && `lh-${lineHeight}`, className)}
+      className={classNames(
+        'heading',
+        size && `heading-${size}`,
+        weight,
+        `lh-heading-${lineHeight}`,
+        color && `color-${color}`,
+        className
+      )}
     >
       {children}
     </As>

@@ -13,7 +13,7 @@
   --ds-popover-arrow-border-radius: 3px;
   --ds-popover-arrow-position: var(--ds-space-20);
   --ds-popover-arrow-bg: var(--ds-color-bg-white);
-  --ds-popover-font: 400 var(--ds-size-12)/var(--ds-line-height-caption) var(--ds-font-family);
+  --ds-popover-font: 400 var(--ds-paragraph-sm)/var(--ds-line-height-paragraph-sm) var(--ds-font-family);
 
   @include mixin.flexbox;
   position: fixed;
@@ -21,7 +21,7 @@
   background-color: var(--ds-popover-bg);
   border-radius: var(--ds-popover-border-radius);
   filter: var(--ds-popover-shadow);
-  min-width: var(--ds-size-80);
+  //min-width: var(--ds-size-80);
   padding: var(--ds-popover-padding);
   max-width: var(--ds-popover-max-width);
   max-height: var(--ds-popover-height);

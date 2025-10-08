@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import type {
   ColumnDef,
   ColumnSizingState,
@@ -12,9 +12,10 @@ export type TTable<TData> = Table<TData>;
 export type TRowSelectionState = RowSelectionState;
 export type TColumnSizingState = ColumnSizingState;
 export type TPaginationState = PaginationState;
+export type TPersistColumnSettings = 'localStorage' | 'external';
 
 export type TTableProps<TData> = {
-  data: TData[];
+  data: (TData & { subRows?: TData[] })[];
   isLoading?: boolean;
   columns: ColumnDef<TData>[];
   wi?: boolean;
@@ -30,10 +31,19 @@ export type TTableProps<TData> = {
   customHeader?: ReactNode;
   defaultPageIndex?: number;
   defaultPageSize?: number;
+  defaultHiddenColumns?: string[];
+  collapsibleRows?: boolean;
+  tableSettings?: {
+    tableName?: string;
+    persistColumnSettings?: TPersistColumnSettings;
+    onColumnSettingsChange?: (settings: ColumnSettings) => void;
+  };
+  renderExpandedContent?: (row: Row<TData>) => ReactNode;
   renderHeader?: (table: TTable<TData>) => ReactNode;
   renderFooter?: (table: Table<TData>) => ReactNode;
   onRowClick?: (row: Row<TData>) => void;
   onSortChange?: (state: SortingUpdateEvent) => void;
+  rowEventsProps?: HTMLAttributes<HTMLTableRowElement>;
   onRowSelection?: (state: TRowSelectionState) => void;
   onColumnSizing?: (state: TColumnSizingState) => void;
   onPaginationChange?: (state: TPaginationState) => void;
@@ -55,4 +65,21 @@ export interface ICellProps<TData> {
 
 export interface IHeaderProps<TData> {
   table: Table<TData>;
+}
+
+export interface TableData {
+  subRows: TableData[];
+  [key: string]: unknown;
+}
+
+export interface ExpandColumnProps<TData> {
+  row: Row<TData>;
+  expandedRows: Set<string>;
+  onToggle: (rowId: string) => void;
+}
+
+export interface ColumnSettings {
+  columnVisibility: Record<string, boolean>;
+  columnOrder: string[];
+  columnSizing: Record<string, number>;
 }

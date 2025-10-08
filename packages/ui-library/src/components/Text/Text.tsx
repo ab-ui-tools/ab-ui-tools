@@ -13,8 +13,8 @@ export const Text = (props: TextPropTypes): ReactElement => {
     className = '',
     type = 'primary',
     size = 'standard',
+    lineHeight = size,
     weight = 'regular',
-    lineHeight = 'medium',
     as: As = 'p',
     dataId = '',
     onClick = noop,
@@ -32,7 +32,7 @@ export const Text = (props: TextPropTypes): ReactElement => {
         size && `body-${size}`,
         type && `color-${type}`,
         weight,
-        lineHeight && `lh-${lineHeight}`,
+        `lh-body-${lineHeight}`,
         className
       )}
     >

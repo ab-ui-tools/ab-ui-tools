@@ -68,14 +68,13 @@ const InputPasswordTemplate: StoryFn<InputPasswordsProps> = args => {
         timer: 1000,
       };
 
-  // @ts-ignore
-
   const [isCapsLockOn, setCapsLockState] = useState<boolean>(false);
   const [isCapsLockOn1, setCapsLockState1] = useState<boolean>(false);
 
   return (
     <div style={{ marginLeft: 200, maxWidth: 400 }}>
       <_InputPassword
+        {...args}
         className={'mb-24'}
         id="sk,"
         name="pass"
@@ -91,6 +90,7 @@ const InputPasswordTemplate: StoryFn<InputPasswordsProps> = args => {
         onPasswordShow={setShowPassword}
       />
       <_InputPassword
+        {...args}
         id="4"
         name="pass-1"
         isCapsLockOn={isCapsLockOn1}
@@ -134,7 +134,7 @@ Input.args = {
       position="top-center"
     >
       <div id="beneficiary-tooltip">
-        <IconInfo type="information" size="xsmall" className={'ml-4 pointer'} />
+        <IconInfo type="information-light" size="xsmall" className={'ml-4 pointer'} />
       </div>
     </Popover>
   ),
@@ -142,4 +142,6 @@ Input.args = {
   successMessage: 'Success message',
 };
 
-InputPassword.args = {};
+InputPassword.args = {
+  size: 'large',
+};

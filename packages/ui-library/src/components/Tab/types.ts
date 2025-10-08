@@ -5,6 +5,7 @@ import type { TBadgeProps } from '../Badge/types';
 export type TTabItem = {
   value: number | string;
   label: string | JSX.Element;
+  title?: string;
   dataId?: string;
   disabled?: boolean;
   badgeProps?: TBadgeProps;
@@ -28,6 +29,7 @@ export interface TTabProps extends IFormCompProps {
   disabled?: boolean;
   selectedValue: number | string;
   onSelect: (value: string | number) => void;
+  isLoading?: boolean;
 }
 
 export type TTabItemProps = {
@@ -35,6 +37,7 @@ export type TTabItemProps = {
   label?: string | JSX.Element;
   size?: 'large' | 'medium' | 'small';
   className?: string;
+  title?: string;
   iconProps?: {
     name?: string;
     alignment?: string;

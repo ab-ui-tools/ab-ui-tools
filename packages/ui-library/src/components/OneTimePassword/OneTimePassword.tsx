@@ -23,6 +23,7 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
     required,
     placeholder,
     type,
+    pattern,
     setFieldValue,
     handleChange,
     dataId = '',
@@ -62,6 +63,16 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>, index: number) => {
       if (event.key === 'Backspace' && !otp[index] && index > 0) {
         inputRefs.current[index - 1]?.focus();
+        const newOtp = [...otp];
+        newOtp[index - 1] = '';
+        setOtp(newOtp);
+      }
+
+      if (event.key === 'ArrowLeft' && index > 0) {
+        inputRefs.current[index - 1]?.focus();
+      }
+      if (event.key === 'ArrowRight' && index < count - 1) {
+        inputRefs.current[index + 1]?.focus();
       }
     };
 
@@ -70,7 +81,7 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
     }, []);
 
     return (
-      <div className={classNames('otp', className)}>
+      <div className={classNames('otp', className, `otp-${type}`)}>
         <Label text={label} required={required} disabled={disabled} dataId={dataId} />
         <div className="otp__inner flexbox">
           {otp.map((digits, index) => (
@@ -80,6 +91,7 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
               ref={el => setInputRef(el, index)}
               max={1}
               type={type}
+              pattern={pattern}
               hasError={hasError}
               isValid={isValid}
               readonly={disabled}
@@ -97,9 +109,9 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
           <div className="input__message mt-8">
             {isErrorVisible && error ? <ErrorMessage message={error} icon="infoFilled" dataId={dataId} /> : null}
             {successMessage ? (
-              <Text size="small" type="success" className="flexbox align-items--center">
+              <Text size="small" type="success-light" className="flexbox align-items--center">
                 <>
-                  <IconCheckmarkCircleFilled type="success" size="xsmall" />
+                  <IconCheckmarkCircleFilled type="success-light" size="xsmall" />
                   <span className="ml-4">{successMessage}</span>
                 </>
               </Text>

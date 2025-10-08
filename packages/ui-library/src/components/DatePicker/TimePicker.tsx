@@ -56,7 +56,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
       calendarRef.current?.setOpen(!isOpen);
     }
   };
-  console.log(dayjs(selectedTime).isValid() ? selectedTime : null, dayjs(selectedTime).isValid());
+
   return (
     <div className="picker-container input__inner">
       <Label text={label} required={required} invalid={hasError} />
