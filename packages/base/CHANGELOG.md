@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.1.14...@ab.uitools/base@1.2.0) (2025-10-08)
+
+### Features
+
+- updated ui-tools storybook and base to latest version from ui-lib ([97255a9](https://github.com/ab-devtools/uilibrary/commit/97255a9ce437ba49cbf264aedefb46dec8eb4ed0))
+
 ## [1.1.14](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.1.13...@ab.uitools/base@1.1.14) (2025-04-17)
 
 **Note:** Version bump only for package @ab.uitools/base
