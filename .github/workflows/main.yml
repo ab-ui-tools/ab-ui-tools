@@ -103,13 +103,10 @@ jobs:
 #          SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
 #          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 #
-#      # Deployment on GitHub Pages
-#      - name: Build Storybook
-#        run: yarn build:storybook  # Ensure Storybook is being built
-#
-#      - name: Deploy to GitHub Pages
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token for deploying
-#          publish_dir: ./storybook-static  # Directory to deploy
-#          enable_jekyll: false  # Disable Jekyll (unless you need it)
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/storybook/storybook-static
+          enable_jekyll: false
