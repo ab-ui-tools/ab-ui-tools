@@ -2,6 +2,7 @@ import type { StoryFn } from '@storybook/react';
 import type { TItemSelectGroupProps, TItemSelectProps } from '@ab.uitools/ui-library/components/ItemSelect/types';
 
 import React, { useState } from 'react';
+import { Text } from '@ab.uitools/ui-library/components/Text';
 import { IconQuestionCircle } from '@ab.uitools/ui-library/components/SVGIcons/IconQuestionCircle';
 import IconCheckmark from '@ab.uitools/ui-library/components/SVGIcons/IconCheckmark';
 import IconAmd from '@ab.uitools/ui-library/components/SVGIcons/IconAmd';
@@ -43,7 +44,6 @@ const ITEMS = [
     image: imageFile3,
     label: 'Visa',
     disabled: false,
-    // @ts-ignore
     rightContent: <Text type={'tertiary'}>Right Content</Text>,
     onClick: (e: any) => {
       console.log(e);
@@ -71,7 +71,6 @@ ItemSelect.args = {
   // image: '',
   title: 'Title',
   subtitle: 'Subtitle text',
-  // @ts-ignore
   rightContent: <Text type={'tertiary'}>Right Content</Text>,
   disabled: false,
   deSelectable: true,
