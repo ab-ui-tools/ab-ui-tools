@@ -17,6 +17,7 @@ import {
 import { OptionItem } from '../../helperComponents';
 
 export const NestedMenu = ({
+  additionalRef = null,
   menuItems = [],
   parentRef,
   onClose,
@@ -25,7 +26,7 @@ export const NestedMenu = ({
   className = '',
 }: TNestedMenuProps): ReactElement | null => {
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null);
-  useOnOutsideClick(menuRef, onClose, !!isOpen, useId());
+  useOnOutsideClick([menuRef, additionalRef], onClose, !!isOpen, useId());
   useHideOnScroll(onClose);
 
   const { left, top } = useGetElemPositions(parentRef);

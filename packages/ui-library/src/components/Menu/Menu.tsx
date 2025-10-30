@@ -29,7 +29,7 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
   } = props;
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null);
   useOnOutsideClick([menuRef, additionalRef], onClose, isOpen, useId());
-  useHideOnScroll(onClose);
+  useHideOnScroll(onClose, containerRef);
   const { left, top } = useGetElemPositions(parentRef);
   const { width, height } = useGetElemSizes(parentRef);
   const { width: menuWidth, height: menuHeight } = useGetElemSizes(menuRef);
