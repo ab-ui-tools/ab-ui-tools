@@ -18,6 +18,7 @@ import { OptionItem } from '../../helperComponents';
 export const Menu = (props: TMenuProps): ReactElement | null => {
   const {
     additionalRef = null,
+    containerRef = null,
     menuItems = [],
     parentRef,
     onClose,
