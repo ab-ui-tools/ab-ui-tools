@@ -146,6 +146,7 @@ export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps
   isCreateOnOutsideClick?: boolean;
   isAllowed?: (values: { formattedValue: string; value: string; floatValue: number | undefined }) => boolean;
   renderOptions?: (props: IRenderOptionItemProps) => JSX.Element;
+  defaultValue?: string;
 }
 
 export type TSelectFooterPropTypes = {

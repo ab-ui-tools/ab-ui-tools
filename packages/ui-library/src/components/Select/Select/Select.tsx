@@ -66,6 +66,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     tooltipAddons,
     renderOptions,
     isAllowed,
+    defaultValue,
   } = props;
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -127,7 +128,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const handleOutsideClick = () => {
     const selected = getSelectedOption();
-    if (!searchValue && selected) {
+    if (!searchValue && selected && !isCreateOnOutsideClick) {
       setCurrentSelectedLabel();
     } else if (isCreateOnOutsideClick) {
       setSelectedOption({ label: searchValue, value: searchValue });
@@ -162,6 +163,10 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     }
 
     closeDropdown();
+  };
+
+  const isInOptions = (value: string) => {
+    return options.some(item => `${item.value}` === value);
   };
 
   const onItemDeselect = () => onItemSelect(null);
@@ -215,6 +220,30 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   useHideOnResize(closeDropdown);
 
+  const rightIconOpenedProps = useMemo(() => {
+    return {
+      className: 'cursor-pointer pointer-events-unset',
+      onClick: () => setIsOpen(false),
+      ...selectRightIconOpenedProps,
+    };
+  }, [selectRightIconOpenedProps]);
+
+  const rightIconProps = useMemo(() => {
+    return {
+      className: 'cursor-pointer pointer-events-unset',
+      onClick: () => setIsOpen(true),
+      ...selectRightIconProps,
+    };
+  }, [selectRightIconProps]);
+
+  useEffect(() => {
+    if (defaultValue && isCreateOnOutsideClick && !isInOptions(defaultValue)) {
+      setSelectedOption({ label: defaultValue, value: defaultValue });
+      setSearchValue(defaultValue);
+      onItemSelect(defaultValue);
+    }
+  }, [defaultValue, isCreateOnOutsideClick]);
+
   return (
     <div
       data-id={`${dataId}-content`}
@@ -234,7 +263,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         onInput={onInputChange}
         required={isRequiredField}
         leftIconProps={leftIconProps}
-        rightIconProps={isOpen ? selectRightIconOpenedProps : selectRightIconProps}
+        rightIconProps={isOpen ? rightIconOpenedProps : rightIconProps}
         readonly={!searchValue && !isWithSearch}
         placeholder={placeHolder}
         value={searchValue || selectedOption?.label || ''}
