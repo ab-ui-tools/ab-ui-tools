@@ -44,6 +44,7 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
     closeOnOutsideClick = true,
     iconProps,
     subtitle,
+    children,
     // type = 'secondary'
   } = props;
 
@@ -76,7 +77,7 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
                 </Text>
               ) : null}
               {subtitle ? <Text className={'mt-12'}>{subtitle}</Text> : null}
-
+              {children ? <div className={'mt-32'}>{children}</div> : null}
               {buttonProps ? (
                 <div
                   className={`modal__footer mt-32 ${isFooterInline ? 'modal__footer-inline' : 'modal__footer-block'}`}

@@ -20,6 +20,7 @@ import {
   useGetHasBottomSpace,
   useGetHasTopSpace,
   useHideOnResize,
+  useRecalculateDropdownPosition,
 } from '../../../hooks';
 import { OptionItem } from '../../../helperComponents';
 import { DROPDOWN_AND_INPUT_GAP } from '../../../consts';
@@ -39,6 +40,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     isSearchable = false,
     isDynamicSearchable = false,
     trimSearchValue = false,
+    shouldRecalculateDropdownPosition = false,
     disabled,
     dataId = '',
     placeHolder,
@@ -138,6 +140,12 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   };
 
   useOnOutsideClick([inputRef.current, dropdownRef], handleOutsideClick, isOpen, useId());
+  useRecalculateDropdownPosition({
+    shouldRecalculateDropdownPosition,
+    isOpen,
+    inputRef,
+    dropdownRef,
+  });
 
   const { bottom, left, top } = useGetElemPositions(inputRef.current);
   const { width } = useGetElemSizes(containerRef.current);

@@ -38,6 +38,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
     hasError,
     autoApplyOnClose = false,
     autoApplyOnChooseItem = false,
+    dataId,
     ...rest
   } = props;
 
@@ -142,6 +143,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
       isRequiredField={isRequiredField}
       overflowText={overflowText}
       hasError={hasError}
+      dataId={dataId}
     >
       <>
         <OptionsWrapper

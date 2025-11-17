@@ -107,6 +107,7 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
   labelAddons?: JSX.Element;
   className?: string;
   isButtonSelect?: boolean;
+  dataId?: string;
 }
 
 export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps {
@@ -147,6 +148,7 @@ export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps
   isAllowed?: (values: { formattedValue: string; value: string; floatValue: number | undefined }) => boolean;
   renderOptions?: (props: IRenderOptionItemProps) => JSX.Element;
   defaultValue?: string;
+  shouldRecalculateDropdownPosition?: boolean;
 }
 
 export type TSelectFooterPropTypes = {
