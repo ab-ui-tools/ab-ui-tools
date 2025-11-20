@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 
+import type { TSVGIconType } from '../SVGIcons/types';
 import type { LinkPropTypes } from '../Link/types';
 import type { TButtonPropTypes } from '../Button/types';
 
@@ -8,6 +9,10 @@ export type TAlertPosition = 'inline' | 'sticky';
 
 export interface TAlertProps extends IFormCompProps {
   type?: TAlertTypes;
+  iconProps?: {
+    type?: TSVGIconType;
+    Component?: TSVGIconComponent;
+  };
   position?: TAlertPosition;
   text?: string | JSX.Element;
   subtext?: string | JSX.Element;
