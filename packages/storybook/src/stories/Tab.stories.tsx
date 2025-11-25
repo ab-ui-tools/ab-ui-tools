@@ -35,7 +35,7 @@ export const Tab = Template.bind({});
 
 // @ts-ignore
 Tab.args = {
-  type: 'primary',
+  type: 'secondary',
   size: 'large',
   tabItems: [
     {

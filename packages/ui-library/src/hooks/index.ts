@@ -11,4 +11,5 @@ export * from './useScreenSize';
 export * from './useHideBodyScroll';
 export * from './useGetHasBottomSpace';
 export * from './useFieldArray';
+export * from './useTabScroll';
 export * from './useRecalculateDropdownPosition';
