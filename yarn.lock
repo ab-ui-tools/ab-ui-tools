@@ -4739,7 +4739,7 @@
   resolved "https://registry.yarnpkg.com/@storybook/react-dom-shim/-/react-dom-shim-7.6.20.tgz#20b902663474b731c22b211ec29c7fd0e86b4b7f"
   integrity sha512-SRvPDr9VWcS24ByQOVmbfZ655y5LvjXRlsF1I6Pr9YZybLfYbu3L5IicfEHT4A8lMdghzgbPFVQaJez46DTrkg==
 
-"@storybook/react-webpack5@^7.6.9":
+"@storybook/react-webpack5@7.6.20", "@storybook/react-webpack5@^7.6.9":
   version "7.6.20"
   resolved "https://registry.yarnpkg.com/@storybook/react-webpack5/-/react-webpack5-7.6.20.tgz#812e798cfff142c870ea12347b6a2ba2c270502d"
   integrity sha512-xaLtadKczfUdpyPMk/e49qGnRpjMDtTwFq4RqkS7q+Z+EO72kTCUPGtK3jJXyv70pp/qbzM5OfjFLjXjMezvYw==
