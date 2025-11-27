@@ -55,9 +55,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: yarn lerna-build
 
-      - name: Ensure scripts dist folder exists
-        run: mkdir -p packages/scripts/dist
-
 #          yarn lerna publish from-package --yes
 
       - name: Publish private packages
