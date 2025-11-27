@@ -9,14 +9,16 @@
     "registry": "https://registry.npmjs.org/"
   },
   "bin": {
-    "scripts": "bin/index.js",
-    "typecheck": "tsc"
+    "@ab.uitools/scripts": "bin/index.js"
   },
   "files": [
     "bin",
     "src/templates"
   ],
   "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^11.1.0",

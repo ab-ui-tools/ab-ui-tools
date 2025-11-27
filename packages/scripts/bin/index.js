@@ -11,10 +11,18 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
-
 const ROOT = path.join(__dirname, '..');
 const TEMPLATES_DIR = path.join(ROOT, 'src', 'templates');
+
+const pkgJsonPath = path.join(ROOT, 'package.json');
+let pkgVersion = '0.0.0';
+
+try {
+    const pkgJson = fs.readJsonSync(pkgJsonPath);
+    pkgVersion = pkgJson.version || pkgVersion;
+} catch (e) {
+    pkgVersion = '0.0.0';
+}
 
 function getTemplates() {
     if (!fs.existsSync(TEMPLATES_DIR)) return [];
@@ -135,11 +143,7 @@ const program = new Command();
 program
     .name('@ab.uitools/scripts')
     .description('CLI utilities for @ab.uitools')
-    .version('1.0.0');
-
-program
-    .command('init')
-    .description('Initialize a new project from a template')
+    .version(pkgVersion)
     .option('--name <name>', 'Project name')
     .option('--template <template>', 'Template to use (e.g. react, next)')
     .action((options) => {
