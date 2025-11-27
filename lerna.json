@@ -10,8 +10,7 @@
       "allowBranch": ["master", "alpha"]
     },
     "publish": {
-      "registry": "https://registry.npmjs.org/",
-      "contents": "dist"
+      "registry": "https://registry.npmjs.org/"
     }
   }
 }

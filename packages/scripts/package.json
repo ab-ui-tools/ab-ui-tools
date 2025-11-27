@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "CLI scripts for @ab.uitools",
   "type": "module",
-  "private": true,
+  "private": false,
   "publishConfig": {
     "access": "restricted",
     "registry": "https://registry.npmjs.org/"
