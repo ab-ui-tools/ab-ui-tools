@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+bash scripts/post-checkout.sh "$1" "$2" "$3"

@@ -15,6 +15,7 @@
     "build": "rollup -c",
     "eject": "react-scripts eject",
     "check": "npm run lint && tsc",
+    "typecheck": "tsc",
     "install-latest": "npm install --legacy-peer-deps",
     "publish-alpha-version": "cd \"./dist/\" && npm publish --tag alpha",
     "generate-svg-component": "node bin/generate_svg_component.js && npm run import-all-svg-components && npm run check"
