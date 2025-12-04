@@ -15,6 +15,7 @@ export const useChangePositionsOnScroll = ({
 }): null => {
   const positionElement = () => {
     const elemDimensions = parentElement?.getBoundingClientRect();
+
     const childElementDimensions = childElement?.getBoundingClientRect();
 
     if (childElementDimensions && elemDimensions && childElement) {
