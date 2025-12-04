@@ -22,6 +22,7 @@ interface PaginationProps<T> {
 
 export function AdvancedPagination<TData>({ table, totalCount, buttonText }: PaginationProps<TData>) {
   const [navigatePage, setNavigatePage] = useState<string>('1');
+
   const pageIndex = table.getState().pagination.pageIndex;
   const pageSize = table.getState().pagination.pageSize;
 
