@@ -1,5 +1,5 @@
 import type { StoryFn } from '@storybook/react';
-import type { TButtonIconPropTypes } from '@ab.uitools/ui-library/components/ButtonIcon/types';
+import type { TFramedIconPropTypes } from '@ab.uitools/ui-library/components/FramedIcon/types';
 
 import React from 'react';
 import IconDelete from '@ab.uitools/ui-library/components/SVGIcons/IconDelete';
@@ -12,15 +12,34 @@ export default {
     size: {
       options: ['large', 'medium', 'small'],
       control: { type: 'radio' },
+      description: 'Size of the framed icon',
+    },
+    'iconProps.type': {
+      options: ['secondary', 'warning-light', 'brand-light', 'danger-light', 'success-light', 'information-light'],
+      control: { type: 'radio' },
+      description: 'Icon type/variant',
     },
   },
 };
 
-const Template: StoryFn<TButtonIconPropTypes> = args => (
-  <div>
-    <_FramedIcon {...args} iconProps={{ Component: IconDelete, type: 'warning-light' }} />
-  </div>
-);
+const Template: StoryFn<TFramedIconPropTypes> = args => {
+  const iconType = (args as any)['iconProps.type'] || 'warning-light';
+
+  return (
+    <div>
+      <_FramedIcon
+        {...args}
+        iconProps={{
+          Component: IconDelete,
+          type: iconType,
+        }}
+      />
+    </div>
+  );
+};
 
 export const FramedIcon = Template.bind({});
-FramedIcon.args = {};
+FramedIcon.args = {
+  size: 'medium',
+  className: '',
+};

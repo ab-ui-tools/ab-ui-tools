@@ -1,7 +1,7 @@
-import type { CSSProperties } from 'react';
 import type { Column, Row, ColumnDef } from '@tanstack/react-table';
 
 import Skeleton from 'react-loading-skeleton';
+import { type CSSProperties, useEffect } from 'react';
 import React, { useState, useCallback, useMemo } from 'react';
 import classnames from 'classnames';
 import { flexRender } from '@tanstack/react-table';
@@ -73,6 +73,8 @@ export function Table<TData>({
   onPaginationChange,
   rowEventsProps,
   activeRowId,
+  getRowId,
+  resetExpandedOnPageChange = true,
 }: TTableProps<TData>) {
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
 
@@ -123,6 +125,7 @@ export function Table<TData>({
     onRowSelection,
     onColumnSizing,
     onPaginationChange,
+    getRowId,
   });
 
   const header = renderHeader?.(table);
@@ -157,6 +160,12 @@ export function Table<TData>({
   const skeletonRowSize = useMemo(() => {
     return Array.from({ length: table.getState().pagination.pageSize });
   }, [table.getState().pagination.pageSize]);
+
+  useEffect(() => {
+    if (resetExpandedOnPageChange) {
+      setExpandedRows(new Set());
+    }
+  }, [table.getState().pagination.pageIndex, resetExpandedOnPageChange]);
 
   return (
     <div
