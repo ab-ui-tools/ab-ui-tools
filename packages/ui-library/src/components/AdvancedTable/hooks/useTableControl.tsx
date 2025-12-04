@@ -39,6 +39,7 @@ export function useTableControl<TData>({
   const shouldPersistToStorage = tableSettings?.persistColumnSettings === STORAGE_TYPE.LOCAL;
   const shouldEmitExternal = tableSettings?.persistColumnSettings === STORAGE_TYPE.EXTERNAL;
   const tableName = `${TABLE_NAME_PREFIX}-${tableSettings?.tableName}`;
+
   const savedSettings =
     shouldPersistToStorage && tableName
       ? loadTableSettings(tableName)
