@@ -16,6 +16,7 @@ type IndeterminateCheckboxProps = {
 export const IndeterminateCheckbox = forwardRef(
   ({ indeterminate, checked, onChange, disabled }: IndeterminateCheckboxProps, ref: ForwardedRef<HTMLInputElement>) => {
     const defaultRef = useRef(null);
+
     const resolvedRef: any = ref ?? defaultRef;
 
     useEffect(() => {
