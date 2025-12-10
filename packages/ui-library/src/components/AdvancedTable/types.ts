@@ -8,6 +8,8 @@ import type {
   Row,
 } from '@tanstack/react-table';
 
+import type { TButtonPropTypes } from '../Button/types';
+
 export type TTable<TData> = Table<TData>;
 export type TRowSelectionState = RowSelectionState;
 export type TColumnSizingState = ColumnSizingState;
@@ -25,6 +27,7 @@ export type TTableProps<TData> = {
   hasError?: boolean;
   emptyTitle?: string;
   emptySubTitle?: string;
+  emptyButtonProps?: TButtonPropTypes;
   emptyIllustration?: string;
   className?: string;
   withSelect?: boolean;
@@ -50,6 +53,7 @@ export type TTableProps<TData> = {
   onPaginationChange?: (state: TPaginationState) => void;
   getRowId?: (row: TData) => string;
   resetExpandedOnPageChange?: boolean;
+  rowClassName?: (row: Row<TData>) => string | undefined;
 };
 
 export type Column<TData> = ColumnDef<TData> & {

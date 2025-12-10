@@ -55,6 +55,7 @@ export function Table<TData>({
   totalCount = 0,
   emptyTitle,
   emptySubTitle,
+  emptyButtonProps,
   emptyIllustration,
   withSelect = false,
   withBorder = true,
@@ -75,6 +76,7 @@ export function Table<TData>({
   activeRowId,
   getRowId,
   resetExpandedOnPageChange = true,
+  rowClassName,
 }: TTableProps<TData>) {
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
 
@@ -121,8 +123,8 @@ export function Table<TData>({
     defaultPageIndex,
     defaultPageSize,
     defaultHiddenColumns,
-    onSortChange,
     onRowSelection,
+    onSortChange,
     onColumnSizing,
     onPaginationChange,
     getRowId,
@@ -185,7 +187,12 @@ export function Table<TData>({
           <div>
             <table style={tableStyle}>
               {!isLoading && (!data?.length || hasError) ? (
-                <Empty mainMessage={emptyTitle} paragraphMessage={emptySubTitle} illustration={emptyIllustration} />
+                <Empty
+                  mainMessage={emptyTitle}
+                  paragraphMessage={emptySubTitle}
+                  illustration={emptyIllustration}
+                  buttonProps={emptyButtonProps}
+                />
               ) : (
                 <>
                   <thead className="advanced-table__thead">
@@ -232,7 +239,7 @@ export function Table<TData>({
                           <React.Fragment key={row.id}>
                             <tr
                               {...rowEventsProps}
-                              className={classnames({
+                              className={classnames(rowClassName?.(row), {
                                 selected: row.getIsSelected(),
                                 active: row.id == activeRowId,
                               })}

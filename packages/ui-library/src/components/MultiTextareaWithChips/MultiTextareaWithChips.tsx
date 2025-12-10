@@ -31,6 +31,7 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
   minChipLength,
   maxChipLength,
   onBlurConfig,
+  transformToUppercase = false,
 }) => {
   const [inputValue, setInputValue] = useState('');
   const [chipError, setChipError] = useState<string>('');
@@ -66,7 +67,8 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
     if (chipManagement.getChipTexts().includes(option)) return;
 
     try {
-      const validatedChip = chipValidation.createValidatedChip(option);
+      const valueToValidate = transformToUppercase ? option.toUpperCase() : option;
+      const validatedChip = chipValidation.createValidatedChip(valueToValidate);
       chipManagement.addChip(validatedChip);
       setInputValue('');
       dropdownLogic.closeDropdown();
@@ -83,7 +85,8 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
       if (chipManagement.getChipTexts().includes(value)) return;
 
       try {
-        const validatedChip = chipValidation.createValidatedChip(value);
+        const valueToValidate = transformToUppercase ? value.toUpperCase() : value;
+        const validatedChip = chipValidation.createValidatedChip(valueToValidate);
         chipManagement.addChip(validatedChip);
         setInputValue('');
         setChipError('');
@@ -93,7 +96,7 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
         }
       }
     },
-    [chipManagement, chipValidation, allowInvalidChips]
+    [chipManagement, chipValidation, allowInvalidChips, transformToUppercase]
   );
 
   const onBlurLogic = useOnBlurLogic({
@@ -119,7 +122,12 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (disabled) return;
-    const value = e.target.value;
+    let value = e.target.value;
+
+    if (transformToUppercase) {
+      value = value.toUpperCase();
+    }
+
     setInputValue(value);
     dropdownLogic.handleInputChange(value);
   };
@@ -234,7 +242,7 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
               onFocus={handleInputFocus}
               onBlur={handleInputBlur}
               placeholder={inputPlaceholder}
-              className="multi-textarea-chips__input"
+              className={'multi-textarea-chips__input'}
               disabled={disabled}
               aria-describedby={hasError ? `${fieldName}-error` : helperText ? `${fieldName}-helper` : undefined}
               aria-invalid={hasError ? 'true' : 'false'}

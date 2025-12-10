@@ -180,6 +180,11 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const onItemDeselect = () => onItemSelect(null);
 
   const onOpenOptions = (e: TClickEventType): void => {
+    const selected = getSelectedOption();
+    if (selected?.label && isCreateOnOutsideClick) {
+      setSearchValue(`${selected.label}`);
+    }
+
     const result = e?.target as HTMLDivElement;
     const className = result?.getAttribute('class');
     if (e && className && (className.indexOf('icon-') !== -1 || className.indexOf('svg-icon') !== -1)) {

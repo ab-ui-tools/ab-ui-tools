@@ -35,6 +35,7 @@ export interface TMultiTextareaWithChipsProps extends IFormCompProps {
   minChipLength?: number;
   maxChipLength?: number;
   searchPlaceholderText?: string;
+  transformToUppercase?: boolean;
   typeAndEnterPlaceholderText?: string;
   noOptionsPlaceholderText?: string;
   fieldName?: string;

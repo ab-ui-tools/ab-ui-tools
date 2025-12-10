@@ -335,6 +335,7 @@ const Template: StoryFn<TSingleSelectPropTypes> = args => {
           selectedItem={selectedValue}
           setSelectedItem={setSelectedValue}
           isSearchable={true}
+          isCreateOnOutsideClick
           optionRightIconComponent={value => <>{value}</>}
         />
       </div>
@@ -367,7 +368,6 @@ const Template2: StoryFn<TButtonSelectPropTypes> = args => {
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
         dropdownWidth={300}
-        // optionRightIconComponent={(value) => <>{value}</div>}
       />
     </div>
   );
