@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/scripts@1.0.6...@ab.uitools/scripts@1.0.7) (2025-12-15)
+
+### Bug Fixes
+
+- deleted js files from scripts ([6964137](https://github.com/ab-ui-tools/ab-ui-tools/commit/69641370af4a27147c1746ef6ef16c4c0f6c057b))
+
 ## [1.0.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/scripts@1.0.5...@ab.uitools/scripts@1.0.6) (2025-12-10)
 
 ### Bug Fixes
