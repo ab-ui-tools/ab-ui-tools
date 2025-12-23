@@ -8,8 +8,8 @@
   "scripts": {
     "version": "echo $npm_package_version",
     "name": "echo $npm_package_name",
-    "storybook": "storybook dev -p 6006 public",
-    "build": "storybook build",
+    "storybook": "DESIGN_TOKEN_GLOB='../ui-library/src/assets/styles/tokens/**/*.scss' storybook dev -p 6006 public",
+    "build": "DESIGN_TOKEN_GLOB='../ui-library/src/assets/styles/tokens/**/*.scss' storybook build",
     "check": "tsc",
     "install-latest": "npm install --legacy-peer-deps",
     "publish-alpha-version": "cd \"./dist/\" && npm publish --tag alpha"

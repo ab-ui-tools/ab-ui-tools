@@ -2,7 +2,7 @@ import type { JSX } from 'react';
 
 import type { TButtonPropTypes } from '../Button/types';
 
-export type TSnackbarTypes = 'success' | 'error' | 'warning' | 'information';
+export type TSnackbarTypes = 'success' | 'error' | 'warning' | 'information' | 'offline';
 
 export interface TToastProps {
   duration?: number;
@@ -11,6 +11,7 @@ export interface TToastProps {
   closeSnackbar?: (id: number | string) => void;
   text: string | JSX.Element;
   actionProps?: TButtonPropTypes;
+  autoClose?: boolean;
 }
 export interface TSnackbarProps extends IFormCompProps {
   duration?: number;

@@ -3,6 +3,15 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 // @ts-ignore
 import path from 'path';
 
+// Set DESIGN_TOKEN_GLOB if not already set via environment variable
+// The addon scans from the storybook package directory, so we use a relative path
+// This works in both dev and build because the monorepo structure is preserved
+if (!process.env.DESIGN_TOKEN_GLOB) {
+  // Relative path from storybook package root to ui-library tokens
+  // Works in both development and build/deployment
+  process.env.DESIGN_TOKEN_GLOB = '../ui-library/src/assets/styles/tokens/**/*.scss';
+}
+
 const config: StorybookConfig = {
   framework: '@storybook/react-webpack5',
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -11,7 +20,12 @@ const config: StorybookConfig = {
     check: false, // Add this to disable type checking during build
   },
   addons: [
-    { name: 'storybook-design-token', options: { preserveCSSVars: true } },
+    {
+      name: 'storybook-design-token',
+      options: {
+        preserveCSSVars: true,
+      },
+    },
     '@storybook/addon-viewport',
     '@storybook/addon-controls',
     // TODO check do wee need outlining

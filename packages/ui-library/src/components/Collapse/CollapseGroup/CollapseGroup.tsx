@@ -27,24 +27,26 @@ export const CollapseGroup = forwardRef(
 
     return (
       <div className={classNames('collapse-group', className)} ref={ref}>
-        {items.map(({ id, title, subtext, additionalInfo, value, content, iconProps, disabled, reverse }) => {
+        {items.map(({ id, title, subtext, additionalInfo, value, content, iconProps, disabled, isHidden, reverse }) => {
           const isOpen = openValues.indexOf(value) !== -1;
           return (
-            <CollapseItem
-              className={'collapse-group__item'}
-              id={id}
-              isOpen={isOpen}
-              disabled={disabled}
-              key={value}
-              title={title}
-              subtext={subtext}
-              additionalInfo={additionalInfo}
-              toggle={() => (isOpen ? onCollapseDeselect(value) : onCollapseSelect(value))}
-              iconProps={iconProps}
-              reverse={reverse}
-            >
-              {content}
-            </CollapseItem>
+            !isHidden && (
+              <CollapseItem
+                className={'collapse-group__item'}
+                id={id}
+                isOpen={isOpen}
+                disabled={disabled}
+                key={value}
+                title={title}
+                subtext={subtext}
+                additionalInfo={additionalInfo}
+                toggle={() => (isOpen ? onCollapseDeselect(value) : onCollapseSelect(value))}
+                iconProps={iconProps}
+                reverse={reverse}
+              >
+                {content}
+              </CollapseItem>
+            )
           );
         })}
       </div>
