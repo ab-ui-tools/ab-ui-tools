@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.12](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.11...@ab.uitools/storybook@1.6.12) (2025-12-23)
+
+### Bug Fixes
+
+- updated ui-lib ([49b1e52](https://github.com/ab-devtools/uilibrary/commit/49b1e5230e2e4e86755b3873112ba746c0a4e834))
+
 ## [1.6.11](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.10...@ab.uitools/storybook@1.6.11) (2025-12-10)
 
 ### Bug Fixes
