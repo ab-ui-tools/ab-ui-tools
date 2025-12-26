@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import React from 'react';
 import classnames from 'classnames';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import type { FormPropTypes } from './types';
 
@@ -44,6 +45,7 @@ export const FormContainer = (props: FormPropTypes): JSX.Element => {
     defaultValues: initialValues,
     shouldFocusError,
     shouldUnregister,
+    resolver: yupResolver(validationScheme),
   });
 
   const { errors, isDirty, isSubmitted, isSubmitting, dirtyFields } = formState;
