@@ -11,3 +11,4 @@ build-storybook.log
 storybook-static
 .rollup.cache
 tsconfig.tsbuildinfo
+yarn-error.log

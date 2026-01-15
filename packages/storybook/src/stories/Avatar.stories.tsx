@@ -2,7 +2,7 @@ import type { StoryFn } from '@storybook/react';
 import type { TAvatarGroupProps, TAvatarProps } from '@ab.uitools/ui-library/components/Avatar/types';
 
 import React from 'react';
-import { Avatar as _Avatar, AvatarGroup as _AvatarGroup } from '@ab.uitools/ui-library';
+import { Avatar as _Avatar, AvatarGroup as _AvatarGroup, IconPerson } from '@ab.uitools/ui-library';
 
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg';
@@ -17,7 +17,7 @@ export default {
   component: _Avatar,
   argTypes: {
     color: {
-      options: ['default', 'purple', 'blue', 'green', 'red'],
+      options: ['grey', 'orange', 'purple', 'blue', 'green', 'red'],
       control: { type: 'radio' },
     },
     type: {
@@ -37,8 +37,11 @@ export const Avatar = Template.bind({});
 
 Avatar.args = {
   initials: 'AG',
-  color: 'default',
+  color: 'orange',
   size: 'large',
+  iconProps: {
+    Component: IconPerson,
+  },
   isEditable: true,
   imagePath: image.src,
   onAvatarChange: (file: File) => {

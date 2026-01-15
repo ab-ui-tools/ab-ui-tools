@@ -19,6 +19,7 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
   disabled = false,
   availableOptions = [],
   allowCustomValues = true,
+  allowDuplicates = false,
   searchPlaceholder,
   chipValidationSchema,
   chipValidationErrorMessage,
@@ -64,7 +65,7 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
   });
 
   const handleSelectOption = (option: string) => {
-    if (chipManagement.getChipTexts().includes(option)) return;
+    if (!allowDuplicates && chipManagement.getChipTexts().includes(option)) return;
 
     try {
       const valueToValidate = transformToUppercase ? option.toUpperCase() : option;
@@ -82,7 +83,7 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
 
   const handleAddCustomValue = useCallback(
     (value: string) => {
-      if (chipManagement.getChipTexts().includes(value)) return;
+      if (!allowDuplicates && chipManagement.getChipTexts().includes(value)) return;
 
       try {
         const valueToValidate = transformToUppercase ? value.toUpperCase() : value;
@@ -96,7 +97,7 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
         }
       }
     },
-    [chipManagement, chipValidation, allowInvalidChips, transformToUppercase]
+    [chipManagement, chipValidation, allowInvalidChips, transformToUppercase, allowDuplicates]
   );
 
   const onBlurLogic = useOnBlurLogic({
@@ -113,10 +114,9 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
   });
 
   const handleRemoveLastChip = () => {
-    const lastChip = chipManagement.chips[chipManagement.chips.length - 1];
-    if (lastChip) {
-      const chipText = typeof lastChip === 'string' ? lastChip : lastChip.text;
-      chipManagement.removeChip(chipText);
+    const lastChipIndex = chipManagement.chips.length - 1;
+    if (lastChipIndex >= 0) {
+      chipManagement.removeChip(lastChipIndex);
     }
   };
 
@@ -215,7 +215,8 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
                 text={text}
                 withAction={!disabled}
                 onClick={() => {
-                  chipManagement.removeChip(text);
+                  // Pass index instead of text to remove specific chip
+                  chipManagement.removeChip(index);
                   setTimeout(() => {
                     inputRef.current?.focus();
                   }, 0);
