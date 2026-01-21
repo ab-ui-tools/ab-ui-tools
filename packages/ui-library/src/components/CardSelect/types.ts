@@ -10,8 +10,8 @@ export interface TCardSelectProps extends IFormCompProps {
   id?: number | string;
   type?: CARD_SELECT_TYPES;
   title?: string | React.ReactNode;
-  subtext?: string;
   description?: string;
+  subtext?: string;
   chips?: TChipsProps[];
   inputProps?: InputCustomProps | InputCustomProps[];
   className?: string;
