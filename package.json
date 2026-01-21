@@ -20,9 +20,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "resolutions": {
-    "tar": "^7.5.3"
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "yarn lint:fix",
