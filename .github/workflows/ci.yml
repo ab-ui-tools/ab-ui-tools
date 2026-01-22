@@ -2,64 +2,59 @@ name: CI
 
 on:
   pull_request:
-    branches:
-      - '*'
-  push:
-    branches-ignore:
-      - 'master'
+    types: [opened, synchronize, reopened]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Specify Node Version
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: yarn
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
+        env:
+          HUSKY: 0
 
       - name: Run linter
         run: yarn lint
 
   typecheck:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Specify Node Version
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: yarn
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
+        env:
+          HUSKY: 0
 
       - name: Run type check
         run: yarn typecheck
 
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Specify Node Version
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: yarn
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
+        env:
+          HUSKY: 0
 
       - name: Build packages
         run: yarn lerna-build
-
