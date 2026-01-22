@@ -2,8 +2,9 @@ import type { ButtonHTMLAttributes, LegacyRef, PropsWithChildren, ReactElement }
 
 import type { TSVGIconType } from '../SVGIcons/types';
 
-export interface TButtonPropTypes
-  extends PropsWithChildren<Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'children'>> {
+export interface TButtonPropTypes extends PropsWithChildren<
+  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'children'>
+> {
   id?: string;
   disabled?: boolean;
   buttonActionType?: 'submit' | 'button' | 'reset';
