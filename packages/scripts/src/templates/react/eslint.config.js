@@ -11,6 +11,8 @@ import unusedImports from 'eslint-plugin-unused-imports';
 import perfectionist from 'eslint-plugin-perfectionist';
 
 export default tseslint.config({
+
+    
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
     ignores: ['dist', 'node_modules'],
