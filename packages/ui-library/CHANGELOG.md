@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.13](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.12...@ab.uitools/ui-library@1.3.13) (2026-01-22)
+
+### Bug Fixes
+
+- fix test ([3ec3db5](https://github.com/ab-devtools/uilibrary/commit/3ec3db5e01165fa326fa58cc0f3eee2da2f38153))
+
 ## [1.3.12](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.11...@ab.uitools/ui-library@1.3.12) (2026-01-21)
 
 ### Bug Fixes
