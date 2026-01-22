@@ -3,7 +3,8 @@ import type { InputHTMLAttributes, ReactElement, RefObject } from 'react';
 import type { TTooltipProps } from '../Tooltip/types';
 import type { ISVGIconProps } from '../SVGIcons/types';
 export interface InputCustomProps
-  extends IFormCompProps,
+  extends
+    IFormCompProps,
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onFocus' | 'value' | 'onChange' | 'autoComplete'> {
   mask?: string;
   format?: string;

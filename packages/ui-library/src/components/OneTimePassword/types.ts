@@ -1,6 +1,7 @@
 import type { InputHTMLAttributes, ReactElement, RefObject } from 'react';
 export interface OtpCustomProps
-  extends IFormCompProps,
+  extends
+    IFormCompProps,
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onFocus' | 'value' | 'onChange' | 'autoComplete'> {
   className?: string;
   size?: 'large' | 'small';
