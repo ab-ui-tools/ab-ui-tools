@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/scripts@1.0.10...@ab.uitools/scripts@1.0.11) (2026-01-29)
+
+### Bug Fixes
+
+- template commitlinter changed ([94ef3e1](https://github.com/ab-ui-tools/ab-ui-tools/commit/94ef3e1fa909909d5b4c7e3597bbac990e70e4af))
+
 ## [1.0.10](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/scripts@1.0.9...@ab.uitools/scripts@1.0.10) (2026-01-22)
 
 ### Bug Fixes
