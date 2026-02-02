@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.24](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.23...@ab.uitools/storybook@1.6.24) (2026-02-02)
+
+### Bug Fixes
+
+- datepicker localization fix ([3754443](https://github.com/ab-devtools/uilibrary/commit/375444321608dc389cb1d65028c4f7bbd560069c))
+
 ## [1.6.23](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.22...@ab.uitools/storybook@1.6.23) (2026-02-02)
 
 **Note:** Version bump only for package @ab.uitools/storybook
