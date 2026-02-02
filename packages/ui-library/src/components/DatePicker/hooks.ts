@@ -5,7 +5,6 @@ import ru from 'date-fns/locale/ru';
 import hy from 'date-fns/locale/hy';
 import en from 'date-fns/locale/en-GB';
 
-// Register date-fns locales for react-datepicker calendar
 registerLocale('hy', hy);
 registerLocale('en', en);
 registerLocale('ru', ru);
@@ -14,7 +13,6 @@ export function useImportFilesDynamically(dayjsLocale: string): void {
   useEffect(() => {
     if (!dayjsLocale) return;
 
-    // Dynamically import dayjs locale files on-demand to avoid bundling them
     const loadDayjsLocale = async () => {
       try {
         switch (dayjsLocale) {
@@ -31,7 +29,6 @@ export function useImportFilesDynamically(dayjsLocale: string): void {
             dayjs.locale('en');
             break;
           default:
-            // For any other locale, try to load it dynamically
             await import(`dayjs/locale/${dayjsLocale}`);
             dayjs.locale(dayjsLocale);
         }
