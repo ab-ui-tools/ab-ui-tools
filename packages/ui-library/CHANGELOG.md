@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.18](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.17...@ab.uitools/ui-library@1.3.18) (2026-02-02)
+
+### Bug Fixes
+
+- table resize issue ([4be6ed6](https://github.com/ab-devtools/uilibrary/commit/4be6ed614743f95f7877726272535d2767e98600))
+
 ## [1.3.17](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.16...@ab.uitools/ui-library@1.3.17) (2026-02-02)
 
 ### Bug Fixes

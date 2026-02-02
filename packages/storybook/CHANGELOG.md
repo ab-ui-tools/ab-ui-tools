@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.22](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.21...@ab.uitools/storybook@1.6.22) (2026-02-02)
+
+### Bug Fixes
+
+- table resize issue ([4be6ed6](https://github.com/ab-devtools/uilibrary/commit/4be6ed614743f95f7877726272535d2767e98600))
+
 ## [1.6.21](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.20...@ab.uitools/storybook@1.6.21) (2026-02-02)
 
 **Note:** Version bump only for package @ab.uitools/storybook
