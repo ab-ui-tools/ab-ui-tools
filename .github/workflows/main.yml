@@ -64,45 +64,62 @@ jobs:
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-#      - name: Extract version and package name
-#        run: |
-#          VERSION=$(npm run version --silent)
-#          PACKAGE_NAME=$(npm run name --silent)
-#          echo "VERSION=$VERSION" >> $GITHUB_ENV
-#          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
-#
-#      - name: Post to Slack channel
-#        id: slack
-#        uses: slackapi/slack-github-action@v1.17.0
-#        with:
-#          payload: |
-#            {
-#              "attachments": [
-#                {
-#                  "color": "#70aeff",
-#                  "blocks": [
-#                    {
-#                      "type": "section",
-#                      "text": {
-#                        "type": "mrkdwn",
-#                        "text": "Notification sent from <${{ env.PIPE_URL }}>"
-#                      }
-#                    },
-#                    {
-#                      "type": "section",
-#                      "text": {
-#                        "type": "mrkdwn",
-#                        "text": "${{ env.PACKAGE_NAME }}@${{ env.VERSION }} has been published successfully!"
-#                      }
-#                    }
-#                  ]
-#                }
-#              ]
-#            }
-#        env:
-#          SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
-#          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-#
+      - name: Extract Lerna package versions
+        id: lerna-versions
+        run: |
+          CHANGED=$(git diff HEAD~1 HEAD --name-only -- 'packages/*/package.json' | grep -v storybook || true)
+          if [ -z "$CHANGED" ]; then
+            echo "packages_info=No package versions updated" >> $GITHUB_OUTPUT
+          else
+            ENTRIES=()
+            for f in $CHANGED; do
+              NAME=$(node -e "console.log(require('./$f').name)")
+              VERSION=$(node -e "console.log(require('./$f').version)")
+              ENTRIES+=("• ${NAME}@${VERSION}")
+            done
+            echo "packages_info=${ENTRIES[*]}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Post to Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.17.0
+        with:
+          payload: |
+            {
+              "attachments": [
+                {
+                  "color": "#70aeff",
+                  "blocks": [
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*New packages published to npm*"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "${{ steps.lerna-versions.outputs.packages_info }}"
+                      }
+                    },
+                    {
+                      "type": "context",
+                      "elements": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "Repository: ${{ github.repository }} | Branch: ${{ github.ref_name }}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
