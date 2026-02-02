@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.12](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.11...@ab.uitools/base@1.2.12) (2026-02-02)
+
+### Bug Fixes
+
+- test ci ([7e1dcd9](https://github.com/ab-devtools/uilibrary/commit/7e1dcd9be13157d8fff0c93a9fa39724a312c154))
+
 ## [1.2.11](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.10...@ab.uitools/base@1.2.11) (2026-02-02)
 
 ### Bug Fixes
