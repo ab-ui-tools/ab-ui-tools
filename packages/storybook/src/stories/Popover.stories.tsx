@@ -25,6 +25,9 @@ export default {
   },
 };
 
+// ============================================================================
+// Helper Component for Trigger Element
+// ============================================================================
 const TriggerBox: React.FC<{ id: string; label?: string }> = ({ id, label = 'Click Me' }) => (
   <div
     style={{
