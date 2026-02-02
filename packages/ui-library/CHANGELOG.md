@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.17](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.16...@ab.uitools/ui-library@1.3.17) (2026-02-02)
+
+### Bug Fixes
+
+- testing datepicker ([4b583d6](https://github.com/ab-devtools/uilibrary/commit/4b583d6af796ac90ba38811f4a1a749f78c0e503))
+
 ## [1.3.16](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.15...@ab.uitools/ui-library@1.3.16) (2026-02-02)
 
 ### Bug Fixes
