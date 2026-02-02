@@ -84,7 +84,7 @@ export type TCalendarPropTypes =
     });
 
 export type TMonthOptionLabel = {
-  'en-US': string;
+  en: string;
   ru: string;
   hy: string;
 };
