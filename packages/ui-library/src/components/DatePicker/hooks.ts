@@ -9,14 +9,14 @@ registerLocale('hy', hy);
 registerLocale('en', en);
 registerLocale('ru', ru);
 
-export function useImportFilesDynamically(dayjsLocale: string): void {
+export function useImportFilesDynamically(locale: string): void {
   useEffect(() => {
-    if (!dayjsLocale) return;
+    if (!locale) return;
 
     const loadDayjsLocale = async () => {
       try {
-        switch (dayjsLocale) {
-          case 'hy-am':
+        switch (locale) {
+          case 'hy':
             await import('dayjs/locale/hy-am');
             dayjs.locale('hy-am');
             break;
@@ -29,14 +29,14 @@ export function useImportFilesDynamically(dayjsLocale: string): void {
             dayjs.locale('en');
             break;
           default:
-            await import(`dayjs/locale/${dayjsLocale}`);
-            dayjs.locale(dayjsLocale);
+            await import(`dayjs/locale/${locale}`);
+            dayjs.locale(locale);
         }
       } catch (error) {
-        console.warn(`Failed to load dayjs locale: ${dayjsLocale}`, error);
+        console.warn(`Failed to load dayjs locale: ${locale}`, error);
       }
     };
 
     loadDayjsLocale();
-  }, [dayjsLocale]);
+  }, [locale]);
 }

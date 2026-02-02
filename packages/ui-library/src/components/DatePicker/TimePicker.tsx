@@ -24,7 +24,6 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
     required,
     format = 'HH:mm',
     locale = 'hy',
-    dayjsLocale = 'hy-am',
     placeholderText,
     hasError,
     ...rest
@@ -37,7 +36,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
     setOpen: (isOpen: boolean) => void | null;
   }>(null);
 
-  useImportFilesDynamically(dayjsLocale);
+  useImportFilesDynamically(locale as string);
 
   const onChange = (date: Date) => {
     setCurrentTime(date);

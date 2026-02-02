@@ -10,6 +10,7 @@ import { useImportFilesDynamically } from './hooks';
 import { CustomHeader } from './CustomHeader/CustomHeader';
 import IconCalendarRight from '../SVGIcons/IconCalendarRight';
 import { Input } from '../Input';
+import { getMonthOptions } from '../Calendar/options';
 import { Label } from '../../helperComponents';
 import { MONTHS } from '../../consts';
 
@@ -24,18 +25,19 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
     locale = 'hy',
     changeHandler,
     format = 'M/D/YYYY',
-    dayjsLocale = 'hy-am',
     required = false,
     dataId,
     hasError,
     placeholderText,
-    months = MONTHS,
+    months,
     minDate,
     maxDate,
     dataIdPrefix,
     helperText,
     ...rest
   } = props;
+
+  const monthOptions = months ?? getMonthOptions(locale as string);
 
   const startYear = minDate ? minDate.getFullYear() : 1900;
   const endYear = maxDate ? maxDate.getFullYear() : new Date().getFullYear() + 5;
@@ -44,7 +46,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
     setOpen: (isOpen: boolean) => void | null;
   }>(null);
 
-  useImportFilesDynamically(dayjsLocale);
+  useImportFilesDynamically(locale as string);
 
   const selectedDate =
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]' ? value : currentDate;
@@ -89,7 +91,13 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
         {...rest}
         onChange={onChange}
         renderCustomHeader={props => (
-          <CustomHeader {...props} months={months} startYear={startYear} endYear={endYear} dataPrefix={dataIdPrefix} />
+          <CustomHeader
+            {...props}
+            months={monthOptions}
+            startYear={startYear}
+            endYear={endYear}
+            dataPrefix={dataIdPrefix}
+          />
         )}
       />
     </div>

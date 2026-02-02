@@ -13,7 +13,7 @@ export default {
   title: 'DatePicker',
   component: _RangeDatePicker,
   argTypes: {
-    dayjsLocale: { control: 'radio', options: ['en', 'ru', 'hy-am'] },
+    locale: { control: 'radio', options: ['en', 'ru', 'hy'] },
   },
 };
 

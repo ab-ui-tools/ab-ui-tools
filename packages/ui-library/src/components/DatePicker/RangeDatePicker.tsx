@@ -25,7 +25,6 @@ export const RangeDatePicker = forwardRef((props: IRangeDatePickerProps): ReactE
     maxDate,
     minDate,
     locale = 'hy',
-    dayjsLocale = 'hy-am',
     disabled,
     placeholderText,
     label,
@@ -34,7 +33,7 @@ export const RangeDatePicker = forwardRef((props: IRangeDatePickerProps): ReactE
     ...rest
   } = props;
 
-  useImportFilesDynamically(dayjsLocale);
+  useImportFilesDynamically(locale as string);
 
   const dateInitialValue = value !== undefined && Array.isArray(value) ? value : currentDates;
   const [rangeArray, setRangeDate] = useState(dateInitialValue);
