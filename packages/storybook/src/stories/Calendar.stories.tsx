@@ -16,10 +16,6 @@ export default {
       options: [true, false],
       control: { type: 'radio' },
     },
-    hasFilters: {
-      options: [true, false],
-      control: { type: 'radio' },
-    },
     hasInputs: {
       options: [true, false],
       control: { type: 'radio' },

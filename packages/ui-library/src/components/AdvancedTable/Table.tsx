@@ -142,6 +142,7 @@ export function Table<TData>({
       position: isPinned ? 'sticky' : 'relative',
       backgroundColor: isPinned ? 'white' : undefined,
       minWidth: column.getSize(),
+      maxWidth: column.columnDef.maxSize,
       zIndex: isPinned ? 1 : 0,
     };
   };
