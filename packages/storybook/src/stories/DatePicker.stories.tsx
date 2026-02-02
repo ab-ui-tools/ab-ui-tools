@@ -43,7 +43,7 @@ const SimplePicker: StoryFn<ISimpleDatePickerProps> = args => {
           {...args}
           value={value}
           changeHandler={setValue}
-          format="dd"
+          format="DD"
           // label="ddd"
           placeholderText="Select date"
           size="small"
@@ -84,7 +84,6 @@ const RangePicker: StoryFn<IRangeDatePickerProps> = args => {
         value={value}
         changeHandler={setValue}
         locale={'en'}
-        format={'PPP'}
         label={'Range Label'}
         filterDate={date => date.getDay() !== 0 && date.getDay() !== 6}
       />

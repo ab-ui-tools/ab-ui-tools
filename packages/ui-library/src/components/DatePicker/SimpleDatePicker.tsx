@@ -3,7 +3,6 @@ import type { ReactElement } from 'react';
 import DatePicker from 'react-datepicker';
 import React, { useRef } from 'react';
 import dayjs from 'dayjs';
-import { format as datefnsFormat } from 'date-fns';
 
 import type { ISimpleDatePickerProps } from './types';
 
@@ -84,7 +83,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
             helperText={helperText}
             datePlaceHolderText={label ? '' : placeholderText}
             rightIconProps={{ Component: IconCalendarRight, onClick: openDatepicker }}
-            currentValue={selectedDate ? datefnsFormat(selectedDate, format) : ''}
+            currentValue={selectedDate ? dayjs(selectedDate.toString()).format(format) : ''}
           />
         }
         {...rest}
