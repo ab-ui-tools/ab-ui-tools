@@ -3,8 +3,6 @@ import type { ReactElement } from 'react';
 import DatePicker from 'react-datepicker';
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import dayjs from 'dayjs';
-import hy from 'date-fns/locale/hy';
-import { format as datefnsFormat } from 'date-fns';
 
 import type { IRangeDatePickerProps, TRangePickerValues } from './types';
 
@@ -66,7 +64,7 @@ export const RangeDatePicker = forwardRef((props: IRangeDatePickerProps): ReactE
   }
 
   const formatDate = (date: Date | undefined): string => {
-    return date ? datefnsFormat(date, format, { locale: hy }) : '';
+    return date ? dayjs(date).format(format) : '';
   };
 
   const checkRange = () => {
