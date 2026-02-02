@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.11](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.10...@ab.uitools/base@1.2.11) (2026-02-02)
+
+### Bug Fixes
+
+- testing slack notification ([a48dfb4](https://github.com/ab-devtools/uilibrary/commit/a48dfb4475a38a0c5c8c25519bbac04f571cbaae))
+
 ## [1.2.10](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.9...@ab.uitools/base@1.2.10) (2026-01-22)
 
 ### Bug Fixes
