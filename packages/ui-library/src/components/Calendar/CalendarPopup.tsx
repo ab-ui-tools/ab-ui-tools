@@ -251,7 +251,7 @@ export const CalendarPopup = ({
         </div>
       )}
       <div className="react-calendar-container">
-        {fastActions?.length && (
+        {!!fastActions?.length && (
           <div className="calendar-fast-actions">
             {fastActions.map((item, i) => (
               <div
