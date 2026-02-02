@@ -4,9 +4,9 @@ import { locale } from 'dayjs';
 import ru from 'date-fns/locale/ru';
 import hy from 'date-fns/locale/hy';
 import en from 'date-fns/locale/en-GB';
-// import 'dayjs/locale/hy-am';
-// import 'dayjs/locale/ru';
-// import 'dayjs/locale/en';
+import 'dayjs/locale/hy-am';
+import 'dayjs/locale/ru';
+import 'dayjs/locale/en';
 
 registerLocale('hy', hy);
 registerLocale('en', en);
