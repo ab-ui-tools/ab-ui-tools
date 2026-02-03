@@ -29,9 +29,6 @@ export function useImportFilesDynamically(locale: string): void {
             await import('dayjs/locale/en.js');
             dayjs.locale('en');
             break;
-          default:
-            await import(`dayjs/locale/${locale}.js`);
-            dayjs.locale(locale);
         }
       } catch (error) {
         console.warn(`Failed to load dayjs locale: ${locale}`, error);
