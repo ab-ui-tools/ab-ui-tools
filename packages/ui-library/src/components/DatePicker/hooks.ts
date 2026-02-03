@@ -5,8 +5,8 @@ import ru from 'date-fns/locale/ru';
 import hy from 'date-fns/locale/hy';
 import en from 'date-fns/locale/en-GB';
 
-registerLocale('ru', ru);
 registerLocale('hy', hy);
+registerLocale('ru', ru);
 registerLocale('en', en);
 
 export function useImportFilesDynamically(locale: string): void {
