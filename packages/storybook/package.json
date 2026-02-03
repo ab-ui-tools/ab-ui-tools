@@ -1,7 +1,7 @@
 {
   "homepage": "https://github.com/ab-devtools/uilibrary",
   "name": "@ab.uitools/storybook",
-  "version": "1.6.29",
+  "version": "1.6.30",
   "description": "Storybook for AM",
   "private": true,
   "main": "index.js",

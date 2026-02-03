@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.30](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.29...@ab.uitools/storybook@1.6.30) (2026-02-03)
+
+### Bug Fixes
+
+- remove site name ([af44260](https://github.com/ab-devtools/uilibrary/commit/af442603d89b98a22848ea28fad5fbfea92ab9a6))
+
 ## [1.6.29](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.28...@ab.uitools/storybook@1.6.29) (2026-02-03)
 
 **Note:** Version bump only for package @ab.uitools/storybook
