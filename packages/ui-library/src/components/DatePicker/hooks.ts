@@ -26,6 +26,7 @@ export function useImportFilesDynamically(locale: string): void {
             dayjs.locale('ru');
             break;
           case 'en':
+          case 'en-US':
             await import('dayjs/locale/en.js');
             dayjs.locale('en');
             break;
