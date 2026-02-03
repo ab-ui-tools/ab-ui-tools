@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.25](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.24...@ab.uitools/ui-library@1.3.25) (2026-02-03)
+
+### Bug Fixes
+
+- table td issue fix ([d3cbcea](https://github.com/ab-devtools/uilibrary/commit/d3cbceafcb857faa279fbb3d4bd330127fc1e697))
+
 ## [1.3.24](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.23...@ab.uitools/ui-library@1.3.24) (2026-02-03)
 
 ### Bug Fixes
