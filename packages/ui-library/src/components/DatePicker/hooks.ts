@@ -6,8 +6,8 @@ import hy from 'date-fns/locale/hy';
 import en from 'date-fns/locale/en-GB';
 
 registerLocale('hy', hy);
-registerLocale('en', en);
 registerLocale('ru', ru);
+registerLocale('en', en);
 
 export function useImportFilesDynamically(locale: string): void {
   useEffect(() => {
