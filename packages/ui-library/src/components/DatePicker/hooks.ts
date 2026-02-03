@@ -16,16 +16,17 @@ export function useImportFilesDynamically(locale: string): void {
     const loadDayjsLocale = async () => {
       try {
         switch (locale) {
+          case 'hy-am':
           case 'hy':
-            await import('dayjs/locale/hy-am');
+            await import('dayjs/locale/hy-am.js');
             dayjs.locale('hy-am');
             break;
           case 'ru':
-            await import('dayjs/locale/ru');
+            await import('dayjs/locale/ru.js');
             dayjs.locale('ru');
             break;
           case 'en':
-            await import('dayjs/locale/en');
+            await import('dayjs/locale/en.js');
             dayjs.locale('en');
             break;
           default:
