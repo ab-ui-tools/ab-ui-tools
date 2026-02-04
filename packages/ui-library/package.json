@@ -106,7 +106,7 @@
     "framer-motion": "^12.5.0",
     "react-calendar": "^6.0.0",
     "react-datepicker": "^4.25.0",
-    "react-hook-form": "7.56.4",
+    "react-hook-form": "7.50.0",
     "react-input-mask": "^2.0.4",
     "react-loading-skeleton": "^3.5.0",
     "react-number-format": "^5.3.1",
