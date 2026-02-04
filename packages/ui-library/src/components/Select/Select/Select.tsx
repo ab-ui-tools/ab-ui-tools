@@ -267,7 +267,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         className="select__input"
         label={label}
         onChange={onSearch}
-        onInput={onInputChange}
+        onInput={onInputChange as React.InputHTMLAttributes<HTMLInputElement>['onInput']}
         required={isRequiredField}
         leftIconProps={leftIconProps}
         rightIconProps={isOpen ? rightIconOpenedProps : rightIconProps}
