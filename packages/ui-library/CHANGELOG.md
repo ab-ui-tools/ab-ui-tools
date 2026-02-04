@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.27](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.26...@ab.uitools/ui-library@1.3.27) (2026-02-04)
+
+### Bug Fixes
+
+- fixing react hook form version ([a178176](https://github.com/ab-devtools/uilibrary/commit/a1781760865b950c22a883c1617b61abda4c4354))
+
 ## [1.3.26](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.25...@ab.uitools/ui-library@1.3.26) (2026-02-04)
 
 ### Bug Fixes
