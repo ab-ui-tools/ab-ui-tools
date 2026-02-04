@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.31](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.30...@ab.uitools/storybook@1.6.31) (2026-02-04)
+
+### Bug Fixes
+
+- fixed env issue for windows machine ([871bd59](https://github.com/ab-devtools/uilibrary/commit/871bd5981e68e801287dfaadbdf5a38a555cdc9f))
+
 ## [1.6.30](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.29...@ab.uitools/storybook@1.6.30) (2026-02-03)
 
 ### Bug Fixes
