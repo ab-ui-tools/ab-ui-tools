@@ -19,7 +19,7 @@ export const DesktopView = ({
   draftValue,
   draftRange,
   getTileClassName,
-  locale = 'en-US',
+  locale = 'en',
   selectedValue,
   maxYear,
   ...props
