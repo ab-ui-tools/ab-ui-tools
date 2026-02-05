@@ -35,7 +35,7 @@ export const CalendarPopup = ({
   resetButtonText = 'Reset',
   applyButtonText = 'Apply',
   rangeControlText = 'Apply range',
-  locale = 'en-US',
+  locale = 'en',
   maxYear = 2050,
   formatDate = 'MM/DD/YYYY',
   ...props
@@ -76,19 +76,47 @@ export const CalendarPopup = ({
     }
   }, [canRangeSelect, draftRange, draftValue]);
 
-  const handleChange = (date: TCalendarValue) => {
-    if (canRangeSelect) {
-      setDraftRange(date as TRangeValue);
-    } else {
-      const selectedDate = dayjs(date as TValuePiece).format('MM/DD/YYYY');
-      const time = dayjs(date as TValuePiece).format('HH:mm');
-      setStartDate(selectedDate);
-      setStartTime(time);
-      setDraftValue(date as TValuePiece);
-    }
-    if (onChange && !showApplyButtons) {
-      onChange(date);
+  const handleCallOnChange = (date: TCalendarValue) => {
+    if (!showApplyButtons) {
       setValue(date);
+      onChange?.(date);
+    }
+  };
+
+  const handleDateChange = (date: Date) => {
+    const selectedDate = dayjs(date as TValuePiece).format('MM/DD/YYYY');
+    const time = dayjs(date as TValuePiece).format('HH:mm');
+    setStartDate(selectedDate);
+    setStartTime(time);
+    setDraftValue(date as TValuePiece);
+    handleCallOnChange(date);
+  };
+
+  const handleRangeChange = (date: Date) => {
+    setDraftRange(([start, end]) => {
+      if (!start) {
+        handleCallOnChange([date, null]);
+        return [date, null];
+      }
+      if (start && !end) {
+        const orderedDate = orderRangeDate(date, start);
+        if (!showApplyButtons) {
+          onChange?.(orderedDate);
+        }
+        return orderedDate;
+      }
+      if (!showApplyButtons) {
+        onChange?.([date, null]);
+      }
+      return [date, null];
+    });
+  };
+
+  const handleChange = (date: Date) => {
+    if (canRangeSelect) {
+      handleRangeChange(date);
+    } else {
+      handleDateChange(date);
     }
   };
 
@@ -106,22 +134,6 @@ export const CalendarPopup = ({
       setStartDate(dayjs(start).format(formatDate));
       setStartTime(dayjs(start).format('HH:mm'));
     }
-  };
-
-  const handleDayClick = (date: Date) => {
-    if (!canRangeSelect) {
-      handleChange(date);
-      return;
-    }
-    setDraftRange(([start, end]) => {
-      if (!start) {
-        return [date, null];
-      }
-      if (start && !end) {
-        return orderRangeDate(date, start);
-      }
-      return [date, null];
-    });
   };
 
   const handleReset = () => {
@@ -332,7 +344,7 @@ export const CalendarPopup = ({
               maxYear={maxYear}
               draftRange={draftRange}
               draftValue={draftValue}
-              handleDayClick={handleDayClick}
+              handleDayClick={handleChange}
               getTileClassName={getTileClassName}
             />
           ) : (
@@ -344,7 +356,7 @@ export const CalendarPopup = ({
               draftRange={draftRange}
               draftValue={draftValue}
               canRangeSelect={canRangeSelect}
-              handleDayClick={handleDayClick}
+              handleDayClick={handleChange}
               getTileClassName={getTileClassName}
             />
           )}
