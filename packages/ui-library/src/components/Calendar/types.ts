@@ -35,7 +35,7 @@ export interface ICalendarProp extends CalendarProps {
   applyButtonText?: string;
   rangeControlText?: string;
   selectedValue?: TCalendarValue;
-  locale?: 'en' | 'ru' | 'hy';
+  locale?: string;
   formatDate?: TDateFormat;
   children?: ReactNode;
   shouldRecalculatePosition?: boolean;
@@ -43,7 +43,7 @@ export interface ICalendarProp extends CalendarProps {
 
 export interface IMobileViewProp extends CalendarProps {
   dataId?: string;
-  locale?: 'en' | 'ru' | 'hy';
+  locale?: string;
   maxYear: number;
   draftRange: TRangeValue;
   draftValue?: TValuePiece;
@@ -54,7 +54,7 @@ export interface IMobileViewProp extends CalendarProps {
 export interface IDesktopViewProp extends CalendarProps {
   dataId?: string;
   canRangeSelect?: boolean;
-  locale?: 'en' | 'ru' | 'hy';
+  locale?: string;
   maxYear: number;
   selectedValue?: Date | [Date, Date];
   draftRange: TRangeValue;
