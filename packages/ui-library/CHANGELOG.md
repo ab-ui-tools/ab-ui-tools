@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.28](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.27...@ab.uitools/ui-library@1.3.28) (2026-02-05)
+
+### Bug Fixes
+
+- calendar onchange issue ([127eae7](https://github.com/ab-devtools/uilibrary/commit/127eae70140943b767b3e280b050a9c0fc35e9c3))
+- calendar onchange issue ([48f1208](https://github.com/ab-devtools/uilibrary/commit/48f1208d453c148ec7a209e86356d163df5a147d))
+
 ## [1.3.27](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.26...@ab.uitools/ui-library@1.3.27) (2026-02-04)
 
 ### Bug Fixes
