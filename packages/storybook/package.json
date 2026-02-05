@@ -1,15 +1,15 @@
 {
   "homepage": "https://github.com/ab-devtools/uilibrary",
   "name": "@ab.uitools/storybook",
-  "version": "1.6.23",
+  "version": "1.6.34",
   "description": "Storybook for AM",
   "private": true,
   "main": "index.js",
   "scripts": {
     "version": "echo $npm_package_version",
     "name": "echo $npm_package_name",
-    "storybook": "DESIGN_TOKEN_GLOB='../ui-library/src/assets/styles/tokens/**/*.scss' storybook dev -p 6006 public",
-    "build": "DESIGN_TOKEN_GLOB='../ui-library/src/assets/styles/tokens/**/*.scss' storybook build",
+    "storybook": "cross-env DESIGN_TOKEN_GLOB='../ui-library/src/assets/styles/tokens/**/*.scss' storybook dev -p 6006 public",
+    "build": "cross-env DESIGN_TOKEN_GLOB='../ui-library/src/assets/styles/tokens/**/*.scss' storybook build",
     "check": "tsc",
     "install-latest": "npm install --legacy-peer-deps",
     "publish-alpha-version": "cd \"./dist/\" && npm publish --tag alpha"
@@ -61,7 +61,7 @@
     "yup": "^1.7.0"
   },
   "dependencies": {
-    "@ab.uitools/ui-library": "^1.3.19",
+    "@ab.uitools/ui-library": "^1.3.28",
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/sortable": "^10.0.0",
     "@hookform/error-message": "^2.0.1",
