@@ -3,6 +3,7 @@
 .calendar {
   position: relative;
   .calendar-popup-container {
+    visibility: hidden;
     position: fixed;
     z-index: 3;
     .react-calendar-wrapper {
@@ -578,5 +579,8 @@
         }
       }
     }
+  }
+  .calendar-popup-container--open {
+    visibility: visible;
   }
 }
