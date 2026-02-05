@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.29](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.28...@ab.uitools/ui-library@1.3.29) (2026-02-05)
+
+### Bug Fixes
+
+- calendar prop type change ([2551d01](https://github.com/ab-devtools/uilibrary/commit/2551d015e6f37bd5e624c9604eed485d58dc2440))
+
 ## [1.3.28](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.27...@ab.uitools/ui-library@1.3.28) (2026-02-05)
 
 ### Bug Fixes
