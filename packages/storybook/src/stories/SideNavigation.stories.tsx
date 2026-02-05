@@ -62,7 +62,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
             <>
               <NavigationItem
                 As={() => (
-                  <a href="/https://ameriabank.am">
+                  <a href="/https://google.com">
                     <IconDocumentFilled />
                     <Text weight={'semibold'}>Accounts</Text>
                   </a>
@@ -73,7 +73,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
               />
               <NavigationItem
                 As={() => (
-                  <a href="/https://ameriabank.am">
+                  <a href="/https://google.com">
                     <IconLockClosed />
                     <Text weight={'semibold'}>Test</Text>
                   </a>
@@ -97,7 +97,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
                 <>
                   <NavigationItem
                     As={() => (
-                      <a href="/https://ameriabank.am">
+                      <a href="/https://google.com">
                         <IconDocument />
                         <Text weight={'semibold'}>Accounts</Text>
                       </a>
@@ -107,7 +107,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
                   />
                   <NavigationItem
                     As={() => (
-                      <a href="/https://ameriabank.am">
+                      <a href="/https://google.com">
                         <IconSavings />
                         <Text weight={'semibold'}>Savings</Text>
                       </a>
@@ -117,7 +117,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
                   />
                   <NavigationItem
                     As={() => (
-                      <a href="/https://ameriabank.am">
+                      <a href="/https://google.com">
                         <IconWallet />
                         <Text weight={'semibold'}>Overdraft</Text>
                       </a>
@@ -129,7 +129,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
               </NavigationItem>
               <NavigationItem
                 As={() => (
-                  <a href="/https://ameriabank.am">
+                  <a href="/https://google.com">
                     <IconSavings />
                     <Text weight={'semibold'}>Savings</Text>
                   </a>
@@ -144,7 +144,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
             <>
               <NavigationItem
                 As={() => (
-                  <a href="/https://ameriabank.am">
+                  <a href="/https://google.com">
                     <IconWallet />
                     <Text weight={'semibold'}>Overdraft</Text>
                   </a>
@@ -154,7 +154,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
               />
               <NavigationItem
                 As={() => (
-                  <a href="/https://ameriabank.am">
+                  <a href="/https://google.com">
                     <IconHome />
                     <Text weight={'semibold'}>Mortgage</Text>
                   </a>
@@ -164,7 +164,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
               />
               <NavigationItem
                 As={() => (
-                  <a href="/https://ameriabank.am">
+                  <a href="/https://google.com">
                     <IconWallet />
                     <Text weight={'semibold'}>Overdraft</Text>
                   </a>
@@ -175,7 +175,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
 
               <NavigationItem
                 As={() => (
-                  <a href="/https://ameriabank.am">
+                  <a href="/https://google.com">
                     <IconHome />
                     <Text weight={'semibold'}>Mortgage</Text>
                   </a>
@@ -198,7 +198,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
                 <>
                   <NavigationItem
                     As={() => (
-                      <a href="/https://ameriabank.am">
+                      <a href="/https://google.com">
                         <IconSavings />
                         <Text weight={'semibold'}>Savings</Text>
                       </a>
@@ -208,7 +208,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
                   />
                   <NavigationItem
                     As={() => (
-                      <a href="/https://ameriabank.am">
+                      <a href="/https://google.com">
                         <IconDocument />
                         <Text weight={'semibold'}>Accounts</Text>
                       </a>

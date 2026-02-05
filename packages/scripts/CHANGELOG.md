@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/scripts@1.0.11...@ab.uitools/scripts@1.0.12) (2026-02-04)
+
+### Bug Fixes
+
+- fixing ts issue ([e49e261](https://github.com/ab-ui-tools/ab-ui-tools/commit/e49e26198c08741d547b86d9a1479dfce200df64))
+
 ## [1.0.11](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/scripts@1.0.10...@ab.uitools/scripts@1.0.11) (2026-01-29)
 
 ### Bug Fixes

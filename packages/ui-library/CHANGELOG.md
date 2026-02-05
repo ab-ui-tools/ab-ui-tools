@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.27](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.26...@ab.uitools/ui-library@1.3.27) (2026-02-04)
+
+### Bug Fixes
+
+- fixing react hook form version ([a178176](https://github.com/ab-devtools/uilibrary/commit/a1781760865b950c22a883c1617b61abda4c4354))
+
+## [1.3.26](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.25...@ab.uitools/ui-library@1.3.26) (2026-02-04)
+
+### Bug Fixes
+
+- fixing ts issue ([e49e261](https://github.com/ab-devtools/uilibrary/commit/e49e26198c08741d547b86d9a1479dfce200df64))
+
+## [1.3.25](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.24...@ab.uitools/ui-library@1.3.25) (2026-02-03)
+
+### Bug Fixes
+
+- table td issue fix ([d3cbcea](https://github.com/ab-devtools/uilibrary/commit/d3cbceafcb857faa279fbb3d4bd330127fc1e697))
+
+## [1.3.24](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.23...@ab.uitools/ui-library@1.3.24) (2026-02-03)
+
+### Bug Fixes
+
+- testing private repo ([69627c2](https://github.com/ab-devtools/uilibrary/commit/69627c25a7ff49057d90f7340f3b7a90f0c96d17))
+
+## [1.3.23](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.22...@ab.uitools/ui-library@1.3.23) (2026-02-03)
+
+### Bug Fixes
+
+- fixing js issue ([8707146](https://github.com/ab-devtools/uilibrary/commit/87071464a5d6fd80d5ddfdf54cfe7ccd3ce7d7fc))
+- fixing js issue ([478161b](https://github.com/ab-devtools/uilibrary/commit/478161bb9f39af3040d907a5681f8b31669b4383))
+
+## [1.3.22](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.21...@ab.uitools/ui-library@1.3.22) (2026-02-03)
+
+### Bug Fixes
+
+- fixing js issue ([a0e48b8](https://github.com/ab-devtools/uilibrary/commit/a0e48b832f013df14ca719ff0d18de5535c70731))
+- fixing js issue ([526c5af](https://github.com/ab-devtools/uilibrary/commit/526c5afb3bcc2b485dcf3a1aff3463b4e3d31fb3))
+
+## [1.3.21](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.20...@ab.uitools/ui-library@1.3.21) (2026-02-03)
+
+### Bug Fixes
+
+- fixing js issue ([551da58](https://github.com/ab-devtools/uilibrary/commit/551da58ec9b3540e8e58873bb47649b26104c97e))
+
+## [1.3.20](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.19...@ab.uitools/ui-library@1.3.20) (2026-02-02)
+
+### Bug Fixes
+
+- datepicker localization fix ([3754443](https://github.com/ab-devtools/uilibrary/commit/375444321608dc389cb1d65028c4f7bbd560069c))
+
 ## [1.3.19](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.18...@ab.uitools/ui-library@1.3.19) (2026-02-02)
 
 ### Bug Fixes
