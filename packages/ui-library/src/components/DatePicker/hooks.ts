@@ -4,6 +4,9 @@ import dayjs from 'dayjs';
 import ru from 'date-fns/locale/ru';
 import hy from 'date-fns/locale/hy';
 import en from 'date-fns/locale/en-GB';
+import 'dayjs/locale/hy-am';
+import 'dayjs/locale/ru';
+import 'dayjs/locale/en';
 
 registerLocale('hy', hy);
 registerLocale('ru', ru);
@@ -18,24 +21,24 @@ export function useImportFilesDynamically(locale: string): void {
         switch (locale) {
           case 'hy-am':
           case 'hy':
-            await import('dayjs/locale/hy-am.js');
             dayjs.locale('hy-am');
             break;
           case 'ru':
-            await import('dayjs/locale/ru.js');
             dayjs.locale('ru');
             break;
           case 'en':
           case 'en-US':
-            await import('dayjs/locale/en.js');
             dayjs.locale('en');
             break;
+          default:
+            await import(`dayjs/locale/${locale}`);
+            dayjs.locale(locale);
         }
       } catch (error) {
         console.warn(`Failed to load dayjs locale: ${locale}`, error);
       }
     };
 
-    loadDayjsLocale();
+    void loadDayjsLocale();
   }, [locale]);
 }
