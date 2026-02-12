@@ -1,0 +1,1 @@
+(self.webpackChunk_ab_uitools_storybook=self.webpackChunk_ab_uitools_storybook||[]).push([[622],{"../../node_modules/dayjs/locale/index.d.ts"(){}}]);
