@@ -15,11 +15,22 @@ import { renderSync } from 'sass'
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
 const ignoreExtensions = ['.stories.tsx', '.stories.d.ts']
 
-const external = [
+const externalDependencies = [
   ...Object.keys(pkg.peerDependencies || {}),
-  ...Object.keys(pkg.dependencies || {}),
-  /@babel\/runtime/
+  ...Object.keys(pkg.dependencies || {})
 ]
+
+const external = (id) => {
+  if (id.startsWith('dayjs/locale/')) {
+    return false
+  }
+
+  if (/@babel\/runtime/.test(id)) {
+    return true
+  }
+
+  return externalDependencies.some((dependency) => id === dependency || id.startsWith(`${dependency}/`))
+}
 
 // create input config for rollup for each folder
 const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
@@ -30,8 +41,8 @@ const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
       const regexExecResult = /(.+?)(\.[^.]*$|$)/g.exec(current)
       const chunkName = `${localPath}/${regexExecResult[1]}`.replace(/^src\/?/g, '')
       if (
-        extensions.includes(regexExecResult[2]) &&
-        !ignoreExtensions.some((e) => regexExecResult[0].endsWith(e))
+          extensions.includes(regexExecResult[2]) &&
+          !ignoreExtensions.some((e) => regexExecResult[0].endsWith(e))
       ) {
         initial[chunkName] = `${localPath}/${current}`
       }
@@ -50,15 +61,15 @@ const dtsGenerator = function (options) {
   return {
     buildEnd() {
       exec(
-        `tsc -d --declarationDir ${options.declarationDir} --outDir ${options.outDir} --project ./tsconfig.json`,
-        (err) => {
-          if (err) {
-            console.log(err)
-            throw "Couldn't generate .d.ts files..."
+          `tsc -d --declarationDir ${options.declarationDir} --outDir ${options.outDir} --project ./tsconfig.json`,
+          (err) => {
+            if (err) {
+              console.log(err)
+              throw "Couldn't generate .d.ts files..."
+            }
+            exec(`rimraf ${options.outDir}`)
+            console.log('Declaration files generated successfully')
           }
-          exec(`rimraf ${options.outDir}`)
-          console.log('Declaration files generated successfully')
-        }
       )
     }
   }
