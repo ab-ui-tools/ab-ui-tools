@@ -19,6 +19,7 @@ export function useImportFilesDynamically(locale: string): void {
     const loadDayjsLocale = async () => {
       try {
         switch (locale) {
+          case 'hy-am':
           case 'hy':
             dayjs.locale('hy-am');
             break;
