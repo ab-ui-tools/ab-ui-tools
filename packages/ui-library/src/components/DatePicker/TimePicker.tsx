@@ -1,11 +1,13 @@
 import type { JSX } from 'react';
 
 import DatePicker from 'react-datepicker';
+import { useMemo } from 'react';
 import React, { useRef, useState } from 'react';
 import dayjs from 'dayjs';
 
 import type { ITimePickerProps } from './types';
 
+import { convertFormat } from './utils';
 import { useImportFilesDynamically } from './hooks';
 import IconClock from '../SVGIcons/IconClock';
 import { Input } from '../Input';
@@ -35,6 +37,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
     isCalendarOpen: () => boolean;
     setOpen: (isOpen: boolean) => void | null;
   }>(null);
+  const convertedFormat = useMemo(() => convertFormat(format), [format]);
 
   useImportFilesDynamically(locale as string);
 
@@ -65,7 +68,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
         locale={locale}
         showTimeSelect
         showTimeSelectOnly
-        dateFormat={format}
+        dateFormat={convertedFormat as string}
         // @ts-ignore
         ref={calendarRef}
         {...rest}

@@ -15,22 +15,11 @@ import { renderSync } from 'sass'
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
 const ignoreExtensions = ['.stories.tsx', '.stories.d.ts']
 
-const externalDependencies = [
+const external = [
   ...Object.keys(pkg.peerDependencies || {}),
-  ...Object.keys(pkg.dependencies || {})
+  ...Object.keys(pkg.dependencies || {}),
+  /@babel\/runtime/
 ]
-
-const external = (id) => {
-  if (id.startsWith('dayjs/locale/')) {
-    return false
-  }
-
-  if (/@babel\/runtime/.test(id)) {
-    return true
-  }
-
-  return externalDependencies.some((dependency) => id === dependency || id.startsWith(`${dependency}/`))
-}
 
 // create input config for rollup for each folder
 const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {

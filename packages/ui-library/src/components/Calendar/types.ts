@@ -82,14 +82,3 @@ export type TCalendarPropTypes =
       isRange?: false;
       fastActions?: TSingleDateFastActions[];
     });
-
-export type TMonthOptionLabel = {
-  en: string;
-  ru: string;
-  hy: string;
-};
-
-export type TMonthOption = {
-  value: number;
-  label: TMonthOptionLabel;
-};
