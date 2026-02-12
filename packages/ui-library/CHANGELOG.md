@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.32](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.31...@ab.uitools/ui-library@1.3.32) (2026-02-12)
+
+### Bug Fixes
+
+- testing lerna ([5e57800](https://github.com/ab-devtools/uilibrary/commit/5e57800d475ed56eb9300b0e036c0245fe68a4ff))
+
 ## [1.3.31](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.30...@ab.uitools/ui-library@1.3.31) (2026-02-12)
 
 ### Bug Fixes
