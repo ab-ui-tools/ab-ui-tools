@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.30](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.29...@ab.uitools/ui-library@1.3.30) (2026-02-12)
+
+### Bug Fixes
+
+- date picker localization issue ([ea97adb](https://github.com/ab-devtools/uilibrary/commit/ea97adb99667beb9f3f2a9a07f84f41ed68284e7))
+- date picker localization issue ([ca3990d](https://github.com/ab-devtools/uilibrary/commit/ca3990daabb89e6d2ac69a1274e2efe275be4843))
+- date picker localization issue ([c198ac5](https://github.com/ab-devtools/uilibrary/commit/c198ac57a36d4a80f19ad39db9565b9e368e8166))
+- datepicker localization issue ([fbc10ce](https://github.com/ab-devtools/uilibrary/commit/fbc10ce917c0440f95eac054976c83eb3dd1f48f))
+
 ## [1.3.29](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.28...@ab.uitools/ui-library@1.3.29) (2026-02-05)
 
 ### Bug Fixes
