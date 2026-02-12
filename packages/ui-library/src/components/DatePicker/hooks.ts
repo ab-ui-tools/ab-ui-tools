@@ -4,14 +4,13 @@ import dayjs from 'dayjs';
 import ru from 'date-fns/locale/ru';
 import hy from 'date-fns/locale/hy';
 import en from 'date-fns/locale/en-GB';
-
-registerLocale('hy', hy);
-registerLocale('en', en);
-registerLocale('ru', ru);
-
 import 'dayjs/locale/hy-am';
 import 'dayjs/locale/ru';
 import 'dayjs/locale/en';
+
+registerLocale('hy', hy);
+registerLocale('ru', ru);
+registerLocale('en', en);
 
 export function useImportFilesDynamically(locale: string): void {
   useEffect(() => {
