@@ -9,8 +9,8 @@ import 'dayjs/locale/ru';
 import 'dayjs/locale/en';
 
 registerLocale('hy', hy);
-registerLocale('ru', ru);
 registerLocale('en', en);
+registerLocale('ru', ru);
 
 export function useImportFilesDynamically(locale: string): void {
   useEffect(() => {
