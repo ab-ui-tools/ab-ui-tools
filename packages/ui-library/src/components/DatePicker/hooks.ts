@@ -27,6 +27,7 @@ export function useImportFilesDynamically(locale: string): void {
             dayjs.locale('ru');
             break;
           case 'en':
+          case 'en-US':
             dayjs.locale('en');
             break;
           default:
