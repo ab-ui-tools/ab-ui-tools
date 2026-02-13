@@ -1,11 +1,13 @@
 import type { ReactElement } from 'react';
 
 import DatePicker from 'react-datepicker';
+import { useMemo } from 'react';
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import dayjs from 'dayjs';
+import { format as datefnsFormat } from 'date-fns';
 
 import type { IRangeDatePickerProps, TRangePickerValues } from './types';
 
+import { convertFormat, dateLanguages } from './utils';
 import { DateFormat } from './types';
 import { useImportFilesDynamically } from './hooks';
 import IconCalendarRight from '../SVGIcons/IconCalendarRight';
@@ -32,6 +34,8 @@ export const RangeDatePicker = forwardRef((props: IRangeDatePickerProps): ReactE
     required,
     ...rest
   } = props;
+
+  const convertedFormat = useMemo(() => convertFormat(format), [format]);
 
   useImportFilesDynamically(locale as string);
 
@@ -63,7 +67,8 @@ export const RangeDatePicker = forwardRef((props: IRangeDatePickerProps): ReactE
   }
 
   const formatDate = (date: Date | undefined): string => {
-    return date ? dayjs(date).format(format) : '';
+    // @ts-ignore
+    return date ? datefnsFormat(date, convertedFormat, { locale: dateLanguages[locale] }) : '';
   };
 
   const checkRange = () => {

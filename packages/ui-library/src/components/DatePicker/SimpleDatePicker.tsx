@@ -1,18 +1,20 @@
 import type { ReactElement } from 'react';
 
 import DatePicker from 'react-datepicker';
+import { useMemo } from 'react';
 import React, { useRef } from 'react';
 import dayjs from 'dayjs';
+import { format as datefnsFormat } from 'date-fns';
 
 import type { ISimpleDatePickerProps } from './types';
 
+import { convertFormat, dateLanguages } from './utils';
 import { useImportFilesDynamically } from './hooks';
 import { CustomHeader } from './CustomHeader/CustomHeader';
 import IconCalendarRight from '../SVGIcons/IconCalendarRight';
 import { Input } from '../Input';
 import { getMonthOptions } from '../Calendar/options';
 import { Label } from '../../helperComponents';
-import { MONTHS } from '../../consts';
 
 export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement => {
   const {
@@ -38,6 +40,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
   } = props;
 
   const monthOptions = months ?? getMonthOptions(locale as string);
+  const convertedFormat = useMemo(() => convertFormat(format), [format]);
 
   const startYear = minDate ? minDate.getFullYear() : 1900;
   const endYear = maxDate ? maxDate.getFullYear() : new Date().getFullYear() + 5;
@@ -85,7 +88,10 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
             helperText={helperText}
             datePlaceHolderText={label ? '' : placeholderText}
             rightIconProps={{ Component: IconCalendarRight, onClick: openDatepicker }}
-            currentValue={selectedDate ? dayjs(selectedDate.toString()).format(format) : ''}
+            currentValue={
+              // @ts-ignore
+              selectedDate ? datefnsFormat(selectedDate, convertedFormat, { locale: dateLanguages[locale] }) : ''
+            }
           />
         }
         {...rest}
