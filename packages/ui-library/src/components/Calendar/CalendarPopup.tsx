@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { isSameDay } from 'date-fns';
 import classNames from 'classnames';
 
-import type { TRangeValue, TCalendarPropTypes, TCalendarValue, TValuePiece } from './types';
+import type { TRangeValue, TCalendarValue, TValuePiece, TCalendarPopupPropTypes } from './types';
 
 import { MobileView } from './MobileView';
 import { DesktopView } from './DesktopView';
@@ -38,8 +38,9 @@ export const CalendarPopup = ({
   locale = 'en',
   maxYear = 2050,
   formatDate = 'MM/DD/YYYY',
+  closeCalendarPopup,
   ...props
-}: TCalendarPropTypes) => {
+}: TCalendarPopupPropTypes) => {
   const [canRangeSelect, setCanRangeSelect] = useState(isRange);
   const [value, setValue] = useState<TCalendarValue>();
   const [draftValue, setDraftValue] = useState<TValuePiece>();
@@ -76,33 +77,28 @@ export const CalendarPopup = ({
     }
   }, [canRangeSelect, draftRange, draftValue]);
 
-  const handleCallOnChange = (date: TCalendarValue) => {
-    if (!showApplyButtons) {
-      setValue(date);
-      onChange?.(date);
-    }
-  };
-
   const handleDateChange = (date: Date) => {
     const selectedDate = dayjs(date as TValuePiece).format('MM/DD/YYYY');
     const time = dayjs(date as TValuePiece).format('HH:mm');
     setStartDate(selectedDate);
     setStartTime(time);
     setDraftValue(date as TValuePiece);
-    handleCallOnChange(date);
   };
 
   const handleRangeChange = (date: Date) => {
     setDraftRange(([start, end]) => {
       if (!start) {
-        handleCallOnChange([date, null]);
         return [date, null];
       }
       if (start && !end) {
-        const orderedDate = orderRangeDate(date, start);
+        const orderedDate = orderRangeDate([date, start]);
         if (!showApplyButtons) {
-          onChange?.(orderedDate);
+          onChange?.([...orderedDate] as TCalendarValue);
         }
+        const start_date = dayjs(orderedDate[0]).format('MM/DD/YYYY');
+        const end_date = dayjs(orderedDate[1]).format('MM/DD/YYYY');
+        setStartDate(start_date);
+        setEndDate(end_date);
         return orderedDate;
       }
       if (!showApplyButtons) {
@@ -122,9 +118,8 @@ export const CalendarPopup = ({
 
   const handleSetStartAndEndDateInputValues = (start: TValuePiece, end?: TValuePiece) => {
     if (end) {
-      const orderedDate = orderRangeDate(start, end);
-      const selectedStartDate = dayjs(orderedDate[0]);
-      const selectedEndDate = dayjs(orderedDate[1]);
+      const selectedStartDate = dayjs(start);
+      const selectedEndDate = dayjs(end);
 
       setStartTime(selectedStartDate.format('HH:mm'));
       setEndTime(selectedEndDate.format('HH:mm'));
@@ -140,14 +135,16 @@ export const CalendarPopup = ({
     setValue(null);
     setDraftValue(null);
     setDraftRange([null, null]);
+    closeCalendarPopup();
   };
 
   const handleApply = () => {
-    const date = canRangeSelect ? draftRange : draftValue;
+    const date = canRangeSelect ? orderRangeDate([...draftRange]) : draftValue;
     setValue(date);
     if (onChange) {
       onChange(date as TCalendarValue);
     }
+    closeCalendarPopup();
   };
 
   const getTileClassName = (date: Date) => {
@@ -199,13 +196,18 @@ export const CalendarPopup = ({
 
   const onStartDateBlur = () => {
     const dateTime = combineDateTime({ date: startDate, time: startTime });
+    const endDateTime = combineDateTime({ date: endDate, time: endTime });
     if (!dateTime || !isValidDate({ date: startDate })) {
       setStartDate('');
       setStartTime('');
       return;
     }
+    if (dayjs(endDateTime).isBefore(dateTime)) {
+      setEndDate('');
+      setEndTime('');
+    }
     if (canRangeSelect) {
-      setDraftRange(orderRangeDate(dateTime, combineDateTime({ date: endDate, time: endTime })));
+      setDraftRange([dateTime, combineDateTime({ date: endDate, time: endTime })]);
     } else {
       setDraftValue(dateTime);
     }
@@ -213,13 +215,19 @@ export const CalendarPopup = ({
 
   const onEndDateBlur = () => {
     const dateTime = combineDateTime({ date: endDate, time: endTime });
+    const startDateTime = combineDateTime({ date: startDate, time: startTime });
     if (!dateTime || !isValidDate({ date: endDate })) {
       setEndDate('');
       setEndTime('');
       return;
     }
+    if (dayjs(startDateTime).isAfter(dateTime)) {
+      setStartDate('');
+      setStartTime('');
+    }
     if (canRangeSelect) {
-      setDraftRange(orderRangeDate(combineDateTime({ date: startDate, time: startTime }), dateTime));
+      const startDateTime = combineDateTime({ date: startDate, time: startTime });
+      setDraftRange([startDateTime, dateTime]);
     } else {
       setDraftValue(dateTime);
     }
@@ -227,9 +235,8 @@ export const CalendarPopup = ({
 
   useEffect(() => {
     if (!showApplyButtons) {
-      setValue(draftValue || draftRange);
+      setValue(draftValue || orderRangeDate([...draftRange]));
     }
-    handleSetStartAndEndDateInputValues(...(draftRange || draftValue));
   }, [draftValue, draftRange, showApplyButtons]);
 
   useEffect(() => {

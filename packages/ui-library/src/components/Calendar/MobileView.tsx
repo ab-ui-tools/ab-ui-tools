@@ -66,6 +66,7 @@ export const MobileView = ({
   return (
     <div ref={containerRef} className="mobile-infinite-calendar">
       <div
+        className="mobile-infinite-calendar-container"
         style={{
           height: virtualizer.getTotalSize(),
           position: 'relative',

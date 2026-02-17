@@ -19,7 +19,7 @@ export const Calendar = ({ children, shouldRecalculatePosition = false, ...props
   const containerRef = useRef<HTMLDivElement | null>(null);
   const childrenRef = useRef<HTMLDivElement | null>(null);
   const [calendarRef, setCalendarRef] = useState<HTMLDivElement | null>(null);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(true);
 
   const closeCalendarPopup = () => setIsOpen(false);
 
@@ -73,7 +73,7 @@ export const Calendar = ({ children, shouldRecalculatePosition = false, ...props
         }}
         ref={setCalendarRef}
       >
-        <CalendarPopup {...props} />
+        <CalendarPopup {...props} closeCalendarPopup={closeCalendarPopup} />
       </div>
     </div>
   );

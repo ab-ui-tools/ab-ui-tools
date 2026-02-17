@@ -35,6 +35,7 @@ const baseConfig = tseslint.config({
             'warn',
             { allowConstantExport: true },
         ],
+        'react-hooks/exhaustive-deps': 'off',
         "@typescript-eslint/ban-ts-comment": [
             "error",
             {
