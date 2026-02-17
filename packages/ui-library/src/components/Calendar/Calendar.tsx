@@ -19,7 +19,7 @@ export const Calendar = ({ children, shouldRecalculatePosition = false, ...props
   const containerRef = useRef<HTMLDivElement | null>(null);
   const childrenRef = useRef<HTMLDivElement | null>(null);
   const [calendarRef, setCalendarRef] = useState<HTMLDivElement | null>(null);
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const closeCalendarPopup = () => setIsOpen(false);
 
