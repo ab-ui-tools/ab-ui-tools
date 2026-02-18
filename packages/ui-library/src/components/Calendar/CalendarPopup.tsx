@@ -195,41 +195,40 @@ export const CalendarPopup = ({
   };
 
   const onStartDateBlur = () => {
-    const dateTime = combineDateTime({ date: startDate, time: startTime });
+    const startDateTime = combineDateTime({ date: startDate, time: startTime });
     const endDateTime = combineDateTime({ date: endDate, time: endTime });
-    if (!dateTime || !isValidDate({ date: startDate })) {
+    if (!startDateTime || !isValidDate({ date: startDate })) {
       setStartDate('');
       setStartTime('');
       return;
     }
-    if (dayjs(endDateTime).isBefore(dateTime)) {
+    if (dayjs(endDateTime).isBefore(startDateTime)) {
       setEndDate('');
       setEndTime('');
     }
     if (canRangeSelect) {
-      setDraftRange([dateTime, combineDateTime({ date: endDate, time: endTime })]);
+      setDraftRange([startDateTime, combineDateTime({ date: endDate, time: endTime })]);
     } else {
-      setDraftValue(dateTime);
+      setDraftValue(startDateTime);
     }
   };
 
   const onEndDateBlur = () => {
-    const dateTime = combineDateTime({ date: endDate, time: endTime });
+    const endDateTime = combineDateTime({ date: endDate, time: endTime });
     const startDateTime = combineDateTime({ date: startDate, time: startTime });
-    if (!dateTime || !isValidDate({ date: endDate })) {
+    if (!endDateTime || !isValidDate({ date: endDate })) {
       setEndDate('');
       setEndTime('');
       return;
     }
-    if (dayjs(startDateTime).isAfter(dateTime)) {
+    if (dayjs(startDateTime).isAfter(endDateTime)) {
       setStartDate('');
       setStartTime('');
     }
     if (canRangeSelect) {
-      const startDateTime = combineDateTime({ date: startDate, time: startTime });
-      setDraftRange([startDateTime, dateTime]);
+      setDraftRange([startDateTime, endDateTime]);
     } else {
-      setDraftValue(dateTime);
+      setDraftValue(endDateTime);
     }
   };
 
