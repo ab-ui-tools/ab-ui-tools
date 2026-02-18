@@ -1,4 +1,4 @@
-import customParseFormat from 'dayjs/plugin/customParseFormat';
+import * as customParseFormat from 'dayjs/plugin/customParseFormat';
 import dayjs from 'dayjs';
 
 import type { TCombineDateProp, TDateFormat, TDateValidationProp } from '../components/Calendar/types';
