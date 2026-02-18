@@ -1,6 +1,9 @@
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import dayjs from 'dayjs';
 
 import type { TCombineDateProp, TDateFormat, TDateValidationProp } from '../components/Calendar/types';
+
+dayjs.extend(customParseFormat);
 
 export const noop = (): void => {
   return undefined;
@@ -133,7 +136,7 @@ export const isMobile = () => {
 };
 
 export const formatDateByPattern = (value: string, format?: TDateFormat): string => {
-  const dateFormat = format || 'MM/DD/YYYY';
+  const dateFormat = format || 'DD/MM/YYYY';
   const digits = value.replace(/\D/g, '');
 
   const partLengthsMap: Record<TDateFormat, number[]> = {
@@ -158,7 +161,6 @@ export const formatDateByPattern = (value: string, format?: TDateFormat): string
     result.push(part);
     cursor += length;
   }
-
   return result.join(separator);
 };
 
@@ -178,7 +180,7 @@ export const formatTime = (value: string): string => {
 export const isValidDate = ({ date, format, minYear, maxYear }: TDateValidationProp) => {
   if (!date) return false;
 
-  const dateFormat = format || 'MM/DD/YYYY';
+  const dateFormat = format || 'DD/MM/YYYY';
   const parsed = dayjs(date, dateFormat, true);
 
   if (!parsed.isValid()) return false;
@@ -204,7 +206,7 @@ export const orderRangeDate = (dates: readonly [Date | null, Date | null]): [Dat
 export const combineDateTime = ({ date, time, format }: TCombineDateProp) => {
   if (!date) return null;
 
-  const dateFormat = format || 'MM/DD/YYYY';
+  const dateFormat = format || 'DD/MM/YYYY';
   const timePart = time?.trim() || '00:00';
 
   const dateTime = dayjs(`${date} ${timePart}`, `${dateFormat} HH:mm`, true);

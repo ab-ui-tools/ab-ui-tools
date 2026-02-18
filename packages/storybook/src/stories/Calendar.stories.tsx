@@ -52,6 +52,7 @@ export const Calendar = Template.bind({});
 Calendar.args = {
   isRange: true,
   maxYear: 2050,
+  formatDate: 'YYYY-MM-DD',
   selectedValue: [dayjs('2025-12-07').toDate(), dayjs('2026-01-08').toDate()],
   onChange: (date: Date) => {
     console.log(date);
