@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.34...@ab.uitools/ui-library@1.4.0) (2026-02-18)
+
+### Features
+
+- added new icons ([d15c64a](https://github.com/ab-devtools/uilibrary/commit/d15c64ac3e6e5b1c7a117c31c15a31ef62e85c01))
+
+## [1.3.34](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.33...@ab.uitools/ui-library@1.3.34) (2026-02-18)
+
+### Bug Fixes
+
+- fix for framed icon ui ([52efea7](https://github.com/ab-devtools/uilibrary/commit/52efea7746cd8af411c2f9c15427cb24ed060e8f))
+
 ## [1.3.33](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.32...@ab.uitools/ui-library@1.3.33) (2026-02-13)
 
 ### Bug Fixes
