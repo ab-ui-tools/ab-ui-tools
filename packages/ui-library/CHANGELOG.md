@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.4.0...@ab.uitools/ui-library@1.4.1) (2026-02-18)
+
+### Bug Fixes
+
+- calendar start and end date inputs fixes ([57f1382](https://github.com/ab-devtools/uilibrary/commit/57f1382e72fdd075f31f0a867e2a51d4a33a6b01))
+- calendar start and end date inputs fixes ([ae9ff8f](https://github.com/ab-devtools/uilibrary/commit/ae9ff8fe53216ab0781f6bd12c4bfd8fba1a1d9f))
+- start and end date change issue ([474aa76](https://github.com/ab-devtools/uilibrary/commit/474aa766b99b4d1a8fac9225b34b4f6877dd4286))
+
 # [1.4.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.3.34...@ab.uitools/ui-library@1.4.0) (2026-02-18)
 
 ### Features
