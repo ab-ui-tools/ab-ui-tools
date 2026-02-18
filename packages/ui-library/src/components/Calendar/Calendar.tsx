@@ -73,7 +73,7 @@ export const Calendar = ({ children, shouldRecalculatePosition = false, ...props
         }}
         ref={setCalendarRef}
       >
-        <CalendarPopup {...props} />
+        <CalendarPopup {...props} closeCalendarPopup={closeCalendarPopup} />
       </div>
     </div>
   );

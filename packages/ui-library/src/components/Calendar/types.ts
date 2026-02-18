@@ -82,3 +82,13 @@ export type TCalendarPropTypes =
       isRange?: false;
       fastActions?: TSingleDateFastActions[];
     });
+
+export type TCalendarPopupPropTypes = TCalendarPropTypes & {
+  closeCalendarPopup: () => void;
+};
+
+export type TMonthOptionLabel = {
+  en: string;
+  ru: string;
+  hy: string;
+};

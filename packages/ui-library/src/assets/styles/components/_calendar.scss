@@ -7,12 +7,15 @@
     position: fixed;
     z-index: 3;
     .react-calendar-wrapper {
-      max-width: min(764px, 100%);
+      max-width: 764px;
       width: fit-content;
       box-shadow: 0 0 40px 0 #4E4E4E0F;
       border-radius: var(--ds-border-radius-2xl);
       border: 1px solid var(--ds-color-border-quintary);
       background-color: var(--ds-color-bg-white);
+      @media (max-width: 768px) {
+        max-width: 361px;
+      }
       .header-control-wrapper {
         @include mixin.flexbox;
         @include mixin.justify-content(space-between);

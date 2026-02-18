@@ -190,7 +190,8 @@ export const isValidDate = ({ date, format, minYear, maxYear }: TDateValidationP
   return year >= min && year <= max;
 };
 
-export const orderRangeDate = (start: Date | null, end: Date | null): [Date | null, Date | null] => {
+export const orderRangeDate = (dates: readonly [Date | null, Date | null]): [Date | null, Date | null] => {
+  const [start, end] = dates;
   const s: Date | null = start && !isNaN(start.getTime()) ? start : null;
   const e: Date | null = end && !isNaN(end.getTime()) ? end : null;
 
