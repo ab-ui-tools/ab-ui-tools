@@ -95,7 +95,7 @@ const plugins = [
     exclude: 'node_modules/**',
     presets: ['@babel/preset-env']
   }),
-  commonjs({ include: 'node_modules/**', requireReturnsDefault: 'auto' }),
+  commonjs({ include: 'node_modules/**' }),
   postcss({
     plugins: [],
     inject: false,
