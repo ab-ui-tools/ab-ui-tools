@@ -1,9 +1,6 @@
-import * as customParseFormat from 'dayjs/plugin/customParseFormat';
 import dayjs from 'dayjs';
 
 import type { TCombineDateProp, TDateFormat, TDateValidationProp } from '../components/Calendar/types';
-
-dayjs.extend(customParseFormat.default);
 
 export const noop = (): void => {
   return undefined;
