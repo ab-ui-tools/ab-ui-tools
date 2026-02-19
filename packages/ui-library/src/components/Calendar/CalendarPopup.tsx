@@ -37,7 +37,7 @@ export const CalendarPopup = ({
   rangeControlText = 'Apply range',
   locale = 'en',
   maxYear = 2050,
-  formatDate = 'MM/DD/YYYY',
+  formatDate = 'DD/MM/YYYY',
   closeCalendarPopup,
   ...props
 }: TCalendarPopupPropTypes) => {
@@ -78,7 +78,7 @@ export const CalendarPopup = ({
   }, [canRangeSelect, draftRange, draftValue]);
 
   const handleDateChange = (date: Date) => {
-    const selectedDate = dayjs(date as TValuePiece).format('MM/DD/YYYY');
+    const selectedDate = dayjs(date as TValuePiece).format(formatDate);
     const time = dayjs(date as TValuePiece).format('HH:mm');
     setStartDate(selectedDate);
     setStartTime(time);
@@ -95,8 +95,8 @@ export const CalendarPopup = ({
         if (!showApplyButtons) {
           onChange?.([...orderedDate] as TCalendarValue);
         }
-        const start_date = dayjs(orderedDate[0]).format('MM/DD/YYYY');
-        const end_date = dayjs(orderedDate[1]).format('MM/DD/YYYY');
+        const start_date = dayjs(orderedDate[0]).format(formatDate);
+        const end_date = dayjs(orderedDate[1]).format(formatDate);
         setStartDate(start_date);
         setEndDate(end_date);
         return orderedDate;
@@ -125,7 +125,7 @@ export const CalendarPopup = ({
       setEndTime(selectedEndDate.format('HH:mm'));
       setStartDate(selectedStartDate.format(formatDate));
       setEndDate(selectedEndDate.format(formatDate));
-    } else if (isValidDate({ date: `${start}` })) {
+    } else if (isValidDate({ date: `${start}`, format: formatDate })) {
       setStartDate(dayjs(start).format(formatDate));
       setStartTime(dayjs(start).format('HH:mm'));
     }
@@ -195,9 +195,9 @@ export const CalendarPopup = ({
   };
 
   const onStartDateBlur = () => {
-    const startDateTime = combineDateTime({ date: startDate, time: startTime });
-    const endDateTime = combineDateTime({ date: endDate, time: endTime });
-    if (!startDateTime || !isValidDate({ date: startDate })) {
+    const startDateTime = combineDateTime({ date: startDate, time: startTime, format: formatDate });
+    const endDateTime = combineDateTime({ date: endDate, time: endTime, format: formatDate });
+    if (!startDateTime || !isValidDate({ date: startDate, format: formatDate })) {
       setStartDate('');
       setStartTime('');
       return;
@@ -207,16 +207,16 @@ export const CalendarPopup = ({
       setEndTime('');
     }
     if (canRangeSelect) {
-      setDraftRange([startDateTime, combineDateTime({ date: endDate, time: endTime })]);
+      setDraftRange([startDateTime, combineDateTime({ date: endDate, time: endTime, format: formatDate })]);
     } else {
       setDraftValue(startDateTime);
     }
   };
 
   const onEndDateBlur = () => {
-    const endDateTime = combineDateTime({ date: endDate, time: endTime });
-    const startDateTime = combineDateTime({ date: startDate, time: startTime });
-    if (!endDateTime || !isValidDate({ date: endDate })) {
+    const endDateTime = combineDateTime({ date: endDate, time: endTime, format: formatDate });
+    const startDateTime = combineDateTime({ date: startDate, time: startTime, format: formatDate });
+    if (!endDateTime || !isValidDate({ date: endDate, format: formatDate })) {
       setEndDate('');
       setEndTime('');
       return;
@@ -298,9 +298,9 @@ export const CalendarPopup = ({
                   className={classNames('date-input', {
                     ['date-input-full']: !withTime,
                   })}
-                  placeholder="MM/DD/YYYY"
+                  placeholder={formatDate || 'DD/MM/YYYY'}
                   value={startDate}
-                  handleChange={e => setStartDate(formatDateByPattern(e.target.value))}
+                  handleChange={e => setStartDate(formatDateByPattern(e.target.value, formatDate))}
                   onBlur={onStartDateBlur}
                 />
                 {withTime && (
@@ -323,9 +323,9 @@ export const CalendarPopup = ({
                       className={classNames('date-input', {
                         ['date-input-full']: !withTime,
                       })}
-                      placeholder="MM/DD/YYYY"
+                      placeholder={formatDate || 'DD/MM/YYYY'}
                       value={endDate}
-                      handleChange={e => setEndDate(formatDateByPattern(e.target.value))}
+                      handleChange={e => setEndDate(formatDateByPattern(e.target.value, formatDate))}
                       onBlur={onEndDateBlur}
                     />
                     {withTime && (
