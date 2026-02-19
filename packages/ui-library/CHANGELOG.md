@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.4.3...@ab.uitools/ui-library@1.4.4) (2026-02-19)
+
+### Bug Fixes
+
+- change rollup config and removed problematic code from helpers ([60a733c](https://github.com/ab-devtools/uilibrary/commit/60a733c9d518187966ec380417090457a6a69133))
+
 ## [1.4.3](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/ui-library@1.4.2...@ab.uitools/ui-library@1.4.3) (2026-02-19)
 
 ### Bug Fixes
