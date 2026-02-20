@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.47](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.46...@ab.uitools/storybook@1.6.47) (2026-02-20)
+
+### Bug Fixes
+
+- calendar date formating lib change ([d5d51be](https://github.com/ab-devtools/uilibrary/commit/d5d51be52db73590f754a73d7d11abc0c6f8ba9b))
+
 ## [1.6.46](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.45...@ab.uitools/storybook@1.6.46) (2026-02-20)
 
 **Note:** Version bump only for package @ab.uitools/storybook
