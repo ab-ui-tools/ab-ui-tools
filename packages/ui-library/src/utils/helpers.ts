@@ -1,6 +1,16 @@
-import dayjs from 'dayjs';
+import {
+  isSameDay as isSameDayFns,
+  format as formatDateFns,
+  isEqual,
+  addMonths,
+  startOfMonth,
+  parse,
+  isValid,
+  isBefore,
+  startOfDay,
+} from 'date-fns';
 
-import type { TCombineDateProp, TDateFormat, TDateValidationProp } from '../components/Calendar/types';
+import type { TCombineDateProp, TDateFormat, TDateValidationProp, TTimeFormat } from '../components/Calendar/types';
 
 export const noop = (): void => {
   return undefined;
@@ -91,22 +101,22 @@ export const isSameDay = (date1?: Date, date2?: Date): boolean => {
     return false;
   }
 
-  return dayjs(date1).isSame(date2, 'day');
+  return isSameDayFns(date1, date2);
 };
-
-export const isSameDate = (d1: Date, d2: Date) => dayjs(d1).isSame(d2, 'day');
 
 export const isSameRange = (r1: [Date | null, Date | null], r2: [Date | null, Date | null]) => {
   const [start1, end1] = r1;
   const [start2, end2] = r2;
 
-  const startEqual = start1 && start2 ? isSameDate(start1, start2) : start1 === start2;
-  const endEqual = end1 && end2 ? isSameDate(end1, end2) : end1 === end2;
+  const startEqual = start1 && start2 ? isEqual(start1, start2) : start1 === start2;
+  const endEqual = end1 && end2 ? isEqual(end1, end2) : end1 === end2;
 
   return startEqual && endEqual;
 };
 
-export const getMonthByIndex = (index: number, base = dayjs()) => base.add(index, 'month').startOf('month');
+export const getMonthByIndex = (index: number, base: Date = new Date()): Date => {
+  return startOfMonth(addMonths(base, index));
+};
 
 export const isMobile = () => {
   const toMatch = [
@@ -132,36 +142,41 @@ export const isMobile = () => {
   return isMatchedDevice || isIPad || isTouchMac;
 };
 
-export const formatDateByPattern = (value: string, format?: TDateFormat): string => {
-  const dateFormat = format || 'DD/MM/YYYY';
-  const digits = value.replace(/\D/g, '');
+export const formatDateByPattern = (value: string, format?: TDateFormat) => {
+  if (!value) return '';
+
+  const dateFormat = format || 'dd/MM/yyyy';
+  const digits = value.replace(/\D/g, ''); // keep only numbers
+
+  const separatorMatch = dateFormat.match(/[^A-Za-z]/);
+  const separator = separatorMatch ? separatorMatch[0] : '/';
 
   const partLengthsMap: Record<TDateFormat, number[]> = {
-    'MM/DD/YYYY': [2, 2, 4],
-    'DD/MM/YYYY': [2, 2, 4],
-    'YYYY-MM-DD': [4, 2, 2],
-    'MM.DD.YYYY': [2, 2, 4],
-    'DD.MM.YYYY': [2, 2, 4],
+    'MM/dd/yyyy': [2, 2, 4],
+    'dd/MM/yyyy': [2, 2, 4],
+    'yyyy-MM-dd': [4, 2, 2],
+    'MM.dd.yyyy': [2, 2, 4],
+    'dd.MM.yyyy': [2, 2, 4],
   };
 
-  const separator = dateFormat.match(/[^A-Z]/)?.[0];
-  if (!separator) return value;
+  const lengths = partLengthsMap[dateFormat];
+  if (!lengths) return value;
 
-  const partsLengths = partLengthsMap[dateFormat];
-
+  const parts: string[] = [];
   let cursor = 0;
-  const result: string[] = [];
 
-  for (const length of partsLengths) {
-    const part = digits.slice(cursor, cursor + length);
-    if (!part) break;
-    result.push(part);
-    cursor += length;
+  for (const len of lengths) {
+    if (cursor >= digits.length) break;
+
+    const part = digits.slice(cursor, cursor + len);
+    parts.push(part);
+    cursor += part.length;
   }
-  return result.join(separator);
+
+  return parts.join(separator);
 };
 
-export const formatTime = (value: string): string => {
+export const normalizeTimeString = (value: string): string => {
   const digits = value.replace(/\D/g, '').slice(0, 4);
   if (!digits) return '';
 
@@ -177,12 +192,14 @@ export const formatTime = (value: string): string => {
 export const isValidDate = ({ date, format, minYear, maxYear }: TDateValidationProp) => {
   if (!date) return false;
 
-  const dateFormat = format || 'DD/MM/YYYY';
-  const parsed = dayjs(date, dateFormat, true);
+  const dateFormat = format || 'dd/MM/yyyy';
+  const parsed = parse(date, dateFormat, new Date());
 
-  if (!parsed.isValid()) return false;
+  if (!isValid(parsed) || formatDateFns(parsed, dateFormat) !== date) {
+    return false;
+  }
 
-  const year = parsed.year();
+  const year = parsed.getFullYear();
   const min = minYear ?? 1971;
   const max = maxYear ?? 2050;
 
@@ -197,16 +214,50 @@ export const orderRangeDate = (dates: readonly [Date | null, Date | null]): [Dat
   if (!s && e) return [e, null];
   if (!e) return [s, null];
 
-  return dayjs(s).isBefore(e) || dayjs(s).isSame(e, 'day') ? [s, e] : [e, s];
+  const sDay = startOfDay(s as Date);
+  const eDay = startOfDay(e);
+
+  return isBefore(sDay, eDay) || isEqual(sDay, eDay) ? [s, e] : [e, s];
 };
 
 export const combineDateTime = ({ date, time, format }: TCombineDateProp) => {
   if (!date) return null;
 
-  const dateFormat = format || 'DD/MM/YYYY';
+  const dateFormat = format || 'dd/MM/yyyy';
   const timePart = time?.trim() || '00:00';
 
-  const dateTime = dayjs(`${date} ${timePart}`, `${dateFormat} HH:mm`, true);
+  const fullFormat = `${dateFormat} HH:mm`;
+  const input = `${date} ${timePart}`;
 
-  return dateTime.isValid() ? dateTime.toDate() : null;
+  const parsed = parse(input, fullFormat, new Date());
+
+  if (!isValid(parsed) || formatDateFns(parsed, fullFormat) !== input) {
+    return null;
+  }
+
+  return parsed;
+};
+
+export const formatDate = (date: Date | string | null, format?: TDateFormat) => {
+  if (!date) return '';
+
+  const dateFormat = format || 'dd/MM/yyyy';
+
+  const parsed = date instanceof Date ? date : new Date(date);
+
+  if (!isValid(parsed)) return '';
+
+  return formatDateFns(parsed, dateFormat);
+};
+
+export const formatTime = (date: Date | string | null, timeFormat?: TTimeFormat) => {
+  if (!date) return '';
+
+  const parsed = date instanceof Date ? date : new Date(date);
+
+  if (!isValid(parsed)) return '';
+
+  const format = timeFormat || 'HH:mm';
+
+  return formatDateFns(parsed, format);
 };
