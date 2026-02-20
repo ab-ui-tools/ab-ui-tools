@@ -1,6 +1,6 @@
 {
   "name": "@ab.uitools/scripts",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "CLI scripts for @ab.uitools",
   "type": "module",
   "private": false,

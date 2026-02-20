@@ -1,7 +1,7 @@
 {
   "homepage": "https://github.com/ab-ui-tools/ab-ui-tools",
   "name": "@ab.uitools/ui-library",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "UI library for AM",
   "private": false,
   "publishConfig": {
@@ -125,7 +125,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ab-devtools/uilibrary"
+    "url": "https://github.com/ab-ui-tools/ab-ui-tools"
   },
   "gitHead": "75e3486e1c898ee249cd0e6bb6d2b0ac8dd4abc1"
 }
