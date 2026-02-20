@@ -20,7 +20,8 @@ export type TCombineDateProp = {
   format?: TDateFormat;
 };
 
-export type TDateFormat = 'MM/DD/YYYY' | 'DD/MM/YYYY' | 'YYYY-MM-DD' | 'MM.DD.YYYY' | 'DD.MM.YYYY';
+export type TDateFormat = 'MM/dd/yyyy' | 'dd/MM/yyyy' | 'yyyy-MM-dd' | 'MM.dd.yyyy' | 'dd.MM.yyyy';
+export type TTimeFormat = 'HH:mm' | 'HH:mm:ss';
 
 export interface ICalendarProp extends CalendarProps {
   isRange?: boolean;
@@ -36,14 +37,14 @@ export interface ICalendarProp extends CalendarProps {
   rangeControlText?: string;
   selectedValue?: TCalendarValue;
   locale?: string;
-  formatDate?: TDateFormat;
+  dateFormat?: TDateFormat;
   children?: ReactNode;
   shouldRecalculatePosition?: boolean;
 }
 
 export interface IMobileViewProp extends CalendarProps {
   dataId?: string;
-  locale?: string;
+  locale: string;
   maxYear: number;
   draftRange: TRangeValue;
   draftValue?: TValuePiece;
@@ -85,10 +86,4 @@ export type TCalendarPropTypes =
 
 export type TCalendarPopupPropTypes = TCalendarPropTypes & {
   closeCalendarPopup: () => void;
-};
-
-export type TMonthOptionLabel = {
-  en: string;
-  ru: string;
-  hy: string;
 };

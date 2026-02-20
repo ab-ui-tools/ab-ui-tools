@@ -1,6 +1,7 @@
 import ReactCalendar from 'react-calendar';
 import React, { useEffect, useRef } from 'react';
-import dayjs from 'dayjs';
+import { enUS, hy, ru } from 'date-fns/locale';
+import { differenceInMonths, startOfMonth, format } from 'date-fns';
 import { useVirtualizer } from '@tanstack/react-virtual';
 
 import type { IMobileViewProp } from './types';
@@ -9,7 +10,12 @@ import { Text } from '../Text';
 import { getMonthByIndex } from '../../utils/helpers';
 
 const MIN_YEAR = 1971;
-const MIDDLE_INDEX = dayjs().diff(dayjs(`${MIN_YEAR}-01-01`), 'month');
+const MIDDLE_INDEX = differenceInMonths(new Date(), new Date(`${MIN_YEAR}-01-01`));
+const localeMap: Record<string, Locale> = {
+  en: enUS,
+  hy: hy,
+  ru: ru,
+};
 
 export const MobileView = ({
   draftRange,
@@ -32,16 +38,18 @@ export const MobileView = ({
   });
 
   const getSelectedMonthIndex = () => {
-    const baseDate = dayjs();
-    let targetDate: dayjs.Dayjs | null = null;
+    const baseDate = startOfMonth(new Date());
+    let targetDate: Date | null = null;
     if (Array.isArray(draftRange) && draftRange[0]) {
-      targetDate = dayjs(draftRange[0]);
+      targetDate = new Date(draftRange[0]);
     } else if (draftValue instanceof Date) {
-      targetDate = dayjs(draftValue);
+      targetDate = draftValue;
     }
-    if (!targetDate) return MIDDLE_INDEX;
+    if (!targetDate || isNaN(targetDate.getTime())) {
+      return MIDDLE_INDEX;
+    }
 
-    const monthDiff = targetDate.startOf('month').diff(baseDate.startOf('month'), 'month');
+    const monthDiff = differenceInMonths(startOfMonth(targetDate), baseDate);
     return MIDDLE_INDEX + monthDiff;
   };
 
@@ -86,7 +94,7 @@ export const MobileView = ({
               }}
             >
               <Text weight="bold" className="month-title">
-                {month.toDate().toLocaleDateString(locale, { month: 'long', year: 'numeric' })}
+                {format(month, 'LLLL yyyy', { locale: localeMap[locale] || enUS })}
               </Text>
               <ReactCalendar
                 {...props}
@@ -97,7 +105,7 @@ export const MobileView = ({
                 onClickDay={handleDayClick}
                 value={draftValue || null}
                 tileClassName={({ date }) => getTileClassName(date)}
-                activeStartDate={month.toDate()}
+                activeStartDate={month}
                 showNavigation={false}
               />
             </div>

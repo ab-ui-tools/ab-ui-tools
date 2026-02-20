@@ -1,6 +1,6 @@
 import ReactCalendar from 'react-calendar';
 import React, { useEffect, useRef, useState } from 'react';
-import dayjs from 'dayjs';
+import { addMonths, startOfMonth, subMonths } from 'date-fns';
 import classNames from 'classnames';
 
 import type { IDesktopViewProp } from './types';
@@ -26,7 +26,7 @@ export const DesktopView = ({
 }: IDesktopViewProp) => {
   const didInitScrollRef = useRef<boolean>(false);
   const [activeStartDate, setActiveStartDate] = useState<Date>(new Date());
-  const nextMonthStartDate = dayjs(activeStartDate).add(1, 'month').startOf('month').toDate();
+  const nextMonthStartDate = startOfMonth(addMonths(activeStartDate, 1));
 
   const handleMonthChange = (month?: TItemValue) => {
     if (!month) return;
@@ -40,11 +40,11 @@ export const DesktopView = ({
 
   const handleNextYearChange = (year?: TItemValue) => {
     if (!year) return;
-    setActiveStartDate(() =>
-      dayjs(new Date(Number(year), nextMonthStartDate.getMonth(), 1))
-        .subtract(1, 'month')
-        .toDate()
-    );
+
+    const newDate = new Date(Number(year), nextMonthStartDate.getMonth(), 1);
+    const prevMonthDate = subMonths(newDate, 1);
+
+    setActiveStartDate(() => prevMonthDate);
   };
 
   const goToPrevMonth = () => {
@@ -68,21 +68,22 @@ export const DesktopView = ({
   };
 
   const getSelectedMonth = (): Date => {
-    let target = dayjs().startOf('month');
+    let target: Date = startOfMonth(new Date());
+
     if (!didInitScrollRef.current) {
       if (selectedValue instanceof Date) {
-        target = dayjs(selectedValue).startOf('month');
+        target = startOfMonth(selectedValue);
       } else if (Array.isArray(selectedValue) && selectedValue[0]) {
-        target = dayjs(selectedValue[0]).startOf('month');
+        target = startOfMonth(new Date(selectedValue[0]));
       }
     } else {
       if (draftValue instanceof Date) {
-        target = dayjs(draftValue).startOf('month');
+        target = startOfMonth(draftValue);
       } else if (Array.isArray(draftRange) && draftRange[0]) {
-        target = dayjs(draftRange[0]).startOf('month');
+        target = startOfMonth(new Date(draftRange[0]));
       }
     }
-    return target.toDate();
+    return target;
   };
 
   const yearOptions = getYearOptions(MIN_YEAR, maxYear);
@@ -91,7 +92,7 @@ export const DesktopView = ({
   useEffect(() => {
     const date = getSelectedMonth();
     didInitScrollRef.current = true;
-    setActiveStartDate(dayjs(date).startOf('month').toDate());
+    setActiveStartDate(startOfMonth(date));
   }, [selectedValue, draftValue, draftRange]);
 
   return (
