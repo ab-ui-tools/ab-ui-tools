@@ -8,6 +8,7 @@
     z-index: 3;
     .react-calendar-wrapper {
       max-width: 764px;
+      min-width: 272px;
       width: fit-content;
       box-shadow: 0 0 40px 0 #4E4E4E0F;
       border-radius: var(--ds-border-radius-2xl);
