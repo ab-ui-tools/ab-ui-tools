@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.8](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.7...@ab.uitools/ui-library@1.4.8) (2026-02-26)
+
+### Bug Fixes
+
+- calendar content min width ([add0a64](https://github.com/ab-ui-tools/ab-ui-tools/commit/add0a64a51e7c7ef8c4dd9e0e3456acc3eb0daed))
+
 ## [1.4.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.6...@ab.uitools/ui-library@1.4.7) (2026-02-26)
 
 ### Bug Fixes
