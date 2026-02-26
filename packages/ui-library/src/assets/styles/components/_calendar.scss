@@ -39,10 +39,7 @@
           @include mixin.flex-direction(column);
         }
         .calendar-wrapper {
-          padding-left: var(--ds-space-16);
-          @media (max-width: 768px) {
-            padding-left: var(--ds-space-0);
-          }
+          max-width: 560px;
         }
         .date-input-wrapper {
           padding: var(--ds-space-16) var(--ds-space-0);
@@ -159,6 +156,7 @@
           width: 100%;
           padding-block: var(--ds-space-16);
           padding-right: var(--ds-space-16);
+          margin-right: var(--ds-space-16);
           max-width: var(--ds-size-140);
           gap: var(--ds-space-12);
           @media (max-width: 768px) {
@@ -168,6 +166,7 @@
             gap: var(--ds-space-10);
             border-bottom: 1px solid var(--grey-40);
             padding-right: var(--ds-space-0);
+            margin-right: var(--ds-space-0);
             max-width: 768px;
             overflow-y: auto;
             scrollbar-width: none;
