@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.12](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.11...@ab.uitools/ui-library@1.4.12) (2026-02-27)
+
+### Bug Fixes
+
+- button desabled issue ([8d95b10](https://github.com/ab-ui-tools/ab-ui-tools/commit/8d95b10e22d49e327345fffffb1661af44f908c1))
+
 ## [1.4.11](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.10...@ab.uitools/ui-library@1.4.11) (2026-02-27)
 
 ### Bug Fixes
