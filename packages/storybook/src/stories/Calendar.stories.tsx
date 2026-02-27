@@ -54,6 +54,7 @@ Calendar.args = {
   maxYear: 2050,
   dateFormat: 'dd/MM/yyyy',
   selectedValue: [dayjs('2025-12-07').toDate(), dayjs('2026-01-08').toDate()],
+  defaultValue: [dayjs('2025-12-07').toDate(), dayjs('2026-01-08').toDate()],
   onChange: (date: Date) => {
     console.log(date);
   },
