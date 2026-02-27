@@ -189,21 +189,20 @@ export const normalizeTimeString = (value: string): string => {
   return `${hours}:${minutes}`;
 };
 
-export const isValidDate = ({ date, format, minYear, maxYear }: TDateValidationProp) => {
+export const isValidDate = ({ date, format, minDate, maxDate }: TDateValidationProp) => {
   if (!date) return false;
-
   const dateFormat = format || 'dd/MM/yyyy';
   const parsed = parse(date, dateFormat, new Date());
+  console.log(date);
 
   if (!isValid(parsed) || formatDateFns(parsed, dateFormat) !== date) {
     return false;
   }
+  const dateTimestamp = parsed.getTime();
+  const minDateTimestamp = new Date(minDate || '01-01-1971').getTime();
+  const maxDateTimestamp = new Date(maxDate || '01-01-2050').getTime();
 
-  const year = parsed.getFullYear();
-  const min = minYear ?? 1971;
-  const max = maxYear ?? 2050;
-
-  return year >= min && year <= max;
+  return dateTimestamp >= minDateTimestamp && dateTimestamp <= maxDateTimestamp;
 };
 
 export const orderRangeDate = (dates: readonly [Date | null, Date | null]): [Date | null, Date | null] => {

@@ -10,8 +10,8 @@ export type TRangeValue = [TValuePiece, TValuePiece];
 export type TDateValidationProp = {
   date: string;
   format?: TDateFormat;
-  minYear?: number;
-  maxYear?: number;
+  minDate?: Date;
+  maxDate?: Date;
 };
 
 export type TCombineDateProp = {
@@ -39,6 +39,7 @@ export interface ICalendarProp extends CalendarProps {
   locale?: string;
   dateFormat?: TDateFormat;
   children?: ReactNode;
+  defaultValue?: TCalendarValue;
   shouldRecalculatePosition?: boolean;
 }
 
@@ -86,4 +87,5 @@ export type TCalendarPropTypes =
 
 export type TCalendarPopupPropTypes = TCalendarPropTypes & {
   closeCalendarPopup: () => void;
+  onReset?: () => void;
 };
