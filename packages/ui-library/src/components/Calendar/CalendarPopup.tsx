@@ -255,6 +255,7 @@ export const CalendarPopup = ({
   }, [draftValue, draftRange, showApplyButtons]);
 
   useEffect(() => {
+    if (selectedValue === undefined) return;
     if (Array.isArray(selectedValue) && canRangeSelect) {
       setDraftRange(selectedValue);
       handleSetStartAndEndDateInputValues(...selectedValue);
