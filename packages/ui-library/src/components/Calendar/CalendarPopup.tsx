@@ -55,17 +55,18 @@ export const CalendarPopup = ({
   const [endDate, setEndDate] = useState<string>('');
   const [endTime, setEndTime] = useState<string>('');
 
-  const hasPendingChanges = useMemo(() => {
+  const canApply = useMemo(() => {
     if (canRangeSelect) {
       const [draftStart, draftEnd] = draftRange;
       if (Array.isArray(value)) {
         const [valueStart, valueEnd] = value;
-
         if (!draftStart || !draftEnd) return true;
-
-        return isSameDay(draftStart as Date, valueStart as Date) && isSameDay(draftEnd as Date, valueEnd as Date);
+        return !isSameDay(draftStart as Date, valueStart as Date) && !isSameDay(draftEnd as Date, valueEnd as Date);
       } else {
-        return !draftStart || !draftEnd;
+        return (
+          !isSameDay(draftStart as Date, (selectedValue as Date[])?.[0]) ||
+          !isSameDay(draftEnd as Date, (selectedValue as Date[])?.[1])
+        );
       }
     } else {
       return !draftValue || isSameDay(draftValue, value as Date);
@@ -75,11 +76,10 @@ export const CalendarPopup = ({
   const canReset = useMemo(() => {
     if (canRangeSelect) {
       const [start, end] = draftRange;
-      const draftStart = new Date(start as Date).getTime();
-      const defaultStart = new Date((defaultValue as Date[])?.[0]).getTime();
-      const draftEnd = new Date(end as Date).getTime();
-      const defaultEnd = new Date((defaultValue as Date[])?.[1]).getTime();
-      return start && end && (draftStart !== defaultStart || draftEnd !== defaultEnd);
+      return (
+        (start && end && !isSameDay(start as Date, (defaultValue as Date[])?.[0])) ||
+        !isSameDay(end as Date, (defaultValue as Date[])?.[1])
+      );
     } else {
       const draftDate = new Date(draftValue as Date).getTime();
       const defaultDate = new Date(defaultValue as Date).getTime();
@@ -390,7 +390,7 @@ export const CalendarPopup = ({
       {showApplyButtons && (
         <div className="calendar-actions">
           <Button type="tertiary" disabled={!canReset} buttonText={resetButtonText} onClick={handleReset} />
-          <Button type="primary" disabled={hasPendingChanges} buttonText={applyButtonText} onClick={handleApply} />
+          <Button type="primary" disabled={!canApply} buttonText={applyButtonText} onClick={handleApply} />
         </div>
       )}
     </div>
