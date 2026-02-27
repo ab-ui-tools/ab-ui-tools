@@ -360,6 +360,8 @@ export const CalendarPopup = ({
           {isMobile ? (
             <MobileView
               {...props}
+              maxDate={maxDate}
+              minDate={minDate}
               locale={locale}
               dataId={dataId}
               maxYear={maxYear}
@@ -371,6 +373,8 @@ export const CalendarPopup = ({
           ) : (
             <DesktopView
               {...props}
+              maxDate={maxDate}
+              minDate={minDate}
               locale={locale}
               dataId={dataId}
               maxYear={maxYear}
