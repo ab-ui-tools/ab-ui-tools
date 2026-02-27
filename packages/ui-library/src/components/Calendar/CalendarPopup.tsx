@@ -127,7 +127,7 @@ export const CalendarPopup = ({
   };
 
   const handleSetStartAndEndDateInputValues = (start: TValuePiece, end?: TValuePiece) => {
-    if (end) {
+    if (end !== undefined) {
       setStartTime(formatTime(start));
       setEndTime(formatTime(end));
       setStartDate(formatDate(start, dateFormat));
@@ -255,7 +255,6 @@ export const CalendarPopup = ({
   }, [draftValue, draftRange, showApplyButtons]);
 
   useEffect(() => {
-    if (!selectedValue) return;
     if (Array.isArray(selectedValue) && canRangeSelect) {
       setDraftRange(selectedValue);
       handleSetStartAndEndDateInputValues(...selectedValue);
