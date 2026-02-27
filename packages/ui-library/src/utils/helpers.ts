@@ -193,7 +193,6 @@ export const isValidDate = ({ date, format, minDate, maxDate }: TDateValidationP
   if (!date) return false;
   const dateFormat = format || 'dd/MM/yyyy';
   const parsed = parse(date, dateFormat, new Date());
-  console.log(date);
 
   if (!isValid(parsed) || formatDateFns(parsed, dateFormat) !== date) {
     return false;
