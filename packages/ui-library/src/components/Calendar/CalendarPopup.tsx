@@ -26,6 +26,7 @@ export const CalendarPopup = ({
   isRange,
   dataId,
   onChange,
+  onReset,
   canControlRange,
   hasInputs,
   withTime,
@@ -35,10 +36,13 @@ export const CalendarPopup = ({
   resetButtonText = 'Reset',
   applyButtonText = 'Apply',
   rangeControlText = 'Apply range',
+  dateFormat = 'dd/MM/yyyy',
+  defaultValue,
+  closeCalendarPopup,
   locale = 'en',
   maxYear = 2050,
-  dateFormat = 'dd/MM/yyyy',
-  closeCalendarPopup,
+  maxDate,
+  minDate,
   ...props
 }: TCalendarPopupPropTypes) => {
   const [canRangeSelect, setCanRangeSelect] = useState(isRange);
@@ -70,12 +74,18 @@ export const CalendarPopup = ({
 
   const canReset = useMemo(() => {
     if (canRangeSelect) {
-      const [draftStart, draftEnd] = draftRange;
-      return !draftStart && !draftEnd;
+      const [start, end] = draftRange;
+      const draftStart = new Date(start as Date).getTime();
+      const defaultStart = new Date((defaultValue as Date[])?.[0]).getTime();
+      const draftEnd = new Date(end as Date).getTime();
+      const defaultEnd = new Date((defaultValue as Date[])?.[1]).getTime();
+      return start && end && (draftStart !== defaultStart || draftEnd !== defaultEnd);
     } else {
-      return !draftValue;
+      const draftDate = new Date(draftValue as Date).getTime();
+      const defaultDate = new Date(defaultValue as Date).getTime();
+      return draftValue && draftDate !== defaultDate;
     }
-  }, [canRangeSelect, draftRange, draftValue]);
+  }, [canRangeSelect, draftRange, draftValue, defaultValue]);
 
   const handleDateChange = (date: Date) => {
     const selectedDate = formatDate(date, dateFormat);
@@ -122,7 +132,7 @@ export const CalendarPopup = ({
       setEndTime(formatTime(end));
       setStartDate(formatDate(start, dateFormat));
       setEndDate(formatDate(end, dateFormat));
-    } else if (isValidDate({ date: `${start}`, format: dateFormat })) {
+    } else {
       setStartDate(formatDate(start, dateFormat));
       setStartTime(formatTime(start));
     }
@@ -130,8 +140,15 @@ export const CalendarPopup = ({
 
   const handleReset = () => {
     setValue(null);
-    setDraftValue(null);
-    setDraftRange([null, null]);
+    if (!canRangeSelect && !Array.isArray(defaultValue)) {
+      setDraftValue(defaultValue);
+    } else if (canRangeSelect && Array.isArray(defaultValue)) {
+      setDraftRange(defaultValue);
+    } else {
+      setDraftValue(null);
+      setDraftRange([null, null]);
+    }
+    onReset?.();
     closeCalendarPopup();
   };
 
@@ -196,7 +213,7 @@ export const CalendarPopup = ({
   const onStartDateBlur = () => {
     const startDateTime = combineDateTime({ date: startDate, time: startTime, format: dateFormat });
     const endDateTime = combineDateTime({ date: endDate, time: endTime, format: dateFormat });
-    if (!startDateTime || !isValidDate({ date: startDate, format: dateFormat })) {
+    if (!startDateTime || !isValidDate({ date: startDate, format: dateFormat, minDate, maxDate })) {
       setStartDate('');
       setStartTime('');
       return;
@@ -215,7 +232,7 @@ export const CalendarPopup = ({
   const onEndDateBlur = () => {
     const endDateTime = combineDateTime({ date: endDate, time: endTime, format: dateFormat });
     const startDateTime = combineDateTime({ date: startDate, time: startTime, format: dateFormat });
-    if (!endDateTime || !isValidDate({ date: endDate, format: dateFormat })) {
+    if (!endDateTime || !isValidDate({ date: endDate, format: dateFormat, minDate, maxDate })) {
       setEndDate('');
       setEndTime('');
       return;
@@ -239,13 +256,12 @@ export const CalendarPopup = ({
 
   useEffect(() => {
     if (!selectedValue) return;
-    if (canRangeSelect) {
-      if (Array.isArray(selectedValue)) {
-        setDraftRange(selectedValue);
-        handleSetStartAndEndDateInputValues(...selectedValue);
-      } else {
-        setDraftValue(selectedValue);
-      }
+    if (Array.isArray(selectedValue) && canRangeSelect) {
+      setDraftRange(selectedValue);
+      handleSetStartAndEndDateInputValues(...selectedValue);
+    } else if (!Array.isArray(selectedValue) && !canRangeSelect) {
+      setDraftValue(selectedValue);
+      handleSetStartAndEndDateInputValues(selectedValue);
     }
   }, [selectedValue]);
 
@@ -369,7 +385,7 @@ export const CalendarPopup = ({
       </div>
       {showApplyButtons && (
         <div className="calendar-actions">
-          <Button type="tertiary" disabled={canReset} buttonText={resetButtonText} onClick={handleReset} />
+          <Button type="tertiary" disabled={!canReset} buttonText={resetButtonText} onClick={handleReset} />
           <Button type="primary" disabled={hasPendingChanges} buttonText={applyButtonText} onClick={handleApply} />
         </div>
       )}

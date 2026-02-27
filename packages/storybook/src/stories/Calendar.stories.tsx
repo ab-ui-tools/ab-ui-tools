@@ -81,5 +81,5 @@ Calendar.args = {
   canControlRange: true,
   hasInputs: true,
   withTime: true,
-  showApplyButtons: false,
+  showApplyButtons: true,
 };
