@@ -9,8 +9,6 @@ import type { IMobileViewProp } from './types';
 import { Text } from '../Text';
 import { getMonthByIndex } from '../../utils/helpers';
 
-const MIN_YEAR = 1971;
-const MIDDLE_INDEX = differenceInMonths(new Date(), new Date(`${MIN_YEAR}-01-01`));
 const localeMap: Record<string, Locale> = {
   en: enUS,
   hy: hy,
@@ -25,6 +23,7 @@ export const MobileView = ({
   handleDayClick,
   getTileClassName,
   maxYear,
+  minYear,
   formatShortWeekday,
   ...props
 }: IMobileViewProp) => {
@@ -32,11 +31,13 @@ export const MobileView = ({
   const didInitScrollRef = useRef<boolean>(false);
 
   const virtualizer = useVirtualizer({
-    count: (maxYear - MIN_YEAR + 1) * 12,
+    count: (maxYear - minYear + 1) * 12,
     getScrollElement: () => containerRef.current,
     estimateSize: () => 340,
     overscan: 3,
   });
+
+  const MIDDLE_INDEX = differenceInMonths(new Date(), new Date(`${minYear}-01-01`));
 
   const getSelectedMonthIndex = () => {
     const baseDate = startOfMonth(new Date());

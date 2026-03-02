@@ -47,6 +47,7 @@ export interface IMobileViewProp extends CalendarProps {
   dataId?: string;
   locale: string;
   maxYear: number;
+  minYear: number;
   draftRange: TRangeValue;
   draftValue?: TValuePiece;
   handleDayClick: (date: Date) => void;
@@ -58,6 +59,7 @@ export interface IDesktopViewProp extends CalendarProps {
   canRangeSelect?: boolean;
   locale?: string;
   maxYear: number;
+  minYear: number;
   selectedValue?: Date | [Date, Date];
   draftRange: TRangeValue;
   draftValue?: TValuePiece;
