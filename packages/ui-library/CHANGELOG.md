@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.16](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.15...@ab.uitools/ui-library@1.4.16) (2026-03-02)
+
+### Bug Fixes
+
+- add new megaphone loud icon ([5259dc3](https://github.com/ab-ui-tools/ab-ui-tools/commit/5259dc370ab0f2103e21a5fb3b4c2836cb2b0956))
+
 ## [1.4.15](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.14...@ab.uitools/ui-library@1.4.15) (2026-03-02)
 
 ### Bug Fixes
