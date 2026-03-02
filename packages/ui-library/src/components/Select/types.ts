@@ -1,4 +1,4 @@
-import type { FormEvent, JSX, LegacyRef, ReactElement, ReactNode } from 'react';
+import type { ChangeEvent, JSX, ReactElement, ReactNode, Ref } from 'react';
 
 import type { TTooltipProps } from '../Tooltip/types';
 import type { TMenuItem } from '../Menu/types';
@@ -129,13 +129,14 @@ export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps
 export interface IRenderOptionItemProps extends TSelectItemProps {
   key?: string;
   index: number;
+  ref?: Ref<HTMLDivElement>;
 }
 
 export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   options: TSelectOptions;
   selectedItem?: TItemValue;
   setSelectedItem?: (items: TItemValue | undefined) => void;
-  onInputChange?: (event: FormEvent<HTMLInputElement>) => void;
+  onInputChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onInputFormatting?: (value: string) => string;
   isSearchable?: boolean;
   isDynamicSearchable?: boolean;
@@ -235,7 +236,7 @@ export type TSelectWrapperProps = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   containerRef: HTMLDivElement | null;
-  setContainerRef: LegacyRef<HTMLDivElement> | undefined;
+  setContainerRef: Ref<HTMLDivElement> | undefined;
   options?: TSelectOptions;
   label?: string | JSX.Element;
   placeHolder?: string;
@@ -244,7 +245,7 @@ export type TSelectWrapperProps = {
   labelAddons?: JSX.Element;
   disabled?: boolean;
   dropdownRef: HTMLDivElement | null;
-  setDropdownRef: LegacyRef<HTMLDivElement>;
+  setDropdownRef: Ref<HTMLDivElement>;
   selectedValues?: TSelectedValue[];
   dataId?: string;
   type?: 'primary' | 'secondary' | 'tertiary';

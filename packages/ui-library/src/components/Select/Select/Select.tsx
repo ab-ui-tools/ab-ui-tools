@@ -72,6 +72,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const selectedOptionRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>('');
@@ -251,6 +252,18 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     }
   }, [defaultValue, isCreateOnOutsideClick]);
 
+  useEffect(() => {
+    if (isOpen && selectedOptionRef.current && scrollRef.current) {
+      const optionTop = selectedOptionRef.current.offsetTop;
+      const optionHeight = selectedOptionRef.current.offsetHeight;
+      const scrollHeight = scrollRef.current.clientHeight;
+
+      const scrollPosition = optionTop - scrollHeight / 2 + optionHeight / 2;
+
+      scrollRef.current.scrollTo({ top: scrollPosition });
+    }
+  }, [isOpen, filteredData]);
+
   return (
     <div
       data-id={`${dataId}-content`}
@@ -329,6 +342,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
                         index: i,
                         disabled: item.disabled,
                         isSelected: isSelected,
+                        ...(isSelected ? { ref: selectedOptionRef } : {}),
                       })
                     ) : (
                       <OptionItem
@@ -339,6 +353,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
                         labelLeftIconProps={labelLeftIconProps}
                         OptionRightIconComponent={optionRightIconComponent}
                         LabelRightIconComponent={labelRightIconComponent}
+                        {...(isSelected ? { ref: selectedOptionRef } : {})}
                         avatar={avatar}
                         disabled={item.disabled}
                         isSelected={isSelected}
