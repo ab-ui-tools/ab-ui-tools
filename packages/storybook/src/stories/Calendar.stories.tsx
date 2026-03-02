@@ -1,6 +1,7 @@
 import type { StoryFn } from '@storybook/react';
+import type { TCalendarValue } from '@ab.uitools/ui-library/components/Calendar/types';
 
-import React from 'react';
+import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import { Calendar as _Calendar, Input } from '@ab.uitools/ui-library';
 
@@ -32,6 +33,10 @@ export default {
 };
 
 const Template: StoryFn<any> = args => {
+  const [selectedValue, setSelectedValue] = useState<TCalendarValue>([
+    dayjs('2025-12-07').toDate(),
+    dayjs('2026-01-08').toDate(),
+  ]);
   return (
     <div
       style={{
@@ -40,7 +45,7 @@ const Template: StoryFn<any> = args => {
         paddingTop: '20px',
       }}
     >
-      <_Calendar {...args}>
+      <_Calendar {...args} selectedValue={selectedValue} onChange={date => setSelectedValue(date)}>
         <Input />
       </_Calendar>
     </div>
@@ -54,7 +59,6 @@ Calendar.args = {
   dateFormat: 'dd/MM/yyyy',
   maxDate: new Date(),
   minDate: new Date('2018'),
-  selectedValue: [dayjs('2025-12-07').toDate(), dayjs('2026-01-08').toDate()],
   defaultValue: [dayjs('2025-12-07').toDate(), dayjs('2026-01-08').toDate()],
   onChange: (date: Date) => {
     console.log(date);

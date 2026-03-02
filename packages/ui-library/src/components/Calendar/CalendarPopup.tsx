@@ -30,7 +30,6 @@ export const CalendarPopup = ({
   isRange,
   dataId,
   onChange,
-  onReset,
   canControlRange,
   hasInputs,
   withTime,
@@ -151,8 +150,6 @@ export const CalendarPopup = ({
       setDraftValue(null);
       setDraftRange([null, null]);
     }
-    onReset?.();
-    closeCalendarPopup();
   };
 
   const handleApply = () => {
