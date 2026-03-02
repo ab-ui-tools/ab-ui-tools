@@ -3,7 +3,6 @@
 .calendar {
   position: relative;
   .calendar-popup-container {
-    visibility: hidden;
     position: fixed;
     z-index: 3;
     .react-calendar-wrapper {
@@ -135,6 +134,9 @@
                   border: 0;
                 }
               }
+              .select__options {
+                min-width: var(--ds-size-120);
+              }
             }
             .single-calendar {
               width: 100%;
@@ -145,7 +147,8 @@
             @include mixin.flexbox;
             gap: var(--ds-space-24);
             .react-calendar {
-              max-width: 356px;
+              flex: 1 1 0;
+              width: 100%;
             }
           }
         }
@@ -582,8 +585,5 @@
         }
       }
     }
-  }
-  .calendar-popup-container--open {
-    visibility: visible;
   }
 }

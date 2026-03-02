@@ -56,25 +56,25 @@ export const Calendar = ({ children, shouldRecalculatePosition = false, ...props
       <div ref={childrenRef} onClick={() => setIsOpen(true)}>
         {children}
       </div>
-      <div
-        className={classNames('calendar-popup-container', {
-          'calendar-popup-container--open': isOpen,
-        })}
-        style={{
-          left,
-          ...(hasBottomSpace || !hasTopSpace
-            ? {
-                top: bottom + DROPDOWN_AND_INPUT_GAP,
-              }
-            : {
-                bottom: window.innerHeight - top + DROPDOWN_AND_INPUT_GAP,
-                maxHeight: top - DROPDOWN_AND_INPUT_GAP,
-              }),
-        }}
-        ref={setCalendarRef}
-      >
-        <CalendarPopup {...props} closeCalendarPopup={closeCalendarPopup} />
-      </div>
+      {isOpen && (
+        <div
+          className="calendar-popup-container"
+          style={{
+            left,
+            ...(hasBottomSpace || !hasTopSpace
+              ? {
+                  top: bottom + DROPDOWN_AND_INPUT_GAP,
+                }
+              : {
+                  bottom: window.innerHeight - top + DROPDOWN_AND_INPUT_GAP,
+                  maxHeight: top - DROPDOWN_AND_INPUT_GAP,
+                }),
+          }}
+          ref={setCalendarRef}
+        >
+          <CalendarPopup {...props} closeCalendarPopup={closeCalendarPopup} />
+        </div>
+      )}
     </div>
   );
 };

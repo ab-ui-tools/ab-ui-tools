@@ -25,6 +25,7 @@ export const MobileView = ({
   handleDayClick,
   getTileClassName,
   maxYear,
+  formatShortWeekday,
   ...props
 }: IMobileViewProp) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -104,6 +105,7 @@ export const MobileView = ({
                 showNeighboringMonth={false}
                 onClickDay={handleDayClick}
                 value={draftValue || null}
+                formatShortWeekday={formatShortWeekday}
                 tileClassName={({ date }) => getTileClassName(date)}
                 activeStartDate={month}
                 showNavigation={false}

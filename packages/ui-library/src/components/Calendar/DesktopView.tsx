@@ -22,6 +22,7 @@ export const DesktopView = ({
   locale = 'en',
   selectedValue,
   maxYear,
+  formatShortWeekday,
   ...props
 }: IDesktopViewProp) => {
   const didInitScrollRef = useRef<boolean>(false);
@@ -150,6 +151,7 @@ export const DesktopView = ({
           showNeighboringMonth={false}
           onClickDay={handleDayClick}
           value={draftValue || draftRange || null}
+          formatShortWeekday={formatShortWeekday}
           tileClassName={({ date }) => getTileClassName(date)}
           activeStartDate={activeStartDate}
           showNavigation={false}
@@ -163,6 +165,7 @@ export const DesktopView = ({
             showNeighboringMonth={false}
             onClickDay={handleDayClick}
             value={draftValue || draftRange || null}
+            formatShortWeekday={formatShortWeekday}
             tileClassName={({ date }) => getTileClassName(date)}
             activeStartDate={nextMonthStartDate}
             showNavigation={false}
