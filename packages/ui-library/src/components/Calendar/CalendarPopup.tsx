@@ -23,6 +23,8 @@ import {
 } from '../../utils/helpers';
 
 const ARMENIAN_SHORT_DAYS = ['Կիր', 'Երկ', 'Երք', 'Չրք', 'Հնգ', 'Ուր', 'Շբթ'];
+const MAX_YEAR = 2050;
+const MIN_YEAR = 1971;
 
 export const CalendarPopup = ({
   isRange,
@@ -42,7 +44,6 @@ export const CalendarPopup = ({
   defaultValue,
   closeCalendarPopup,
   locale = 'en',
-  maxYear = 2050,
   maxDate,
   minDate,
   ...props
@@ -253,6 +254,9 @@ export const CalendarPopup = ({
   const formatShortWeekday =
     locale === 'hy' ? (_locale: string | undefined, date: Date) => ARMENIAN_SHORT_DAYS[date.getDay()] : undefined;
 
+  const maxYear = maxDate?.getFullYear() || MAX_YEAR;
+  const minYear = minDate?.getFullYear() || MIN_YEAR;
+
   useEffect(() => {
     if (!showApplyButtons) {
       setValue(draftValue || orderRangeDate([...draftRange]));
@@ -370,6 +374,7 @@ export const CalendarPopup = ({
               locale={locale}
               dataId={dataId}
               maxYear={maxYear}
+              minYear={minYear}
               draftRange={draftRange}
               draftValue={draftValue}
               handleDayClick={handleChange}
@@ -383,6 +388,7 @@ export const CalendarPopup = ({
               minDate={minDate}
               locale={locale}
               dataId={dataId}
+              minYear={minYear}
               maxYear={maxYear}
               draftRange={draftRange}
               draftValue={draftValue}

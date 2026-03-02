@@ -22,6 +22,7 @@ export const DesktopView = ({
   locale = 'en',
   selectedValue,
   maxYear,
+  minYear,
   formatShortWeekday,
   ...props
 }: IDesktopViewProp) => {
@@ -87,7 +88,7 @@ export const DesktopView = ({
     return target;
   };
 
-  const yearOptions = getYearOptions(MIN_YEAR, maxYear);
+  const yearOptions = getYearOptions(minYear, maxYear);
   const monthOptions = getMonthOptions(locale);
 
   useEffect(() => {
