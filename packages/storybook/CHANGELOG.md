@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.59](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.58...@ab.uitools/storybook@1.6.59) (2026-03-02)
+
+### Bug Fixes
+
+- calendar reset ([05965e8](https://github.com/ab-devtools/uilibrary/commit/05965e83ea96377e7b830dd49fc49d7b8eb90a81))
+
 ## [1.6.58](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.57...@ab.uitools/storybook@1.6.58) (2026-03-02)
 
 ### Bug Fixes
