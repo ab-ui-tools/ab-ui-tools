@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.13](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.12...@ab.uitools/ui-library@1.4.13) (2026-03-02)
+
+### Bug Fixes
+
+- calendar localization hy not works correct ([2a57ee2](https://github.com/ab-ui-tools/ab-ui-tools/commit/2a57ee2c63911ef0b69630e9ea7c6254f03a131d))
+
 ## [1.4.12](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.11...@ab.uitools/ui-library@1.4.12) (2026-02-27)
 
 ### Bug Fixes
