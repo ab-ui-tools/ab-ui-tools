@@ -1,5 +1,6 @@
-import type { JSX } from 'react';
+import type { ForwardedRef, JSX } from 'react';
 
+import { forwardRef } from 'react';
 import React, { useCallback } from 'react';
 import classNames from 'classnames';
 
@@ -11,7 +12,7 @@ import { Radio } from '../../components/Radio';
 import { Checkbox } from '../../components/Checkbox';
 import { Avatar } from '../../components/Avatar';
 
-export const OptionItem = (props: TSelectItemProps): JSX.Element => {
+export const OptionItem = forwardRef((props: TSelectItemProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
   const {
     data,
     onClick,
@@ -50,6 +51,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
       title={withTitleOption ? `${label}` : ''}
       data-id={dataId}
       id={`${value}`}
+      ref={ref}
       className={classNames(
         'select__option',
         {
@@ -96,4 +98,4 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
   ) : (
     optionContent
   );
-};
+});
