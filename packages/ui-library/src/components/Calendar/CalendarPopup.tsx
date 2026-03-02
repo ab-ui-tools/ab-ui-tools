@@ -22,6 +22,8 @@ import {
   orderRangeDate,
 } from '../../utils/helpers';
 
+const ARMENIAN_SHORT_DAYS = ['Կիր', 'Երկ', 'Երք', 'Չրք', 'Հնգ', 'Ուր', 'Շբթ'];
+
 export const CalendarPopup = ({
   isRange,
   dataId,
@@ -248,6 +250,9 @@ export const CalendarPopup = ({
     }
   };
 
+  const formatShortWeekday =
+    locale === 'hy' ? (_locale: string | undefined, date: Date) => ARMENIAN_SHORT_DAYS[date.getDay()] : undefined;
+
   useEffect(() => {
     if (!showApplyButtons) {
       setValue(draftValue || orderRangeDate([...draftRange]));
@@ -369,6 +374,7 @@ export const CalendarPopup = ({
               draftValue={draftValue}
               handleDayClick={handleChange}
               getTileClassName={getTileClassName}
+              formatShortWeekday={formatShortWeekday}
             />
           ) : (
             <DesktopView
@@ -383,6 +389,7 @@ export const CalendarPopup = ({
               canRangeSelect={canRangeSelect}
               handleDayClick={handleChange}
               getTileClassName={getTileClassName}
+              formatShortWeekday={formatShortWeekday}
             />
           )}
         </div>
