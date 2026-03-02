@@ -293,6 +293,7 @@ export * from './IconMailFilled';
 export * from './IconMailLink';
 export * from './IconMailLinkFilled';
 export * from './IconMedium';
+export * from './IconMegaphoneLoud';
 export * from './IconMention';
 export * from './IconMentionFilled';
 export * from './IconMoney';
