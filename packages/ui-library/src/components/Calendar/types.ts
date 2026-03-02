@@ -89,5 +89,4 @@ export type TCalendarPropTypes =
 
 export type TCalendarPopupPropTypes = TCalendarPropTypes & {
   closeCalendarPopup: () => void;
-  onReset?: () => void;
 };
