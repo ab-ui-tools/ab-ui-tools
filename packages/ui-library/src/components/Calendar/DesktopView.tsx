@@ -30,7 +30,7 @@ export const DesktopView = ({
   const nextMonthStartDate = startOfMonth(addMonths(activeStartDate, 1));
 
   const handleMonthChange = (month?: TItemValue) => {
-    if (!month) return;
+    if (!month && month !== 0) return;
     setActiveStartDate(prev => new Date(prev.getFullYear(), +month, 1));
   };
 
