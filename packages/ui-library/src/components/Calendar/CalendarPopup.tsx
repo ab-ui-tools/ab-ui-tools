@@ -60,9 +60,9 @@ export const CalendarPopup = ({
   const canApply = useMemo(() => {
     if (canRangeSelect) {
       const [draftStart, draftEnd] = draftRange;
+      if (!draftStart || !draftEnd) return false;
       if (Array.isArray(value)) {
         const [valueStart, valueEnd] = value;
-        if (!draftStart || !draftEnd) return true;
         return !isSameDay(draftStart as Date, valueStart as Date) && !isSameDay(draftEnd as Date, valueEnd as Date);
       } else {
         return (
@@ -104,7 +104,7 @@ export const CalendarPopup = ({
       }
       if (start && !end) {
         const orderedDate = orderRangeDate([date, start]);
-        if (!showApplyButtons) {
+        if (!showApplyButtons && date && start) {
           onChange?.([...orderedDate] as TCalendarValue);
         }
         const start_date = formatDate(orderedDate[0], dateFormat);
@@ -112,9 +112,6 @@ export const CalendarPopup = ({
         setStartDate(start_date);
         setEndDate(end_date);
         return orderedDate;
-      }
-      if (!showApplyButtons) {
-        onChange?.([date, null]);
       }
       return [date, null];
     });
