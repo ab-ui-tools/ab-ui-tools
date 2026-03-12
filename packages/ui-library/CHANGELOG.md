@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.20](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.19...@ab.uitools/ui-library@1.4.20) (2026-03-12)
+
+### Bug Fixes
+
+- add new arrow-counterclockwise icon ([1146f51](https://github.com/ab-ui-tools/ab-ui-tools/commit/1146f5102a05e4eef941225df5cd0c4fa875dcd5))
+
 ## [1.4.19](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.18...@ab.uitools/ui-library@1.4.19) (2026-03-04)
 
 ### Bug Fixes
