@@ -79,6 +79,7 @@ export const FormContainer = (props: FormPropTypes): JSX.Element => {
 
   const customSubmit = async (data: TFormData) => {
     const isValid = await validateForm();
+
     if (!isValid) return;
 
     if (onSubmit) {
