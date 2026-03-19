@@ -53,7 +53,7 @@ export const FormContainer = (props: FormPropTypes): JSX.Element => {
   const { errors, isDirty, isSubmitted, isSubmitting, dirtyFields } = formState;
 
   const validateForm = async (): Promise<boolean> => {
-    if (!validationScheme) return true;
+    if (!validationScheme || !isSubmitted) return true;
 
     try {
       await validationScheme.validate(getValues(), {
