@@ -33,9 +33,8 @@ export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
                 isValid: fieldState.isTouched && fieldState.isDirty && !fieldState.invalid,
                 dataId,
                 ...registerOptions,
-                setFieldValue: (data, name, options) =>
-                  setValue(data, name, {
-                    shouldValidate: true,
+                setFieldValue: (name, data, options) =>
+                  setValue(name, data, {
                     shouldDirty: true,
                     shouldTouch: true,
                     ...options,
