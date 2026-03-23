@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.2...@ab.uitools/ui-library@1.5.3) (2026-03-23)
+
+### Bug Fixes
+
+- form container validation ([f2adb3d](https://github.com/ab-ui-tools/ab-ui-tools/commit/f2adb3d0161ac014a44607b4364433cb019d7bce))
+- form container validation ([daf5eec](https://github.com/ab-ui-tools/ab-ui-tools/commit/daf5eececd698c45689e0b36f2dccbbbddd666f3))
+
 ## [1.5.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.1...@ab.uitools/ui-library@1.5.2) (2026-03-19)
 
 ### Bug Fixes
