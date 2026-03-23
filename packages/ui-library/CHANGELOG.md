@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.3...@ab.uitools/ui-library@1.5.4) (2026-03-23)
+
+### Bug Fixes
+
+- **IPA-1231:** column Header Sort + Drag Behavior Update ([f452980](https://github.com/ab-ui-tools/ab-ui-tools/commit/f452980f520936c3449fdf56111306cda1abef98))
+
 ## [1.5.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.2...@ab.uitools/ui-library@1.5.3) (2026-03-23)
 
 ### Bug Fixes

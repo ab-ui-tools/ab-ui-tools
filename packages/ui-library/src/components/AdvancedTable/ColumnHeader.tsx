@@ -41,6 +41,8 @@ export function ColumnHeader<TData>({ header, pinnedStyles }: DraggableColumnHea
     <th
       ref={setNodeRef}
       style={{ ...style, ...pinnedStyles }}
+      onClick={header.column.getToggleSortingHandler()}
+      {...listeners}
       className={classnames('select-none', {
         ['with-checkbox']: header.column.id === 'select',
         ['actions-header']: header.column.id === 'actions',
@@ -49,7 +51,7 @@ export function ColumnHeader<TData>({ header, pinnedStyles }: DraggableColumnHea
       {...attributes}
     >
       <div onClick={header.column.getToggleSortingHandler()} className="flexbox align-items--center">
-        <div {...listeners}>
+        <div>
           <Text className="text-left" weight={'bold'}>
             {flexRender(header.column.columnDef.header, header.getContext())}
           </Text>
