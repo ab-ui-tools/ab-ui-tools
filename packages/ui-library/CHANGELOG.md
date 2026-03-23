@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.4...@ab.uitools/ui-library@1.5.5) (2026-03-23)
+
+### Bug Fixes
+
+- decloration types and dts generator ([0707a88](https://github.com/ab-ui-tools/ab-ui-tools/commit/0707a8811e36c6bda6739acfa1a849cb6851248a))
+
 ## [1.5.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.3...@ab.uitools/ui-library@1.5.4) (2026-03-23)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.67](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.66...@ab.uitools/storybook@1.6.67) (2026-03-23)
+
+### Bug Fixes
+
+- decloration types and dts generator ([0707a88](https://github.com/ab-devtools/uilibrary/commit/0707a8811e36c6bda6739acfa1a849cb6851248a))
+
 ## [1.6.66](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.65...@ab.uitools/storybook@1.6.66) (2026-03-23)
 
 **Note:** Version bump only for package @ab.uitools/storybook
