@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 
+import type { IFormCompProps } from '../../types/globalTypes';
 import type { FILE_UPLOAD_ERRORS } from '../../consts';
 
 export interface TFileUploadProps extends IFormCompProps {

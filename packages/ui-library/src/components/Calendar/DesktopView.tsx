@@ -4,6 +4,7 @@ import { addMonths, startOfMonth, subMonths } from 'date-fns';
 import classNames from 'classnames';
 
 import type { IDesktopViewProp } from './types';
+import type { TItemValue } from '../../types/globalTypes';
 
 import { getMonthOptions } from './options';
 import { IconChevronLeft, IconChevronRight } from '../SVGIcons';

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import type { InputPasswordsProps } from './types';
 import type { ISVGIconProps } from '../SVGIcons/types';
+import type { TClickEventType } from '../../types/globalTypes';
 
 import { Input } from './Input';
 import { Positions } from '../Tooltip/types';

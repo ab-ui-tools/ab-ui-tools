@@ -3,6 +3,13 @@ import type { JSX } from 'react';
 import React, { useMemo, useState } from 'react';
 
 import type { TMultiSelectTreeProps } from '../../types';
+import type {
+  TSelectedValue,
+  TSelectGroupOption,
+  TSelectGroupOptions,
+  TSelectOption,
+  TSelectTreeOptions,
+} from '../../../../types/globalTypes';
 
 import { ContentTop } from '../../SharedComponents';
 import { Text } from '../../../Text';

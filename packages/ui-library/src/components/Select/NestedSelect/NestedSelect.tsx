@@ -3,6 +3,7 @@ import type { JSX } from 'react';
 import React, { useCallback, useId, useRef, useState } from 'react';
 
 import type { TNestedSelectProps } from '../types';
+import type { TClickEventType, TItemValue, TSelectOption } from '../../../types/globalTypes';
 
 import IconCaretUpFilled from '../../SVGIcons/IconCaretUpFilled';
 import IconCaretDownFilled from '../../SVGIcons/IconCaretDownFilled';

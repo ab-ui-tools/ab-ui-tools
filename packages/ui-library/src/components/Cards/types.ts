@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+import type { TSelectIconProps } from '../../types/globalTypes';
+
 type TSubtitleProps = {
   subtitle?: string;
   iconProps?: TSelectIconProps;

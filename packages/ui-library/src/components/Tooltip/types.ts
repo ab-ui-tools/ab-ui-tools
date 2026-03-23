@@ -1,5 +1,7 @@
 import type { ReactElement } from 'react';
 
+import type { IFormCompProps } from '../../types/globalTypes';
+
 export enum Positions {
   BOTTOM_LEFT = 'bottom-left',
   BOTTOM_RIGHT = 'bottom-right',

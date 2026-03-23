@@ -4,6 +4,7 @@ import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 
 import type { ICounterProps } from './types';
+import type { TChangeEventType } from '../../types/globalTypes';
 
 import IconSubtract from '../SVGIcons/IconSubtract';
 import IconAdd from '../SVGIcons/IconAdd';

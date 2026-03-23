@@ -3,6 +3,7 @@ import type { JSX } from 'react';
 import React, { useCallback, useMemo, useState } from 'react';
 
 import type { TMultiSelectGroupedProps } from '../../types';
+import type { TSelectedValue } from '../../../../types/globalTypes';
 
 import { Text } from '../../../Text';
 import IconCaretUpFilled from '../../../SVGIcons/IconCaretUpFilled';

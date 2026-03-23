@@ -3,6 +3,12 @@ import type { JSX } from 'react';
 import React, { useCallback, useMemo, useState } from 'react';
 
 import type { TMultiSelectGroupedProps } from '../../types';
+import type {
+  TSelectedValue,
+  TSelectGroupOption,
+  TSelectGroupOptions,
+  TSelectOption,
+} from '../../../../types/globalTypes';
 
 import { ContentTop } from '../../SharedComponents';
 import { DROPDOWN_MAX_HEIGHT } from '../../constants';
