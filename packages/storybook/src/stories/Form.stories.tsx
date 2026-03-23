@@ -157,6 +157,8 @@ const Template = (): JSX.Element => {
     <div style={{ maxWidth: 300 }}>
       <_FormContainer
         onSubmit={data => console.log('data', data)}
+        mode="onSubmit"
+        reValidateMode="onChange"
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
       >
