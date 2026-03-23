@@ -1,5 +1,7 @@
 import type { ReactElement, ReactNode } from 'react';
 
+import type { TSelectIconProps } from '../../types/globalTypes';
+
 export type TCollapseProps = {
   isOpen: boolean;
   toggle: () => void;

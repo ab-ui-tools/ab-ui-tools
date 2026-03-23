@@ -4,6 +4,7 @@ import React, { useMemo } from 'react';
 
 import type { TSelectTranslations } from '../types';
 import type { TMenuItem } from '../../Menu/types';
+import type { TCallBackFn, TChangeEventType } from '../../../types/globalTypes';
 
 import { Actions } from './Actions';
 import { Text } from '../../Text';

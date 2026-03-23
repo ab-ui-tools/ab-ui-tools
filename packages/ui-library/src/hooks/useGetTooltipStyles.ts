@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import type { TTooltipPosition } from '../types/globalTypes';
+
 import { useGetTooltipPosition } from './useGetTooltipPosition';
 import { useGetElemSizes } from './useGetElemSizes';
 import { useGetElemPositions } from './useGetElemPositions';

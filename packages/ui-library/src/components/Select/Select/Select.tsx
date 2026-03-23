@@ -5,6 +5,13 @@ import React, { useCallback, useEffect, useId, useMemo, useRef, useState } from 
 import classNames from 'classnames';
 
 import type { TSingleSelectPropTypes } from '../types';
+import type {
+  TChangeEventType,
+  TClickEventType,
+  TItemValue,
+  TSelectedValue,
+  TSelectOption,
+} from '../../../types/globalTypes';
 
 import { Loading } from '../SharedComponents';
 import { Text } from '../../Text';

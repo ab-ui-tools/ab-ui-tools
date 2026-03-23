@@ -6,6 +6,7 @@ import type { TButtonPropTypes } from '../Button/types';
 
 export type TAlertTypes = 'grey' | 'success' | 'error' | 'warning' | 'information' | 'discovery';
 export type TAlertPosition = 'inline' | 'sticky';
+import type { IFormCompProps, TSVGIconComponent } from '../../types/globalTypes';
 
 export interface TAlertProps extends IFormCompProps {
   type?: TAlertTypes;

@@ -3,6 +3,8 @@ import type { Table } from '@tanstack/react-table';
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
+import type { TItemValue } from '../../types/globalTypes';
+
 import { OPTIONS } from './constants';
 import { Text } from '../Text';
 import IconMore from '../SVGIcons/IconMore';

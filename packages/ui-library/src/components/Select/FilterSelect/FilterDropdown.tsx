@@ -3,6 +3,7 @@ import type { JSX } from 'react';
 import React, { useMemo } from 'react';
 
 import type { TFilterDropdownContentProps } from '../types';
+import type { TSelectOption } from '../../../types/globalTypes';
 
 import { OptionItem } from '../../../helperComponents';
 

@@ -2,6 +2,7 @@ import type { InputHTMLAttributes, ReactElement, RefObject } from 'react';
 
 import type { TTooltipProps } from '../Tooltip/types';
 import type { ISVGIconProps } from '../SVGIcons/types';
+import type { IFormCompProps, TChangeEventType, TClickEventType } from '../../types/globalTypes';
 export interface InputCustomProps
   extends
     IFormCompProps,

@@ -4,6 +4,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import type { TChipsProps } from './types';
+import type { TClickEventType } from '../../types/globalTypes';
 
 import { ChipCustomType } from './types';
 import { COLOR_MAPPING, LEFT_ICON_SIZE_MAPPING, RIGHT_ICON_SIZE_MAPPING, TEXT_SIZE_MAPPING } from './consts';

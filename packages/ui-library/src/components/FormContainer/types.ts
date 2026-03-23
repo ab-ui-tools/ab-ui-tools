@@ -4,6 +4,7 @@ import type { FormState } from 'react-hook-form';
 import type { ReactNode } from 'react';
 
 import type { TButtonPropTypes } from '../Button/types';
+import type { TFormData } from '../../types/globalTypes';
 
 export type TDirtyFields = Partial<Readonly<{ [x: string]: unknown }>>;
 

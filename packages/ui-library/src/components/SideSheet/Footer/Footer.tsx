@@ -4,6 +4,7 @@ import React, { useCallback } from 'react';
 
 import type { TCheckboxInfo } from '../types';
 import type { TButtonPropTypes } from '../../Button/types';
+import type { TClickEventType } from '../../../types/globalTypes';
 
 import { Checkbox } from '../../Checkbox';
 import { Button } from '../../Button';

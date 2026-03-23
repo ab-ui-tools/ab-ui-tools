@@ -10,6 +10,7 @@ import {
   startOfDay,
 } from 'date-fns';
 
+import type { TClickEventType, TSelectOptions } from '../types/globalTypes';
 import type { TCombineDateProp, TDateFormat, TDateValidationProp, TTimeFormat } from '../components/Calendar/types';
 
 export const noop = (): void => {

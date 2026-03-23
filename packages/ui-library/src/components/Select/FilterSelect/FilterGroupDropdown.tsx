@@ -3,6 +3,7 @@ import type { JSX } from 'react';
 import React from 'react';
 
 import type { TFilterGroupDropdownContentProps } from '../types';
+import type { TSelectGroupOption } from '../../../types/globalTypes';
 
 import { FilterDropdownContent } from './FilterDropdown';
 

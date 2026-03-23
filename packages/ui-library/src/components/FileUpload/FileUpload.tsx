@@ -3,6 +3,7 @@ import type { JSX } from 'react';
 import React, { useCallback, useRef, useState } from 'react';
 
 import type { TFileUploadProps } from './types';
+import type { TFormValue } from '../../types/globalTypes';
 
 import { UploadItems } from './UploadItems';
 import { FileUploadMode } from './types';
@@ -11,7 +12,7 @@ import IconEdit from '../SVGIcons/IconEdit';
 import IconAttach from '../SVGIcons/IconAttach';
 import { Button } from '../Button';
 import { checkIsAllowedFileSize, getFormattedValues, checkIsAllowedTypes, uniqueFiles } from '../../utils/helpers';
-import { Label } from '../../helperComponents';
+import { Label } from '../../helperComponents/Label';
 import { FILE_UPLOAD_ERRORS } from '../../consts';
 
 export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {

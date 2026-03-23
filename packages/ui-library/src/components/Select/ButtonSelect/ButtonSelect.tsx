@@ -4,6 +4,7 @@ import React, { useRef, useId, useState } from 'react';
 import classNames from 'classnames';
 
 import type { TButtonSelectPropTypes } from '../types';
+import type { TItemValue, TSelectedValue, TSelectOption } from '../../../types/globalTypes';
 
 import { Loading, ButtonSelectWrapper } from '../SharedComponents';
 import { useGetElemSizes, useOnOutsideClick } from '../../../hooks';

@@ -1,6 +1,7 @@
 import type {
   Control,
   FieldValues,
+  FieldErrors,
   UseFormRegister,
   UseFormGetValues,
   UseFormWatch,
@@ -13,6 +14,8 @@ import type {
 } from 'react-hook-form';
 
 import { createContext } from 'react';
+
+import type { TDirtyFields, TFormData, TSetValue } from '../types/globalTypes';
 
 import { noop } from '../utils/helpers';
 

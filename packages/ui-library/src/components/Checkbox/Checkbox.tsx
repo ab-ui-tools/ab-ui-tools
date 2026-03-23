@@ -9,7 +9,7 @@ import { Text } from '../Text';
 import IconInfo from '../SVGIcons/IconInfo';
 import { Popover } from '../Popover';
 import { Link } from '../Link';
-import { IconDynamicComponent } from '../../helperComponents';
+import { IconDynamicComponent } from '../../helperComponents/IconDynamicComponent';
 
 export const Checkbox = forwardRef(
   (props: TCheckboxProps, ref: ForwardedRef<HTMLInputElement>): ReactElement | null => {

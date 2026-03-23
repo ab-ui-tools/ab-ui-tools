@@ -3,6 +3,19 @@ import type { ChangeEvent, JSX, ReactElement, ReactNode, Ref } from 'react';
 import type { TTooltipProps } from '../Tooltip/types';
 import type { TMenuItem } from '../Menu/types';
 import type { TButtonPropTypes } from '../Button/types';
+import type {
+  IFormCompProps,
+  TClickHandler,
+  TIconSize,
+  TItemValue,
+  TSelectedValue,
+  TSelectGroupOptions,
+  TSelectIconProps,
+  TSelectOption,
+  TSelectOptions,
+  TSelectTreeOptions,
+  TSVGIconComponent,
+} from '../../types/globalTypes';
 import type { TSelectItemProps } from '../../helperComponents/OptionItem/types';
 
 interface TSelectBaseProps {
