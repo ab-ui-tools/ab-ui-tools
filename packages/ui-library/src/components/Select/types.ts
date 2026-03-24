@@ -43,7 +43,7 @@ export interface TNestedSelectProps {
 }
 
 export type TSelectTranslations = {
-  emptyListMainMessage: string;
+  emptyListMainMessage?: string;
   overflowText?: string;
   searchInputPlaceHolder?: string;
   emptyListSecondaryMessage?: string;
@@ -57,7 +57,7 @@ interface TMultiSelectCompProps extends IFormCompProps, TSelectBaseProps {
   isSearchAvailable: boolean;
   helperText?: string;
   scrollableContentStyle: { maxHeight?: number };
-  translations?: TSelectTranslations;
+  translations: TSelectTranslations;
   selectedValues: TSelectedValue[];
   setSelectedValues: (values: TSelectedValue[]) => void;
   onItemSelect: (item: TSelectedValue) => void;
