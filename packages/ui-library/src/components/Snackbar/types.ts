@@ -1,6 +1,7 @@
 import type { JSX } from 'react';
 
 import type { TButtonPropTypes } from '../Button/types';
+import type { IFormCompProps } from '../../types/globalTypes';
 
 export type TSnackbarTypes = 'success' | 'error' | 'warning' | 'information' | 'offline';
 

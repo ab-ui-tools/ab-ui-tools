@@ -1,6 +1,8 @@
 import type { ReactDatePickerProps } from 'react-datepicker';
 import type { ReactNode } from 'react';
 
+import type { IFormCompProps, TSelectOptions } from '../../types/globalTypes';
+
 type DatePickerDefaultProps = Omit<IFormCompProps, 'value'> & Omit<ReactDatePickerProps, 'onChange' | 'value'>;
 
 export interface TDatepickerBaseProps extends DatePickerDefaultProps {

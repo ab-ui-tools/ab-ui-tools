@@ -1,5 +1,7 @@
 import type { ReactElement } from 'react';
 
+import type { IFormCompProps } from '../../types/globalTypes';
+
 export interface TRadioProps extends IFormCompProps {
   showRadioIcon?: boolean;
   label?: string | ReactElement;

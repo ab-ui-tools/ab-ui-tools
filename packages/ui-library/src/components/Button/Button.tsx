@@ -4,9 +4,10 @@ import React from 'react';
 import classnames from 'classnames';
 
 import type { TButtonPropTypes } from './types';
+import type { TClickEventType } from '../../types/globalTypes';
 
 import { ICON_SIZE_MAPPING, ICON_TYPE_MAPPING, LITE_LOADER_TYPES } from './consts';
-import { Loader } from '../../helperComponents';
+import { Loader } from '../../helperComponents/Loader';
 
 export const Button = (props: TButtonPropTypes): ReactElement => {
   const {

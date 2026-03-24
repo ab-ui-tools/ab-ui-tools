@@ -3,6 +3,7 @@ import type { JSX } from 'react';
 import React, { useCallback, useMemo, useState } from 'react';
 
 import type { TMultySingleTabPropTypes } from '../../types';
+import type { TItemValue, TSelectedValue, TSelectOption } from '../../../../types/globalTypes';
 
 import { ContentTop } from '../../SharedComponents';
 import { DROPDOWN_MAX_HEIGHT } from '../../constants';

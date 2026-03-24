@@ -5,6 +5,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import type { TSVGIconType } from '../SVGIcons/types';
+import type { TIconSize, TSVGIconComponent } from '../../types/globalTypes';
 
 import { calcColumnWidth, CHECKBOX_DEFAULT_WIDTH, CHECKBOX_HEADER_ID } from './utils';
 import { Text } from '../Text';

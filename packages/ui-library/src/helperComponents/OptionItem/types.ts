@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 
+import type { TItemValue, TSelectedValue, TSelectIconProps, TSelectOption } from '../../types/globalTypes';
 import type { TTooltipProps } from '../../components/Tooltip/types';
 
 export type TSelectItemProps = {

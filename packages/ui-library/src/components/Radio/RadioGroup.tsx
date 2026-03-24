@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import type { TRadioGroupProps, TRadioOptionItem } from './types';
 
 import { Radio } from './Radio';
-import { Label } from '../../helperComponents';
+import { Label } from '../../helperComponents/Label';
 
 export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element => {
   const {

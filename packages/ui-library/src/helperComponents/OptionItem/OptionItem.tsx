@@ -5,6 +5,7 @@ import React, { useCallback } from 'react';
 import classNames from 'classnames';
 
 import type { TSelectItemProps } from './types';
+import type { TClickEventType } from '../../types/globalTypes';
 
 import { Tooltip } from '../../components/Tooltip';
 import { IconCheckmark } from '../../components/SVGIcons/IconCheckmark';

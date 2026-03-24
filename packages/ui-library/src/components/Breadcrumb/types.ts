@@ -1,5 +1,7 @@
 import type { JSX } from 'react';
 
+import type { IFormCompProps } from '../../types/globalTypes';
+
 export type TBreadCrumbItem = {
   value: number | string;
   label: string | JSX.Element;
