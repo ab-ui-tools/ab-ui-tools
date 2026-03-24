@@ -132,7 +132,7 @@ export interface IRenderOptionItemProps extends TSelectItemProps {
   ref?: Ref<HTMLDivElement>;
 }
 
-export interface TSingleSelectPropTypes<T> extends IFormCompProps, TSelectBaseProps {
+export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   options: TSelectOptions;
   selectedItem?: TItemValue;
   setSelectedItem?: (items: TItemValue | undefined) => void;
@@ -147,7 +147,7 @@ export interface TSingleSelectPropTypes<T> extends IFormCompProps, TSelectBasePr
   tooltipAddons?: TTooltipProps;
   isCreateOnOutsideClick?: boolean;
   isAllowed?: (values: { formattedValue: string; value: string; floatValue: number | undefined }) => boolean;
-  renderOptions?: (props: IRenderOptionItemProps | T) => JSX.Element;
+  renderOptions?: (props: IRenderOptionItemProps) => JSX.Element;
   defaultValue?: string;
   shouldRecalculateDropdownPosition?: boolean;
 }
