@@ -13,7 +13,7 @@ export interface TRadioProps extends IFormCompProps {
 }
 
 export type TRadioOptionItem = {
-  value: number | string | boolean;
+  value: number | string;
   label: string;
   helperText?: string | ReactElement;
   dataId?: string;
