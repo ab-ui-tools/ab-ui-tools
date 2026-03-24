@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.5...@ab.uitools/ui-library@1.5.6) (2026-03-24)
+
+### Bug Fixes
+
+- fix select render option type ([95ef97d](https://github.com/ab-ui-tools/ab-ui-tools/commit/95ef97d5d622f56b2ca439114f84d473ce097daa))
+- form field validation ([c1bd0f0](https://github.com/ab-ui-tools/ab-ui-tools/commit/c1bd0f0298608f0e91565063228476e66e9f6bd6))
+- types issue ([01ba083](https://github.com/ab-ui-tools/ab-ui-tools/commit/01ba08331d539bbfcb7c21e7edf2ecf542c592b1))
+- types issue ([e2e9ddf](https://github.com/ab-ui-tools/ab-ui-tools/commit/e2e9ddf073cc4b68199903e98f10701de69e2e44))
+
 ## [1.5.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.4...@ab.uitools/ui-library@1.5.5) (2026-03-23)
 
 ### Bug Fixes
