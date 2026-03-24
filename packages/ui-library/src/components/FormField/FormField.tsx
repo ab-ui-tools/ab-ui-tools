@@ -11,7 +11,15 @@ import { ErrorMessage } from '../../helperComponents';
 import { FormContext } from '../../context';
 
 export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
-  const { As, name, className = '', dataId = '', hideErrorMessage = false, errorMessageIcon } = props;
+  const {
+    As,
+    name,
+    className = '',
+    dataId = '',
+    hideErrorMessage = false,
+    errorMessageIcon,
+    shouldValidate = false,
+  } = props;
   const { register, errors, setValue, control } = useContext(FormContext);
 
   if (!register) {
@@ -35,6 +43,7 @@ export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
                 ...registerOptions,
                 setFieldValue: (name, data, options) =>
                   setValue(name, data, {
+                    shouldValidate,
                     shouldDirty: true,
                     shouldTouch: true,
                     ...options,

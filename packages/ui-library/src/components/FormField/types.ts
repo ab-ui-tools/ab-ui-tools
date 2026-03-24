@@ -7,6 +7,7 @@ export interface TFormFieldPropTypes {
   name: string;
   className?: string;
   dataId?: string;
+  shouldValidate?: boolean;
   hideErrorMessage?: boolean;
   errorMessageIcon?: string;
 }
