@@ -3,6 +3,7 @@ import type { ReactElement } from 'react';
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 
 import type { TMultiSelectPropTypes } from '../types';
+import type { TSelectedValue } from '../../../types/globalTypes';
 
 import { OptionsWrapper } from './OptionsWrapper';
 import { Footer, InputSelectWrapper, ButtonSelectWrapper } from '../SharedComponents';

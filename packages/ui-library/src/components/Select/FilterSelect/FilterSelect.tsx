@@ -4,6 +4,13 @@ import { createPortal } from 'react-dom';
 import React, { useCallback, useId, useState } from 'react';
 
 import type { TFilterProps } from '../types';
+import type {
+  TChangeEventType,
+  TItemValue,
+  TSelectedValue,
+  TSelectGroupOptions,
+  TSelectOptions,
+} from '../../../types/globalTypes';
 
 import { FilterGroupDropdownContent } from './FilterGroupDropdown';
 import { FilterDropdownContent } from './FilterDropdown';

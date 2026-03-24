@@ -1,6 +1,7 @@
 import type { JSX } from 'react';
 
 import type { TBadgeProps } from '../Badge/types';
+import type { IFormCompProps, TSVGIconComponent } from '../../types/globalTypes';
 
 export type TTabItem = {
   value: number | string;

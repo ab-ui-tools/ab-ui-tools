@@ -9,6 +9,7 @@ export interface TChipItem {
 }
 
 export type ChipValue = string | TChipItem;
+import type { IFormCompProps, TFormValue } from '../../types/globalTypes';
 
 export type OnBlurBehavior = 'add-chip' | 'add-if-valid' | 'add-if-available' | 'add-if-min-length' | 'ignore';
 

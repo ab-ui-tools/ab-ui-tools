@@ -4,6 +4,7 @@ import type { TTooltipProps } from '../Tooltip/types';
 import type { TPopoverProps } from '../Popover/types';
 import type { InputCustomProps } from '../Input/types';
 import type { TChipsProps } from '../Chips/types';
+import type { IFormCompProps, TSelectIconProps } from '../../types/globalTypes';
 import type { CARD_SELECT_TYPES } from '../../consts';
 
 export interface TCardSelectProps extends IFormCompProps {

@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import type { FormPropTypes } from './types';
+import type { TFormData } from '../../types/globalTypes';
 
 import { Button } from '../Button';
 import { FormContext } from '../../context';

@@ -2,6 +2,7 @@ import type { ReactElement, ReactNode } from 'react';
 
 import type { TTabProps } from '../Tab/types';
 import type { TButtonPropTypes } from '../Button/types';
+import type { TClickEventType } from '../../types/globalTypes';
 
 export type TSideSheetSize = 'small' | 'medium' | 'large';
 
@@ -11,7 +12,7 @@ export type TCheckboxInfo = {
 };
 
 export type TSideSheetChildren = {
-  scrollbarContainerRef?: RefObject<HTMLDivElement>;
+  scrollbarContainerRef?: React.RefObject<HTMLDivElement | null>;
 };
 
 export interface TSideSheetPropTypes {

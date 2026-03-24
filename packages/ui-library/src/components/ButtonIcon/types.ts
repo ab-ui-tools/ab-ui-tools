@@ -1,6 +1,7 @@
 import type { ButtonHTMLAttributes, LegacyRef, PropsWithChildren } from 'react';
 
 import type { TSVGIconType } from '../SVGIcons/types';
+import type { TClickEventType, TSVGIconComponent } from '../../types/globalTypes';
 
 export interface TButtonIconPropTypes extends PropsWithChildren<
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'children'>

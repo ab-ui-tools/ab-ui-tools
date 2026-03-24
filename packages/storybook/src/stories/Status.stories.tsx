@@ -13,7 +13,16 @@ export default {
   component: _Status,
   argTypes: {
     type: {
-      options: ['primary', 'disabled', 'brand', 'danger', 'warning', 'success', 'information', 'discovery'],
+      options: [
+        'primary',
+        'disabled',
+        'brand-light',
+        'danger-light',
+        'warning-light',
+        'success-light',
+        'information-light',
+        'discovery-light',
+      ],
       control: { type: 'radio' },
     },
     size: {
@@ -26,12 +35,12 @@ export default {
 const Template: StoryFn<TStatusProps> = args => {
   return (
     <>
-      <_Status {...args} type={'danger'}>
+      <_Status {...args} type={'danger-light'}>
         <Text type={'secondary'} size={'small'}>
           Status subtext
         </Text>
       </_Status>
-      <_Status {...args} type={'information'}>
+      <_Status {...args} type={'information-light'}>
         <Text type={'information-light'} size={'small'}>
           Status subtext
         </Text>

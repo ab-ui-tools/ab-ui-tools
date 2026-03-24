@@ -5,6 +5,7 @@ import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 
 import type { OtpCustomProps } from './types';
+import type { TChangeEventType } from '../../types/globalTypes';
 
 import { Text } from '../Text';
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled';

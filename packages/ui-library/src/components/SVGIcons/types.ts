@@ -2,6 +2,7 @@
 import type { LegacyRef, MouseEvent } from 'react';
 
 import type { TTooltipProps } from '../Tooltip/types';
+import type { TSVGIconComponent } from '../../types/globalTypes';
 
 export type TSVGIconSize = 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
 

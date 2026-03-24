@@ -3,6 +3,13 @@ import type { ReactElement } from 'react';
 import React, { useCallback, useMemo, useRef } from 'react';
 
 import type { TSelectTranslations } from '../types';
+import type {
+  TClickEventType,
+  TSelectedValue,
+  TSelectGroupOption,
+  TSelectGroupOptions,
+  TSelectOptions,
+} from '../../../types/globalTypes';
 
 import { RadioSelectGrouped } from './RadioSelectGrouped/RadioSelectGrouped';
 import { MultiSelectWithTabs } from './MultiSelectWithTabs/MultiSelectWithTabs';

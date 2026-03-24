@@ -1,3 +1,4 @@
+import type { IFormCompProps } from '../../types/globalTypes';
 export interface ICounterProps extends IFormCompProps {
   min?: number;
   max?: number;

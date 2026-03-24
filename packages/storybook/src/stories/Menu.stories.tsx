@@ -1,4 +1,5 @@
 import type { StoryFn } from '@storybook/react';
+import type { TMenuItem } from '@ab.uitools/ui-library/components/Menu/types';
 import type { LinkPropTypes } from '@ab.uitools/ui-library/components/Link/types';
 
 import React, { useState } from 'react';
@@ -26,7 +27,7 @@ export default {
   },
 };
 
-const items = [
+const items: TMenuItem[] = [
   {
     label: 'Edit',
     iconProps: {
@@ -52,7 +53,6 @@ const items = [
     label: 'Delete',
     iconProps: {
       Component: IconCheckmark,
-      type: 'selected',
     },
     handler: () => {
       console.log('delete');
@@ -64,7 +64,6 @@ const items = [
     value: 1,
     iconProps: {
       Component: IconArrowExit,
-      type: 'selected',
     },
     handler: () => {},
   },

@@ -3,6 +3,8 @@ import type { ReactElement } from 'react';
 
 import React from 'react';
 
+import type { TSelectOptions } from '../../../types/globalTypes';
+
 import IconChevronRight from '../../SVGIcons/IconChevronRight';
 import IconChevronLeft from '../../SVGIcons/IconChevronLeft';
 import './styles.scss';

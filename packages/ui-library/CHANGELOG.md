@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.4...@ab.uitools/ui-library@1.5.5) (2026-03-23)
+
+### Bug Fixes
+
+- decloration types and dts generator ([0707a88](https://github.com/ab-ui-tools/ab-ui-tools/commit/0707a8811e36c6bda6739acfa1a849cb6851248a))
+
+## [1.5.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.3...@ab.uitools/ui-library@1.5.4) (2026-03-23)
+
+### Bug Fixes
+
+- **IPA-1231:** column Header Sort + Drag Behavior Update ([f452980](https://github.com/ab-ui-tools/ab-ui-tools/commit/f452980f520936c3449fdf56111306cda1abef98))
+
+## [1.5.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.2...@ab.uitools/ui-library@1.5.3) (2026-03-23)
+
+### Bug Fixes
+
+- form container validation ([f2adb3d](https://github.com/ab-ui-tools/ab-ui-tools/commit/f2adb3d0161ac014a44607b4364433cb019d7bce))
+- form container validation ([daf5eec](https://github.com/ab-ui-tools/ab-ui-tools/commit/daf5eececd698c45689e0b36f2dccbbbddd666f3))
+
+## [1.5.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.1...@ab.uitools/ui-library@1.5.2) (2026-03-19)
+
+### Bug Fixes
+
+- form validation fix onSubmit mode ([70584c2](https://github.com/ab-ui-tools/ab-ui-tools/commit/70584c227a26f68f27b2d6a6bd32d68949e828c7))
+
+## [1.5.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.0...@ab.uitools/ui-library@1.5.1) (2026-03-19)
+
+### Bug Fixes
+
+- form validation fix onSubmit mode ([2b47cb9](https://github.com/ab-ui-tools/ab-ui-tools/commit/2b47cb9da89fdf33ff1e3aecb0234d36debc7981))
+
 # [1.5.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.4.20...@ab.uitools/ui-library@1.5.0) (2026-03-12)
 
 ### Features

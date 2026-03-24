@@ -4,6 +4,7 @@ import React, { useMemo } from 'react';
 import classNames from 'classnames';
 
 import type { TTextAreaTypeProps } from './types';
+import type { TChangeEventType } from '../../types/globalTypes';
 
 import { Text } from '../Text';
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled';
