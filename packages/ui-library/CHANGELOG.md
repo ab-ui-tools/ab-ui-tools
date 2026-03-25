@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.6...@ab.uitools/ui-library@1.5.7) (2026-03-25)
+
+### Bug Fixes
+
+- select prop type ([544e8ba](https://github.com/ab-ui-tools/ab-ui-tools/commit/544e8ba928c627ced08b7a9f02d9875778e07045))
+
 ## [1.5.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.5...@ab.uitools/ui-library@1.5.6) (2026-03-24)
 
 ### Bug Fixes
