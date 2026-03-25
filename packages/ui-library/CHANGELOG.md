@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.9](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.8...@ab.uitools/ui-library@1.5.9) (2026-03-25)
+
+### Bug Fixes
+
+- input decimale scale ([7ac2fce](https://github.com/ab-ui-tools/ab-ui-tools/commit/7ac2fcef891ab6749509cd9ecab76df6dc614541))
+
 ## [1.5.8](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.7...@ab.uitools/ui-library@1.5.8) (2026-03-25)
 
 ### Bug Fixes
