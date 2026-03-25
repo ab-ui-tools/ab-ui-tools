@@ -43,6 +43,7 @@ export interface InputCustomProps
   witUpperCase?: boolean;
   allowEmptyFormatting?: boolean;
   isTrimValues?: boolean;
+  decimalScale?: number;
   isAllowed?: (values: { formattedValue: string; value: string; floatValue: number | undefined }) => boolean;
 }
 

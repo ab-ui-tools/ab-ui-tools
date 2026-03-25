@@ -50,6 +50,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       allowEmptyFormatting,
       isAllowed,
       isTrimValues = false,
+      decimalScale,
       ...rest
     },
     ref
@@ -158,6 +159,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         disabled={disabled}
         isAllowed={isAllowed}
         getInputRef={ref}
+        decimalScale={decimalScale}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
     ) : (
