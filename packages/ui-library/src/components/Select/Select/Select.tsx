@@ -31,7 +31,7 @@ import {
 import { OptionItem } from '../../../helperComponents';
 import { DROPDOWN_AND_INPUT_GAP } from '../../../consts';
 
-export const Select = <T,>(props: TSingleSelectPropTypes<T>): JSX.Element | null => {
+export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
     className,
     size = 'large',
