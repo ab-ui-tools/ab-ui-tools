@@ -112,6 +112,9 @@ declare type TSelectOption = {
   value: TItemValue;
   label: TItemLabel;
   meta?: string;
+  customData?: {
+    [key: string]: string | number | boolean;
+  };
   disabled?: boolean;
   children?: TSelectOption[];
   dataId?: string;
