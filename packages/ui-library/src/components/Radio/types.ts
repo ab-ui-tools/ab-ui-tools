@@ -15,7 +15,7 @@ export interface TRadioProps extends IFormCompProps {
 }
 
 export type TRadioOptionItem = {
-  value: number | string;
+  value: number | string | boolean;
   label: string;
   helperText?: string | ReactElement;
   dataId?: string;
@@ -27,7 +27,7 @@ export interface TRadioGroupProps extends IFormCompProps {
   isHorizontal?: boolean;
   selected: number | string;
   options: TRadioOptionItem[];
-  handleChange?: (selected: number | string) => void;
+  handleChange?: (selected: number | string | boolean) => void;
   required?: boolean;
   disabled?: boolean;
   labelAddons?: ReactElement;

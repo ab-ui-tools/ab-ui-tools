@@ -25,7 +25,7 @@ export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element
     selected,
   } = props;
 
-  const onSelect = (selected: number | string) => {
+  const onSelect = (selected: number | string | boolean) => {
     if (name && setFieldValue) {
       setFieldValue(name, selected, { shouldValidate: true });
     }
@@ -59,7 +59,7 @@ export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element
             <Radio
               label={radioOption.label}
               helperText={radioOption.helperText}
-              key={radioOption.value}
+              key={radioOption.label}
               name={name}
               disabled={disabled}
               className="radio-group__item"
