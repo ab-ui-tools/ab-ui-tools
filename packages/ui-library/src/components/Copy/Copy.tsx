@@ -17,6 +17,7 @@ export const Copy = ({
   dataId,
   size = 'medium',
   type = 'tertiary',
+  position = 'top-center',
   parentRef,
 }: TCopyProps): ReactElement => {
   const [isTooltipVisible, setTooltipVisibility] = useState(false);
@@ -50,7 +51,7 @@ export const Copy = ({
           clicked
           elemRef={copyIconRef.current as HTMLElement}
           text={textAfterCopy || 'Copied'}
-          position={'top-center'}
+          position={position}
         />
       ) : null}
     </div>
