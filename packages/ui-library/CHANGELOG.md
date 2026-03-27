@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.11](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.10...@ab.uitools/ui-library@1.5.11) (2026-03-27)
+
+### Bug Fixes
+
+- copy popover position ([c5b1a1e](https://github.com/ab-ui-tools/ab-ui-tools/commit/c5b1a1eed4cb158be5d6570a689037875d54f1fa))
+
 ## [1.5.10](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.9...@ab.uitools/ui-library@1.5.10) (2026-03-26)
 
 ### Bug Fixes
