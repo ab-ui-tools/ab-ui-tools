@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.12](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.11...@ab.uitools/ui-library@1.5.12) (2026-03-27)
+
+### Bug Fixes
+
+- file upload helper text ([6aa0939](https://github.com/ab-ui-tools/ab-ui-tools/commit/6aa09395ac8ff6f9a7ba9391e8af9c093127c0db))
+
 ## [1.5.11](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.10...@ab.uitools/ui-library@1.5.11) (2026-03-27)
 
 ### Bug Fixes
