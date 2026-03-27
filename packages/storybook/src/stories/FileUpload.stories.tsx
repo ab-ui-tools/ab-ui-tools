@@ -30,6 +30,7 @@ const Template: StoryFn<TFileUploadProps> = args => {
         getFiles={getFiles}
         fileAllowedSize={9000000}
         uploadedFiles={files}
+        helperText="You can attach .jpg .png .pdf"
         onError={type => console.log('type', type)}
       />
     </div>

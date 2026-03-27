@@ -7,9 +7,11 @@ import type { TFormValue } from '../../types/globalTypes';
 
 import { UploadItems } from './UploadItems';
 import { FileUploadMode } from './types';
+import { Text } from '../Text';
 import IconEditFilled from '../SVGIcons/IconEditFilled';
 import IconEdit from '../SVGIcons/IconEdit';
 import IconAttach from '../SVGIcons/IconAttach';
+import { IconInfoFilled } from '../SVGIcons';
 import { Button } from '../Button';
 import { checkIsAllowedFileSize, getFormattedValues, checkIsAllowedTypes, uniqueFiles } from '../../utils/helpers';
 import { Label } from '../../helperComponents/Label';
@@ -37,6 +39,8 @@ export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     fileAllowedSize,
     mode = FileUploadMode.attach,
     dataId,
+    hasError,
+    helperText,
   } = props;
   const files = (value as File[]) || uploadedFiles || [];
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -150,13 +154,18 @@ export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
             data-id={dataId ? `${dataId}-btn` : ''}
           />
         )}
-
         <UploadItems
           handleFileClick={handleFileClick}
           onRemove={handleFileRemove}
           files={files}
           withFilePreview={withFilePreview}
         />
+        {!hasError && helperText && (
+          <Text className="flexbox align-items--center mt-8" size="small" type="tertiary">
+            <IconInfoFilled size="xsmall" type="tertiary" />
+            <span className="pl-4">{helperText}</span>
+          </Text>
+        )}
       </div>
     </div>
   );

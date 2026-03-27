@@ -21,6 +21,7 @@ export interface TFileUploadProps extends IFormCompProps {
   labelAddons?: JSX.Element;
   onError?: (errorType: FILE_UPLOAD_ERRORS) => void;
   fileAllowedSize?: number;
+  helperText?: string;
 }
 
 export enum FileUploadMode {
