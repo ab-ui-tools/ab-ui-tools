@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.10](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.9...@ab.uitools/ui-library@1.5.10) (2026-03-26)
+
+### Bug Fixes
+
+- ragio group options type fix ([a7b92c9](https://github.com/ab-ui-tools/ab-ui-tools/commit/a7b92c91dae09554e5d2abd48da9adad660fc010))
+
+## [1.5.9](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.8...@ab.uitools/ui-library@1.5.9) (2026-03-25)
+
+### Bug Fixes
+
+- input decimale scale ([7ac2fce](https://github.com/ab-ui-tools/ab-ui-tools/commit/7ac2fcef891ab6749509cd9ecab76df6dc614541))
+
+## [1.5.8](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.7...@ab.uitools/ui-library@1.5.8) (2026-03-25)
+
+### Bug Fixes
+
+- select option custom props ([5b1d6f6](https://github.com/ab-ui-tools/ab-ui-tools/commit/5b1d6f6b4179cf012b7d7483146911410b3b4d8f))
+
 ## [1.5.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.6...@ab.uitools/ui-library@1.5.7) (2026-03-25)
 
 ### Bug Fixes
