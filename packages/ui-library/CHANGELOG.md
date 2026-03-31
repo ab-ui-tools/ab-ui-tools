@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.13](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.12...@ab.uitools/ui-library@1.5.13) (2026-03-31)
+
+### Bug Fixes
+
+- add window guard in useGetTooltipPosition to prevent SSR crash ([d730c9e](https://github.com/ab-ui-tools/ab-ui-tools/commit/d730c9eb7f178cbae54609ba83e94a1e32355e83))
+
 ## [1.5.12](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.11...@ab.uitools/ui-library@1.5.12) (2026-03-27)
 
 ### Bug Fixes
