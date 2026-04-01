@@ -17,13 +17,16 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
 
   // this is calculations for tooltip top/left/bottom/right positions
   const calculatedPosition = useMemo(() => {
+    const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
+    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+
     const hasTopSpace = tooltipHeight + GAP < top;
 
-    const hasBottomSpace = tooltipHeight + GAP < window.innerHeight - bottom;
+    const hasBottomSpace = tooltipHeight + GAP < windowHeight - bottom;
 
     const hasLeftSpace = tooltipWidth + GAP < left;
-    const hasRightSpace = tooltipWidth + GAP < window.innerWidth - left;
-    const hasMiddleRightSpace = tooltipWidth + GAP < window.innerWidth - left - itemWidth;
+    const hasRightSpace = tooltipWidth + GAP < windowWidth - left;
+    const hasMiddleRightSpace = tooltipWidth + GAP < windowWidth - left - itemWidth;
 
     if (!hasBottomSpace && !hasRightSpace && initialPosition.includes('bottom-right')) {
       return initialPosition.replace('bottom-right', 'top-left');
@@ -49,8 +52,10 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
 
   // this is calculations for triangle position
   const finalPosition = useMemo(() => {
+    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+
     const hasLeftSpace = tooltipWidth < left + ARROW_DISTANCE + GAP;
-    const hasRightSpace = tooltipWidth + GAP < window.innerWidth - left;
+    const hasRightSpace = tooltipWidth + GAP < windowWidth - left;
 
     // in case of middle position we don't need to change triangle position
     if (calculatedPosition.includes('middle')) {
@@ -66,7 +71,7 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
 
     if (calculatedPosition.includes('center')) {
       const hasLeftHalfSpace = tooltipWidth / 2 < left + ARROW_DISTANCE + GAP;
-      const hasRightHalfSpace = tooltipWidth / 2 + GAP < window.innerWidth - left;
+      const hasRightHalfSpace = tooltipWidth / 2 + GAP < windowWidth - left;
       if (!hasLeftHalfSpace) {
         return calculatedPosition.replace('center', 'left');
       }

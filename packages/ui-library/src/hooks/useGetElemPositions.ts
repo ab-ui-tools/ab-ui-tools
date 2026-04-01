@@ -7,14 +7,19 @@ type TPositionReturnTypes = {
   y?: number;
 };
 
+const defaultPosition = {
+  left: 0,
+  top: 0,
+  bottom: 0,
+  right: 0,
+};
+
 export const useGetElemPositions = (elemRef: HTMLElement | null): TPositionReturnTypes => {
+  if (typeof window === 'undefined') {
+    return defaultPosition;
+  }
   if (!elemRef || !elemRef.getBoundingClientRect) {
-    return {
-      left: 0,
-      top: 0,
-      bottom: 0,
-      right: 0,
-    };
+    return defaultPosition;
   }
 
   const elemDimensions = elemRef.getBoundingClientRect();
