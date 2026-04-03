@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.14](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.13...@ab.uitools/ui-library@1.5.14) (2026-04-03)
+
+### Bug Fixes
+
+- **Button:** prevent width shrink during loading state ([c1ba37e](https://github.com/ab-ui-tools/ab-ui-tools/commit/c1ba37e37f1f833cf29f9bd541f7e890e4b5841b))
+
 ## [1.5.13](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.12...@ab.uitools/ui-library@1.5.13) (2026-03-31)
 
 ### Bug Fixes
