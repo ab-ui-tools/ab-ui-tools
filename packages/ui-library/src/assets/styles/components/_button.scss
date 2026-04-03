@@ -81,6 +81,23 @@
 
   --ds-button-transition: background-color .3s linear, color .3s linear, border-color .3s linear;
 
+  position: relative;
+
+    &__loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__content {
+        display: contents;
+
+        &--hidden {
+            visibility: hidden;
+        }
+    }
+
   //----------//
 
   display: inline-flex;
