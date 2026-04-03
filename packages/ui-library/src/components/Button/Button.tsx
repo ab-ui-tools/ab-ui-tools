@@ -54,21 +54,22 @@ export const Button = (props: TButtonPropTypes): ReactElement => {
       form={formId}
       {...rest}
     >
-      {isLoading ? (
-        <Loader size={size} type={LITE_LOADER_TYPES.indexOf(type) === -1 ? 'dark' : 'lite'} />
-      ) : (
-        <>
-          {iconProps?.Component ? (
-            <iconProps.Component
-              size={ICON_SIZE_MAPPING[size]}
-              type={ICON_TYPE_MAPPING[iconProps.type || type]}
-              className="btn__icon"
-            />
-          ) : null}
-          {/* {buttonSecondaryText ? <span className="btn__text">{buttonSecondaryText}</span> : null} */}
-          {buttonText || children ? <span className="btn__text">{buttonText || children}</span> : null}
-        </>
+      {isLoading && (
+        <div className="btn__loader">
+          <Loader size={size} type={LITE_LOADER_TYPES.indexOf(type) === -1 ? 'dark' : 'lite'} />
+        </div>
       )}
+      <span className={classnames('btn__content', { 'btn__content--hidden': isLoading })}>
+        {iconProps?.Component ? (
+          <iconProps.Component
+            size={ICON_SIZE_MAPPING[size]}
+            type={ICON_TYPE_MAPPING[iconProps.type || type]}
+            className="btn__icon"
+          />
+        ) : null}
+        {/* {buttonSecondaryText ? <span className="btn__text">{buttonSecondaryText}</span> : null} */}
+        {buttonText || children ? <span className="btn__text">{buttonText || children}</span> : null}
+      </span>
     </button>
   );
 };
