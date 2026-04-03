@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.77](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.76...@ab.uitools/storybook@1.6.77) (2026-04-03)
+
+### Bug Fixes
+
+- remove redundant and unused CardSelect stories from Storybook ([7f53fc4](https://github.com/ab-devtools/uilibrary/commit/7f53fc4c50ce5ebf242e303662e0221bfb073774))
+
 ## [1.6.76](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.6.75...@ab.uitools/storybook@1.6.76) (2026-04-03)
 
 **Note:** Version bump only for package @ab.uitools/storybook
