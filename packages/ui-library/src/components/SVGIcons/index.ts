@@ -374,6 +374,8 @@ export * from './IconSave';
 export * from './IconSaveFilled';
 export * from './IconSavings';
 export * from './IconSavingsFilled';
+export * from './IconScanUser';
+export * from './IconScanUserFilled';
 export * from './IconSearch';
 export * from './IconSearchFilled';
 export * from './IconSelectAllOff';
