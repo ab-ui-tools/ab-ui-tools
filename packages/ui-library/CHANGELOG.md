@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.14...@ab.uitools/ui-library@1.6.0) (2026-04-06)
+
+### Features
+
+- added scan user icon ([2a424e3](https://github.com/ab-ui-tools/ab-ui-tools/commit/2a424e30eb1553b8ac57757af13827730034e042))
+
 ## [1.5.14](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.13...@ab.uitools/ui-library@1.5.14) (2026-04-03)
 
 ### Bug Fixes
