@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.6.0...@ab.uitools/ui-library@1.7.0) (2026-04-08)
+
+### Features
+
+- added shield icon ([7bd2054](https://github.com/ab-ui-tools/ab-ui-tools/commit/7bd205434844097f425c0c15aa90007e4986c1cc))
+
 # [1.6.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.5.14...@ab.uitools/ui-library@1.6.0) (2026-04-06)
 
 ### Features
