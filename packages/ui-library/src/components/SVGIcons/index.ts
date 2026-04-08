@@ -390,6 +390,8 @@ export * from './IconShare';
 export * from './IconShareAndroid';
 export * from './IconShareAndroidFilled';
 export * from './IconShareFilled';
+export * from './IconShield';
+export * from './IconShieldFilled';
 export * from './IconShiftsActivity';
 export * from './IconShiftsActivityFilled';
 export * from './IconShower';
