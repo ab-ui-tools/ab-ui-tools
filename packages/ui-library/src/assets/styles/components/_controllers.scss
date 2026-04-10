@@ -282,12 +282,12 @@
 
         &:disabled {
          & + #{$this}__icon {
-           background-color: var(--ds-controller-selected-bg-disabled);
+           background-color: var(--ds-color-bg-brand-light);
 
            #{$this}__icon__inner {
              .svg-icon {
                path {
-                 fill: var(--grey-50);
+                 fill: var(--brand-40);
                }
              }
            }
