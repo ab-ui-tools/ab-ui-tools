@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.7.1...@ab.uitools/ui-library@1.7.2) (2026-04-14)
+
+### Bug Fixes
+
+- change switcher selected disabeled state ui ([f9ccb1d](https://github.com/ab-ui-tools/ab-ui-tools/commit/f9ccb1de0627b8681d7ca073f115087257a4254c))
+
 ## [1.7.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.7.0...@ab.uitools/ui-library@1.7.1) (2026-04-08)
 
 ### Bug Fixes
