@@ -1,5 +1,5 @@
 import type { StoryFn } from '@storybook/react';
-import type { IReactSelectProps, TOption, TSelectValue } from '@ab.uitools/ui-library/components/ReactSelect/types';
+import type { TReactSelectProps, TOption, TSelectValue } from '@ab.uitools/ui-library/components/ReactSelect/types';
 
 import React, { useState } from 'react';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
@@ -80,7 +80,7 @@ const OPTIONS: TOption[] = [
 ];
 
 // -----------REACT SELECT---------
-const Template: StoryFn<IReactSelectProps> = args => {
+const Template: StoryFn<TReactSelectProps> = args => {
   const [selectedOption, setSelectedOption] = useState<TSelectValue>();
 
   return (
@@ -106,6 +106,7 @@ ReactSelect.args = {
   required: true,
   isDisabled: false,
   isClearable: true,
+  isCreatable: false,
   isSearchable: false,
   isLoading: false,
   isRtl: false,

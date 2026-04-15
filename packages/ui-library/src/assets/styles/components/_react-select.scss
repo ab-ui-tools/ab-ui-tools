@@ -92,5 +92,10 @@
         }
       }
     }
+    &__dropdown {
+      .react-select__value-container {
+        cursor: pointer;
+      }
+    }
   }
 }
