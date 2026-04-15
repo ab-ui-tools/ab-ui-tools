@@ -3,7 +3,7 @@ import Select, { type ActionMeta } from 'react-select';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
-import type { TReactSelectProps, TOption, TSelectValue } from './types';
+import type { TReactSelectProps, TSelectValue } from './types';
 
 import {
   ValueContainer,
@@ -47,11 +47,11 @@ export const ReactSelect = ({
 }: TReactSelectProps) => {
   const [value, setValue] = useState<TSelectValue>();
 
-  const handleChange = (value: TSelectValue, actionMeta: ActionMeta<TOption>) => {
+  const handleChange = (value: TSelectValue) => {
     setValue(value);
     setFieldValue?.(value);
     setSelectedOption?.(value);
-    onChange?.(value, actionMeta);
+    onChange?.(value);
   };
 
   const handleCreateOnOutsideClick = (event: React.FocusEvent) => {
@@ -87,9 +87,7 @@ export const ReactSelect = ({
       newValue = newOption;
     }
 
-    setValue?.(newValue);
-    setSelectedOption?.(newValue);
-    setFieldValue?.(newValue);
+    handleChange(newValue);
   };
 
   useEffect(() => {

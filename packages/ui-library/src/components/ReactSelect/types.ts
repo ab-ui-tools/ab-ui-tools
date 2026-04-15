@@ -52,6 +52,7 @@ export interface BaseProps extends Props<TOption, boolean, GroupBase<TOption>> {
   required?: boolean;
   hasError?: boolean;
   helperText?: string;
+  onChange?: (value: TSelectValue) => void;
 }
 
 export type TNonCreatableProps = BaseProps & {
