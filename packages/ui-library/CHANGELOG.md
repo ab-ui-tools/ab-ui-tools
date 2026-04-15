@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.7.2...@ab.uitools/ui-library@1.7.3) (2026-04-15)
+
+### Bug Fixes
+
+- clean up imports ([1e88cdc](https://github.com/ab-ui-tools/ab-ui-tools/commit/1e88cdce648aba9f76f8566b7bfd1e36426b0f7c))
+- sync external value prop to internal otp state ([2feb6cc](https://github.com/ab-ui-tools/ab-ui-tools/commit/2feb6cc7575ac38e907532ec53ee761c4164a8aa))
+
 ## [1.7.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.7.1...@ab.uitools/ui-library@1.7.2) (2026-04-14)
 
 ### Bug Fixes
