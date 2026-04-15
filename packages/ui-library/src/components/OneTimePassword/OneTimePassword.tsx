@@ -1,7 +1,13 @@
-import type { JSX, KeyboardEvent } from 'react';
-
-import { useCallback } from 'react';
-import React, { useState, useRef } from 'react';
+import {
+  forwardRef,
+  useCallback,
+  useState,
+  useRef,
+  useEffect,
+  type JSX,
+  type KeyboardEvent,
+  type ClipboardEvent,
+} from 'react';
 import classNames from 'classnames';
 
 import type { OtpCustomProps } from './types';
@@ -15,7 +21,7 @@ import { ErrorMessage, Label } from '../../helperComponents';
 const parseValue = (value: TFormValue | undefined, count: number): string[] =>
   Array.from({ length: count }, (_, i) => (typeof value === 'string' ? value[i] : undefined) ?? '');
 
-export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps>(
+export const OneTimePassword = forwardRef<HTMLInputElement, OtpCustomProps>(
   ({
     className,
     size = 'large',
@@ -43,7 +49,7 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
     const [otp, setOtp] = useState<string[]>(() => parseValue(value, count));
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-    React.useEffect(() => {
+    useEffect(() => {
       setOtp(parseValue(value, count));
     }, [value, count]);
 
@@ -85,7 +91,7 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
       }
     };
 
-    const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    const handlePaste = (e: ClipboardEvent<HTMLInputElement>) => {
       e.preventDefault();
       const pastedText = e.clipboardData.getData('text');
 
