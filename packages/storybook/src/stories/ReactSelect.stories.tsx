@@ -90,9 +90,12 @@ const Template: StoryFn<IReactSelectProps> = args => {
         flexDirection: 'column',
         maxHeight: '100vh',
         alignItems: 'center',
+        width: '100%',
       }}
     >
-      <_ReactSelect {...args} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+      <div style={{ width: '300px' }}>
+        <_ReactSelect {...args} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+      </div>
     </div>
   );
 };

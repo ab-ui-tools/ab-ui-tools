@@ -1,9 +1,9 @@
 import Select, { type ActionMeta } from 'react-select';
 import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
 
 import type { IReactSelectProps, TOption, TSelectValue } from './types';
 
-import { getStyles } from './styles';
 import {
   ValueContainer,
   MultiValueRemove,
@@ -36,7 +36,7 @@ export const ReactSelect = ({
   hasError,
   required,
   label,
-  size,
+  size = 'large',
   dataId,
   helperText,
   ...selectProps
@@ -54,8 +54,6 @@ export const ReactSelect = ({
     setValue(selectedOption);
   }, [selectedOption]);
 
-  const styles = getStyles({ hasError, size });
-
   return (
     <div data-id={dataId} className="react-select-wrapper">
       <Label text={label} required={required} disabled={isDisabled} labelAddons={labelAddons} />
@@ -63,7 +61,6 @@ export const ReactSelect = ({
         {...selectProps}
         onChange={handleChange}
         options={options}
-        styles={styles}
         value={value}
         isMulti={isMulti}
         isDisabled={isDisabled}
@@ -84,7 +81,9 @@ export const ReactSelect = ({
           Option,
           ...customComponents,
         }}
-        className={className}
+        className={classNames(className, `react-select__${size}`, {
+          'react-select__invalid': hasError,
+        })}
         classNamePrefix="react-select"
       />
       {!hasError && helperText && (
