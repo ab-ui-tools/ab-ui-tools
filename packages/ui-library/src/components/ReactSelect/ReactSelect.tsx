@@ -111,7 +111,7 @@ export const ReactSelect = ({
   const generateCreatableSelectedOptions = (value: TItemValue) => {
     const flatOptions = getFlatOptions();
     const selectedOption = flatOptions.find(opt => opt.value === value);
-    return selectedOption || { value: value, label: value };
+    return selectedOption || { value: value, label: `${value}` };
   };
 
   const getCreatableSelectedOptions = (value: TItemValue | TItemValue[]) => {
