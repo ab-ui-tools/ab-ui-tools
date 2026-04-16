@@ -18,8 +18,10 @@ const ignoreExtensions = ['.stories.tsx', '.stories.d.ts']
 const external = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {}),
-  /@babel\/runtime/
-]
+  /@babel\/runtime/,
+  /@emotion/,
+  /hoist-non-react-statics/,
+];
 
 // create input config for rollup for each folder
 const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
