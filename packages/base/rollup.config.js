@@ -91,7 +91,6 @@ const plugins = [
   commonjs({
     include: 'node_modules/**',
     requireReturnsDefault: 'auto',
-    esmExternals: true,
   }),
   babel({
     babelrc: true,
