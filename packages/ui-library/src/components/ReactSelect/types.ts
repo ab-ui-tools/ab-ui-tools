@@ -20,7 +20,7 @@ declare module 'react-select/dist/declarations/src/Select' {
 }
 
 export type TOption = {
-  value: string | number;
+  value: string | number | null;
   label: string;
   isDisabled?: boolean;
   icon?: ReactNode;
@@ -30,6 +30,8 @@ export type TOption = {
 export type GroupedOption = GroupBase<TOption>;
 
 export type TSelectValue = SingleValue<TOption> | MultiValue<TOption>;
+
+export type TItemValue = string | number | null | undefined;
 
 type CreatableOnlyKeys = Exclude<
   keyof CreatableProps<TOption, boolean, GroupBase<TOption>>,
@@ -44,9 +46,9 @@ export interface BaseProps extends Props<TOption, boolean, GroupBase<TOption>> {
   options: Array<TOption | GroupedOption>;
   dataId?: string;
   size?: 'small' | 'large';
-  selectedOption?: TSelectValue;
-  setSelectedOption?: (value: TSelectValue) => void;
-  setFieldValue?: (value: TSelectValue) => void;
+  selectedValue?: TItemValue | TItemValue[];
+  setSelectedValue?: (value: TItemValue | TItemValue[]) => void;
+  setFieldValue?: (value: TItemValue | TItemValue[]) => void;
   labelAddons?: JSX.Element;
   label?: string;
   required?: boolean;

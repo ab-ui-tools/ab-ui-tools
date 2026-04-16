@@ -1,12 +1,9 @@
 import type { StoryFn } from '@storybook/react';
-import type { TReactSelectProps, TOption, TSelectValue } from '@ab.uitools/ui-library/components/ReactSelect/types';
+import type { TReactSelectProps, TOption, TItemValue } from '@ab.uitools/ui-library/components/ReactSelect/types';
 
 import React, { useState } from 'react';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
 import { ReactSelect as _ReactSelect } from '@ab.uitools/ui-library';
-
-// @ts-ignore
-import imageFile from '../assets/images/avatar.jpg';
 
 export default {
   title: 'ReactSelect',
@@ -25,7 +22,6 @@ const OPTIONS: TOption[] = [
     value: 1,
     label: 'Armenia',
     meta: 'AM',
-    icon: imageFile,
   },
   {
     value: 2,
@@ -79,9 +75,20 @@ const OPTIONS: TOption[] = [
   },
 ];
 
+const GROUP_OPTIONS = [
+  {
+    label: 'Group 1',
+    options: OPTIONS.slice(0, 6),
+  },
+  {
+    label: 'Group 2',
+    options: OPTIONS.slice(6, OPTIONS.length),
+  },
+];
+
 // -----------REACT SELECT---------
 const Template: StoryFn<TReactSelectProps> = args => {
-  const [selectedOption, setSelectedOption] = useState<TSelectValue>();
+  const [selectedValue, setSelectedValue] = useState<TItemValue | TItemValue[]>(1);
 
   return (
     <div
@@ -94,7 +101,7 @@ const Template: StoryFn<TReactSelectProps> = args => {
       }}
     >
       <div style={{ width: '300px' }}>
-        <_ReactSelect {...args} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+        <_ReactSelect {...args} selectedValue={selectedValue} setSelectedValue={setSelectedValue} />
       </div>
     </div>
   );
@@ -112,7 +119,7 @@ ReactSelect.args = {
   isRtl: false,
   isCheckbox: false,
   isRadio: false,
-  options: OPTIONS,
+  options: GROUP_OPTIONS,
   hasError: false,
   label: 'Select label',
   placeholder: 'Placeholder text',

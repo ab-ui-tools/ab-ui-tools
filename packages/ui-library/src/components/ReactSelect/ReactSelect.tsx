@@ -1,9 +1,9 @@
 import CreatableSelect from 'react-select/creatable';
-import Select, { type ActionMeta } from 'react-select';
+import Select from 'react-select';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
-import type { TReactSelectProps, TSelectValue } from './types';
+import type { TOption, TReactSelectProps, TSelectValue, SingleValue, TItemValue } from './types';
 
 import {
   ValueContainer,
@@ -22,9 +22,9 @@ export const ReactSelect = ({
   options = [],
   className,
   setFieldValue,
+  selectedValue,
+  setSelectedValue,
   onChange,
-  selectedOption,
-  setSelectedOption,
   showCount = 2,
   isClearable = false,
   components: customComponents,
@@ -46,12 +46,21 @@ export const ReactSelect = ({
   ...selectProps
 }: TReactSelectProps) => {
   const [value, setValue] = useState<TSelectValue>();
+  const [isMounted, setIsMounted] = useState(false);
 
-  const handleChange = (value: TSelectValue) => {
-    setValue(value);
-    setFieldValue?.(value);
-    setSelectedOption?.(value);
-    onChange?.(value);
+  const handleChange = (selectedOption: TSelectValue) => {
+    const val = !Array.isArray(selectedOption)
+      ? (selectedOption as SingleValue<TOption>)?.value
+      : selectedOption.map(option => option.value);
+
+    setValue(selectedOption);
+    setFieldValue?.(val);
+    setSelectedValue?.(val);
+    onChange?.(selectedOption);
+  };
+
+  const getFlatOptions = () => {
+    return options.flatMap(opt => ('options' in opt ? opt.options : [opt]));
   };
 
   const handleCreateOnOutsideClick = (event: React.FocusEvent) => {
@@ -62,7 +71,7 @@ export const ReactSelect = ({
 
     const normalize = (str: string) => str.trim().toLowerCase();
 
-    const flatOptions = options.flatMap(opt => ('options' in opt ? opt.options : [opt]));
+    const flatOptions = getFlatOptions();
 
     const normalizedInput = normalize(inputValue);
 
@@ -90,9 +99,22 @@ export const ReactSelect = ({
     handleChange(newValue);
   };
 
+  const getSelectedOptions = (value: TItemValue | TItemValue[]) => {
+    const flatOptions = getFlatOptions();
+    if (Array.isArray(value)) {
+      return flatOptions.filter(opt => value.includes(opt.value));
+    } else {
+      return flatOptions.filter(opt => value === opt.value);
+    }
+  };
+
   useEffect(() => {
-    setValue(selectedOption);
-  }, [selectedOption]);
+    if (options.length && selectedValue && !isMounted) {
+      setIsMounted(true);
+      const selectedOptions = getSelectedOptions(selectedValue);
+      setValue(selectedOptions);
+    }
+  }, [selectedValue, options]);
 
   const SelectComponent = isCreatable ? CreatableSelect : Select;
 
