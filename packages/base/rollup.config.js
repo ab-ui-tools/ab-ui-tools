@@ -18,9 +18,7 @@ const ignoreExtensions = ['.stories.tsx', '.stories.d.ts']
 const external = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {}),
-  /@babel\/runtime/,
-  /@emotion/,
-  /hoist-non-react-statics/,
+  /@babel\/runtime/
 ];
 
 // create input config for rollup for each folder
@@ -93,7 +91,6 @@ const plugins = [
   commonjs({
     include: "node_modules/**",
     requireReturnsDefault: "auto",
-    transformMixedEsModules: true,
   }),
   babel({
     babelrc: true,
