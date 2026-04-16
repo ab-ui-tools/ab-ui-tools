@@ -88,7 +88,11 @@ function writeCSS() {
 const plugins = [
   json(),
   resolve({ extensions }),
-  commonjs({ include: "node_modules/**", requireReturnsDefault: "auto" }),
+  commonjs({
+    include: "node_modules/**",
+    requireReturnsDefault: "auto",
+    transformMixedEsModules: true,
+  }),
   babel({
     babelrc: true,
     extensions,
