@@ -88,33 +88,33 @@ function writeCSS() {
 const plugins = [
   json(),
   resolve({ extensions }),
+  commonjs({ include: "node_modules/**", requireReturnsDefault: "auto" }),
   babel({
     babelrc: true,
     extensions,
     runtimeHelpers: true,
-    exclude: 'node_modules/**',
-    presets: ['@babel/preset-env']
+    exclude: "node_modules/**",
+    presets: ["@babel/preset-env"],
   }),
-  commonjs({ include: 'node_modules/**', requireReturnsDefault: 'auto' }),
   postcss({
     plugins: [],
     inject: false,
-    extract: 'assets/styles/styles.scss',
+    extract: "assets/styles/styles.scss",
     sourceMap: false,
     minimize: true,
-    extensions: ['.scss', '.css']
+    extensions: [".scss", ".css"],
   }),
   copy({
     targets: [
-      { src: 'src/assets/images/', dest: 'dist' },
-      { src: 'src/assets/styles/helpers/_mixin.scss', dest: 'dist' },
-      { src: './README.md', dest: 'dist' }
+      { src: "src/assets/images/", dest: "dist" },
+      { src: "src/assets/styles/helpers/_mixin.scss", dest: "dist" },
+      { src: "./README.md", dest: "dist" },
     ],
-    flatten: false
+    flatten: false,
   }),
   image(),
-  writeCSS()
-]
+  writeCSS(),
+];
 
 export default [
   {
