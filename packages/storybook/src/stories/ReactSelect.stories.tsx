@@ -88,7 +88,7 @@ const GROUP_OPTIONS = [
 
 // -----------REACT SELECT---------
 const Template: StoryFn<TReactSelectProps> = args => {
-  const [selectedValue, setSelectedValue] = useState<TItemValue | TItemValue[]>(1);
+  const [selectedValue, setSelectedValue] = useState<TItemValue | TItemValue[]>();
 
   return (
     <div

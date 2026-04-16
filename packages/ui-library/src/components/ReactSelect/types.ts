@@ -31,7 +31,7 @@ export type GroupedOption = GroupBase<TOption>;
 
 export type TSelectValue = SingleValue<TOption> | MultiValue<TOption>;
 
-export type TItemValue = string | number | null | undefined;
+export type TItemValue = string | number | null;
 
 type CreatableOnlyKeys = Exclude<
   keyof CreatableProps<TOption, boolean, GroupBase<TOption>>,

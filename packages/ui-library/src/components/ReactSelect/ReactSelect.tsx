@@ -54,8 +54,8 @@ export const ReactSelect = ({
       : selectedOption.map(option => option.value);
 
     setValue(selectedOption);
-    setFieldValue?.(val);
-    setSelectedValue?.(val);
+    setFieldValue?.(val as string);
+    setSelectedValue?.(val as string);
     onChange?.(selectedOption);
   };
 
@@ -108,10 +108,30 @@ export const ReactSelect = ({
     }
   };
 
+  const generateCreatableSelectedOptions = (value: TItemValue) => {
+    const flatOptions = getFlatOptions();
+    const selectedOption = flatOptions.find(opt => opt.value === value);
+    return selectedOption || { value: value, label: value };
+  };
+
+  const getCreatableSelectedOptions = (value: TItemValue | TItemValue[]) => {
+    if (Array.isArray(value)) {
+      return value.map(val => {
+        return generateCreatableSelectedOptions(val);
+      });
+    }
+    return generateCreatableSelectedOptions(value);
+  };
+
   useEffect(() => {
     if (options.length && selectedValue && !isMounted) {
       setIsMounted(true);
-      const selectedOptions = getSelectedOptions(selectedValue);
+      let selectedOptions;
+      if (isCreatable) {
+        selectedOptions = getCreatableSelectedOptions(selectedValue);
+      } else {
+        selectedOptions = getSelectedOptions(selectedValue);
+      }
       setValue(selectedOptions);
     }
   }, [selectedValue, options]);
