@@ -4,7 +4,6 @@ import json from '@rollup/plugin-json'
 import copy from 'rollup-plugin-copy'
 import fs from 'fs'
 import path from 'path'
-import { exec } from 'child_process'
 import babel from 'rollup-plugin-babel'
 import pkg from './package.json'
 import generatePackageJson from 'rollup-plugin-generate-package-json'
@@ -64,7 +63,12 @@ function writeCSS() {
 
 const plugins = [
   json(),
-  resolve({ extensions }),
+  resolve({
+    extensions,
+    // preferBuiltins: false,
+    // exportConditions: ['require', 'default', 'module', 'import'],
+    // mainFields: ['main', 'module'],
+  }),
   babel({
     babelrc: true,
     extensions,
@@ -72,7 +76,13 @@ const plugins = [
     exclude: 'node_modules/**',
     presets: ['@babel/preset-env']
   }),
-  commonjs({ include: 'node_modules/**' }),
+  commonjs({
+    include: /node_modules/,
+    transformMixedEsModules: true,
+    requireReturnsDefault: 'auto',
+    // defaultIsModuleExports: 'auto',
+    // strictRequires: true,
+  }),
   postcss({
     plugins: [],
     inject: false,
@@ -100,7 +110,8 @@ export default [
     output: {
       dir: 'dist',
       assetFileNames: '[name][extname]',
-      sourcemap: false
+      sourcemap: false,
+      interop: 'auto',
     },
     external,
     plugins: [
