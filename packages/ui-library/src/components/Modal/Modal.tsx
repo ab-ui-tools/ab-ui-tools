@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import React, { useId, useState } from 'react';
+import { useId, useState } from 'react';
 import { motion } from 'framer-motion';
 import classnames from 'classnames';
 

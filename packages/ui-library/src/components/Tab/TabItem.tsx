@@ -1,6 +1,5 @@
 import type { JSX, MouseEvent } from 'react';
 
-import React from 'react';
 import classNames from 'classnames';
 
 import type { TTabItemProps } from './types';

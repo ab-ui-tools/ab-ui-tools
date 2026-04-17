@@ -2,7 +2,8 @@ import type { JSX } from 'react';
 
 import { NumericFormat, PatternFormat } from 'react-number-format';
 import InputMask from 'react-input-mask';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 import type { InputCustomProps } from './types';

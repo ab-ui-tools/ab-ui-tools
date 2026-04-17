@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
 import type { TFilterDropdownContentProps } from '../types';
 import type { TSelectOption } from '../../../types/globalTypes';

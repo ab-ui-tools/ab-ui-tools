@@ -19,7 +19,9 @@ const ignoreExtensions = ['.stories.tsx', '.d.ts']
 const external = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {}),
-  /@babel\/runtime/
+  /@babel\/runtime/,
+  'react/jsx-runtime',
+  'react/jsx-dev-runtime'
 ]
 
 // create input config for rollup for each folder
@@ -70,7 +72,6 @@ const plugins = [
     extensions,
     runtimeHelpers: true,
     exclude: 'node_modules/**',
-    presets: ['@babel/preset-env']
   }),
   commonjs({ include: 'node_modules/**' }),
   postcss({

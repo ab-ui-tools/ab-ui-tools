@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React from 'react';
+import { useState } from 'react';
 
 import type { TSelectFooterPropTypes } from '../types';
 
@@ -9,7 +9,7 @@ import { Button } from '../../Button';
 
 export const Footer = (props: TSelectFooterPropTypes): JSX.Element => {
   const { buttonProps, onApply, onCancel, hasChange = true, checkboxInfo } = props;
-  const [isSelected, setIsSelected] = React.useState(checkboxInfo?.isChecked || false);
+  const [isSelected, setIsSelected] = useState(checkboxInfo?.isChecked || false);
 
   return (
     <div className="select__footer">

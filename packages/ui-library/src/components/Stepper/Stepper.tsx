@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import type { TStepperProps } from './types';
 

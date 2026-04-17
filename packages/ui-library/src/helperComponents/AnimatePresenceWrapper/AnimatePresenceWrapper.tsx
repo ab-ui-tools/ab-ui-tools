@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 import type { AnimatePresenceProps } from 'framer-motion';
 
-import React from 'react';
+import * as React from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 interface NewAnimatePresenceProps extends Omit<AnimatePresenceProps, 'children'> {

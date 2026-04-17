@@ -1,6 +1,6 @@
 import type { Column, Table } from '@tanstack/react-table';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Positions } from '../Tooltip/types';
 import { Tooltip } from '../Tooltip';

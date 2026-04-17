@@ -1,6 +1,7 @@
 import type { JSX } from 'react';
 
-import React, { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
+import * as React from 'react';
 
 import type { TFileUploadProps } from './types';
 import type { TFormValue } from '../../types/globalTypes';

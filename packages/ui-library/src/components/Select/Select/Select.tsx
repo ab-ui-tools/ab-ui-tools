@@ -1,7 +1,8 @@
 import type { JSX } from 'react';
 
 import { Fragment } from 'react';
-import React, { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 import type { TSingleSelectPropTypes } from '../types';

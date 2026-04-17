@@ -1,7 +1,6 @@
 import type { CSSProperties } from 'react';
 import type { Header } from '@tanstack/react-table';
 
-import React from 'react';
 import classnames from 'classnames';
 import { flexRender } from '@tanstack/react-table';
 import { useSortable } from '@dnd-kit/sortable';
