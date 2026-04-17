@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.0...@ab.uitools/ui-library@1.8.1) (2026-04-17)
+
+### Bug Fixes
+
+- fixing rollup.config issues to alpha version ([dc32395](https://github.com/ab-ui-tools/ab-ui-tools/commit/dc32395abb2b616e5cde81c8843181b1b9aa4071))
+
 # [1.8.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.7.3...@ab.uitools/ui-library@1.8.0) (2026-04-17)
 
 ### Bug Fixes
