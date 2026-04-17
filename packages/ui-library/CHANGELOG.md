@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.2-beta.1...@ab.uitools/ui-library@1.8.2) (2026-04-17)
+
+**Note:** Version bump only for package @ab.uitools/ui-library
+
 ## [1.8.2-beta.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.2-beta.0...@ab.uitools/ui-library@1.8.2-beta.1) (2026-04-17)
 
 ### Bug Fixes
