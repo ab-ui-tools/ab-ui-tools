@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2-beta.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.2-beta.0...@ab.uitools/ui-library@1.8.2-beta.1) (2026-04-17)
+
+### Bug Fixes
+
+- added react import in oneTimePassword component ([411b068](https://github.com/ab-ui-tools/ab-ui-tools/commit/411b068f63c4f6f736d729df71a747a9f35de4a6))
+
 ## [1.8.2-beta.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.1...@ab.uitools/ui-library@1.8.2-beta.0) (2026-04-17)
 
 ### Bug Fixes
