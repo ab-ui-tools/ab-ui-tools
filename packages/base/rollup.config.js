@@ -1,4 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json'
 import copy from 'rollup-plugin-copy'
 import fs from 'fs'
@@ -91,23 +92,23 @@ const plugins = [
     babelrc: true,
     extensions,
     runtimeHelpers: true,
-    exclude: "node_modules/**",
-    presets: ["@babel/preset-env"]
+    exclude: 'node_modules/**',
+    presets: ['@babel/preset-env']
   }),
-  commonjs({ include: "node_modules/**", requireReturnsDefault: "auto" }),
+  commonjs({ include: 'node_modules/**', requireReturnsDefault: 'auto' }),
   postcss({
     plugins: [],
     inject: false,
-    extract: "assets/styles/styles.scss",
+    extract: 'assets/styles/styles.scss',
     sourceMap: false,
     minimize: true,
-    extensions: [".scss", ".css"]
+    extensions: ['.scss', '.css']
   }),
   copy({
     targets: [
-      { src: "src/assets/images/", dest: "dist" },
-      { src: "src/assets/styles/helpers/_mixin.scss", dest: "dist" },
-      { src: "./README.md", dest: "dist" }
+      { src: 'src/assets/images/', dest: 'dist' },
+      { src: 'src/assets/styles/helpers/_mixin.scss', dest: 'dist' },
+      { src: './README.md', dest: 'dist' }
     ],
     flatten: false
   }),
