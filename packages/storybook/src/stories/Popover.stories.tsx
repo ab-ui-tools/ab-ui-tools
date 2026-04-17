@@ -1,7 +1,7 @@
+import type { FC } from 'react';
 import type { StoryFn } from '@storybook/react';
 import type { TPopoverProps } from '@ab.uitools/ui-library/components/Popover/types';
 
-import * as React from 'react';
 import { Popover as _Popover } from '@ab.uitools/ui-library/components/Popover';
 import { Button } from '@ab.uitools/ui-library/components/Button';
 
@@ -28,7 +28,7 @@ export default {
 // ============================================================================
 // Helper Component for Trigger Element
 // ============================================================================
-const TriggerBox: React.FC<{ id: string; label?: string }> = ({ id, label = 'Click Me' }) => (
+const TriggerBox: FC<{ id: string; label?: string }> = ({ id, label = 'Click Me' }) => (
   <div
     style={{
       position: 'absolute',

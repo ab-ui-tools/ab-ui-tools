@@ -1,6 +1,5 @@
-import type { ReactElement } from 'react';
+import type { ReactElement, RefObject } from 'react';
 
-import * as React from 'react';
 import classNames from 'classnames';
 
 import type { TTabProps } from './types';
@@ -26,7 +25,7 @@ export const Tab = (props: TTabProps): ReactElement => {
       )}
 
       <div
-        ref={containerRef as React.RefObject<HTMLDivElement>}
+        ref={containerRef as RefObject<HTMLDivElement>}
         className={classNames(
           'tabs-container',
           `tabs-container--${type}`,

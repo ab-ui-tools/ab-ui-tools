@@ -1,5 +1,6 @@
+import type { ChangeEvent, FC } from 'react';
+
 import { useState, useRef, useMemo, memo, useCallback } from 'react';
-import * as React from 'react';
 import classNames from 'classnames';
 
 import type { TMultiTextareaWithChipsProps, ChipValue } from './types';
@@ -9,7 +10,7 @@ import { Chips } from '../Chips';
 import { useFormProps } from '../../hooks';
 import { ErrorMessage } from '../../helperComponents';
 
-const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = ({
+const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   label,
   placeholder,
   helperText,
@@ -121,7 +122,7 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (disabled) return;
     let value = e.target.value;
 

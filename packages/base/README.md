@@ -11,7 +11,6 @@ npm install @ab.uitools/ui-library
 Then use it in your app:
 
 ```jsx
-import React from 'react';
 import { Button } from '@ab.uitools/ui-library/components/Button';
 import '@ab.uitools/ui-library/assets/styles/styles.scss'; 
 // Or you can import the styles.css file

@@ -1,7 +1,6 @@
-import type { ReactElement } from 'react';
+import type { MouseEvent, ReactElement } from 'react';
 
 import { useCallback, useMemo, useRef } from 'react';
-import * as React from 'react';
 import classNames from 'classnames';
 
 import type { TSelectWrapperProps } from '../../types';
@@ -50,7 +49,7 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
     [width]
   );
 
-  const toggleDropdown = (e?: React.MouseEvent<HTMLElement>) => {
+  const toggleDropdown = (e?: MouseEvent<HTMLElement>) => {
     const clickedElement = e?.target as HTMLElement;
     const className = clickedElement?.getAttribute('class') || '';
     if (className.includes('icon-') || className.includes('svg-icon')) {

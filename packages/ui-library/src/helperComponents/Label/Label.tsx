@@ -1,9 +1,10 @@
-import * as React from 'react';
+import type { FC } from 'react';
+
 import classNames from 'classnames';
 
 import type { LabelPropTypes } from './types';
 
-export const Label: React.FC<LabelPropTypes> = (props: LabelPropTypes) => {
+export const Label: FC<LabelPropTypes> = (props: LabelPropTypes) => {
   const {
     text,
     className = '',

@@ -1,9 +1,9 @@
-import type { JSX } from 'react';
+import type { FocusEvent, JSX } from 'react';
 
 import { NumericFormat, PatternFormat } from 'react-number-format';
 import InputMask from 'react-input-mask';
+import { forwardRef } from 'react';
 import { useMemo } from 'react';
-import * as React from 'react';
 import classNames from 'classnames';
 
 import type { InputCustomProps } from './types';
@@ -13,7 +13,7 @@ import { Text } from '../Text';
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled';
 import { Label, ErrorMessage } from '../../helperComponents';
 
-export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
+export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
   (
     {
       datePlaceHolderText,
@@ -86,7 +86,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       }
     };
 
-    const blurHandler = (event: React.FocusEvent<HTMLInputElement>) => {
+    const blurHandler = (event: FocusEvent<HTMLInputElement>) => {
       if (isTrimValues) {
         const trimmedValue = event.target.value.trim();
         if (trimmedValue !== event.target.value) {

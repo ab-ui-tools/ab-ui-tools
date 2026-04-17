@@ -1,4 +1,4 @@
-import type { MouseEvent, ReactElement } from 'react';
+import type { ChangeEvent, MouseEvent, ReactElement } from 'react';
 
 import type { ISVGIconProps, TSVGIconType } from '../components/SVGIcons/types';
 
@@ -30,7 +30,7 @@ export type TSelectedValue = {
 };
 
 export type TClickEventType = MouseEvent<HTMLElement>;
-export type TChangeEventType = React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>;
+export type TChangeEventType = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>;
 
 export type TClickHandler = (e: TClickEventType) => void;
 

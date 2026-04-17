@@ -1,7 +1,7 @@
-import type { JSX } from 'react';
+import type { JSX, KeyboardEvent, MouseEvent, RefObject } from 'react';
 
+import { forwardRef } from 'react';
 import { useEffect, useRef, useState } from 'react';
-import * as React from 'react';
 import classNames from 'classnames';
 
 import type { InputPasswordsProps } from './types';
@@ -53,7 +53,7 @@ const IconEyeOffTooltip = (props: ISVGIconProps) => {
   );
 };
 
-export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsProps>((props, ref): JSX.Element => {
+export const InputPassword = forwardRef<HTMLInputElement, InputPasswordsProps>((props, ref): JSX.Element => {
   const {
     className,
     validations,
@@ -75,7 +75,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
     ...rest
   } = props;
   const inputRef = useRef<HTMLInputElement>(null);
-  const combinedRef = (ref || inputRef) as React.RefObject<HTMLInputElement>;
+  const combinedRef = (ref || inputRef) as RefObject<HTMLInputElement>;
   const [password, setPassword] = useState<string>('');
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [validationResults, setValidationResults] = useState<Record<string, boolean>>({});
@@ -83,7 +83,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
 
   const eyeIcon = {
     Component: !isShowPassword ? IconEyeOnWithTooltip : IconEyeOffTooltip,
-    onMouseDown: (e: React.MouseEvent) => {
+    onMouseDown: (e: MouseEvent) => {
       e.preventDefault();
     },
     onClick: () => {
@@ -91,7 +91,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       onPasswordShow?.(!isShowPassword);
     },
   };
-  const handleCapsLockDetection = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleCapsLockDetection = (event: KeyboardEvent<HTMLInputElement>) => {
     setIsCapsLockOn?.(event.getModifierState('CapsLock'));
   };
 

@@ -1,6 +1,6 @@
-import type { ReactElement } from 'react';
+import type { MouseEvent, ReactElement } from 'react';
 
-import * as React from 'react';
+import { isValidElement } from 'react';
 import classNames from 'classnames';
 
 import type { TCardSelectProps } from './types';
@@ -62,7 +62,7 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
     }
   };
 
-  const handleActionClick = (e: React.MouseEvent) => {
+  const handleActionClick = (e: MouseEvent) => {
     e.stopPropagation();
     actionAddons?.onClick?.();
   };
@@ -85,7 +85,7 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
         <div className="flexbox justify-content--between align-items--start">
           <div className={'card-select__content__left'}>
             <div className={'flexbox align-items--center'}>
-              {React.isValidElement(title) ? (
+              {isValidElement(title) ? (
                 title
               ) : (
                 <Text type={disabled ? 'disabled' : 'primary'} size={'medium'} weight={'bold'}>
