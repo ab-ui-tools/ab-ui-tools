@@ -15,11 +15,14 @@ import dts from 'vite-plugin-dts'
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
 const ignoreExtensions = ['.stories.tsx', '.d.ts']
 
-const external = [
+const externalDeps = [
   ...Object.keys(pkg.peerDependencies || {}),
-  ...Object.keys(pkg.dependencies || {}),
-  /@babel\/runtime/
+  ...Object.keys(pkg.dependencies || {})
 ]
+
+const external = (id) =>
+  /@babel\/runtime/.test(id) ||
+  externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`))
 
 // create input config for rollup for each folder
 const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
@@ -63,12 +66,7 @@ function writeCSS() {
 
 const plugins = [
   json(),
-  resolve({
-    extensions,
-    // preferBuiltins: false,
-    // exportConditions: ['require', 'default', 'module', 'import'],
-    // mainFields: ['main', 'module'],
-  }),
+  resolve({ extensions }),
   babel({
     babelrc: true,
     extensions,
@@ -76,13 +74,7 @@ const plugins = [
     exclude: 'node_modules/**',
     presets: ['@babel/preset-env']
   }),
-  commonjs({
-    include: /node_modules/,
-    transformMixedEsModules: true,
-    requireReturnsDefault: 'auto',
-    // defaultIsModuleExports: 'auto',
-    // strictRequires: true,
-  }),
+  commonjs({ include: 'node_modules/**' }),
   postcss({
     plugins: [],
     inject: false,
@@ -110,8 +102,7 @@ export default [
     output: {
       dir: 'dist',
       assetFileNames: '[name][extname]',
-      sourcemap: false,
-      interop: 'auto',
+      sourcemap: false
     },
     external,
     plugins: [
