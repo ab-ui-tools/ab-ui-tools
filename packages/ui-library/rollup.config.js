@@ -78,9 +78,9 @@ const plugins = [
   }),
   commonjs({
     include: /node_modules/,
-    transformMixedEsModules: true,
+    // transformMixedEsModules: true,
     requireReturnsDefault: 'auto',
-    // defaultIsModuleExports: 'auto',
+    defaultIsModuleExports: 'auto',
     // strictRequires: true,
   }),
   postcss({
