@@ -6,7 +6,6 @@ import path from 'path';
 // Set DESIGN_TOKEN_GLOB if not already set via environment variable
 // The addon scans from the storybook package directory, so we use a relative path
 // This works in both dev and build because the monorepo structure is preserved
-
 if (!process.env.DESIGN_TOKEN_GLOB) {
   // Relative path from storybook package root to ui-library tokens
   // Works in both development and build/deployment

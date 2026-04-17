@@ -11,6 +11,7 @@ import prettier from 'eslint-plugin-prettier';
 import unusedImports from 'eslint-plugin-unused-imports';
 import perfectionist from 'eslint-plugin-perfectionist';
 
+
 const baseConfig = tseslint.config({
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
