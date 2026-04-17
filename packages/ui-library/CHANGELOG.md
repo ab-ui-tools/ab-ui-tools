@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2-beta.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.2-beta.0...@ab.uitools/ui-library@1.8.2-beta.1) (2026-04-17)
+
+### Bug Fixes
+
+- added react import in oneTimePassword component ([411b068](https://github.com/ab-ui-tools/ab-ui-tools/commit/411b068f63c4f6f736d729df71a747a9f35de4a6))
+
+## [1.8.2-beta.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.1...@ab.uitools/ui-library@1.8.2-beta.0) (2026-04-17)
+
+### Bug Fixes
+
+- trying to fix bundle ([2a8ab25](https://github.com/ab-ui-tools/ab-ui-tools/commit/2a8ab25e10d7c667bba792d10bfafcd961fe09b6))
+
+## [1.8.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.0...@ab.uitools/ui-library@1.8.1) (2026-04-17)
+
+### Bug Fixes
+
+- fixing rollup.config issues to alpha version ([dc32395](https://github.com/ab-ui-tools/ab-ui-tools/commit/dc32395abb2b616e5cde81c8843181b1b9aa4071))
+
+# [1.8.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.7.3...@ab.uitools/ui-library@1.8.0) (2026-04-17)
+
+### Bug Fixes
+
+- resolve Rollup CJS default export interop for react-select/emotion chain ([ff7a344](https://github.com/ab-ui-tools/ab-ui-tools/commit/ff7a344fcc61adb29a311b56296be6560c40cdd0))
+
+### Features
+
+- create new select componrnt with react select package ([3e68773](https://github.com/ab-ui-tools/ab-ui-tools/commit/3e6877389cbb7935e20a85618c14ecbce8118432))
+- create new select componrnt with react select package ([85197d0](https://github.com/ab-ui-tools/ab-ui-tools/commit/85197d03a5ff4dde7a7253d5a4423e270288a775))
+- create new select componrnt with react select package ([2edecba](https://github.com/ab-ui-tools/ab-ui-tools/commit/2edecbaa7f33a772637ecb0f286c99ca1da31449))
+- create new select componrnt with react select package ([5b9309f](https://github.com/ab-ui-tools/ab-ui-tools/commit/5b9309ffdceeb300094d582fd6e914da6a9ed7d7))
+- create new select componrnt with react select package ([04957f8](https://github.com/ab-ui-tools/ab-ui-tools/commit/04957f853b87c70b39907ff3724f57cd9616e42e))
+- create new select componrnt with react select package ([b4a19ec](https://github.com/ab-ui-tools/ab-ui-tools/commit/b4a19ecb448edc7eab8f7bf985d77ce23ec78cab))
+- create new select componrnt with react select package ([dfd90df](https://github.com/ab-ui-tools/ab-ui-tools/commit/dfd90dfc6b73ed67cbf52e8e895b8598788ec4da))
+- create new select componrnt with react select package ([7f836fe](https://github.com/ab-ui-tools/ab-ui-tools/commit/7f836fe0f8647f8d9063f5a93c13aa2724d5f183))
+
 ## [1.7.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.7.2...@ab.uitools/ui-library@1.7.3) (2026-04-15)
 
 ### Bug Fixes

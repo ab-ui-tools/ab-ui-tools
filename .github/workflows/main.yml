@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'master'
+      - 'alpha'
 
 jobs:
   build:
@@ -44,7 +45,13 @@ jobs:
 
       - name: Version packages using Lerna
         run: |
-          yarn lerna version --conventional-commits --yes
+          if [ "${{ github.ref_name }}" = "alpha" ]; then
+            # Prerelease bumps (e.g. 1.2.3-beta.0), not stable semver.
+            yarn lerna version --conventional-commits --conventional-prerelease --preid beta --yes
+          else
+            # Promote any -beta.* (etc.) merged from alpha to stable semver on master.
+            yarn lerna version --conventional-commits --conventional-graduate --yes
+          fi
         env:
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
@@ -59,7 +66,11 @@ jobs:
 
       - name: Publish private packages
         run: |
-          yarn lerna publish from-package --ignore-changes packages/storybook --yes
+          if [ "${{ github.ref_name }}" = "alpha" ]; then
+            yarn lerna publish from-package --ignore-changes packages/storybook --pre-dist-tag beta --yes
+          else
+            yarn lerna publish from-package --ignore-changes packages/storybook --yes
+          fi
         env:
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
