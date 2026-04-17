@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { TCardItemProps } from '@ab.uitools/ui-library/components/Cards/types';
 
-import React from 'react';
 import { IconDelete, IconEdit, IconInfo, IconPerson } from '@ab.uitools/ui-library/components/SVGIcons';
 import { CardItem as _TCardItem } from '@ab.uitools/ui-library/components/Cards';
 import { ButtonIcon } from '@ab.uitools/ui-library/components/ButtonIcon';

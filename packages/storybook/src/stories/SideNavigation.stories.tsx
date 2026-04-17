@@ -1,7 +1,7 @@
 import type { StoryFn } from '@storybook/react';
 import type { TSideNavigationPropTypes } from '@ab.uitools/ui-library/components/SideNavigation/types';
 
-import React, { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { isMobile } from '@ab.uitools/ui-library/utils/helpers';
 import { useSideNavigationControls } from '@ab.uitools/ui-library/hooks/useSideNavigation';
 import { Text } from '@ab.uitools/ui-library/components/Text';

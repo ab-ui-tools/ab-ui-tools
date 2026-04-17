@@ -1,7 +1,8 @@
 import type { StoryFn } from '@storybook/react';
 import type { TTextAreaTypeProps } from '@ab.uitools/ui-library/components/Textarea/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
+import * as React from 'react';
 import { Textarea as _Textarea } from '@ab.uitools/ui-library/components/Textarea';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
 

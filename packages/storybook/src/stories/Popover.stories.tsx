@@ -1,7 +1,7 @@
 import type { StoryFn } from '@storybook/react';
 import type { TPopoverProps } from '@ab.uitools/ui-library/components/Popover/types';
 
-import React from 'react';
+import * as React from 'react';
 import { Popover as _Popover } from '@ab.uitools/ui-library/components/Popover';
 import { Button } from '@ab.uitools/ui-library/components/Button';
 

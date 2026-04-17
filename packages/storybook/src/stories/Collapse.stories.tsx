@@ -1,7 +1,7 @@
 import type { StoryFn } from '@storybook/react';
 import type { TCollapseGroupProps, TCollapseProps } from '@ab.uitools/ui-library/components/Collapse/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import IconHeart from '@ab.uitools/ui-library/components/SVGIcons/IconHeart';
 import IconCaretDownFilled from '@ab.uitools/ui-library/components/SVGIcons/IconCaretDownFilled';
 import { Status } from '@ab.uitools/ui-library/components/Status';

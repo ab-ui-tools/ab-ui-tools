@@ -1,4 +1,3 @@
-import React from 'react';
 import { More as _More } from '@ab.uitools/ui-library/components/More';
 
 export default {
