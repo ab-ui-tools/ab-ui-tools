@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.4-beta.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4-beta.0...@ab.uitools/ui-library@1.8.4-beta.1) (2026-04-18)
+
+### Bug Fixes
+
+- rolup config for empty js files ([1084292](https://github.com/ab-ui-tools/ab-ui-tools/commit/1084292bb2a98faf38867e6a48490ebae42e1d4f))
+
 ## [1.8.4-beta.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.3...@ab.uitools/ui-library@1.8.4-beta.0) (2026-04-18)
 
 ### Bug Fixes
