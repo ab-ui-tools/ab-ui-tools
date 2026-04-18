@@ -14,7 +14,6 @@ import dts from 'vite-plugin-dts'
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
 const ignoreExtensions = ['.stories.tsx', '.d.ts']
-const ignoreFileNames = ['types', "globalTypes"]
 
 const externalDeps = [
   ...Object.keys(pkg.peerDependencies || {}),
@@ -35,8 +34,7 @@ const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
       const chunkName = `${localPath}/${regexExecResult[1]}`.replace(/^src\/?/g, '')
       if (
         extensions.includes(regexExecResult[2]) &&
-        !ignoreExtensions.some((e) => regexExecResult[0].endsWith(e)) &&
-        !ignoreFileNames.includes(regexExecResult[1])
+        !ignoreExtensions.some((e) => regexExecResult[0].endsWith(e))
       ) {
         initial[chunkName] = `${localPath}/${current}`
       }
