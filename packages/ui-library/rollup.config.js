@@ -4,23 +4,25 @@ import json from '@rollup/plugin-json'
 import copy from 'rollup-plugin-copy'
 import fs from 'fs'
 import path from 'path'
-import { exec } from 'child_process'
 import babel from 'rollup-plugin-babel'
 import pkg from './package.json'
 import generatePackageJson from 'rollup-plugin-generate-package-json'
 import image from '@rollup/plugin-image'
 import postcss from 'rollup-plugin-postcss'
-import { renderSync } from 'sass'
+import { compileString } from 'sass'
 import dts from 'vite-plugin-dts'
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
 const ignoreExtensions = ['.stories.tsx', '.d.ts']
 
-const external = [
+const externalDeps = [
   ...Object.keys(pkg.peerDependencies || {}),
-  ...Object.keys(pkg.dependencies || {}),
-  /@babel\/runtime/
+  ...Object.keys(pkg.dependencies || {})
 ]
+
+const external = (id) =>
+  /@babel\/runtime/.test(id) ||
+  externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`))
 
 // create input config for rollup for each folder
 const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
@@ -31,8 +33,8 @@ const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
       const regexExecResult = /(.+?)(\.[^.]*$|$)/g.exec(current)
       const chunkName = `${localPath}/${regexExecResult[1]}`.replace(/^src\/?/g, '')
       if (
-          extensions.includes(regexExecResult[2]) &&
-          !ignoreExtensions.some((e) => regexExecResult[0].endsWith(e))
+        extensions.includes(regexExecResult[2]) &&
+        !ignoreExtensions.some((e) => regexExecResult[0].endsWith(e))
       ) {
         initial[chunkName] = `${localPath}/${current}`
       }
@@ -49,7 +51,7 @@ function writeCSS() {
 
       if (scssFile) {
         const scssContent = scssFile.source.toString()
-        const cssContent = renderSync({ data: scssContent }).css.toString()
+        const cssContent = compileString(scssContent).css;
 
         if (!fs.existsSync('dist/assets/styles')) {
           fs.mkdirSync('dist/assets/styles', { recursive: true })

@@ -36,6 +36,7 @@ export * from './components/Progress';
 export * from './components/ProgressStep';
 export * from './components/Radio';
 export * from './components/Select';
+export * from './components/ReactSelect';
 export * from './components/SideNavigation';
 export * from './components/SideSheet';
 export * from './components/Snackbar';
