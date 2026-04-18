@@ -1,7 +1,7 @@
 {
   "homepage": "https://github.com/ab-ui-tools/ab-ui-tools",
   "name": "@ab.uitools/ui-library",
-  "version": "1.8.3",
+  "version": "1.8.4-beta.1",
   "description": "UI library for AM",
   "private": false,
   "publishConfig": {
@@ -116,7 +116,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "react-table": "^7.8.0",
     "react-toastify": "10.0.5",
-    "sass": "^1.56.1",
+    "sass": "^1.99.0",
     "storybook-design-token": "^2.8.2"
   },
   "husky": {

@@ -10,7 +10,7 @@ import pkg from './package.json'
 import generatePackageJson from 'rollup-plugin-generate-package-json'
 import image from '@rollup/plugin-image'
 import postcss from 'rollup-plugin-postcss'
-import { renderSync } from 'sass'
+import { compileString } from 'sass'
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
 const ignoreExtensions = ['.stories.tsx', '.stories.d.ts']
@@ -72,7 +72,7 @@ function writeCSS() {
 
       if (scssFile) {
         const scssContent = scssFile.source.toString()
-        const cssContent = renderSync({ data: scssContent }).css.toString()
+        const cssContent = compileString(scssContent).css;
 
         if (!fs.existsSync('dist/assets/styles')) {
           fs.mkdirSync('dist/assets/styles', { recursive: true })
