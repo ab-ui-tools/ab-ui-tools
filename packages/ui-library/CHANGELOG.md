@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.4-beta.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.3...@ab.uitools/ui-library@1.8.4-beta.0) (2026-04-18)
+
+### Bug Fixes
+
+- add react select component to export file ([9378f79](https://github.com/ab-ui-tools/ab-ui-tools/commit/9378f790bba7124c4f1b4673276a96e620d62f35))
+- rolup config ([a2a5855](https://github.com/ab-ui-tools/ab-ui-tools/commit/a2a58554dd088af5e12f71e2418280105eeac970))
+- rolup config ([8efe7bf](https://github.com/ab-ui-tools/ab-ui-tools/commit/8efe7bf4b9ec38cb1f0405e79e15f406d432dfd2))
+
 ## [1.8.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.2...@ab.uitools/ui-library@1.8.3) (2026-04-18)
 
 ### Bug Fixes
