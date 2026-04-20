@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.16-beta.1](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.16...@ab.uitools/base@1.2.16-beta.1) (2026-04-20)
+
+### Bug Fixes
+
+- remove additinal changes coming from master ([e9989f3](https://github.com/ab-devtools/uilibrary/commit/e9989f3558db09abb7f86b08d1c3a3a810b1baeb))
+- remove all \* as React imports ([f5c7c60](https://github.com/ab-devtools/uilibrary/commit/f5c7c6036d61b9c525490e8167b4a536fd5e9d37))
+
 ## [1.2.16-beta.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.15...@ab.uitools/base@1.2.16-beta.0) (2026-04-18)
 
 ### Bug Fixes

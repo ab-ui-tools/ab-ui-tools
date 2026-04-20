@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.4-beta.2](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.4...@ab.uitools/storybook@1.7.4-beta.2) (2026-04-20)
+
+### Bug Fixes
+
+- configure automatic JSX runtime and remove redundant React imports ([dd9b3d9](https://github.com/ab-devtools/uilibrary/commit/dd9b3d9524c406c3ff09298dcdfb7979e59a2842))
+- remove additinal changes coming from master ([e9989f3](https://github.com/ab-devtools/uilibrary/commit/e9989f3558db09abb7f86b08d1c3a3a810b1baeb))
+- remove all \* as React imports ([f5c7c60](https://github.com/ab-devtools/uilibrary/commit/f5c7c6036d61b9c525490e8167b4a536fd5e9d37))
+- remove redundant React imports in storybook ([20fbe86](https://github.com/ab-devtools/uilibrary/commit/20fbe86fe27895f910c30beefb387e645a01214b))
+
 ## [1.7.4-beta.1](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.4-beta.0...@ab.uitools/storybook@1.7.4-beta.1) (2026-04-18)
 
 **Note:** Version bump only for package @ab.uitools/storybook
