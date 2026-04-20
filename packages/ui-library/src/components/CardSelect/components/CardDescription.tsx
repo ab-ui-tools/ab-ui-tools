@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import React from 'react';
-
 import { Text } from '../../Text';
 
 interface TCardDescription {

@@ -1,4 +1,4 @@
-import React, { useId, useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import type { ICalendarProp } from './types';

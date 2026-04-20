@@ -1,7 +1,7 @@
 import type { StoryFn } from '@storybook/react';
 import type { TCalendarValue } from '@ab.uitools/ui-library/components/Calendar/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import dayjs from 'dayjs';
 import { Calendar as _Calendar, Input } from '@ab.uitools/ui-library';
 

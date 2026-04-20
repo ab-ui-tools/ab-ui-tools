@@ -1,6 +1,5 @@
 import type { LegacyRef, ReactElement } from 'react';
 
-import React from 'react';
 import classnames from 'classnames';
 
 import { Text } from '../../../../Text';

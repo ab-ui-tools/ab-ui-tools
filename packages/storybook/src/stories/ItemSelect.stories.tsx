@@ -1,7 +1,7 @@
 import type { StoryFn } from '@storybook/react';
 import type { TItemSelectGroupProps, TItemSelectProps } from '@ab.uitools/ui-library/components/ItemSelect/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Text } from '@ab.uitools/ui-library/components/Text';
 import { IconQuestionCircle } from '@ab.uitools/ui-library/components/SVGIcons/IconQuestionCircle';
 import IconCheckmark from '@ab.uitools/ui-library/components/SVGIcons/IconCheckmark';
