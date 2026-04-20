@@ -100,11 +100,21 @@ export function useTableControl<TData>({
     return columnsList;
   }, [columns]);
 
-  const [columnOrder, setColumnOrder] = useState<string[]>(
-    savedSettings.columnOrder?.length && savedSettings.columnOrder.length === memoizedColumns.length
-      ? savedSettings.columnOrder
-      : memoizedColumns.map(column => column.id as string)
-  );
+  const getColumnOrder = () => {
+    const memoizedColumnIds = new Set(memoizedColumns.map(col => col.id as string));
+    if (
+      savedSettings.columnOrder?.length &&
+      savedSettings.columnOrder.every(id => memoizedColumnIds.has(id)) &&
+      savedSettings.columnOrder.length === memoizedColumns.length
+    ) {
+      return savedSettings.columnOrder;
+    } else {
+      localStorage.removeItem(tableName);
+      return Array.from(memoizedColumnIds);
+    }
+  };
+
+  const [columnOrder, setColumnOrder] = useState<string[]>(getColumnOrder());
 
   const reorderedColumns = columnOrder.map(columnId =>
     memoizedColumns.find(col => col.id === columnId)

@@ -128,9 +128,9 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
   );
 
   const renderCustomContent = () => (
-    <div className={'card-select__content card-select__content--custom'}>
-      <div className="flexbox justify-content--between align-items--start w-100">
-        <div className={'card-select__custom-content flex-grow-1'}>{contentToRender}</div>
+    <div className={'card-select__content'}>
+      <div className="flexbox justify-content--between align-items--start">
+        <div className={'card-select__content__left'}>{contentToRender}</div>
         {type === CARD_SELECT_TYPES.cardRadio ? (
           <Radio name={name} isSelected={selected} disabled={disabled} className={'ml-16'} />
         ) : null}
