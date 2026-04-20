@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4...@ab.uitools/ui-library@1.8.5) (2026-04-20)
+
+### Bug Fixes
+
+- table column settings issue ([584a097](https://github.com/ab-ui-tools/ab-ui-tools/commit/584a09730c2f6c383a5f373a36ba22e068438701))
+
 ## [1.8.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4-beta.1...@ab.uitools/ui-library@1.8.4) (2026-04-18)
 
 **Note:** Version bump only for package @ab.uitools/ui-library
