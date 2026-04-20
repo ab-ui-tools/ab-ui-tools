@@ -9,19 +9,22 @@ import pkg from './package.json'
 import generatePackageJson from 'rollup-plugin-generate-package-json'
 import image from '@rollup/plugin-image'
 import postcss from 'rollup-plugin-postcss'
-import { renderSync } from 'sass'
+import { compileString } from 'sass'
 import dts from 'vite-plugin-dts'
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
 const ignoreExtensions = ['.stories.tsx', '.d.ts']
 
-const external = [
+const externalDeps = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {}),
-  /@babel\/runtime/,
   'react/jsx-runtime',
   'react/jsx-dev-runtime'
 ]
+
+const external = (id) =>
+  /@babel\/runtime/.test(id) ||
+  externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`))
 
 // create input config for rollup for each folder
 const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
@@ -32,8 +35,8 @@ const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
       const regexExecResult = /(.+?)(\.[^.]*$|$)/g.exec(current)
       const chunkName = `${localPath}/${regexExecResult[1]}`.replace(/^src\/?/g, '')
       if (
-          extensions.includes(regexExecResult[2]) &&
-          !ignoreExtensions.some((e) => regexExecResult[0].endsWith(e))
+        extensions.includes(regexExecResult[2]) &&
+        !ignoreExtensions.some((e) => regexExecResult[0].endsWith(e))
       ) {
         initial[chunkName] = `${localPath}/${current}`
       }
@@ -50,7 +53,7 @@ function writeCSS() {
 
       if (scssFile) {
         const scssContent = scssFile.source.toString()
-        const cssContent = renderSync({ data: scssContent }).css.toString()
+        const cssContent = compileString(scssContent).css;
 
         if (!fs.existsSync('dist/assets/styles')) {
           fs.mkdirSync('dist/assets/styles', { recursive: true })
@@ -65,25 +68,14 @@ function writeCSS() {
 
 const plugins = [
   json(),
-  resolve({
-    extensions,
-    // preferBuiltins: false,
-    // exportConditions: ['require', 'default', 'module', 'import'],
-    // mainFields: ['main', 'module'],
-  }),
+  resolve({ extensions }),
   babel({
     babelrc: true,
     extensions,
     runtimeHelpers: true,
     exclude: 'node_modules/**',
   }),
-  commonjs({
-    include: /node_modules/,
-    transformMixedEsModules: true,
-    requireReturnsDefault: 'auto',
-    // defaultIsModuleExports: 'auto',
-    // strictRequires: true,
-  }),
+  commonjs({ include: 'node_modules/**' }),
   postcss({
     plugins: [],
     inject: false,
@@ -111,8 +103,7 @@ export default [
     output: {
       dir: 'dist',
       assetFileNames: '[name][extname]',
-      sourcemap: false,
-      interop: 'auto',
+      sourcemap: false
     },
     external,
     plugins: [
