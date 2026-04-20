@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import React from 'react';
-
 import type { LoaderProps } from './types';
 
 export const Loader = (props: LoaderProps): ReactElement => {

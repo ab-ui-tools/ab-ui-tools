@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import classnames from 'classnames';
 
 import type { TRadioProps } from './types';

@@ -2,7 +2,7 @@ import type { JSX } from 'react';
 
 import DatePicker from 'react-datepicker';
 import { useMemo } from 'react';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import dayjs from 'dayjs';
 
 import type { ITimePickerProps } from './types';

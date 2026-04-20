@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.7-beta.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.7-beta.0...@ab.uitools/ui-library@1.8.7-beta.2) (2026-04-20)
 ## [1.8.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.5...@ab.uitools/ui-library@1.8.6) (2026-04-20)
 
 ### Bug Fixes
@@ -17,7 +18,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.8.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4-beta.1...@ab.uitools/ui-library@1.8.4) (2026-04-18)
 
-**Note:** Version bump only for package @ab.uitools/ui-library
+### Bug Fixes
+
+- version up ([0be8b42](https://github.com/ab-ui-tools/ab-ui-tools/commit/0be8b421a1c507bfda5f6dfe65a3d0860136963c))
+
+## [1.8.7-beta.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4-beta.2...@ab.uitools/ui-library@1.8.7-beta.0) (2026-04-20)
+
+### Bug Fixes
+
+- updated version to make same as master ([8b326e2](https://github.com/ab-ui-tools/ab-ui-tools/commit/8b326e233eb1349191c0d9f2cf2aab57ad53ad63))
+
+## [1.8.4-beta.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4...@ab.uitools/ui-library@1.8.4-beta.2) (2026-04-20)
+
+### Bug Fixes
+
+- configure automatic JSX runtime and remove redundant React imports ([dd9b3d9](https://github.com/ab-ui-tools/ab-ui-tools/commit/dd9b3d9524c406c3ff09298dcdfb7979e59a2842))
+- remove additinal changes coming from master ([e9989f3](https://github.com/ab-ui-tools/ab-ui-tools/commit/e9989f3558db09abb7f86b08d1c3a3a810b1baeb))
+- remove all \* as React imports ([f5c7c60](https://github.com/ab-ui-tools/ab-ui-tools/commit/f5c7c6036d61b9c525490e8167b4a536fd5e9d37))
 
 ## [1.8.4-beta.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4-beta.0...@ab.uitools/ui-library@1.8.4-beta.1) (2026-04-18)
 

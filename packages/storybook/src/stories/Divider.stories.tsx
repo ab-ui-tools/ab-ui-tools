@@ -1,7 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import type { TDividerProps } from '@ab.uitools/ui-library/components/Divider/types';
 
-import React from 'react';
 import { Divider as _Divider } from '@ab.uitools/ui-library/components/Divider';
 
 export default {

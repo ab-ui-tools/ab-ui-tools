@@ -6,7 +6,7 @@ import type {
   TSingleSelectPropTypes,
 } from '@ab.uitools/ui-library/components/Select/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Positions } from '@ab.uitools/ui-library/components/Tooltip/types';
 import IconSignOut from '@ab.uitools/ui-library/components/SVGIcons/IconSignOut';
 import IconQuestionCircle from '@ab.uitools/ui-library/components/SVGIcons/IconQuestionCircle';
