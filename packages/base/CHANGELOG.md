@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.17-beta.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.16-beta.1...@ab.uitools/base@1.2.17-beta.0) (2026-04-20)
+
+### Bug Fixes
+
+- updated version to make same as master ([8b326e2](https://github.com/ab-devtools/uilibrary/commit/8b326e233eb1349191c0d9f2cf2aab57ad53ad63))
+
 ## [1.2.16-beta.1](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.16...@ab.uitools/base@1.2.16-beta.1) (2026-04-20)
 
 ### Bug Fixes
