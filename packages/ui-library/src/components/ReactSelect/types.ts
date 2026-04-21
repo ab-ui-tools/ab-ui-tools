@@ -1,14 +1,5 @@
 import type { CreatableProps } from 'react-select/creatable';
-import type {
-  Props,
-  GroupBase,
-  SingleValue,
-  MultiValue,
-  ActionMeta,
-  StylesConfig,
-  ValueContainerProps,
-  OptionsOrGroups,
-} from 'react-select';
+import type { Props, GroupBase, SingleValue, MultiValue } from 'react-select';
 import type { JSX, ReactNode } from 'react';
 
 declare module 'react-select/dist/declarations/src/Select' {
@@ -73,4 +64,45 @@ export type TCreatableProps = BaseProps &
 
 export type TReactSelectProps = TNonCreatableProps | TCreatableProps;
 
-export type { ActionMeta, GroupBase, StylesConfig, ValueContainerProps, SingleValue, MultiValue, OptionsOrGroups };
+export type { CreatableProps } from 'react-select/creatable';
+
+export type {
+  ActionMeta,
+  GroupBase,
+  StylesConfig,
+  ValueContainerProps,
+  SingleValue,
+  MultiValue,
+  OptionsOrGroups,
+  OnChangeValue,
+  PropsValue,
+  SelectInstance,
+  InputActionMeta,
+  MenuPlacement,
+  MenuPosition,
+  CoercedMenuPlacement,
+  ClearIndicatorProps,
+  ControlProps,
+  DropdownIndicatorProps,
+  GroupHeadingProps,
+  GroupProps,
+  IndicatorSeparatorProps,
+  IndicatorsContainerProps,
+  InputProps,
+  LoadingIndicatorProps,
+  MenuListProps,
+  MenuProps,
+  MultiValueGenericProps,
+  MultiValueProps,
+  MultiValueRemoveProps,
+  NoticeProps,
+  OptionProps,
+  PlaceholderProps,
+  SingleValueProps,
+  FormatOptionLabelMeta,
+  SelectComponentsConfig,
+  Theme,
+  ThemeConfig,
+  ClassNamesConfig,
+  Options,
+} from 'react-select';
