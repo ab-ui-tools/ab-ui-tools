@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.17](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.17-beta.2...@ab.uitools/base@1.2.17) (2026-04-20)
+
+**Note:** Version bump only for package @ab.uitools/base
+
+## [1.2.17-beta.2](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.17-beta.0...@ab.uitools/base@1.2.17-beta.2) (2026-04-20)
+
+### Bug Fixes
+
+- version up ([0be8b42](https://github.com/ab-devtools/uilibrary/commit/0be8b421a1c507bfda5f6dfe65a3d0860136963c))
+
+## [1.2.17-beta.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.16-beta.1...@ab.uitools/base@1.2.17-beta.0) (2026-04-20)
+
+### Bug Fixes
+
+- updated version to make same as master ([8b326e2](https://github.com/ab-devtools/uilibrary/commit/8b326e233eb1349191c0d9f2cf2aab57ad53ad63))
+
+## [1.2.16-beta.1](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.16...@ab.uitools/base@1.2.16-beta.1) (2026-04-20)
+
+### Bug Fixes
+
+- remove additinal changes coming from master ([e9989f3](https://github.com/ab-devtools/uilibrary/commit/e9989f3558db09abb7f86b08d1c3a3a810b1baeb))
+- remove all \* as React imports ([f5c7c60](https://github.com/ab-devtools/uilibrary/commit/f5c7c6036d61b9c525490e8167b4a536fd5e9d37))
+
+## [1.2.16-beta.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.15...@ab.uitools/base@1.2.16-beta.0) (2026-04-18)
+
+### Bug Fixes
+
+- rolup config ([030f28f](https://github.com/ab-devtools/uilibrary/commit/030f28f5bdf05e2ad8331f2236752fdf907ff348))
+
 ## [1.2.15](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.14...@ab.uitools/base@1.2.15) (2026-04-17)
 
 ### Bug Fixes

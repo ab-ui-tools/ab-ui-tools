@@ -3,6 +3,67 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.7-beta.2...@ab.uitools/ui-library@1.8.7) (2026-04-20)
+
+### Bug Fixes
+
+- remove additional classes for custom card-select ([9c1cd0b](https://github.com/ab-ui-tools/ab-ui-tools/commit/9c1cd0b57ebddfd736801bfcdb52120682515242))
+- table column settings issue ([584a097](https://github.com/ab-ui-tools/ab-ui-tools/commit/584a09730c2f6c383a5f373a36ba22e068438701))
+
+## [1.8.7-beta.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.7-beta.0...@ab.uitools/ui-library@1.8.7-beta.2) (2026-04-20)
+
+## [1.8.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.5...@ab.uitools/ui-library@1.8.6) (2026-04-20)
+
+### Bug Fixes
+
+- remove additional classes for custom card-select ([9c1cd0b](https://github.com/ab-ui-tools/ab-ui-tools/commit/9c1cd0b57ebddfd736801bfcdb52120682515242))
+
+## [1.8.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4...@ab.uitools/ui-library@1.8.5) (2026-04-20)
+
+### Bug Fixes
+
+- table column settings issue ([584a097](https://github.com/ab-ui-tools/ab-ui-tools/commit/584a09730c2f6c383a5f373a36ba22e068438701))
+
+## [1.8.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4-beta.1...@ab.uitools/ui-library@1.8.4) (2026-04-18)
+
+### Bug Fixes
+
+- version up ([0be8b42](https://github.com/ab-ui-tools/ab-ui-tools/commit/0be8b421a1c507bfda5f6dfe65a3d0860136963c))
+
+## [1.8.7-beta.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4-beta.2...@ab.uitools/ui-library@1.8.7-beta.0) (2026-04-20)
+
+### Bug Fixes
+
+- updated version to make same as master ([8b326e2](https://github.com/ab-ui-tools/ab-ui-tools/commit/8b326e233eb1349191c0d9f2cf2aab57ad53ad63))
+
+## [1.8.4-beta.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4...@ab.uitools/ui-library@1.8.4-beta.2) (2026-04-20)
+
+### Bug Fixes
+
+- configure automatic JSX runtime and remove redundant React imports ([dd9b3d9](https://github.com/ab-ui-tools/ab-ui-tools/commit/dd9b3d9524c406c3ff09298dcdfb7979e59a2842))
+- remove additinal changes coming from master ([e9989f3](https://github.com/ab-ui-tools/ab-ui-tools/commit/e9989f3558db09abb7f86b08d1c3a3a810b1baeb))
+- remove all \* as React imports ([f5c7c60](https://github.com/ab-ui-tools/ab-ui-tools/commit/f5c7c6036d61b9c525490e8167b4a536fd5e9d37))
+
+## [1.8.4-beta.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.4-beta.0...@ab.uitools/ui-library@1.8.4-beta.1) (2026-04-18)
+
+### Bug Fixes
+
+- rolup config for empty js files ([1084292](https://github.com/ab-ui-tools/ab-ui-tools/commit/1084292bb2a98faf38867e6a48490ebae42e1d4f))
+
+## [1.8.4-beta.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.3...@ab.uitools/ui-library@1.8.4-beta.0) (2026-04-18)
+
+### Bug Fixes
+
+- add react select component to export file ([9378f79](https://github.com/ab-ui-tools/ab-ui-tools/commit/9378f790bba7124c4f1b4673276a96e620d62f35))
+- rolup config ([a2a5855](https://github.com/ab-ui-tools/ab-ui-tools/commit/a2a58554dd088af5e12f71e2418280105eeac970))
+- rolup config ([8efe7bf](https://github.com/ab-ui-tools/ab-ui-tools/commit/8efe7bf4b9ec38cb1f0405e79e15f406d432dfd2))
+
+## [1.8.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.2...@ab.uitools/ui-library@1.8.3) (2026-04-18)
+
+### Bug Fixes
+
+- version up ([f20d53a](https://github.com/ab-ui-tools/ab-ui-tools/commit/f20d53add8f4044eb6e7300c99dd0f98cb08b1ef))
+
 ## [1.8.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.2-beta.1...@ab.uitools/ui-library@1.8.2) (2026-04-17)
 
 **Note:** Version bump only for package @ab.uitools/ui-library

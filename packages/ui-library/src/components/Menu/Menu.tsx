@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 
 import ReactDOM from 'react-dom';
-import React, { useId, useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import classNames from 'classnames';
 
 import type { TMenuProps, TMenuItem } from './types';

@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import type { TMultiSelectGroupedProps } from '../../types';
 import type {

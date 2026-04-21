@@ -1,6 +1,5 @@
 import type { JSX } from 'react';
 
-import React from 'react';
 import { Text } from '@ab.uitools/ui-library/components/Text';
 import { Container as _Container } from '@ab.uitools/ui-library/components/Container';
 import { Button } from '@ab.uitools/ui-library/components/Button';

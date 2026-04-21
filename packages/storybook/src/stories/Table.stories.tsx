@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { TColumn, TTableProps, TTableState } from '@ab.uitools/ui-library/components/Table/types';
 
-import React from 'react';
 import { Table as _Table } from '@ab.uitools/ui-library/components/Table';
 import IconArrowSort from '@ab.uitools/ui-library/components/SVGIcons/IconArrowSort';
 

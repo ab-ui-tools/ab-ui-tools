@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import React, { useRef, useId, useState } from 'react';
+import { useRef, useId, useState } from 'react';
 import classNames from 'classnames';
 
 import type { TButtonSelectPropTypes } from '../types';

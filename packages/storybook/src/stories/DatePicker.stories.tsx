@@ -2,7 +2,7 @@ import type { JSX } from 'react';
 import type { StoryFn } from '@storybook/react';
 import type { IRangeDatePickerProps, ISimpleDatePickerProps } from '@ab.uitools/ui-library/components/DatePicker/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   SimpleDatePicker as _SimpleDatePicker,
   TimePicker as _TimePicker,

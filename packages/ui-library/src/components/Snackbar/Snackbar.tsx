@@ -2,7 +2,6 @@ import type { ToastItem } from 'react-toastify';
 import type { ReactElement } from 'react';
 
 import { ToastContainer, toast, Slide } from 'react-toastify';
-import React from 'react';
 
 import type { TSnackbarProps, TToastProps } from './types';
 

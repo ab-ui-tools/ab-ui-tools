@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import React, { useMemo, useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import classNames from 'classnames';
 
 import type { TSelectWrapperProps } from '../../types';
