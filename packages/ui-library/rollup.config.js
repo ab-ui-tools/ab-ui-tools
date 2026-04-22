@@ -17,7 +17,9 @@ const ignoreExtensions = ['.stories.tsx', '.d.ts']
 
 const externalDeps = [
   ...Object.keys(pkg.peerDependencies || {}),
-  ...Object.keys(pkg.dependencies || {})
+  ...Object.keys(pkg.dependencies || {}),
+  'react/jsx-runtime',
+  'react/jsx-dev-runtime'
 ]
 
 const external = (id) =>
@@ -72,7 +74,6 @@ const plugins = [
     extensions,
     runtimeHelpers: true,
     exclude: 'node_modules/**',
-    presets: ['@babel/preset-env']
   }),
   commonjs({ include: 'node_modules/**' }),
   postcss({

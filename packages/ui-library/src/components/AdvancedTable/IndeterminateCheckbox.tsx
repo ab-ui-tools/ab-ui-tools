@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ForwardedRef } from 'react';
 
-import React, { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
 import { Checkbox } from '../Checkbox';

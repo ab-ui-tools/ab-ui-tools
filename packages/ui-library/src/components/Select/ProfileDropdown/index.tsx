@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useId, useRef } from 'react';
+import { useState, useId, useRef } from 'react';
 import classNames from 'classnames';
 
 import './styles.scss';
@@ -14,7 +14,7 @@ import { useOnOutsideClick } from '../../../hooks';
 export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
   const menuRef = useRef<HTMLDivElement>(null);
   const { avatar, name, email, bodyItems, footerItems, className, headerContent, userInfoAlignment = 'left' } = props;
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const closeDropdown = () => setIsOpen(false);
   useOnOutsideClick(menuRef.current, closeDropdown, isOpen, useId());

@@ -1,6 +1,6 @@
 # AB UI Tools
 
-See [UI library]([https://github.com/uilibrarydev/uilibrary]) for live demos and comprehensive docs.
+See [ab-ui-tools](https://github.com/ab-ui-tools/ab-ui-tools) for live demos and comprehensive docs.
 
 # Installation and usage
 ```
@@ -9,7 +9,6 @@ npm install @ab.uitools/ui-library
 
 Then use it in your app:
 ```jsx
-import React from 'react';
 import { Button } from '@ab.uitools/ui-library/components/Button';
 import '@ab.uitools/ui-library/assets/styles/styles.scss'; 
 // Or you can import the styles.css file
