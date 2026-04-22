@@ -152,34 +152,12 @@ The PR title becomes the squash commit message, so it **must** follow the Conven
 
 ## Releases
 
-Versioning and publishing are fully automated via [Lerna](https://lerna.js.org/) + [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+Versioning, release flow, and branch strategy are documented in the root [`README.md`](./README.md) (including `alpha`/`beta` pre-releases and stable releases from `master`).
 
-### Branch strategy
+Contributor rule of thumb:
 
-| Branch   | Purpose                   | npm tag                      |
-| -------- | ------------------------- | ---------------------------- |
-| `alpha`  | Pre-release / development | `beta` (e.g. `1.2.0-beta.0`) |
-| `master` | Stable releases           | `latest`                     |
-
-### Flow
-
-**Regular change (recommended)** — feature → `master`:
-
-1. Open a PR from your feature branch → `master`. CI runs (lint, typecheck, build).
-2. Merge → `master`: a stable version is published to npm with the `latest` dist-tag.
-
-**Risky change** — stage through `alpha` first:
-
-1. Open a PR from your feature branch → `alpha`. CI runs (lint, typecheck, build).
-2. Merge → `alpha`: a `beta` version is published to npm (e.g. `1.2.0-beta.0`).
-3. Install the beta in your app and test:
-   ```bash
-   yarn add @ab.uitools/ui-library@beta
-   ```
-4. If everything looks good, open a PR `alpha` → `master`. CI runs again.
-5. Merge → `master`: beta is promoted and a stable version is published as `latest`.
-
-Allowed release branches: `master`, `alpha` (see `lerna.json`).
+- Regular changes → open PRs to `master`
+- Risky changes (config / dependencies / big refactor) → open PRs to `alpha` first, test the `@beta` release, then PR `alpha` → `master`
 
 ---
 
