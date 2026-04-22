@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { TStatusProps } from '@ab.uitools/ui-library/components/Status/types';
 
-import React from 'react';
 import { Text } from '@ab.uitools/ui-library/components/Text';
 import IconPerson from '@ab.uitools/ui-library/components/SVGIcons/IconPerson';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';

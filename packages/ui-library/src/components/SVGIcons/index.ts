@@ -332,6 +332,7 @@ export * from './IconPeopleAdd';
 export * from './IconPeopleAddFilled';
 export * from './IconPeopleFilled';
 export * from './IconPercent';
+export * from './IconPercentFilled';
 export * from './IconPerson';
 export * from './IconPersonAccount';
 export * from './IconPersonAccountFilled';

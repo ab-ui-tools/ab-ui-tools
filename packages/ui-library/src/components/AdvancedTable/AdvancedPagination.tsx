@@ -1,6 +1,6 @@
 import type { Table } from '@tanstack/react-table';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
 import type { TItemValue } from '../../types/globalTypes';
