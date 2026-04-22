@@ -1,11 +1,13 @@
 # AB UI Tools
 
-See [ab-ui-tools](https://github.com/ab-ui-tools/ab-ui-tools) for live demos and comprehensive docs.
+Documentation lives in the repo `README.md` files. Live demo (Storybook): https://ab-ui-tools.github.io/ab-ui-tools/?path=/story/calendar--calendar
 
 # Installation and usage
 
 ```
 npm install @ab.uitools/ui-library
+# or
+yarn add @ab.uitools/ui-library
 ```
 
 Then use it in your app:
@@ -37,39 +39,21 @@ How to use mixins:
 2. Make sure the icon is matching with the design.
 3. Make sure the svg file name is matching with pattern like this `chevron-right.svg`.
 4. Run `npm run generate-svg-component` command to generate the new icon component.
+
 # How to create new component
 
 1. Add a folder with the component name in `src/components/` folder.
-2. Add a style file in the `assets/styles/components` fodler with the name `_componentName.scss`.
-3. Import the created style file in `assets/styles/styles.scss` file using @use syntax.
+2. Add a style file in the `assets/styles/components` folder with the name `_componentName.scss`.
+3. Import the created style file in `assets/styles/styles.scss` using `@use`.
 4. Develop component based on the design.
-5. Add `coomponentName.stories.tsx` file in src/stories folder to test created component.
-6. Make sure you don't have type error and the component is matching with the design.
-7. If everything is ok you can create a pull request into the master branch with correct commit message (you can read about it below).
-8. The new version will be published automatically after the pull request is reviewed and merged.
-## Automated Releases with Semantic Release
+5. Add a Storybook story for the component in `packages/storybook/src/stories/` (for example: `<ComponentName>.stories.tsx`) so it appears in the hosted Storybook app.
+6. Export the component from `src/index.ts` (so consumers can import it).
+7. Make sure you don't have type errors and the component matches the design.
+8. Commit using Conventional Commits (`feat: ...`, `fix: ...`, etc.).
+9. Open a PR:
+   - Regular changes → target `master`
+   - Risky changes (config / dependencies / big refactor) → target `alpha` first, test the `@beta` release in a real app, then PR `alpha` → `master`
 
-This project uses [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) to automate versioning and releases. It follows [Semantic Versioning](https://semver.org/) (semver) and determines the next version number based on commit messages.
+**More info**
 
-### How It Works
-
-Semantic Release automates:
-
-1. Version number updates.
-2. Release notes generation.
-3. Package publishing to npm.
-4. GitHub release creation.
-### Commit Message Guidelines
-
-Semantic Release uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to determine release types:
-
-`fix:` – for bug fixes (patch release)
-`feat:` – for new features (minor release)
-`BREAKING CHANGE:` – for breaking changes (major release)
-### Releasing
-
-To trigger a release:
-
-1. Commit your changes using the conventional commit format.
-2. Open a pull request and merge it into the `master` branch with the appropriate commit message.
-Semantic Release will handle the rest, including publishing to npm and creating a GitHub release.
+For versioning and release flow (including `alpha`/`beta` and stable releases), see the root [`README.md`](../../README.md).

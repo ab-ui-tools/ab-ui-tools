@@ -10,16 +10,21 @@ Homepage: https://github.com/ab-ui-tools/ab-ui-tools
 
 This is a [Lerna](https://lerna.js.org/) monorepo managed with Yarn workspaces. Each package is versioned independently and published to npm under the `@ab.uitools` scope.
 
-| Package | Description | Version |
-|---------|-------------|---------|
-| [`@ab.uitools/ui-library`](./packages/ui-library) | React UI component library (54+ components) | 1.8.8 |
-| [`@ab.uitools/base`](./packages/base) | Shared utilities, helpers, and hooks | 1.2.17 |
-| [`@ab.uitools/storybook`](./packages/storybook) | Storybook demo & documentation (private) | 1.7.8 |
-| [`@ab.uitools/scripts`](./packages/scripts) | CLI for scaffolding new apps | 1.0.13 |
+
+| Package                                           | Description                                 |
+| ------------------------------------------------- | ------------------------------------------- |
+| [`@ab.uitools/ui-library`](./packages/ui-library) | React UI component library (54+ components) |
+| [`@ab.uitools/base`](./packages/base)             | Shared utilities, helpers, and hooks        |
+| [`@ab.uitools/storybook`](./packages/storybook)   | Hosted Storybook app for browsing components |
+| [`@ab.uitools/scripts`](./packages/scripts)       | CLI for scaffolding new apps                |
+
+### Internal package dependencies
+
+Packages in this monorepo can depend on each other (for example, `storybook` uses `@ab.uitools/ui-library`). When a package is versioned (via Lerna), **any other package that depends on it will have its dependency range updated automatically** during the same versioning step. This keeps internal packages in sync across releases.
 
 ### What's inside `ui-library`
 
-A form-centric React component library built around [React Hook Form](https://react-hook-form.com/) and [Yup](https://github.com/jquense/yup). Components include:
+Full React UI component library. Components include:
 
 - **Forms & inputs** — `Input`, `Textarea`, `Select`, `ReactSelect`, `Checkbox`, `Radio`, `Switcher`, `DatePicker`, `Calendar`, `FileUpload`, `OneTimePassword`, `MultiTextareaWithChips`, `Counter`, `FormContainer`, `FormField`
 - **Layout** — `Container`, `Cards`, `CardBody`, `CardSelect`, `Collapse`, `Divider`, `SideNavigation`, `SideSheet`, `Tab`, `Stepper`
@@ -40,7 +45,7 @@ See [`packages/ui-library/src/index.ts`](./packages/ui-library/src/index.ts) for
 - **Animation** — Framer Motion
 - **Drag & drop** — dnd-kit
 - **Build** — Rollup (library bundling), Storybook/Webpack5 (docs)
-- **Tooling** — Lerna, Yarn Workspaces, Semantic Release, Commitlint, Husky, ESLint (flat config), Prettier
+- **Tooling** — Lerna, Yarn Workspaces, Commitlint, Husky, ESLint (flat config), Prettier
 
 ---
 
@@ -76,7 +81,19 @@ yarn lint:fix           # Lint & autofix
 
 ## Using the UI library in an app
 
-Install the package:
+### 1. Authenticate with npm
+
+`@ab.uitools` packages require an npm token with read access.
+
+**Locally** — add to your `~/.npmrc` or project-level `.npmrc`:
+
+```
+//registry.npmjs.org/:_authToken=YOUR_NPM_TOKEN
+```
+
+**Azure DevOps pipeline** — add `NPM_AUTH_TOKEN` as a pipeline variable (mark as secret)
+
+### 2. Install the package
 
 ```bash
 npm install @ab.uitools/ui-library
@@ -118,10 +135,10 @@ npx @ab.uitools/scripts --name my-app --template react
 ```
 ab-ui-tools/
 ├── packages/
-│   ├── ui-library/     # Component library (published)
-│   ├── base/           # Shared utilities (published)
-│   ├── storybook/      # Demo & docs (private)
-│   └── scripts/        # CLI tool (published)
+│   ├── ui-library/     # React UI component library (published to npm)
+│   ├── base/           # Shared utilities (published to npm)
+│   ├── storybook/      # Hosted Storybook app for browsing components
+│   └── scripts/        # Project scaffolding CLI (published to npm)
 ├── commitlint.config.js
 ├── eslint.config.mjs
 ├── lerna.json
@@ -132,11 +149,73 @@ ab-ui-tools/
 
 ## Releases
 
-Versioning and publishing are fully automated via [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) driven by [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Merging a PR to `master` triggers a release:
+Versioning and publishing are fully automated via [Lerna](https://lerna.js.org/) + [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
-- `fix: …` → patch release
-- `feat: …` → minor release
-- `BREAKING CHANGE: …` (in commit body) → major release
+### Branch strategy
+
+
+| Branch   | Purpose                   | npm tag                      |
+| -------- | ------------------------- | ---------------------------- |
+| `alpha`  | Pre-release / development | `beta` (e.g. `1.2.0-beta.0`) |
+| `master` | Stable releases           | `latest`                     |
+
+### Flow
+
+**Regular change (recommended)** — feature → `master`:
+
+```
+feature/my-change
+       │
+       │  PR → master (CI: lint, typecheck, build)
+       ▼
+    master ─── merge ───▶ publish stable to npm (@latest)
+```
+
+1. Open a PR from your feature branch → `master`. CI runs (lint, typecheck, build).
+2. Merge → `master`: a stable version is published to npm with the `latest` dist-tag.
+
+**Risky change (config / dependency / big refactor)** — stage through `alpha` first:
+
+```
+feature/my-change
+       │
+       │  PR → alpha (CI: lint, typecheck, build)
+       ▼
+    alpha ─── merge ───▶ publish beta to npm (@beta)
+                         │
+                         │  Install + test in your app:
+                         │  yarn add @ab.uitools/ui-library@beta
+                         │
+                         ▼
+                 PR alpha → master (CI runs again)
+                         │
+                         ▼
+    master ─── merge ───▶ promote + publish stable (@latest)
+```
+
+1. Open a PR from your feature branch → `alpha`. CI runs (lint, typecheck, build).
+2. Merge → `alpha`: a `beta` version is published to npm (e.g. `1.2.0-beta.0`).
+3. Install the beta in your app and test:
+   ```bash
+   yarn add @ab.uitools/ui-library@beta
+   ```
+4. If everything looks good, open a PR `alpha` → `master`. CI runs again.
+5. Merge → `master`: beta is promoted and a stable version is published as `latest`.
+
+### Commit types → version bumps
+
+- `fix: …` → patch
+- `feat: …` → minor
+- `BREAKING CHANGE:` in commit body → major
+
+### Required pipeline variables (Azure DevOps)
+
+
+| Variable                | Secret | Description                                                            |
+| ----------------------- | ------ | ---------------------------------------------------------------------- |
+| `NPM_AUTH_TOKEN`        | ✅     | npm token with publish access to`@ab.uitools`                          |
+| `BOT_ACCESS_TOKEN`      | ✅     | Token allowing the bot to push version-bump commits back to the branch |
+| `WEB_SLACK_WEBHOOK_URL` | ✅     | Slack incoming webhook for publish notifications                       |
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 

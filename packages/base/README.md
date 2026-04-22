@@ -1,14 +1,11 @@
-# @ab.uitools/base
+# AB UI Tools
 
-Shared form context and React Hook Form helpers used by [`@ab.uitools/ui-library`](../ui-library). This package is a small runtime shim that lets consumer apps share a single React Hook Form instance with the UI library's form-aware components (e.g. `Input`, `Select`, `DatePicker`).
+Documentation lives in the repo `README.md` files. Live demo (Storybook): https://ab-ui-tools.github.io/ab-ui-tools/?path=/story/calendar--calendar
 
-Homepage: https://github.com/ab-ui-tools/ab-ui-tools
+# Installation and usage
 
----
-
-## Installation
-
-```bash
+`@ab.uitools/base` is a standalone package with **hooks, helpers, and other supplementary utilities**. 
+```
 npm install @ab.uitools/base
 # or
 yarn add @ab.uitools/base
@@ -21,82 +18,78 @@ Peer dependencies:
 - `react-hook-form` ^7.x
 - `yup` ^1.7.0
 
----
-
-## Public API
+Then use it in your app:
 
 ```ts
-import { FormContext, useFormProps, useFieldArray } from '@ab.uitools/base';
+import { useOnOutsideClick, useScreenSize } from '@ab.uitools/base'
 ```
 
-| Export | Purpose |
-|--------|---------|
-| `FormContext` | React context that carries a React Hook Form instance down the tree. Wrap your form in its provider so `@ab.uitools/ui-library` inputs can register themselves automatically. |
-| `useFormProps` | Hook that returns the current `FormContext` value (`register`, `control`, `errors`, `setValue`, …). Call it inside a `FormContext.Provider` to build form-aware components. |
-| `useFieldArray` | Re-export of `useFieldArray` from `react-hook-form`, pinned to the version this package is built against — use it instead of importing from `react-hook-form` directly to avoid version drift. |
-
----
-
-## Usage
-
-Wrap a form with `FormContext.Provider`, passing the value returned by `useForm()`:
+Example (close a dropdown on outside click):
 
 ```tsx
-import { FormContext, useFormProps } from '@ab.uitools/base';
-import { useForm } from 'react-hook-form';
+import { useRef, useState } from 'react'
+import { useOnOutsideClick } from '@ab.uitools/base'
+
+export const Dropdown = () => {
+  const ref = useRef<HTMLDivElement | null>(null)
+  const [open, setOpen] = useState(false)
+  const uid = 'dropdown-1'
+
+  useOnOutsideClick(ref.current, () => setOpen(false), open, uid)
+
+  return (
+    <div ref={ref}>
+      <button onClick={() => setOpen((v) => !v)}>Toggle</button>
+      {open && <div>Menu</div>}
+    </div>
+  )
+}
+```
+
+Example (responsive behavior):
+
+```tsx
+import { useScreenSize } from '@ab.uitools/base'
+
+export const Header = () => {
+  const size = useScreenSize()
+  return <div>Current breakpoint: {size}</div>
+}
+```
+
+# Form helpers (optional)
+
+If you want to share a single React Hook Form instance across your app without passing `methods` through props, you can use `FormContext` + `useFormProps`.
+
+```tsx
+import { FormContext, useFormProps } from '@ab.uitools/base'
+import { useForm } from 'react-hook-form'
 
 const EmailInput = ({ name }: { name: string }) => {
-    const { register, errors } = useFormProps();
-    return (
-        <>
-            <input {...register?.(name)} />
-            {errors?.[name] && <span>{String(errors[name]?.message)}</span>}
-        </>
-    );
-};
+  const { register, errors } = useFormProps()
+  return (
+    <>
+      <input {...register?.(name)} />
+      {errors?.[name] && <span>{String(errors[name]?.message)}</span>}
+    </>
+  )
+}
 
 export const SignInForm = () => {
-    const methods = useForm({ defaultValues: { email: '' } });
+  const methods = useForm({ defaultValues: { email: '' } })
+  const onSubmit = methods.handleSubmit((values) => console.log(values))
 
-    const onSubmit = methods.handleSubmit((values) => {
-        console.log(values);
-    });
-
-    return (
-        <FormContext.Provider value={methods}>
-            <form onSubmit={onSubmit}>
-                <EmailInput name="email" />
-                <button type="submit">Sign in</button>
-            </form>
-        </FormContext.Provider>
-    );
-};
+  return (
+    <FormContext.Provider value={methods}>
+      <form onSubmit={onSubmit}>
+        <EmailInput name="email" />
+        <button type="submit">Sign in</button>
+      </form>
+    </FormContext.Provider>
+  )
+}
 ```
 
-Within the provider, any component can call `useFormProps()` to read `register`, `control`, `errors`, `setValue`, and the other form methods out of context — use it to build form-aware inputs without threading `methods` through props.
+**More info**
 
-> Note: `@ab.uitools/ui-library` ships its own `FormContainer` / `FormField` / internal `FormContext` and does **not** consume this package's `FormContext`. Reach for `@ab.uitools/base` when you want a lightweight form-context primitive in an app that is *not* using ui-library's `FormContainer`.
-
----
-
-## Development
-
-This package is part of the [ab-ui-tools monorepo](../../README.md). See [CONTRIBUTING.md](../../CONTRIBUTING.md) for the development workflow.
-
-### Scripts
-
-```bash
-yarn build        # Rollup build → dist/
-yarn typecheck    # tsc --noEmit
-yarn check        # lint + typecheck
-```
-
----
-
-## Release
-
-Versioning and publishing are automated via Semantic Release driven by Conventional Commits. See the root [CONTRIBUTING.md](../../CONTRIBUTING.md#releases) for details.
-
-## License
-
-ISC
+For versioning and release flow (including `alpha`/`beta` and stable releases), see the root [`README.md`](../../README.md).

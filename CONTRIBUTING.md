@@ -38,7 +38,7 @@ yarn start            # launches Storybook on http://localhost:6006
 packages/
 ├── ui-library/   # Component library  (@ab.uitools/ui-library)
 ├── base/         # Shared utilities   (@ab.uitools/base)
-├── storybook/    # Storybook demo     (@ab.uitools/storybook, private)
+├── storybook/    # Hosted Storybook app for browsing components
 └── scripts/      # CLI tool           (@ab.uitools/scripts)
 ```
 
@@ -63,7 +63,9 @@ Each package is versioned **independently** (`lerna.json` uses `"version": "inde
    yarn lint:fix
    ```
 5. **Commit** using a [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) message (see below). Husky + Commitlint will reject non-conforming messages.
-6. **Open a pull request** against `master`.
+6. **Open a pull request**:
+   - **Regular change** → target `master`
+   - **Risky change** (config / dependency / big refactor) → target `alpha` first, test the `@beta` release in a real app, then open `alpha` → `master`
 
 ### Pre-commit hooks
 
@@ -112,8 +114,8 @@ This repository enforces **Conventional Commits**. Commit type determines the re
 
 | Type                 | Release | Example |
 |----------------------|---------|---------|
-| `fix:`               | patch   | `fix(button): correct disabled hover style` |
-| `feat:`              | minor   | `feat(select): support async option loading` |
+| `fix:`               | patch   | `fix: correct disabled hover style` / `fix(button): correct disabled hover style` |
+| `feat:`              | minor   | `feat: support async option loading` / `feat(select): support async option loading` |
 | `BREAKING CHANGE:` (in body or `!` after type) | major | `feat(table)!: drop legacy row API` |
 | `chore:` / `docs:` / `refactor:` / `style:` / `test:` / `ci:` | no release | |
 
@@ -150,18 +152,34 @@ The PR title becomes the squash commit message, so it **must** follow the Conven
 
 ## Releases
 
-Releases are fully automated via [Semantic Release](https://semantic-release.gitbook.io/semantic-release/):
+Versioning and publishing are fully automated via [Lerna](https://lerna.js.org/) + [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
-1. Merge a PR with a `feat:` / `fix:` / breaking-change commit to `master`.
-2. Semantic Release determines the next version for the affected package(s), generates release notes, publishes to npm, and creates a GitHub release.
+### Branch strategy
+
+| Branch   | Purpose                   | npm tag                      |
+| -------- | ------------------------- | ---------------------------- |
+| `alpha`  | Pre-release / development | `beta` (e.g. `1.2.0-beta.0`) |
+| `master` | Stable releases           | `latest`                     |
+
+### Flow
+
+**Regular change (recommended)** — feature → `master`:
+
+1. Open a PR from your feature branch → `master`. CI runs (lint, typecheck, build).
+2. Merge → `master`: a stable version is published to npm with the `latest` dist-tag.
+
+**Risky change** — stage through `alpha` first:
+
+1. Open a PR from your feature branch → `alpha`. CI runs (lint, typecheck, build).
+2. Merge → `alpha`: a `beta` version is published to npm (e.g. `1.2.0-beta.0`).
+3. Install the beta in your app and test:
+   ```bash
+   yarn add @ab.uitools/ui-library@beta
+   ```
+4. If everything looks good, open a PR `alpha` → `master`. CI runs again.
+5. Merge → `master`: beta is promoted and a stable version is published as `latest`.
 
 Allowed release branches: `master`, `alpha` (see `lerna.json`).
-
-To publish a manual alpha from a package directory:
-```bash
-yarn build
-npm run publish-alpha-version
-```
 
 ---
 
