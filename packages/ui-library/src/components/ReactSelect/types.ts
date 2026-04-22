@@ -2,6 +2,8 @@ import type { CreatableProps } from 'react-select/creatable';
 import type { Props, GroupBase, SingleValue, MultiValue } from 'react-select';
 import type { JSX, ReactNode } from 'react';
 
+import type { TFormValue } from '../../types/globalTypes';
+
 declare module 'react-select/dist/declarations/src/Select' {
   export interface Props<Option, IsMulti extends boolean, Group extends GroupBase<Option>> {
     showCount?: number;
@@ -39,7 +41,7 @@ export interface BaseProps extends Props<TOption, boolean, GroupBase<TOption>> {
   size?: 'small' | 'large';
   selectedValue?: TItemValue | TItemValue[];
   setSelectedValue?: (value: TItemValue | TItemValue[]) => void;
-  setFieldValue?: (value: TItemValue | TItemValue[]) => void;
+  setFieldValue?: (name: string, value: TFormValue, shouldValidate?: { shouldValidate: boolean }) => void;
   labelAddons?: JSX.Element;
   label?: string;
   required?: boolean;

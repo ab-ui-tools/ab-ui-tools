@@ -42,6 +42,7 @@ export const ReactSelect = ({
   label,
   size = 'large',
   dataId,
+  name,
   helperText,
   ...selectProps
 }: TReactSelectProps) => {
@@ -54,7 +55,9 @@ export const ReactSelect = ({
       : selectedOption.map(option => option.value);
 
     setValue(selectedOption);
-    setFieldValue?.(val as string);
+    if (name && setFieldValue) {
+      setFieldValue(name, val as string);
+    }
     setSelectedValue?.(val as string);
     onChange?.(selectedOption);
   };
@@ -146,6 +149,7 @@ export const ReactSelect = ({
         onChange={handleChange}
         options={options}
         value={value}
+        name={name}
         isMulti={isMulti}
         isDisabled={isDisabled}
         showCount={showCount}

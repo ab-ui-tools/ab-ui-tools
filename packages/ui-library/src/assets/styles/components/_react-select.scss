@@ -47,12 +47,9 @@
     }
 
     &__menu {
+      max-height: var(--ds-select-menu-max-height);
       overflow: hidden;
       border-radius: var(--ds-border-radius-2xl);
-    }
-
-    &__menu-list {
-      max-height: var(--ds-select-menu-max-height);
     }
 
     &__multi-value__remove {
