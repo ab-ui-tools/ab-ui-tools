@@ -41,6 +41,7 @@ export interface BaseProps extends Omit<Props<TOption, boolean, GroupBase<TOptio
   selectedValue?: TItemValue | TItemValue[];
   setSelectedValue?: (value: TItemValue | TItemValue[]) => void;
   setFieldValue?: (name: string, value: TFormValue, shouldValidate?: { shouldValidate: boolean }) => void;
+  setSelectedOption?: (newValue: SingleValue<TOption> | MultiValue<TOption>) => void;
   labelAddons?: JSX.Element;
   label?: string;
   required?: boolean;
