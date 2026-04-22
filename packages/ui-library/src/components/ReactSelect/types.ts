@@ -2,7 +2,7 @@ import type { CreatableProps } from 'react-select/creatable';
 import type { Props, GroupBase, SingleValue, MultiValue } from 'react-select';
 import type { JSX, ReactNode } from 'react';
 
-import type { TFormValue } from '../../types/globalTypes';
+import type { TFormValue, TItemLabel, TItemValue, TOnChange } from '../../types/globalTypes';
 
 declare module 'react-select/dist/declarations/src/Select' {
   export interface Props<Option, IsMulti extends boolean, Group extends GroupBase<Option>> {
@@ -13,9 +13,10 @@ declare module 'react-select/dist/declarations/src/Select' {
 }
 
 export type TOption = {
-  value: string | number | null;
-  label: string;
+  value: TItemValue;
+  label: TItemLabel;
   isDisabled?: boolean;
+  isSelected?: boolean;
   icon?: ReactNode;
   meta?: unknown;
 };
@@ -23,8 +24,6 @@ export type TOption = {
 export type GroupedOption = GroupBase<TOption>;
 
 export type TSelectValue = SingleValue<TOption> | MultiValue<TOption>;
-
-export type TItemValue = string | number | null;
 
 type CreatableOnlyKeys = Exclude<
   keyof CreatableProps<TOption, boolean, GroupBase<TOption>>,
@@ -35,7 +34,7 @@ type CreatableExtraProps = {
   isCreateOnOutsideClick?: boolean;
 };
 
-export interface BaseProps extends Props<TOption, boolean, GroupBase<TOption>> {
+export interface BaseProps extends Omit<Props<TOption, boolean, GroupBase<TOption>>, 'onChange' | 'options' | 'value'> {
   options: Array<TOption | GroupedOption>;
   dataId?: string;
   size?: 'small' | 'large';
@@ -47,7 +46,8 @@ export interface BaseProps extends Props<TOption, boolean, GroupBase<TOption>> {
   required?: boolean;
   hasError?: boolean;
   helperText?: string;
-  onChange?: (value: TSelectValue) => void;
+  onChange?: TOnChange;
+  value?: TFormValue;
 }
 
 export type TNonCreatableProps = BaseProps & {

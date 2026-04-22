@@ -3,7 +3,8 @@ import Select from 'react-select';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
-import type { TOption, TReactSelectProps, TSelectValue, SingleValue, TItemValue } from './types';
+import type { TOption, TReactSelectProps, TSelectValue, SingleValue } from './types';
+import type { TItemValue } from '../../types/globalTypes';
 
 import {
   ValueContainer,
@@ -24,7 +25,6 @@ export const ReactSelect = ({
   setFieldValue,
   selectedValue,
   setSelectedValue,
-  onChange,
   showCount = 2,
   isClearable = false,
   components: customComponents,
@@ -59,7 +59,6 @@ export const ReactSelect = ({
       setFieldValue(name, val as string);
     }
     setSelectedValue?.(val as string);
-    onChange?.(selectedOption);
   };
 
   const getFlatOptions = () => {
@@ -78,7 +77,7 @@ export const ReactSelect = ({
 
     const normalizedInput = normalize(inputValue);
 
-    const existsInOptions = flatOptions.some(opt => normalize(opt.label) === normalizedInput);
+    const existsInOptions = flatOptions.some(opt => normalize(`${opt.label}`) === normalizedInput);
 
     const currentValues = Array.isArray(value) ? value : value ? [value] : [];
 
