@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.11](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.10...@ab.uitools/ui-library@1.8.11) (2026-04-22)
+
+### Bug Fixes
+
+- select set field value issue ([5635a63](https://github.com/ab-ui-tools/ab-ui-tools/commit/5635a63f7cf9c62ee064a004f6faa77a1bbfaf8b))
+- select set field value issue ([c9eb52c](https://github.com/ab-ui-tools/ab-ui-tools/commit/c9eb52c070d1de7c6800721c89e88710ccc7e715))
+- select set field value issue ([0df8658](https://github.com/ab-ui-tools/ab-ui-tools/commit/0df865847d079f42a6bab4503ee47bab9a73cec1))
+
 ## [1.8.10](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.9...@ab.uitools/ui-library@1.8.10) (2026-04-22)
 
 **Note:** Version bump only for package @ab.uitools/ui-library
