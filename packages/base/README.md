@@ -1,75 +1,102 @@
-# AB UI Tools
+# @ab.uitools/base
 
-See [UI library]([https://github.com/uilibrarydev/uilibrary]) for live demos and comprehensive docs.
+Shared form context and React Hook Form helpers used by [`@ab.uitools/ui-library`](../ui-library). This package is a small runtime shim that lets consumer apps share a single React Hook Form instance with the UI library's form-aware components (e.g. `Input`, `Select`, `DatePicker`).
 
-# Installation and usage
+Homepage: https://github.com/ab-ui-tools/ab-ui-tools
 
+---
+
+## Installation
+
+```bash
+npm install @ab.uitools/base
+# or
+yarn add @ab.uitools/base
 ```
-npm install @ab.uitools/ui-library
+
+Peer dependencies:
+
+- `react` ^18.2.0
+- `react-dom` ^18.2.0
+- `react-hook-form` ^7.x
+- `yup` ^1.7.0
+
+---
+
+## Public API
+
+```ts
+import { FormContext, useFormProps, useFieldArray } from '@ab.uitools/base';
 ```
 
-Then use it in your app:
+| Export | Purpose |
+|--------|---------|
+| `FormContext` | React context that carries a React Hook Form instance down the tree. Wrap your form in its provider so `@ab.uitools/ui-library` inputs can register themselves automatically. |
+| `useFormProps` | Hook that returns the current `FormContext` value (`register`, `control`, `errors`, `setValue`, …). Call it inside a `FormContext.Provider` to build form-aware components. |
+| `useFieldArray` | Re-export of `useFieldArray` from `react-hook-form`, pinned to the version this package is built against — use it instead of importing from `react-hook-form` directly to avoid version drift. |
 
-```jsx
-import { Button } from '@ab.uitools/ui-library/components/Button';
-import '@ab.uitools/ui-library/assets/styles/styles.scss'; 
-// Or you can import the styles.css file
-// import '@ab.uitools/ui-library/assets/styles/styles.css';
+---
 
-const App = () => {
-  return <Button>Click me</Button>;
+## Usage
+
+Wrap a form with `FormContext.Provider`, passing the value returned by `useForm()`:
+
+```tsx
+import { FormContext, useFormProps } from '@ab.uitools/base';
+import { useForm } from 'react-hook-form';
+
+const EmailInput = ({ name }: { name: string }) => {
+    const { register, errors } = useFormProps();
+    return (
+        <>
+            <input {...register?.(name)} />
+            {errors?.[name] && <span>{String(errors[name]?.message)}</span>}
+        </>
+    );
+};
+
+export const SignInForm = () => {
+    const methods = useForm({ defaultValues: { email: '' } });
+
+    const onSubmit = methods.handleSubmit((values) => {
+        console.log(values);
+    });
+
+    return (
+        <FormContext.Provider value={methods}>
+            <form onSubmit={onSubmit}>
+                <EmailInput name="email" />
+                <button type="submit">Sign in</button>
+            </form>
+        </FormContext.Provider>
+    );
 };
 ```
 
-How to use mixins:
+Within the provider, any component can call `useFormProps()` to read `register`, `control`, `errors`, `setValue`, and the other form methods out of context — use it to build form-aware inputs without threading `methods` through props.
 
-```scss
-@use "@ab.uitools/ui-library/assets/styles/helpers/mixin";
+> Note: `@ab.uitools/ui-library` ships its own `FormContainer` / `FormField` / internal `FormContext` and does **not** consume this package's `FormContext`. Reach for `@ab.uitools/base` when you want a lightweight form-context primitive in an app that is *not* using ui-library's `FormContainer`.
 
-.divider {
-  @include mixin.flexbox();
-}
+---
+
+## Development
+
+This package is part of the [ab-ui-tools monorepo](../../README.md). See [CONTRIBUTING.md](../../CONTRIBUTING.md) for the development workflow.
+
+### Scripts
+
+```bash
+yarn build        # Rollup build → dist/
+yarn typecheck    # tsc --noEmit
+yarn check        # lint + typecheck
 ```
 
-# How to create new icon
+---
 
-1. Add a new svg file in `svg-icons` folder.
-2. Make sure the icon is matching with the design.
-3. Make sure the svg file name is matching with pattern like this `chevron-right.svg`.
-4. Run `npm run generate-svg-component` command to generate the new icon component.
-# How to create new component
+## Release
 
-1. Add a folder with the component name in `src/components/` folder.
-2. Add a style file in the `assets/styles/components` fodler with the name `_componentName.scss`.
-3. Import the created style file in `assets/styles/styles.scss` file using @use syntax.
-4. Develop component based on the design.
-5. Add `coomponentName.stories.tsx` file in src/stories folder to test created component.
-6. Make sure you don't have type error and the component is matching with the design.
-7. If everything is ok you can create a pull request into the master branch with correct commit message (you can read about it below).
-8. The new version will be published automatically after the pull request is reviewed and merged.
-## Automated Releases with Semantic Release
+Versioning and publishing are automated via Semantic Release driven by Conventional Commits. See the root [CONTRIBUTING.md](../../CONTRIBUTING.md#releases) for details.
 
-This project uses [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) to automate versioning and releases. It follows [Semantic Versioning](https://semver.org/) (semver) and determines the next version number based on commit messages.
+## License
 
-### How It Works
-
-Semantic Release automates:
-
-1. Version number updates.
-2. Release notes generation.
-3. Package publishing to npm.
-4. GitHub release creation.
-### Commit Message Guidelines
-
-Semantic Release uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to determine release types:
-
-`fix:` – for bug fixes (patch release)
-`feat:` – for new features (minor release)
-`BREAKING CHANGE:` – for breaking changes (major release)
-### Releasing
-
-To trigger a release:
-
-1. Commit your changes using the conventional commit format.
-2. Open a pull request and merge it into the `master` branch with the appropriate commit message.
-Semantic Release will handle the rest, including publishing to npm and creating a GitHub release.
+ISC

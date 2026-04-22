@@ -1,6 +1,6 @@
 # AB UI Tools
 
-See [UI library]([https://github.com/uilibrarydev/uilibrary]) for live demos and comprehensive docs.
+See [ab-ui-tools](https://github.com/ab-ui-tools/ab-ui-tools) for live demos and comprehensive docs.
 
 # Installation and usage
 ```
