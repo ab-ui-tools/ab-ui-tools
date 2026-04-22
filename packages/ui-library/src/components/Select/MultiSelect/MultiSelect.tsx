@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 
 import type { TMultiSelectPropTypes } from '../types';
 import type { TSelectedValue } from '../../../types/globalTypes';

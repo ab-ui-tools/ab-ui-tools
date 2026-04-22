@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { TChipsProps } from '@ab.uitools/ui-library/components/Chips/types';
 
-import React from 'react';
 import IconPerson from '@ab.uitools/ui-library/components/SVGIcons/IconPerson';
 import { Chips as _Chips } from '@ab.uitools/ui-library/components/Chips';
 

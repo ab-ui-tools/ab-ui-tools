@@ -1,3 +1,5 @@
+import type { RefObject } from 'react';
+
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 const SCROLL_THRESHOLD = 5;
@@ -5,7 +7,7 @@ const SCROLL_PERCENTAGE = 0.7;
 const INITIAL_CHECK_DELAY = 100;
 
 interface UseTabScrollReturn {
-  containerRef: React.RefObject<HTMLDivElement | null>;
+  containerRef: RefObject<HTMLDivElement | null>;
   showLeftArrow: boolean;
   showRightArrow: boolean;
   scrollLeft: () => void;

@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react';
 
-import React from 'react';
 import classNames from 'classnames';
 
 import type { TChipsProps } from './types';

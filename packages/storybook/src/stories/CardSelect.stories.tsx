@@ -2,7 +2,7 @@ import type { ChangeEvent } from 'react';
 import type { StoryFn } from '@storybook/react';
 import type { TCardSelectGroupProps, TCardSelectProps } from '@ab.uitools/ui-library/components/CardSelect/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import IconQuestionCircle from '@ab.uitools/ui-library/components/SVGIcons/IconQuestionCircle';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
 import { Popover } from '@ab.uitools/ui-library/components/Popover';

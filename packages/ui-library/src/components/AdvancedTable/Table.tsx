@@ -1,8 +1,8 @@
+import type { CSSProperties } from 'react';
 import type { Column, Row, ColumnDef } from '@tanstack/react-table';
 
 import Skeleton from 'react-loading-skeleton';
-import { type CSSProperties, useEffect } from 'react';
-import React, { useState, useCallback, useMemo } from 'react';
+import { Fragment, useEffect, useState, useCallback, useMemo } from 'react';
 import classnames from 'classnames';
 import { flexRender } from '@tanstack/react-table';
 import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable';
@@ -237,7 +237,7 @@ export function Table<TData>({
                           </tr>
                         ))
                       : table.getRowModel().rows.map(row => (
-                          <React.Fragment key={row.id}>
+                          <Fragment key={row.id}>
                             <tr
                               {...rowEventsProps}
                               className={classnames(rowClassName?.(row), {
@@ -273,7 +273,7 @@ export function Table<TData>({
                                 <td colSpan={row.getVisibleCells().length}>{renderExpandedContent(row)}</td>
                               </tr>
                             )}
-                          </React.Fragment>
+                          </Fragment>
                         ))}
                   </tbody>
                 </>

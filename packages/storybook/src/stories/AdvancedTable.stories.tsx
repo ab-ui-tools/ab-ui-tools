@@ -2,7 +2,7 @@ import type { ColumnDef } from '@tanstack/react-table';
 import type { StoryFn } from '@storybook/react';
 import type { TTableProps } from '@ab.uitools/ui-library/components/AdvancedTable/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import classnames from 'classnames';
 import { IndeterminateCheckbox } from '@ab.uitools/ui-library/components/AdvancedTable/IndeterminateCheckbox';
 import {

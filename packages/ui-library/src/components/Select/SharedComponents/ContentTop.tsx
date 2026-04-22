@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
 import type { TSelectTranslations } from '../types';
 import type { TMenuItem } from '../../Menu/types';
@@ -28,7 +28,7 @@ type TProps = {
   dataIdPrefix?: string;
 };
 
-export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
+export const ContentTop = memo<TProps>((props: TProps): JSX.Element => {
   const {
     clearAll,
     selectAll,

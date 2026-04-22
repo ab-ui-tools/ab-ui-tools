@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
 import classNames from 'classnames';
 
 import type { TTextAreaTypeProps } from './types';
@@ -10,7 +10,7 @@ import { Text } from '../Text';
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled';
 import { ErrorMessage, Label } from '../../helperComponents';
 
-export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps>(
+export const Textarea = forwardRef<HTMLTextAreaElement, TTextAreaTypeProps>(
   (
     {
       className,

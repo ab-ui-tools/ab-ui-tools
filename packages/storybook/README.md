@@ -1,77 +1,53 @@
-# AB UI Tools
+# Storybook (@ab.uitools/storybook)
 
-See [UI library]([https://github.com/uilibrarydev/uilibrary]) for live demos and comprehensive docs.
+This package is the **hosted Storybook app** used to browse and validate the components from `@ab.uitools/ui-library`.
 
-# Installation and usage
-```
-npm install @ab.uitools/ui-library
-```
+## Using `ui-library` components in stories
 
-Then use it in your app:
-```jsx
-import React from 'react';
-import { Button } from '@ab.uitools/ui-library/components/Button';
-import '@ab.uitools/ui-library/assets/styles/styles.scss'; 
-// Or you can import the styles.css file
-// import '@ab.uitools/ui-library/assets/styles/styles.css';
+Import components from `@ab.uitools/ui-library` in your Storybook stories:
 
-const App = () => {
-  return <Button>Click me</Button>;
-};
+```tsx
+import { Button } from '@ab.uitools/ui-library'
+import '@ab.uitools/ui-library/assets/styles/styles.scss'
+
+export default { title: 'Components/Button' }
+
+export const Primary = () => <Button>Click me</Button>
 ```
 
-How to use mixins:
+## Keeping Storybook up to date
 
-```scss
-@use "../../node_modules/@ab.uitools/ui-library/assets/styles/helpers/mixin";
+Storybook depends on `@ab.uitools/ui-library` inside this monorepo (Yarn workspaces). When `ui-library` is updated/versioned by Lerna, Storybook will pick up the updated package automatically on the next `yarn install` / Storybook build and the deployed Storybook will reflect the latest versions.
 
-.divider {
-  @include mixin.flexbox();
-}
+## Run locally
+
+From the repo root:
+
+```bash
+yarn install
+yarn start:storybook or yarn start
 ```
 
-# How to create new icon
-    1. Add a new svg file in `svg-icons` folder.
-    2. Make sure the icon is matching with the design.
-    3. Make sure the svg file name is matching with pattern like this `chevron-right.svg`.
-    4. Run `npm run generate-svg-component` command to generate the new icon component.
+Storybook starts on `http://localhost:6006`.
 
-# How to create new component
-    1. Add a folder with the component name in `src/components/` folder.
-    2. Add a style file in the `assets/styles/components` fodler with the name `_componentName.scss`.
-    3. Import the created style file in `assets/styles/styles.scss` file using @use syntax.
-    4. Develop component based on the design.
-    5. Add `coomponentName.stories.tsx` file in src/stories folder to test created component.
-    6. Make sure you don't have type error and the component is matching with the design.
-    7. If everything is ok you can create a pull request into the master branch with correct commit message (you can read about it below).
-    8. The new version will be published automatically after the pull request is reviewed and merged.
+## Build static site
 
-## Automated Releases with Semantic Release
+From the repo root:
 
-This project uses [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) to automate versioning and releases. It follows [Semantic Versioning](https://semver.org/) (semver) and determines the next version number based on commit messages.
+```bash
+yarn build:storybook
+```
 
-### How It Works
+This produces a static build in `packages/storybook/storybook-static`.
 
-    Semantic Release automates:
+## Deployment
 
-    1. Version number updates.
-    2. Release notes generation.
-    3. Package publishing to npm.
-    4. GitHub release creation.
+The repository CI/CD builds Storybook and deploys the static output (from `packages/storybook/storybook-static`) to a hosted site.
 
-### Commit Message Guidelines
+**More info**
 
-Semantic Release uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to determine release types:
+For the full repo workflow (branches, releases, CI/CD), see the root [`README.md`](../../README.md).
 
-    `fix:` – for bug fixes (patch release)
-    `feat:` – for new features (minor release)
-    `BREAKING CHANGE:` – for breaking changes (major release)
+## Development
 
-### Releasing
-
-To trigger a release:
-
-    1. Commit your changes using the conventional commit format.
-    2. Open a pull request and merge it into the `master` branch with the appropriate commit message.
-
-Semantic Release will handle the rest, including publishing to npm and creating a GitHub release.
+This package is part of the [ab-ui-tools monorepo](../../README.md). See [CONTRIBUTING.md](../../CONTRIBUTING.md) for the development workflow.

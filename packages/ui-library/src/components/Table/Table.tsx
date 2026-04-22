@@ -2,7 +2,7 @@ import type { Column, HeaderGroup, Row as RowType, TableInstance, Hooks } from '
 import type { ReactElement } from 'react';
 
 import { useSortBy, useTable, useRowSelect } from 'react-table';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import type { TColumn, TTableProps } from './types';
