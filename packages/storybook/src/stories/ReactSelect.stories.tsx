@@ -1,5 +1,6 @@
 import type { StoryFn } from '@storybook/react';
-import type { TReactSelectProps, TOption, TItemValue } from '@ab.uitools/ui-library/components/ReactSelect/types';
+import type { TItemValue } from '@ab.uitools/ui-library/types/globalTypes';
+import type { TReactSelectProps, TOption } from '@ab.uitools/ui-library/components/ReactSelect/types';
 
 import React, { useState } from 'react';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
