@@ -57,7 +57,7 @@ export const Header = () => {
 }
 ```
 
-# Form helpers (optional)
+## Form helpers (optional)
 
 If you want to share a single React Hook Form instance across your app without passing `methods` through props, you can use `FormContext` + `useFormProps`.
 
@@ -93,3 +93,7 @@ export const SignInForm = () => {
 **More info**
 
 For versioning and release flow (including `alpha`/`beta` and stable releases), see the root [`README.md`](../../README.md).
+
+## Development
+
+This package is part of the [ab-ui-tools monorepo](../../README.md). See [CONTRIBUTING.md](../../CONTRIBUTING.md) for the development workflow.

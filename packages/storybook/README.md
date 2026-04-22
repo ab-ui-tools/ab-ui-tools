@@ -47,3 +47,7 @@ The repository CI/CD builds Storybook and deploys the static output (from `packa
 **More info**
 
 For the full repo workflow (branches, releases, CI/CD), see the root [`README.md`](../../README.md).
+
+## Development
+
+This package is part of the [ab-ui-tools monorepo](../../README.md). See [CONTRIBUTING.md](../../CONTRIBUTING.md) for the development workflow.
