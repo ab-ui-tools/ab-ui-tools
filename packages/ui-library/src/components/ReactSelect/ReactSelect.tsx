@@ -149,6 +149,7 @@ export const ReactSelect = ({
         onChange={handleChange}
         options={options}
         value={value}
+        name={name}
         isMulti={isMulti}
         isDisabled={isDisabled}
         showCount={showCount}
