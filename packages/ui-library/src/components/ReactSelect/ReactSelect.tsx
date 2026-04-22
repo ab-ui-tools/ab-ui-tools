@@ -25,6 +25,7 @@ export const ReactSelect = ({
   setFieldValue,
   selectedValue,
   setSelectedValue,
+  setSelectedOption,
   showCount = 2,
   isClearable = false,
   components: customComponents,
@@ -59,6 +60,7 @@ export const ReactSelect = ({
       setFieldValue(name, val as string);
     }
     setSelectedValue?.(val as string);
+    setSelectedOption?.(selectedOption);
   };
 
   const getFlatOptions = () => {
