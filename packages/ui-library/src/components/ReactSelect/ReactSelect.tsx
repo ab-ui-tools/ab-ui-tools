@@ -1,5 +1,5 @@
 import CreatableSelect from 'react-select/creatable';
-import Select from 'react-select';
+import Select, { type ActionMeta } from 'react-select';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
@@ -50,7 +50,7 @@ export const ReactSelect = ({
   const [value, setValue] = useState<TSelectValue>();
   const [isMounted, setIsMounted] = useState(false);
 
-  const handleChange = (selectedOption: TSelectValue) => {
+  const handleChange = (selectedOption: TSelectValue, actionMeta?: ActionMeta<TOption>) => {
     const val = !Array.isArray(selectedOption)
       ? (selectedOption as SingleValue<TOption>)?.value
       : selectedOption.map(option => option.value);
@@ -60,7 +60,7 @@ export const ReactSelect = ({
       setFieldValue(name, val as string);
     }
     setSelectedValue?.(val as string);
-    setSelectedOption?.(selectedOption);
+    setSelectedOption?.(selectedOption, actionMeta);
   };
 
   const getFlatOptions = () => {
