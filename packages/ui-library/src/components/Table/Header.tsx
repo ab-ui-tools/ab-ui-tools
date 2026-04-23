@@ -1,7 +1,6 @@
 import type { HeaderGroup, CellValue } from 'react-table';
 import type { ReactElement } from 'react';
 
-import React from 'react';
 import classNames from 'classnames';
 
 import type { TSVGIconType } from '../SVGIcons/types';

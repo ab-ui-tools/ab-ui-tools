@@ -239,7 +239,6 @@ export const combineDateTime = ({ date, time, format }: TCombineDateProp) => {
 
 export const formatDate = (date: Date | string | null, format?: TDateFormat) => {
   if (!date) return '';
-
   const dateFormat = format || 'dd/MM/yyyy';
 
   const parsed = date instanceof Date ? date : new Date(date);
