@@ -49,6 +49,8 @@ export interface BaseProps extends Omit<Props<TOption, boolean, GroupBase<TOptio
   helperText?: string;
   onChange?: TOnChange;
   value?: TFormValue;
+  isCheckbox?: boolean;
+  isRadio?: boolean;
 }
 
 export type TNonCreatableProps = BaseProps & {
