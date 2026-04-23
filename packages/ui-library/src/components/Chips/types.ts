@@ -4,14 +4,14 @@ import type { ISVGIconProps } from '../SVGIcons/types';
 import type { IFormCompProps, TClickEventType } from '../../types/globalTypes';
 
 export type TChipsColors =
-  | 'primary'
-  | 'disabled'
-  | 'brand'
-  | 'danger'
-  | 'warning'
-  | 'success'
-  | 'information'
-  | 'discovery';
+  | "default"
+  | "disabled"
+  | "brand"
+  | "danger"
+  | "warning"
+  | "success"
+  | "information"
+  | "discovery";
 export interface TChipsProps extends IFormCompProps {
   text?: string | ReactNode;
   leftIconProps?: ISVGIconProps;

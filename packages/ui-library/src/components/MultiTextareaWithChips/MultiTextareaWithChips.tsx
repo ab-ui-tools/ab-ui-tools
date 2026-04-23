@@ -223,8 +223,8 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
                     inputRef.current?.focus();
                   }, 0);
                 }}
-                size="medium"
-                color={hasError ? 'danger' : 'primary'}
+                size="small"
+                color={hasError ? 'danger' : 'default'}
                 type="accent"
                 disabled={disabled}
                 aria-label={`Remove ${text} chip`}

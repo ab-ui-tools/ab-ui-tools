@@ -5,20 +5,28 @@ import IconPerson from '@ab.uitools/ui-library/components/SVGIcons/IconPerson';
 import { Chips as _Chips } from '@ab.uitools/ui-library/components/Chips';
 
 export default {
-  title: 'Chips',
+  title: "Chips",
   component: _Chips,
   argTypes: {
     type: {
-      options: ['filled', 'accent', 'outlined'],
-      control: { type: 'radio' },
+      options: ["filled", "accent", "outlined"],
+      control: { type: "radio" },
     },
     color: {
-      options: ['primary', 'brand', 'danger', 'warning', 'success', 'information', 'discovery'],
-      control: { type: 'radio' },
+      options: [
+        "default",
+        "brand",
+        "danger",
+        "warning",
+        "success",
+        "information",
+        "discovery",
+      ],
+      control: { type: "radio" },
     },
     size: {
-      options: ['large', 'medium', 'small', 'xsmall'],
-      control: { type: 'radio' },
+      options: ["large", "medium", "small", "xsmall"],
+      control: { type: "radio" },
     },
   },
 };
@@ -29,7 +37,7 @@ export const Chips = Template.bind({});
 
 Chips.args = {
   type: 'filled',
-  color: 'primary',
+  color: 'default',
   size: 'large',
   text: 'Badge',
   leftIconProps: {

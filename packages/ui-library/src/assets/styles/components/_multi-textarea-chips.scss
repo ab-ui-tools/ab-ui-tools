@@ -36,9 +36,9 @@
         border: none;
         outline: none;
         background: transparent;
-        font-size: 14px;
         color: #333;
         width: 100%;
+        font: var(--font-size-14) var(--font-family-primary);
 
         &::placeholder {
             color: #999;
