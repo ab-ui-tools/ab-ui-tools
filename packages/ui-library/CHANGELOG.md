@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.14...@ab.uitools/ui-library@1.9.0) (2026-04-23)
+
+### Features
+
+- add cut icon ([ce94bf8](https://github.com/ab-ui-tools/ab-ui-tools/commit/ce94bf893043fd7620962a388b32973b7306d8f6))
+
 ## [1.8.14](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.13...@ab.uitools/ui-library@1.8.14) (2026-04-22)
 
 ### Bug Fixes
