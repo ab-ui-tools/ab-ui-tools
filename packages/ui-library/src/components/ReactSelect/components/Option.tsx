@@ -18,7 +18,7 @@ export const Option = (props: OptionProps<TOption>) => {
       <components.Option {...props}>
         <div className="flexbox align-items--center justify-content--between">
           <Text>{label}</Text>
-          {isSelected && <IconCheckmark size="xsmall" type={isDisabled ? 'disabled' : 'brand-light'} />}
+          {isSelected && <IconCheckmark size="small" type={isDisabled ? 'disabled' : 'brand-light'} />}
         </div>
       </components.Option>
     );
@@ -47,7 +47,7 @@ export const Option = (props: OptionProps<TOption>) => {
         {!isRadio && !isCheckbox && (
           <div className="flexbox align-items-center justify-content--between">
             <Text>{label}</Text>
-            {isSelected && <IconCheckmark size="xsmall" type={isDisabled ? 'disabled' : 'brand-light'} />}
+            {isSelected && <IconCheckmark size="small" type={isDisabled ? 'disabled' : 'brand-light'} />}
           </div>
         )}
       </div>

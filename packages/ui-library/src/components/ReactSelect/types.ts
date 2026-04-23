@@ -1,5 +1,5 @@
 import type { CreatableProps } from 'react-select/creatable';
-import type { Props, GroupBase, SingleValue, MultiValue } from 'react-select';
+import type { Props, GroupBase, SingleValue, MultiValue, ActionMeta } from 'react-select';
 import type { JSX, ReactNode } from 'react';
 
 import type { TFormValue, TItemLabel, TItemValue, TOnChange } from '../../types/globalTypes';
@@ -41,7 +41,7 @@ export interface BaseProps extends Omit<Props<TOption, boolean, GroupBase<TOptio
   selectedValue?: TItemValue | TItemValue[];
   setSelectedValue?: (value: TItemValue | TItemValue[]) => void;
   setFieldValue?: (name: string, value: TFormValue, shouldValidate?: { shouldValidate: boolean }) => void;
-  setSelectedOption?: (newValue: SingleValue<TOption> | MultiValue<TOption>) => void;
+  handleChange?: (newValue: SingleValue<TOption> | MultiValue<TOption>, actionMeta?: ActionMeta<TOption>) => void;
   labelAddons?: JSX.Element;
   label?: string;
   required?: boolean;
@@ -49,6 +49,9 @@ export interface BaseProps extends Omit<Props<TOption, boolean, GroupBase<TOptio
   helperText?: string;
   onChange?: TOnChange;
   value?: TFormValue;
+  showCount?: number;
+  isCheckbox?: boolean;
+  isRadio?: boolean;
 }
 
 export type TNonCreatableProps = BaseProps & {

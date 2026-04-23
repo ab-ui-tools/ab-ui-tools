@@ -3,7 +3,7 @@ import type { Table } from '@tanstack/react-table';
 import { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
-import type { TItemValue } from '../../types/globalTypes';
+import type { TItemValue, TSelectOptions } from '../../types/globalTypes';
 
 import { OPTIONS } from './constants';
 import { Text } from '../Text';
@@ -20,9 +20,15 @@ interface PaginationProps<T> {
   table: Table<T>;
   totalCount: number;
   buttonText?: string;
+  pageSizeOptions?: TSelectOptions;
 }
 
-export function AdvancedPagination<TData>({ table, totalCount, buttonText }: PaginationProps<TData>) {
+export function AdvancedPagination<TData>({
+  table,
+  totalCount,
+  buttonText,
+  pageSizeOptions = OPTIONS,
+}: PaginationProps<TData>) {
   const [navigatePage, setNavigatePage] = useState<string>('1');
 
   const pageIndex = table.getState().pagination.pageIndex;
@@ -82,7 +88,7 @@ export function AdvancedPagination<TData>({ table, totalCount, buttonText }: Pag
         setSelectedItem={value => onRowCountChange(value)}
         selectedItem={`${pageSize}`}
         className={'no-border'}
-        options={OPTIONS}
+        options={pageSizeOptions}
       />
       <div className={'advanced-table__pagination__right'}>
         <Text type={'tertiary'}>
