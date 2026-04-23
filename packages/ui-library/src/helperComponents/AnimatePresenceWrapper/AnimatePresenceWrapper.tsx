@@ -1,11 +1,10 @@
-import type { JSX } from 'react';
+import type { FC, JSX, ReactNode } from 'react';
 import type { AnimatePresenceProps } from 'framer-motion';
 
-import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 interface NewAnimatePresenceProps extends Omit<AnimatePresenceProps, 'children'> {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 //  This component is for exit animation
@@ -13,10 +12,10 @@ export function AnimatePresenceWrapper({
   children,
   initial = true,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   initial?: boolean;
 }): JSX.Element {
-  const NewAnimatePresence: React.FC<NewAnimatePresenceProps> = AnimatePresence;
+  const NewAnimatePresence: FC<NewAnimatePresenceProps> = AnimatePresence;
 
   return <NewAnimatePresence initial={initial}>{children}</NewAnimatePresence>;
 }

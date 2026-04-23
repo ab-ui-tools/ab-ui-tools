@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { isSameDay, isEqual, isBefore, isAfter } from 'date-fns';
 import classNames from 'classnames';
 

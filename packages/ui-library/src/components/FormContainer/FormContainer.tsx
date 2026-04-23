@@ -1,7 +1,6 @@
 import type { JSX } from 'react';
 
 import { useForm } from 'react-hook-form';
-import React from 'react';
 import classnames from 'classnames';
 import { yupResolver } from '@hookform/resolvers/yup';
 

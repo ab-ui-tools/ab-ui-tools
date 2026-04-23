@@ -1,6 +1,5 @@
-import type { ReactElement } from 'react';
+import type { MouseEvent, ReactElement } from 'react';
 
-import React from 'react';
 import classNames from 'classnames';
 
 import type { LinkPropTypes } from './types';
@@ -32,7 +31,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
     className
   );
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     if (disabled) {
       e.preventDefault();
       return;
