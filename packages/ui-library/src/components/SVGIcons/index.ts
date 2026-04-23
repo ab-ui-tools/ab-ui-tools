@@ -167,6 +167,8 @@ export * from './IconCopy';
 export * from './IconCopyFilled';
 export * from './IconCubeTree';
 export * from './IconCubeTreeFilled';
+export * from './IconCut';
+export * from './IconCutFilled';
 export * from './IconDatabase';
 export * from './IconDatabaseFilled';
 export * from './IconDataPie';
