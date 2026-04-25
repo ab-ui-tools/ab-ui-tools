@@ -255,7 +255,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
             />
 
             {dropdownLogic.showDropdown && dropdownLogic.filteredOptions.length > 0 && (
-              <div className="multi-textarea-chips__dropdown" role="listbox" aria-label="Available options">
+              <div className="multi-textarea-chips__dropdown scrollbar scrollbar--vertical" role="listbox" aria-label="Available options">
                 {dropdownLogic.filteredOptions.map(option => (
                   <div
                     key={option}
