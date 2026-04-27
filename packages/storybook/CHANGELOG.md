@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.19](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.18...@ab.uitools/storybook@1.7.19) (2026-04-27)
+
+### Bug Fixes
+
+- chips ui fix, and fix for multytextarea font family ([0c56284](https://github.com/ab-devtools/uilibrary/commit/0c5628416234e6a37fe12c9bce2668c7b7119ca5))
+- chips ui fix, and fix for multytextarea font family ([94d0431](https://github.com/ab-devtools/uilibrary/commit/94d0431e16472aea12f00609508c17c02ed6dfcf))
+
 ## [1.7.18](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.17...@ab.uitools/storybook@1.7.18) (2026-04-23)
 
 **Note:** Version bump only for package @ab.uitools/storybook

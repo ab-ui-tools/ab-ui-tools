@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.3...@ab.uitools/ui-library@1.9.4) (2026-04-27)
+
+### Bug Fixes
+
+- fix ([6828278](https://github.com/ab-ui-tools/ab-ui-tools/commit/6828278a3043aedfca8ec2b711c6e5005c777b37))
+- chips ui fix, and fix for multytextarea font family ([0c56284](https://github.com/ab-ui-tools/ab-ui-tools/commit/0c5628416234e6a37fe12c9bce2668c7b7119ca5))
+- chips ui fix, and fix for multytextarea font family ([94d0431](https://github.com/ab-ui-tools/ab-ui-tools/commit/94d0431e16472aea12f00609508c17c02ed6dfcf))
+- ui fixes for multi textarea with chips component ([f042100](https://github.com/ab-ui-tools/ab-ui-tools/commit/f04210058e1934babe8d5cf09aba2057b2eb9ea8))
+
 ## [1.9.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.2...@ab.uitools/ui-library@1.9.3) (2026-04-23)
 
 ### Bug Fixes
