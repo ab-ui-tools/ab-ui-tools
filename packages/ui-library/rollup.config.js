@@ -5,7 +5,7 @@ import copy from 'rollup-plugin-copy'
 import fs from 'fs'
 import path from 'path'
 import babel from 'rollup-plugin-babel'
-import pkg from './package.json'
+const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'))
 import generatePackageJson from 'rollup-plugin-generate-package-json'
 import image from '@rollup/plugin-image'
 import postcss from 'rollup-plugin-postcss'
