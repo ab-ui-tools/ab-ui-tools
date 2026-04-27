@@ -22,7 +22,7 @@ export const TEXT_SIZE_MAPPING: { [key: string]: TTextSize } = {
   xsmall: 'small',
 };
 export const COLOR_MAPPING: { [key: string]: TTextTypes } = {
-  primary: 'primary',
+  default: 'secondary',
   disabled: 'disabled',
   brand: 'brand-light',
   danger: 'danger-light',

@@ -1,16 +1,17 @@
+@use "../helpers/mixin";
+
 .multi-textarea-chips {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
     width: 100%;
 
     &__label {
-        font-weight: 600;
-        font-size: 14px;
-        color: #333;
+        display: block;
+        font: var(--font-weight-500) var(--font-size-14) var(--font-family-primary);
+        color: var(--ds-color-text-primary);
+        margin-bottom: var(--ds-space-6);
     }
 
     &__content {
+        @include mixin.flexbox;
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
@@ -36,9 +37,9 @@
         border: none;
         outline: none;
         background: transparent;
-        font-size: 14px;
         color: #333;
         width: 100%;
+        font: var(--font-weight-400) var(--font-size-14) var(--font-family-primary);
 
         &::placeholder {
             color: #999;
@@ -51,41 +52,30 @@
     }
 
     &__dropdown {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        border: 1px solid var(--ds-color-border-tertiary);
-        border-radius: var(--ds-border-radius-md);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        max-height: 160px;
-        overflow-y: auto;
-        z-index: 1000;
-        margin-top: 2px;
+        @include mixin.absolute(100%, 0, unset, 0);
+        border: 1px solid var(--ds-color-border-quintary);
+        box-shadow: 0 0 40px 0 #4E4E4E0F;
+        border-radius: var(--ds-border-radius-2xl);
+        background-color: var(--ds-color-bg-white);
+        padding: var(--ds-space-6);
+        margin-top: var(--ds-space-4);
+        max-height: 304px;
+        z-index: 1;
     }
 
     &__dropdown-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 12px 16px;
-        cursor: pointer;
-        font-size: 14px;
-        color: var(--ds-color-text-primary);
-        border-bottom: 1px solid var(--ds-color-border-tertiary);
-        transition: background-color 0.2s ease;
+        @include mixin.flexbox;
+        @include mixin.align-items(center);
+        gap: var(--ds-space-12);
+        padding: var(--ds-space-12);
+        border-radius: var(--ds-border-radius-xl);
+
+        &:not(:last-child) {
+            margin-bottom: var(--ds-space-2);
+        }
 
         &:hover {
-            background-color: var(--ds-color-bg-container-lighter);
-        }
-
-        &:last-child {
-            border-bottom: none;
-        }
-
-        &--selected {
-            background-color: var(--ds-color-bg-container-lighter);
+            background-color: var(--ds-color-bg-container-light);
         }
     }
 

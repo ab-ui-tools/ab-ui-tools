@@ -31,8 +31,8 @@
   --ds-chips-filled-bg-discovery: var(--purple-300);
   --ds-chips-filled-bg-discovery-hover: var(--purple-500);
 
-  --ds-chips-accent-bg-primary: var(--grey-20);
-  --ds-chips-accent-bg-primary-hover: var(--grey-50);
+  --ds-chips-accent-bg-primary: var(--grey-50);
+  --ds-chips-accent-bg-primary-hover: var(--grey-100);
   --ds-chips-accent-bg-information: var(--blue-20);
   --ds-chips-accent-bg-information-hover: var(--blue-50);
   --ds-chips-accent-bg-brand: var(--brand-20);
@@ -56,7 +56,7 @@
   --ds-chips-outlined-bg-discovery-hover: var(--purple-50);
 
   --ds-chips-bg-disabled: var(--grey-50);
-
+  --ds-chips-border-disabled: var(--grey-50);
 
   --ds-chips-border-color-disabled: var(--ds-color-border-disabled);
   --ds-chips-border-color-information: var(--blue-100);
@@ -112,7 +112,7 @@
 
   &--filled {
     &:not(&#{$this}--disabled) {
-      &#{$this}--primary {
+      &#{$this}--default {
         background-color: var(--ds-chips-filled-bg-primary);
 
         &[aria-readonly = false]:hover {
@@ -170,31 +170,21 @@
     }
     &#{$this}--disabled {
       background-color: var(--ds-chips-bg-disabled);
+      border-color: var(--ds-chips-border-disabled);
     }
   }
   &--accent {
     border: 1px solid;
+
     &:not(&#{$this}--disabled) {
-      &#{$this}--primary {
-        background-color: var(--ds-chips-accent-bg-primary);
-        &[aria-readonly = false]:hover {
-          background-color: var(--ds-chips-accent-bg-primary-hover)
-        }
-      }
-      //--ds-chips-border-color-information: var(--blue-100);
-      //--ds-chips-border-color-brand: var(--brand-40);
-      //--ds-chips-border-color-danger: var(--red-100);
-      //--ds-chips-border-color-warning: var(--yellow-100);
-      //--ds-chips-border-color-success: var(--green-100);
-      //--ds-chips-border-color-discovery: var(--purple-100);
-      //--ds-chips-border-color-grey: var(--grey-100);
-      &#{$this}--primary {
+      &#{$this}--default {
         border-color: var(--ds-chips-border-color-grey);
         background-color: var(--ds-chips-accent-bg-primary);
         &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-accent-bg-primary-hover)
         }
       }
+
       &#{$this}--information {
         border-color: var(--ds-chips-border-color-information);
         background-color: var(--ds-chips-accent-bg-information);
@@ -245,6 +235,7 @@
     }
     &#{$this}--disabled {
       background-color: var(--ds-chips-bg-disabled);
+      border-color: var(--ds-chips-bg-disabled);
     }
   }
   &--outlined {
@@ -252,7 +243,7 @@
     background-color: var(--ds-chips-outlined-bg);
 
     &:not(&#{$this}--disabled) {
-      &#{$this}--primary {
+      &#{$this}--default {
         border-color: var(--ds-chips-filled-bg-primary);
         &[aria-readonly = false]:hover {
           background-color: var(--ds-chips-outlined-bg-primary-hover)
