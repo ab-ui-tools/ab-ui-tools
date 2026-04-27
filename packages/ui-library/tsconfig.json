@@ -29,5 +29,9 @@
   ],
   "exclude": [
     "node_modules",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "src/setupTests.ts",
+    "**/*.stories.tsx"
   ]
 }
