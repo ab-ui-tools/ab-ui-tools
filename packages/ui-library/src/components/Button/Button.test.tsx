@@ -1,10 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 
 import { Button } from './Button';
 
-// Mock icon component for testing
 const MockIcon = () => <svg data-testid="mock-icon" />;
 
 describe('Button', () => {
@@ -65,11 +63,9 @@ describe('Button', () => {
   it('renders loader when isLoading is true', () => {
     const { container } = render(<Button buttonText="Submit" isLoading />);
 
-    // Check if the loader wrapper exists
     const loaderWrapper = container.querySelector('.btn__loader');
     expect(loaderWrapper).toBeInTheDocument();
 
-    // Check if the content is hidden
     const content = container.querySelector('.btn__content');
     expect(content).toHaveClass('btn__content--hidden');
   });
