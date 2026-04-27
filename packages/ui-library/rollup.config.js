@@ -13,7 +13,7 @@ import { compileString } from 'sass'
 import dts from 'vite-plugin-dts'
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
-const ignoreExtensions = ['.stories.tsx', '.d.ts']
+const ignoreExtensions = ['.stories.tsx', '.d.ts', '.test.tsx', '.test.ts', 'setupTests.ts']
 
 const externalDeps = [
   ...Object.keys(pkg.peerDependencies || {}),
