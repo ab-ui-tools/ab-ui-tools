@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.4...@ab.uitools/ui-library@1.9.5) (2026-04-28)
+
+### Bug Fixes
+
+- react select menu hide on scroll default value ([29bad2f](https://github.com/ab-ui-tools/ab-ui-tools/commit/29bad2f85912d6e763216b95a7a8fdde2741c8bd))
+
 ## [1.9.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.3...@ab.uitools/ui-library@1.9.4) (2026-04-27)
 
 ### Bug Fixes
