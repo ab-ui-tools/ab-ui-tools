@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode, RefObject } from 'react';
 
 import type { TTabProps } from '../Tab/types';
 import type { TButtonPropTypes } from '../Button/types';
@@ -12,7 +12,7 @@ export type TCheckboxInfo = {
 };
 
 export type TSideSheetChildren = {
-  scrollbarContainerRef?: React.RefObject<HTMLDivElement | null>;
+  scrollbarContainerRef?: RefObject<HTMLDivElement | null>;
 };
 
 export interface TSideSheetPropTypes {

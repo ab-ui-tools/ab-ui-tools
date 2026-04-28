@@ -1,7 +1,7 @@
-import type { JSX } from 'react';
+import type { InputHTMLAttributes, JSX } from 'react';
 
 import { Fragment } from 'react';
-import React, { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import type { TSingleSelectPropTypes } from '../types';
@@ -287,7 +287,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         className="select__input"
         label={label}
         onChange={onSearch}
-        onInput={onInputChange as React.InputHTMLAttributes<HTMLInputElement>['onInput']}
+        onInput={onInputChange as InputHTMLAttributes<HTMLInputElement>['onInput']}
         required={isRequiredField}
         leftIconProps={leftIconProps}
         rightIconProps={isOpen ? rightIconOpenedProps : rightIconProps}

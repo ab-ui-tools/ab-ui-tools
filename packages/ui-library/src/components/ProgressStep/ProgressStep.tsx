@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react';
 
-import React from 'react';
 import classnames from 'classnames';
 
 import type { TProgressStepProps } from './types';

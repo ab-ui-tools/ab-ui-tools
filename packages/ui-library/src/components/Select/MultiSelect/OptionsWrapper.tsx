@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import React, { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 
 import type { TSelectTranslations } from '../types';
 import type {

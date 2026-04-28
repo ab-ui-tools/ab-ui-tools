@@ -1,7 +1,5 @@
 import type { ReactElement } from 'react';
 
-import React from 'react';
-
 import type { TChipsProps } from '../../Chips/types';
 
 import { Chips } from '../../Chips';

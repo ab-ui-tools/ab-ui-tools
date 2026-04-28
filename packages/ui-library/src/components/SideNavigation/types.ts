@@ -1,4 +1,4 @@
-import type { JSX, ReactNode } from 'react';
+import type { ComponentType, JSX, ReactNode } from 'react';
 
 import type { ISVGIconProps } from '../SVGIcons/types';
 
@@ -17,7 +17,7 @@ export interface TSideNavigationPropTypes extends SideNavigationControls {
   logo?: string;
   logoUrl?: string;
   logoClosed?: string;
-  headerChildren?: React.ComponentType<{ isOpen: boolean }>;
+  headerChildren?: ComponentType<{ isOpen: boolean }>;
   actionElm?: JSX.Element;
   showAction?: boolean;
   children: ReactNode;

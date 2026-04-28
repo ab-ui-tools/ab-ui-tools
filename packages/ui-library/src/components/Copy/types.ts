@@ -1,3 +1,5 @@
+import type { RefObject } from 'react';
+
 import type { TSVGIconType } from '../SVGIcons/types';
 
 export type TCopyProps = {
@@ -7,7 +9,7 @@ export type TCopyProps = {
   size?: 'small' | 'medium' | 'large';
   dataId?: string;
   type?: TSVGIconType;
-  parentRef?: React.RefObject<HTMLElement>;
+  parentRef?: RefObject<HTMLElement>;
   position?:
     | 'top-left'
     | 'top-center'

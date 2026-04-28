@@ -4,7 +4,7 @@ import type { ISVGIconProps } from '../SVGIcons/types';
 import type { IFormCompProps, TClickEventType } from '../../types/globalTypes';
 
 export type TChipsColors =
-  | 'primary'
+  | 'default'
   | 'disabled'
   | 'brand'
   | 'danger'

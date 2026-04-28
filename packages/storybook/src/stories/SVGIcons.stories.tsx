@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { ISVGIconProps } from '@ab.uitools/ui-library/components/SVGIcons/types';
 
-import React from 'react';
 import { Text } from '@ab.uitools/ui-library/components/Text';
 import * as Icons from '@ab.uitools/ui-library/components/SVGIcons';
 

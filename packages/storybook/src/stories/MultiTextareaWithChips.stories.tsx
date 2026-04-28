@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 
 import * as yup from 'yup';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { MultiTextareaWithChips } from '@ab.uitools/ui-library/components/MultiTextareaWithChips';
 import { FormField } from '@ab.uitools/ui-library/components/FormField';
 import { FormContainer } from '@ab.uitools/ui-library/components/FormContainer';

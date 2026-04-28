@@ -1,7 +1,7 @@
 import type { StoryFn } from '@storybook/react';
 import type { TCheckboxProps } from '@ab.uitools/ui-library/components/Checkbox/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Checkbox as _Checkbox } from '@ab.uitools/ui-library/components/Checkbox';
 
 export default {

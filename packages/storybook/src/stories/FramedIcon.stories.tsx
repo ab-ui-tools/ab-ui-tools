@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { TFramedIconPropTypes } from '@ab.uitools/ui-library/components/FramedIcon/types';
 
-import React from 'react';
 import IconDelete from '@ab.uitools/ui-library/components/SVGIcons/IconDelete';
 import { FramedIcon as _FramedIcon } from '@ab.uitools/ui-library/components/FramedIcon';
 

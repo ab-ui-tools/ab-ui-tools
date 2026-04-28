@@ -1,6 +1,6 @@
-import type { JSX } from 'react';
+import type { ChangeEvent, JSX } from 'react';
 
-import React, { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import type { TFileUploadProps } from './types';
 import type { TFormValue } from '../../types/globalTypes';
@@ -87,7 +87,7 @@ export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   };
 
   const handleChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+    (event: ChangeEvent<HTMLInputElement>) => {
       const fileList = event.target?.files as FileList;
       const fileArray = multiple ? Array.from(fileList) : [fileList[0]];
 

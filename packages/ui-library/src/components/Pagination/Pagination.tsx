@@ -1,7 +1,6 @@
 import type { JSX } from 'react';
 
 import ReactPaginate from 'react-paginate';
-import React from 'react';
 import classNames from 'classnames';
 
 import type { TPaginationProps } from './types';

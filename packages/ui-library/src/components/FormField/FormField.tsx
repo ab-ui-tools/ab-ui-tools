@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 
 import { Controller } from 'react-hook-form';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import classnames from 'classnames';
 import { ErrorMessage as ReactHookFormErrorMessage } from '@hookform/error-message';
 
