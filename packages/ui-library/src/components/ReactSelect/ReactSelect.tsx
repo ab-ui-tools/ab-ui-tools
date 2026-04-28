@@ -33,9 +33,10 @@ export const ReactSelect = ({
   labelAddons,
   isDisabled,
   isCheckbox,
-  isSearchable,
+  isSearchable = false,
   isCreatable = false,
   isCreateOnOutsideClick,
+  closeMenuOnScroll = true,
   isRadio,
   isMulti,
   hasError,
@@ -158,6 +159,7 @@ export const ReactSelect = ({
         showCount={showCount}
         isClearable={isClearable}
         closeMenuOnSelect={!isMulti}
+        closeMenuOnScroll={closeMenuOnScroll}
         hideSelectedOptions={hideSelectedOptions}
         isCheckbox={isCheckbox}
         isRadio={isRadio}
