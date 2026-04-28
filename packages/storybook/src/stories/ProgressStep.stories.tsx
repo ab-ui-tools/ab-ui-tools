@@ -1,7 +1,7 @@
 import type { StoryFn } from '@storybook/react';
 import type { TProgressStepProps, TSteps, TStepValue } from '@ab.uitools/ui-library/components/ProgressStep/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { PROGRESS_STATUSES } from '@ab.uitools/ui-library/components/ProgressStep/consts';
 import { ProgressStep as _ProgressStep } from '@ab.uitools/ui-library/components/ProgressStep';
 import { Button } from '@ab.uitools/ui-library/components/Button';

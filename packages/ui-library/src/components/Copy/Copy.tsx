@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 
 import type { TCopyProps } from './types';
 import type { TClickEventType } from '../../types/globalTypes';

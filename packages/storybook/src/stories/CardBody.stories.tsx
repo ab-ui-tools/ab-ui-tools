@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { TCardBodyProps } from '@ab.uitools/ui-library/components/CardBody/types';
 
-import React from 'react';
 import { CardBody as _TCardBody } from '@ab.uitools/ui-library/components/CardBody';
 
 // @ts-ignore

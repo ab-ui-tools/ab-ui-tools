@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
 
-import React from 'react';
+import { isValidElement } from 'react';
 
 import type { TInfoList } from '../types';
 
@@ -15,7 +15,7 @@ interface TCardAdditionalInfo {
 export const CardAdditionalInfo = (props: TCardAdditionalInfo): ReactElement | null => {
   const { additionalInfo, disabled } = props;
 
-  if (React.isValidElement(additionalInfo)) {
+  if (isValidElement(additionalInfo)) {
     return additionalInfo;
   }
 

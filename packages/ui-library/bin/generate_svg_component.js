@@ -41,7 +41,7 @@ function generateComponentName(fileName) {
 function generateReactComponent(componentName, svgPath) {
     // Generate React component code using the provided SVG path
     // You can use a template string or any templating library to generate the component
-    return `import React, { ReactElement } from 'react'
+    return `import { ReactElement } from 'react'
 import {ISVGIconProps} from './types';
 import classNames from 'classnames'
 

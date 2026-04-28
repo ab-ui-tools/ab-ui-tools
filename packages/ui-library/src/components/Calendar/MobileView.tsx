@@ -1,5 +1,5 @@
 import ReactCalendar from 'react-calendar';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { enUS, hy, ru } from 'date-fns/locale';
 import { differenceInMonths, startOfMonth, format } from 'date-fns';
 import { useVirtualizer } from '@tanstack/react-virtual';

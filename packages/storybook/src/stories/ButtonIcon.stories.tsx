@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { TButtonIconPropTypes } from '@ab.uitools/ui-library/components/ButtonIcon/types';
 
-import React from 'react';
 import { IconChevronDown } from '@ab.uitools/ui-library/components/SVGIcons';
 import { ButtonIcon as _ButtonIcon } from '@ab.uitools/ui-library/components/ButtonIcon';
 

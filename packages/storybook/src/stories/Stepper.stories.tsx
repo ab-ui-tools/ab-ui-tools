@@ -1,4 +1,3 @@
-import React from 'react';
 import { Stepper as _Stepper } from '@ab.uitools/ui-library/components/Stepper';
 
 export default {

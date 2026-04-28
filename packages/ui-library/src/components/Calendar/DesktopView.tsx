@@ -1,5 +1,5 @@
 import ReactCalendar from 'react-calendar';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { addMonths, startOfMonth, subMonths } from 'date-fns';
 import classNames from 'classnames';
 

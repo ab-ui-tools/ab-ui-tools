@@ -1,9 +1,11 @@
+import type { RefObject } from 'react';
+
 import { useState, useEffect, useCallback } from 'react';
 
 interface UseDropdownLogicProps {
   availableOptions: string[];
   chipTexts: string[];
-  containerRef: React.RefObject<HTMLDivElement | null>;
+  containerRef: RefObject<HTMLDivElement | null>;
 }
 
 export const useDropdownLogic = ({ availableOptions, chipTexts, containerRef }: UseDropdownLogicProps) => {

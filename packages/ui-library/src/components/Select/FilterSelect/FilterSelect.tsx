@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 
 import { createPortal } from 'react-dom';
-import React, { useCallback, useId, useState } from 'react';
+import { useCallback, useId, useState } from 'react';
 
 import type { TFilterProps } from '../types';
 import type {

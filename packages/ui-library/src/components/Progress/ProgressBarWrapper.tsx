@@ -1,6 +1,5 @@
 import type { FC, PropsWithChildren } from 'react';
 
-import React from 'react';
 import classnames from 'classnames';
 
 import type { TProgressBarWrapperPropTypes } from './types';

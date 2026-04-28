@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 
 import DatePicker from 'react-datepicker';
 import { useMemo } from 'react';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import dayjs from 'dayjs';
 import { format as datefnsFormat } from 'date-fns';
 

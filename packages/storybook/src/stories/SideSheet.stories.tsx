@@ -2,7 +2,7 @@ import type { StoryFn } from '@storybook/react';
 import type { TSideSheetPropTypes } from '@ab.uitools/ui-library/components/SideSheet/types';
 
 import * as yup from 'yup';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import IconPerson from '@ab.uitools/ui-library/components/SVGIcons/IconPerson';
 import IconMore from '@ab.uitools/ui-library/components/SVGIcons/IconMore';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';

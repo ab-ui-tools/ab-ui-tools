@@ -2,7 +2,7 @@
 import type { Row as RowType, CellValue } from 'react-table';
 import type { ReactElement } from 'react';
 
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import { CHECKBOX_DEFAULT_WIDTH, CHECKBOX_HEADER_ID } from './utils';

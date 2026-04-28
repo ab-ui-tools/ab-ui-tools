@@ -1,6 +1,6 @@
 import type { ForwardedRef, ReactElement } from 'react';
 
-import React, { useRef, useMemo, forwardRef } from 'react';
+import { useRef, useMemo, forwardRef } from 'react';
 import classnames from 'classnames';
 
 import type { TCheckboxProps } from './types';

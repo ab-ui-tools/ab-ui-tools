@@ -1,7 +1,7 @@
 import type { ForwardedRef, JSX } from 'react';
 
 import { forwardRef } from 'react';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import classNames from 'classnames';
 
 import type { TSelectItemProps } from './types';
