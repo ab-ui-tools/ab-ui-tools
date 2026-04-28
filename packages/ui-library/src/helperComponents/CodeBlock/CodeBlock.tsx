@@ -2,7 +2,6 @@ import type { FC } from 'react';
 
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import React from 'react';
 
 export interface Props {
   title?: string;

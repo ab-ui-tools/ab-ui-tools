@@ -1,76 +1,99 @@
 # AB UI Tools
 
-See [UI library]([https://github.com/uilibrarydev/uilibrary]) for live demos and comprehensive docs.
+Documentation lives in the repo `README.md` files. Live demo (Storybook): https://ab-ui-tools.github.io/ab-ui-tools/?path=/story/calendar--calendar
 
 # Installation and usage
 
+`@ab.uitools/base` is a standalone package with **hooks, helpers, and other supplementary utilities**. 
 ```
-npm install @ab.uitools/ui-library
+npm install @ab.uitools/base
+# or
+yarn add @ab.uitools/base
 ```
+
+Peer dependencies:
+
+- `react` ^18.2.0
+- `react-dom` ^18.2.0
+- `react-hook-form` ^7.x
+- `yup` ^1.7.0
 
 Then use it in your app:
 
-```jsx
-import React from 'react';
-import { Button } from '@ab.uitools/ui-library/components/Button';
-import '@ab.uitools/ui-library/assets/styles/styles.scss'; 
-// Or you can import the styles.css file
-// import '@ab.uitools/ui-library/assets/styles/styles.css';
-
-const App = () => {
-  return <Button>Click me</Button>;
-};
+```ts
+import { useOnOutsideClick, useScreenSize } from '@ab.uitools/base'
 ```
 
-How to use mixins:
+Example (close a dropdown on outside click):
 
-```scss
-@use "@ab.uitools/ui-library/assets/styles/helpers/mixin";
+```tsx
+import { useRef, useState } from 'react'
+import { useOnOutsideClick } from '@ab.uitools/base'
 
-.divider {
-  @include mixin.flexbox();
+export const Dropdown = () => {
+  const ref = useRef<HTMLDivElement | null>(null)
+  const [open, setOpen] = useState(false)
+  const uid = 'dropdown-1'
+
+  useOnOutsideClick(ref.current, () => setOpen(false), open, uid)
+
+  return (
+    <div ref={ref}>
+      <button onClick={() => setOpen((v) => !v)}>Toggle</button>
+      {open && <div>Menu</div>}
+    </div>
+  )
 }
 ```
 
-# How to create new icon
+Example (responsive behavior):
 
-1. Add a new svg file in `svg-icons` folder.
-2. Make sure the icon is matching with the design.
-3. Make sure the svg file name is matching with pattern like this `chevron-right.svg`.
-4. Run `npm run generate-svg-component` command to generate the new icon component.
-# How to create new component
+```tsx
+import { useScreenSize } from '@ab.uitools/base'
 
-1. Add a folder with the component name in `src/components/` folder.
-2. Add a style file in the `assets/styles/components` fodler with the name `_componentName.scss`.
-3. Import the created style file in `assets/styles/styles.scss` file using @use syntax.
-4. Develop component based on the design.
-5. Add `coomponentName.stories.tsx` file in src/stories folder to test created component.
-6. Make sure you don't have type error and the component is matching with the design.
-7. If everything is ok you can create a pull request into the master branch with correct commit message (you can read about it below).
-8. The new version will be published automatically after the pull request is reviewed and merged.
-## Automated Releases with Semantic Release
+export const Header = () => {
+  const size = useScreenSize()
+  return <div>Current breakpoint: {size}</div>
+}
+```
 
-This project uses [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) to automate versioning and releases. It follows [Semantic Versioning](https://semver.org/) (semver) and determines the next version number based on commit messages.
+## Form helpers (optional)
 
-### How It Works
+If you want to share a single React Hook Form instance across your app without passing `methods` through props, you can use `FormContext` + `useFormProps`.
 
-Semantic Release automates:
+```tsx
+import { FormContext, useFormProps } from '@ab.uitools/base'
+import { useForm } from 'react-hook-form'
 
-1. Version number updates.
-2. Release notes generation.
-3. Package publishing to npm.
-4. GitHub release creation.
-### Commit Message Guidelines
+const EmailInput = ({ name }: { name: string }) => {
+  const { register, errors } = useFormProps()
+  return (
+    <>
+      <input {...register?.(name)} />
+      {errors?.[name] && <span>{String(errors[name]?.message)}</span>}
+    </>
+  )
+}
 
-Semantic Release uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to determine release types:
+export const SignInForm = () => {
+  const methods = useForm({ defaultValues: { email: '' } })
+  const onSubmit = methods.handleSubmit((values) => console.log(values))
 
-`fix:` – for bug fixes (patch release)
-`feat:` – for new features (minor release)
-`BREAKING CHANGE:` – for breaking changes (major release)
-### Releasing
+  return (
+    <FormContext.Provider value={methods}>
+      <form onSubmit={onSubmit}>
+        <EmailInput name="email" />
+        <button type="submit">Sign in</button>
+      </form>
+    </FormContext.Provider>
+  )
+}
+```
 
-To trigger a release:
+**More info**
 
-1. Commit your changes using the conventional commit format.
-2. Open a pull request and merge it into the `master` branch with the appropriate commit message.
-Semantic Release will handle the rest, including publishing to npm and creating a GitHub release.
+For versioning and release flow (including `alpha`/`beta` and stable releases), see the root [`README.md`](../../README.md).
+
+## Development
+
+This package is part of the [ab-ui-tools monorepo](../../README.md). See [CONTRIBUTING.md](../../CONTRIBUTING.md) for the development workflow.

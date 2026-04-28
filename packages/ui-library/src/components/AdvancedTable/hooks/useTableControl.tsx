@@ -9,7 +9,7 @@ import type {
 } from '@tanstack/react-table';
 import type { DragEndEvent, DragStartEvent } from '@dnd-kit/core';
 
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useReactTable, getCoreRowModel, getSortedRowModel, getPaginationRowModel } from '@tanstack/react-table';
 import { arrayMove } from '@dnd-kit/sortable';
 import { MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';

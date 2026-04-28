@@ -1,4 +1,6 @@
-import React, { useState, useRef, useMemo, memo, useCallback } from 'react';
+import type { ChangeEvent, FC } from 'react';
+
+import { useState, useRef, useMemo, memo, useCallback } from 'react';
 import classNames from 'classnames';
 
 import type { TMultiTextareaWithChipsProps, ChipValue } from './types';
@@ -8,7 +10,7 @@ import { Chips } from '../Chips';
 import { useFormProps } from '../../hooks';
 import { ErrorMessage } from '../../helperComponents';
 
-const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = ({
+const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   label,
   placeholder,
   helperText,
@@ -120,7 +122,7 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (disabled) return;
     let value = e.target.value;
 
@@ -221,8 +223,8 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
                     inputRef.current?.focus();
                   }, 0);
                 }}
-                size="medium"
-                color={hasError ? 'danger' : 'primary'}
+                size="small"
+                color={hasError ? 'danger' : 'default'}
                 type="accent"
                 disabled={disabled}
                 aria-label={`Remove ${text} chip`}
@@ -253,7 +255,11 @@ const MultiTextareaWithChipsComponent: React.FC<TMultiTextareaWithChipsProps> = 
             />
 
             {dropdownLogic.showDropdown && dropdownLogic.filteredOptions.length > 0 && (
-              <div className="multi-textarea-chips__dropdown" role="listbox" aria-label="Available options">
+              <div
+                className="multi-textarea-chips__dropdown scrollbar scrollbar--vertical"
+                role="listbox"
+                aria-label="Available options"
+              >
                 {dropdownLogic.filteredOptions.map(option => (
                   <div
                     key={option}

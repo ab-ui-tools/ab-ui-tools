@@ -1,7 +1,7 @@
 import type { StoryFn } from '@storybook/react';
 import type { TTabProps } from '@ab.uitools/ui-library/components/Tab/types';
 
-import React, { ReactElement, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { Tab as _Tab } from '@ab.uitools/ui-library/components/Tab';
 import IconHome from '@ab.uitools/ui-library/components/SVGIcons/IconHome';
 import IconDismissCircle from '@ab.uitools/ui-library/components/SVGIcons/IconDismissCircle';

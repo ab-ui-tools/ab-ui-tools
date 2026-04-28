@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { TBadgeProps } from '@ab.uitools/ui-library/components/Badge/types';
 
-import React from 'react';
 import { Badge as _Badge } from '@ab.uitools/ui-library/components/Badge';
 
 export default {

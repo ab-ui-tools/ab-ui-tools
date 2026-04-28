@@ -1,4 +1,3 @@
-import type React from 'react';
 import type { ReactElement, ReactNode } from 'react';
 
 import type { LinkPropTypes } from '../Link/types';
@@ -22,5 +21,5 @@ export interface TPopoverProps extends IFormCompProps {
   className?: string;
   elemRef?: HTMLElement;
   id?: string | number;
-  popoverContent?: React.ReactNode;
+  popoverContent?: ReactNode;
 }

@@ -2,7 +2,7 @@ import type { StoryFn } from '@storybook/react';
 import type { InputPasswordsProps } from '@ab.uitools/ui-library/components/Input/types';
 import type { InputCustomProps } from '@ab.uitools/ui-library/components/Input/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Positions } from '@ab.uitools/ui-library/components/Tooltip/types';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
 import IconCalendarRight from '@ab.uitools/ui-library/components/SVGIcons/IconCalendarRight';

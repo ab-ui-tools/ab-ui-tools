@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import type { TMultySingleTabPropTypes } from '../../types';
 import type { TItemValue, TSelectedValue, TSelectOption } from '../../../../types/globalTypes';

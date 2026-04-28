@@ -1,6 +1,5 @@
 import type { JSX } from 'react';
 
-import React from 'react';
 import classnames from 'classnames';
 
 import type { TItemSelectGroupProps } from './types';

@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useId, useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import classnames from 'classnames';
 
