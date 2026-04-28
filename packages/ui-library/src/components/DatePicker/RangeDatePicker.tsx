@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 
 import DatePicker from 'react-datepicker';
 import { useMemo } from 'react';
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import { format as datefnsFormat } from 'date-fns';
 
 import type { IRangeDatePickerProps, TRangePickerValues } from './types';

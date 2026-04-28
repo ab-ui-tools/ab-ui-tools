@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { OtpCustomProps } from '@ab.uitools/ui-library/components/OneTimePassword/types';
 
-import React from 'react';
 import { OneTimePassword as _OneTimePassword } from '@ab.uitools/ui-library/components/OneTimePassword';
 
 export default {

@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import React, { useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 import type { TCheckboxInfo } from '../types';
 import type { TButtonPropTypes } from '../../Button/types';
@@ -21,7 +21,7 @@ type TProps = {
   checkboxInfo?: TCheckboxInfo;
 };
 export const Footer = ({ isLoading, footerButtons, onClose, onSubmit, checkboxInfo }: TProps): ReactElement | null => {
-  const [isSelected, setIsSelected] = React.useState(checkboxInfo?.isChecked || false);
+  const [isSelected, setIsSelected] = useState(checkboxInfo?.isChecked || false);
 
   const handleSubmit = useCallback(() => {
     onSubmit?.(isSelected);

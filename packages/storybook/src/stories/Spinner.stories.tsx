@@ -1,7 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import type { TSpinnerProps } from '@ab.uitools/ui-library/components/Spinner/types';
 
-import React from 'react';
 import { Spinner as _Spinner } from '@ab.uitools/ui-library/components/Spinner';
 
 export default {

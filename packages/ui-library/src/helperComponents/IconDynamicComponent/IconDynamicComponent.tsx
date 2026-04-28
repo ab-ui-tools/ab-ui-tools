@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 
 import { IconComponentMapping } from './constants';
 

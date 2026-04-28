@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ReactNode } from 'react';
 
 import type { TTooltipProps } from '../Tooltip/types';
 import type { TPopoverProps } from '../Popover/types';
@@ -10,7 +10,7 @@ import type { CARD_SELECT_TYPES } from '../../consts';
 export interface TCardSelectProps extends IFormCompProps {
   id?: number | string;
   type?: CARD_SELECT_TYPES;
-  title?: string | React.ReactNode;
+  title?: string | ReactNode;
   description?: string;
   subtext?: string;
   chips?: TChipsProps[];
@@ -19,7 +19,7 @@ export interface TCardSelectProps extends IFormCompProps {
   disabled?: boolean;
   handleCardSelectValue?: (isChecked: boolean) => void;
   dataId?: string;
-  additionalInfo?: TInfoList | React.ReactNode;
+  additionalInfo?: TInfoList | ReactNode;
   selectedCard?: number;
   value?: number | string;
   handleChange?: (selected: number | string) => void;
@@ -30,8 +30,8 @@ export interface TCardSelectProps extends IFormCompProps {
   popoverAddons?: TPopoverProps;
   tooltipAddons?: TTooltipProps;
   actionAddons?: TActionAddons;
-  customContent?: React.ReactNode;
-  children?: React.ReactNode;
+  customContent?: ReactNode;
+  children?: ReactNode;
 }
 export interface TCardSelectGroupProps extends IFormCompProps {
   cards: TCardSelectProps[];

@@ -2,7 +2,7 @@ import type { StoryFn } from '@storybook/react';
 import type { TMenuItem } from '@ab.uitools/ui-library/components/Menu/types';
 import type { LinkPropTypes } from '@ab.uitools/ui-library/components/Link/types';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   IconArrowExit,
   IconCheckmark,

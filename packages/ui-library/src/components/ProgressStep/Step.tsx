@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import classNames from 'classnames';
 
 import type { TStepProps } from './types';

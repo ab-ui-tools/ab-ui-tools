@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import type { TMultiSelectTreeProps } from '../../types';
 import type {

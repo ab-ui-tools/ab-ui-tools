@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useEffect, useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import classNames from 'classnames';
 
 import type { TPopoverProps } from './types';

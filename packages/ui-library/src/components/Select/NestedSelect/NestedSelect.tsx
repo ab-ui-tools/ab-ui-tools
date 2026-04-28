@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import React, { useCallback, useId, useRef, useState } from 'react';
+import { useCallback, useId, useRef, useState } from 'react';
 
 import type { TNestedSelectProps } from '../types';
 import type { TClickEventType, TItemValue, TSelectOption } from '../../../types/globalTypes';
