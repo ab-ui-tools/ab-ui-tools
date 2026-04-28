@@ -72,7 +72,8 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
 
   useEffect(() => {
     const handleScroll = (e: Event) => {
-      if (!calendarRef.current?.isCalendarOpen() && !closeOnScroll) return;
+      if (!closeOnScroll) return;
+      if (!calendarRef.current?.isCalendarOpen()) return;
 
       if (e.target instanceof HTMLElement && e.target.closest('.react-datepicker')) return;
 
