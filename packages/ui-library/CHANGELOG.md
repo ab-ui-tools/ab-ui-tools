@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.8](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.7...@ab.uitools/ui-library@1.9.8) (2026-04-28)
+
+### Bug Fixes
+
+- simple date picker hide on scroll ([70899cd](https://github.com/ab-ui-tools/ab-ui-tools/commit/70899cd05e45d5051808122ecaf02b73446dfe55))
+- simple date picker hide on scroll ([9694120](https://github.com/ab-ui-tools/ab-ui-tools/commit/9694120e11522525214060e9c00cd18214ec31e8))
+
 ## [1.9.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.6...@ab.uitools/ui-library@1.9.7) (2026-04-28)
 
 ### Bug Fixes
