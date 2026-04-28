@@ -1,8 +1,7 @@
 import type { ReactElement } from 'react';
 
 import DatePicker from 'react-datepicker';
-import { useMemo } from 'react';
-import React, { useRef } from 'react';
+import React, { useRef, useMemo, useEffect } from 'react';
 import dayjs from 'dayjs';
 import { format as datefnsFormat } from 'date-fns';
 
@@ -36,6 +35,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
     maxDate,
     dataIdPrefix,
     helperText,
+    closeOnScroll,
     ...rest
   } = props;
 
@@ -69,6 +69,19 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
       changeHandler(date);
     }
   };
+
+  useEffect(() => {
+    const handleScroll = (e: Event) => {
+      if (!calendarRef.current?.isCalendarOpen() && !closeOnScroll) return;
+
+      if (e.target instanceof HTMLElement && e.target.closest('.react-datepicker')) return;
+
+      calendarRef.current?.setOpen(false);
+    };
+
+    document.addEventListener('scroll', handleScroll, true);
+    return () => document.removeEventListener('scroll', handleScroll, true);
+  }, []);
 
   return (
     <div className="picker-container">

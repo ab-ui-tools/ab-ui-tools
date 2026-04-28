@@ -23,6 +23,7 @@ export interface ISimpleDatePickerProps extends TDatepickerBaseProps {
   value?: Date;
   size?: 'large' | 'small';
   months?: TSelectOptions;
+  closeOnScroll?: boolean;
 }
 export interface ITimePickerProps extends TDatepickerBaseProps {
   currentTime?: Date | undefined;
