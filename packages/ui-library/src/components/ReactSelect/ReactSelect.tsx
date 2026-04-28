@@ -36,7 +36,9 @@ export const ReactSelect = ({
   isSearchable = false,
   isCreatable = false,
   isCreateOnOutsideClick,
-  closeMenuOnScroll = () => true,
+  closeMenuOnScroll = e => {
+    return !(e.target as HTMLElement).closest('.react-select__menu');
+  },
   isRadio,
   isMulti,
   hasError,
