@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.6...@ab.uitools/ui-library@1.9.7) (2026-04-28)
+
+### Bug Fixes
+
+- close select menu on scroll ([1334540](https://github.com/ab-ui-tools/ab-ui-tools/commit/1334540118cb45c3e0224c24c6c831e598298cb2))
+
 ## [1.9.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.5...@ab.uitools/ui-library@1.9.6) (2026-04-28)
 
 ### Bug Fixes
