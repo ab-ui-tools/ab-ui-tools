@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.9](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.8...@ab.uitools/ui-library@1.9.9) (2026-05-05)
+
+### Bug Fixes
+
+- added onclick props for popover link ([48f27f7](https://github.com/ab-ui-tools/ab-ui-tools/commit/48f27f7a0219abdcbd0adbce0cfc423c8c2b16fd))
+
 ## [1.9.8](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.7...@ab.uitools/ui-library@1.9.8) (2026-04-28)
 
 ### Bug Fixes
