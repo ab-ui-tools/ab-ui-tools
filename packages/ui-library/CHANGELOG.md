@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.10](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.9...@ab.uitools/ui-library@1.9.10) (2026-05-08)
+
+### Bug Fixes
+
+- advanced table, controlled row selection ([103bb88](https://github.com/ab-ui-tools/ab-ui-tools/commit/103bb880a17f63bca45e23df6a1d3d0170552c42))
+
 ## [1.9.9](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.8...@ab.uitools/ui-library@1.9.9) (2026-05-05)
 
 ### Bug Fixes
