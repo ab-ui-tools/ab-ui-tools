@@ -31,6 +31,7 @@ export function useTableControl<TData>({
   defaultPageIndex = 0,
   defaultHiddenColumns = [],
   onSortChange,
+  rowSelection: controlledRowSelection,
   onRowSelection,
   onColumnSizing,
   onPaginationChange,
@@ -46,7 +47,7 @@ export function useTableControl<TData>({
 
   const [activeId, setActiveId] = useState<string | null>(null);
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
+  const [internalRowSelection, setInternalRowSelection] = useState<RowSelectionState>({});
   const [columnSizing, setColumnSizing] = useState<ColumnSizingState>(savedSettings.columnSizing ?? {});
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
     ...defaultHiddenColumns.reduce((acc, key) => {
@@ -59,6 +60,9 @@ export function useTableControl<TData>({
     pageIndex: defaultPageIndex,
     pageSize: defaultPageSize,
   });
+
+  const isControlledSelection = controlledRowSelection !== undefined;
+  const rowSelection = isControlledSelection ? controlledRowSelection : internalRowSelection;
 
   const memoizedColumns = useMemo(() => {
     const columnsList: Column<TData>[] = [...columns].map((col: Column<TData>) => {
@@ -136,7 +140,9 @@ export function useTableControl<TData>({
   const handleRowSelect: OnChangeFn<RowSelectionState> = updaterOrValue => {
     const newSelectionRow = typeof updaterOrValue === 'function' ? updaterOrValue(rowSelection) : updaterOrValue;
 
-    setRowSelection(newSelectionRow);
+    if (!isControlledSelection) {
+      setInternalRowSelection(newSelectionRow);
+    }
     onRowSelection?.(newSelectionRow);
   };
 
