@@ -25,18 +25,22 @@ export function useTable<TData>({
   defaultPageSize = 10,
   defaultPageIndex = 0,
   onSortChange,
+  rowSelection: controlledRowSelection,
   onRowSelection,
   onColumnSizing,
   onPaginationChange,
 }: TTableProps<TData>) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
+  const [internalRowSelection, setInternalRowSelection] = useState<RowSelectionState>({});
   const [columnSizing, setColumnSizing] = useState<ColumnSizingState>({});
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: defaultPageIndex,
     pageSize: defaultPageSize,
   });
+
+  const isControlledSelection = controlledRowSelection !== undefined;
+  const rowSelection = isControlledSelection ? controlledRowSelection : internalRowSelection;
 
   const memoizedColumns = useMemo(() => {
     const columnsList: Column<TData>[] = [...columns].map((col: Column<TData>) => {
@@ -100,7 +104,9 @@ export function useTable<TData>({
   const handleRowSelect: OnChangeFn<RowSelectionState> = updaterOrValue => {
     const newSelectionRow = typeof updaterOrValue === 'function' ? updaterOrValue(rowSelection) : updaterOrValue;
 
-    setRowSelection(newSelectionRow);
+    if (!isControlledSelection) {
+      setInternalRowSelection(newSelectionRow);
+    }
     onRowSelection?.(newSelectionRow);
   };
 

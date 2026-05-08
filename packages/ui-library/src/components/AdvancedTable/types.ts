@@ -48,6 +48,7 @@ export type TTableProps<TData> = {
   onRowClick?: (row: Row<TData>) => void;
   onSortChange?: (state: SortingUpdateEvent) => void;
   rowEventsProps?: HTMLAttributes<HTMLTableRowElement>;
+  rowSelection?: TRowSelectionState;
   onRowSelection?: (state: TRowSelectionState) => void;
   onColumnSizing?: (state: TColumnSizingState) => void;
   onPaginationChange?: (state: TPaginationState) => void;
