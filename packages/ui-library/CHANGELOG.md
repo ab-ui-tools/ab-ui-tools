@@ -3,11 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
 ## [1.9.10](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.9...@ab.uitools/ui-library@1.9.10) (2026-05-08)
 
 ### Bug Fixes
 
 - advanced table, controlled row selection ([103bb88](https://github.com/ab-ui-tools/ab-ui-tools/commit/103bb880a17f63bca45e23df6a1d3d0170552c42))
+  =======
+
+# [1.10.0-beta.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.9...@ab.uitools/ui-library@1.10.0-beta.0) (2026-05-08)
+
+### Features
+
+- updated rollup versions and added nx for build cache ([ba91927](https://github.com/ab-ui-tools/ab-ui-tools/commit/ba91927d16cbfb5d5ed32965e6f8847cd08062da))
+- updated rollup versions and added nx for build cache ([4cf888a](https://github.com/ab-ui-tools/ab-ui-tools/commit/4cf888a43248c0d08db246e328c9845aa096be9f))
+
+>>>>>>> 8c7bb50 (chore(release): publish)
+>>>>>>>
+>>>>>>
+>>>>>
+>>>>
+>>>
+>>
 
 ## [1.9.9](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.8...@ab.uitools/ui-library@1.9.9) (2026-05-05)
 
