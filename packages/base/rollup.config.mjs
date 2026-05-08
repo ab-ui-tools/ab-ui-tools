@@ -1,11 +1,12 @@
 import { createRequire } from 'node:module'
+import { fileURLToPath } from 'node:url'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import copy from 'rollup-plugin-copy'
-import fs from 'fs'
-import path from 'path'
-import { exec } from 'child_process'
+import fs from 'node:fs'
+import path from 'node:path'
+import { exec } from 'node:child_process'
 import { babel } from '@rollup/plugin-babel'
 import generatePackageJson from 'rollup-plugin-generate-package-json'
 import image from '@rollup/plugin-image'
@@ -14,6 +15,9 @@ import { compileString } from 'sass'
 
 const require = createRequire(import.meta.url)
 const pkg = require('./package.json')
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
 const ignoreExtensions = ['.stories.tsx', '.stories.d.ts']
@@ -25,8 +29,8 @@ const external = [
 ]
 
 const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
-  return fs.readdirSync(path.join(import.meta.dirname, localPath)).reduce((initial, current) => {
-    if (fs.statSync(path.join(import.meta.dirname, `${localPath}/${current}`)).isDirectory()) {
+  return fs.readdirSync(path.join(__dirname, localPath)).reduce((initial, current) => {
+    if (fs.statSync(path.join(__dirname, localPath, current)).isDirectory()) {
       getInputOptions(`${localPath}/${current}`, initial)
     } else {
       const regexExecResult = /(.+?)(\.[^.]*$|$)/g.exec(current)
