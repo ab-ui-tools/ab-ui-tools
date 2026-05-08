@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.9](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.8...@ab.uitools/ui-library@1.9.9) (2026-05-05)
+
+### Bug Fixes
+
+- added onclick props for popover link ([48f27f7](https://github.com/ab-ui-tools/ab-ui-tools/commit/48f27f7a0219abdcbd0adbce0cfc423c8c2b16fd))
+
+## [1.9.8](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.7...@ab.uitools/ui-library@1.9.8) (2026-04-28)
+
+### Bug Fixes
+
+- simple date picker hide on scroll ([70899cd](https://github.com/ab-ui-tools/ab-ui-tools/commit/70899cd05e45d5051808122ecaf02b73446dfe55))
+- simple date picker hide on scroll ([9694120](https://github.com/ab-ui-tools/ab-ui-tools/commit/9694120e11522525214060e9c00cd18214ec31e8))
+
+## [1.9.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.6...@ab.uitools/ui-library@1.9.7) (2026-04-28)
+
+### Bug Fixes
+
+- close select menu on scroll ([1334540](https://github.com/ab-ui-tools/ab-ui-tools/commit/1334540118cb45c3e0224c24c6c831e598298cb2))
+
+## [1.9.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.5...@ab.uitools/ui-library@1.9.6) (2026-04-28)
+
+### Bug Fixes
+
+- close select menu on scroll ([854d170](https://github.com/ab-ui-tools/ab-ui-tools/commit/854d1708004fbd673f49bd567342c5a059f6ddfc))
+
+## [1.9.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.4...@ab.uitools/ui-library@1.9.5) (2026-04-28)
+
+### Bug Fixes
+
+- react select menu hide on scroll default value ([29bad2f](https://github.com/ab-ui-tools/ab-ui-tools/commit/29bad2f85912d6e763216b95a7a8fdde2741c8bd))
+
+## [1.9.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.3...@ab.uitools/ui-library@1.9.4) (2026-04-27)
+
+### Bug Fixes
+
+- fix ([6828278](https://github.com/ab-ui-tools/ab-ui-tools/commit/6828278a3043aedfca8ec2b711c6e5005c777b37))
+- chips ui fix, and fix for multytextarea font family ([0c56284](https://github.com/ab-ui-tools/ab-ui-tools/commit/0c5628416234e6a37fe12c9bce2668c7b7119ca5))
+- chips ui fix, and fix for multytextarea font family ([94d0431](https://github.com/ab-ui-tools/ab-ui-tools/commit/94d0431e16472aea12f00609508c17c02ed6dfcf))
+- ui fixes for multi textarea with chips component ([f042100](https://github.com/ab-ui-tools/ab-ui-tools/commit/f04210058e1934babe8d5cf09aba2057b2eb9ea8))
+
+## [1.9.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.2...@ab.uitools/ui-library@1.9.3) (2026-04-23)
+
+### Bug Fixes
+
+- advanced table improvements ([1b414d1](https://github.com/ab-ui-tools/ab-ui-tools/commit/1b414d1d4c441fc5843c2bb334b4beb0ffc742bb))
+
+## [1.9.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.1...@ab.uitools/ui-library@1.9.2) (2026-04-23)
+
+### Bug Fixes
+
+- react select types issue ([6466fa8](https://github.com/ab-ui-tools/ab-ui-tools/commit/6466fa8d5813180e4ecc8a415d74525ac4c50658))
+- react select types issue ([477be42](https://github.com/ab-ui-tools/ab-ui-tools/commit/477be42d0fd14c7cbbcf8ecf9853276bb1959be1))
+
+## [1.9.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.9.0...@ab.uitools/ui-library@1.9.1) (2026-04-23)
+
+### Bug Fixes
+
+- react select types issue ([c17eda3](https://github.com/ab-ui-tools/ab-ui-tools/commit/c17eda3e3985a5f8f5c6890064aaadd56adbf17e))
+- react select types issue ([fc66e98](https://github.com/ab-ui-tools/ab-ui-tools/commit/fc66e98d2a9673df42f379125723ddb592f0176f))
+
+# [1.9.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.14...@ab.uitools/ui-library@1.9.0) (2026-04-23)
+
+### Features
+
+- add cut icon ([ce94bf8](https://github.com/ab-ui-tools/ab-ui-tools/commit/ce94bf893043fd7620962a388b32973b7306d8f6))
+
+## [1.8.14](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.13...@ab.uitools/ui-library@1.8.14) (2026-04-22)
+
+### Bug Fixes
+
+- react select types issue ([4e4b857](https://github.com/ab-ui-tools/ab-ui-tools/commit/4e4b857966ca6620d4b7b5e843b6fc620836abfa))
+- react select types issue ([aa8fefc](https://github.com/ab-ui-tools/ab-ui-tools/commit/aa8fefcfe43190e95543c0aff9c51afffb5740c0))
+
+## [1.8.13](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.12...@ab.uitools/ui-library@1.8.13) (2026-04-22)
+
+### Bug Fixes
+
+- updated readmes ([bd25773](https://github.com/ab-ui-tools/ab-ui-tools/commit/bd25773eaa784d8f11cd5f04e10280bdcccda8a6))
+- updated readmes ([070f45b](https://github.com/ab-ui-tools/ab-ui-tools/commit/070f45b36083a086dbee950cff549a60be11a011))
+
+## [1.8.12](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.11...@ab.uitools/ui-library@1.8.12) (2026-04-22)
+
+### Bug Fixes
+
+- react select types issue ([e7274ee](https://github.com/ab-ui-tools/ab-ui-tools/commit/e7274ee4362fe8e3e4673da93daa83ce10f2d877))
+
 ## [1.8.11](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.8.10...@ab.uitools/ui-library@1.8.11) (2026-04-22)
 
 ### Bug Fixes

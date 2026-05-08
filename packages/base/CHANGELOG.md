@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.19](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.18...@ab.uitools/base@1.2.19) (2026-04-22)
+
+### Bug Fixes
+
+- updated readmes ([bd25773](https://github.com/ab-devtools/uilibrary/commit/bd25773eaa784d8f11cd5f04e10280bdcccda8a6))
+- updated readmes ([070f45b](https://github.com/ab-devtools/uilibrary/commit/070f45b36083a086dbee950cff549a60be11a011))
+
 ## [1.2.18](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.17...@ab.uitools/base@1.2.18) (2026-04-22)
 
 **Note:** Version bump only for package @ab.uitools/base

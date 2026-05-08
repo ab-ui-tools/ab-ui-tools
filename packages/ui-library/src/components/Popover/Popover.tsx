@@ -61,6 +61,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
           beforeLink={linkAddons.beforeLink}
           afterLink={linkAddons.afterLink}
           target={linkAddons.target}
+          onclick={linkAddons.onclick}
           className={'popover__link'}
         >
           {text}

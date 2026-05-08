@@ -50,7 +50,7 @@ export function ColumnHeader<TData>({ header, pinnedStyles }: DraggableColumnHea
     >
       <div className="flexbox align-items--center">
         <div {...listeners}>
-          <Text className="text-left" weight={'bold'}>
+          <Text as="span" className="text-left" weight={'bold'}>
             {flexRender(header.column.columnDef.header, header.getContext())}
           </Text>
         </div>

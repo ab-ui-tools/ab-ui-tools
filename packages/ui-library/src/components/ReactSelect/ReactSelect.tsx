@@ -1,9 +1,10 @@
 import CreatableSelect from 'react-select/creatable';
-import Select from 'react-select';
+import Select, { type ActionMeta } from 'react-select';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
-import type { TOption, TReactSelectProps, TSelectValue, SingleValue, TItemValue } from './types';
+import type { TOption, TReactSelectProps, TSelectValue, SingleValue } from './types';
+import type { TItemValue } from '../../types/globalTypes';
 
 import {
   ValueContainer,
@@ -24,7 +25,7 @@ export const ReactSelect = ({
   setFieldValue,
   selectedValue,
   setSelectedValue,
-  onChange,
+  handleChange,
   showCount = 2,
   isClearable = false,
   components: customComponents,
@@ -32,9 +33,12 @@ export const ReactSelect = ({
   labelAddons,
   isDisabled,
   isCheckbox,
-  isSearchable,
+  isSearchable = false,
   isCreatable = false,
   isCreateOnOutsideClick,
+  closeMenuOnScroll = e => {
+    return !(e.target as HTMLElement).closest('.react-select__menu');
+  },
   isRadio,
   isMulti,
   hasError,
@@ -43,23 +47,24 @@ export const ReactSelect = ({
   size = 'large',
   dataId,
   name,
+  value,
   helperText,
   ...selectProps
 }: TReactSelectProps) => {
-  const [value, setValue] = useState<TSelectValue>();
+  const [selectedOption, setSelectedOption] = useState<TSelectValue>();
   const [isMounted, setIsMounted] = useState(false);
 
-  const handleChange = (selectedOption: TSelectValue) => {
+  const handleChangeOption = (selectedOption: TSelectValue, actionMeta?: ActionMeta<TOption>) => {
     const val = !Array.isArray(selectedOption)
       ? (selectedOption as SingleValue<TOption>)?.value
       : selectedOption.map(option => option.value);
 
-    setValue(selectedOption);
+    setSelectedOption(selectedOption);
     if (name && setFieldValue) {
       setFieldValue(name, val as string);
     }
     setSelectedValue?.(val as string);
-    onChange?.(selectedOption);
+    handleChange?.(selectedOption, actionMeta);
   };
 
   const getFlatOptions = () => {
@@ -78,9 +83,9 @@ export const ReactSelect = ({
 
     const normalizedInput = normalize(inputValue);
 
-    const existsInOptions = flatOptions.some(opt => normalize(opt.label) === normalizedInput);
+    const existsInOptions = flatOptions.some(opt => normalize(`${opt.label}`) === normalizedInput);
 
-    const currentValues = Array.isArray(value) ? value : value ? [value] : [];
+    const currentValues = Array.isArray(selectedOption) ? selectedOption : selectedOption ? [selectedOption] : [];
 
     const existsInValue = currentValues.some(opt => normalize(opt.label) === normalizedInput);
 
@@ -99,7 +104,7 @@ export const ReactSelect = ({
       newValue = newOption;
     }
 
-    handleChange(newValue);
+    handleChangeOption(newValue);
   };
 
   const getSelectedOptions = (value: TItemValue | TItemValue[]) => {
@@ -127,17 +132,18 @@ export const ReactSelect = ({
   };
 
   useEffect(() => {
-    if (options.length && selectedValue && !isMounted) {
+    const currentValue = selectedValue || value;
+    if (options.length && currentValue && !isMounted) {
       setIsMounted(true);
       let selectedOptions;
       if (isCreatable) {
-        selectedOptions = getCreatableSelectedOptions(selectedValue);
+        selectedOptions = getCreatableSelectedOptions(currentValue as TItemValue | TItemValue[]);
       } else {
-        selectedOptions = getSelectedOptions(selectedValue);
+        selectedOptions = getSelectedOptions(currentValue as TItemValue | TItemValue[]);
       }
-      setValue(selectedOptions);
+      setSelectedOption(selectedOptions);
     }
-  }, [selectedValue, options]);
+  }, [selectedValue, options, value]);
 
   const SelectComponent = isCreatable ? CreatableSelect : Select;
 
@@ -146,15 +152,16 @@ export const ReactSelect = ({
       <Label text={label} required={required} disabled={isDisabled} labelAddons={labelAddons} />
       <SelectComponent
         {...selectProps}
-        onChange={handleChange}
+        onChange={handleChangeOption}
         options={options}
-        value={value}
+        value={selectedOption}
         name={name}
         isMulti={isMulti}
         isDisabled={isDisabled}
         showCount={showCount}
         isClearable={isClearable}
         closeMenuOnSelect={!isMulti}
+        closeMenuOnScroll={closeMenuOnScroll}
         hideSelectedOptions={hideSelectedOptions}
         isCheckbox={isCheckbox}
         isRadio={isRadio}

@@ -13,7 +13,7 @@ export default {
       control: { type: 'radio' },
     },
     color: {
-      options: ['primary', 'brand', 'danger', 'warning', 'success', 'information', 'discovery'],
+      options: ['default', 'brand', 'danger', 'warning', 'success', 'information', 'discovery'],
       control: { type: 'radio' },
     },
     size: {
@@ -29,7 +29,7 @@ export const Chips = Template.bind({});
 
 Chips.args = {
   type: 'filled',
-  color: 'primary',
+  color: 'default',
   size: 'large',
   text: 'Badge',
   leftIconProps: {
