@@ -5,7 +5,7 @@ import copy from 'rollup-plugin-copy'
 import fs from 'fs'
 import path from 'path'
 import babel from 'rollup-plugin-babel'
-import pkg from './package.json'
+const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'))
 import generatePackageJson from 'rollup-plugin-generate-package-json'
 import image from '@rollup/plugin-image'
 import postcss from 'rollup-plugin-postcss'
@@ -13,7 +13,7 @@ import { compileString } from 'sass'
 import dts from 'vite-plugin-dts'
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
-const ignoreExtensions = ['.stories.tsx', '.d.ts']
+const ignoreExtensions = ['.stories.tsx', '.d.ts', '.test.tsx', '.test.ts', 'setupTests.ts']
 
 const externalDeps = [
   ...Object.keys(pkg.peerDependencies || {}),
@@ -28,8 +28,9 @@ const external = (id) =>
 
 // create input config for rollup for each folder
 const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
-  return fs.readdirSync(path.join(__dirname, localPath)).reduce((initial, current) => {
-    if (fs.statSync(path.join(__dirname, `${localPath}/${current}`)).isDirectory()) {
+  const currentDir = path.resolve()
+  return fs.readdirSync(path.join(currentDir, localPath)).reduce((initial, current) => {
+    if (fs.statSync(path.join(currentDir, `${localPath}/${current}`)).isDirectory()) {
       getInputOptions(`${localPath}/${current}`, initial)
     } else {
       const regexExecResult = /(.+?)(\.[^.]*$|$)/g.exec(current)
@@ -67,16 +68,16 @@ function writeCSS() {
 }
 
 const plugins = [
-  json(),
-  resolve({ extensions }),
-  babel({
+  (json.default || json)(),
+  (resolve.default || resolve)({ extensions }),
+  (babel.default || babel)({
     babelrc: true,
     extensions,
     runtimeHelpers: true,
     exclude: 'node_modules/**',
   }),
-  commonjs({ include: 'node_modules/**' }),
-  postcss({
+  (commonjs.default || commonjs)({ include: 'node_modules/**' }),
+  (postcss.default || postcss)({
     plugins: [],
     inject: false,
     extract: 'assets/styles/styles.scss',
@@ -84,7 +85,7 @@ const plugins = [
     minimize: true,
     extensions: ['.scss', '.css']
   }),
-  copy({
+  (copy.default || copy)({
     targets: [
       { src: 'src/assets/images/', dest: 'dist' },
       { src: 'src/assets/styles/helpers/_mixin.scss', dest: 'dist' },
@@ -92,7 +93,7 @@ const plugins = [
     ],
     flatten: false
   }),
-  image(),
+  (image.default || image)(),
   writeCSS()
 ]
 
@@ -108,10 +109,10 @@ export default [
     external,
     plugins: [
       ...plugins,
-      dts({
+      (dts.default || dts)({
         tsconfigPath: './tsconfig.json'
       }),
-      generatePackageJson({
+      (generatePackageJson.default || generatePackageJson)({
         inputFolder: '.',
         baseContents: (pkg) => ({
           name: pkg.name,
