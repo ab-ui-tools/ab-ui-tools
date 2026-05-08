@@ -1,16 +1,19 @@
+import { createRequire } from 'node:module'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import copy from 'rollup-plugin-copy'
 import fs from 'fs'
 import path from 'path'
-import babel from 'rollup-plugin-babel'
-import pkg from './package.json'
+import { babel } from '@rollup/plugin-babel'
 import generatePackageJson from 'rollup-plugin-generate-package-json'
 import image from '@rollup/plugin-image'
 import postcss from 'rollup-plugin-postcss'
 import { compileString } from 'sass'
 import dts from 'vite-plugin-dts'
+
+const require = createRequire(import.meta.url)
+const pkg = require('./package.json')
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx']
 const ignoreExtensions = ['.stories.tsx', '.d.ts']
@@ -26,10 +29,9 @@ const external = (id) =>
   /@babel\/runtime/.test(id) ||
   externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`))
 
-// create input config for rollup for each folder
 const getInputOptions = (localPath = 'src', currentInputOptions = {}) => {
-  return fs.readdirSync(path.join(__dirname, localPath)).reduce((initial, current) => {
-    if (fs.statSync(path.join(__dirname, `${localPath}/${current}`)).isDirectory()) {
+  return fs.readdirSync(path.join(import.meta.dirname, localPath)).reduce((initial, current) => {
+    if (fs.statSync(path.join(import.meta.dirname, `${localPath}/${current}`)).isDirectory()) {
       getInputOptions(`${localPath}/${current}`, initial)
     } else {
       const regexExecResult = /(.+?)(\.[^.]*$|$)/g.exec(current)
@@ -70,10 +72,10 @@ const plugins = [
   json(),
   resolve({ extensions }),
   babel({
+    babelHelpers: 'runtime',
     babelrc: true,
     extensions,
-    runtimeHelpers: true,
-    exclude: 'node_modules/**',
+    exclude: /node_modules/,
   }),
   commonjs({ include: 'node_modules/**' }),
   postcss({
