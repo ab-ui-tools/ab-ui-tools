@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.10.0...@ab.uitools/ui-library@1.11.0) (2026-05-11)
+
+### Bug Fixes
+
+- resolve tsc errors and fix linting by using specific data attribute types ([8a5dd99](https://github.com/ab-ui-tools/ab-ui-tools/commit/8a5dd996f3fac51b670e1290fec6d84ad286600b))
+
+### Features
+
+- add support for HTML and data attributes (UXCam support) ([2b3fd2e](https://github.com/ab-ui-tools/ab-ui-tools/commit/2b3fd2e64edb3a1dbd3c5791b439847d6c6d2bc1))
+
 # [1.10.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.10.0-beta.1...@ab.uitools/ui-library@1.10.0) (2026-05-11)
 
 **Note:** Version bump only for package @ab.uitools/ui-library
