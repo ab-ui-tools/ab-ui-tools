@@ -6,13 +6,14 @@ import { IconDynamicComponent } from '../IconDynamicComponent';
 import { Text } from '../../components/Text';
 
 export const ErrorMessage = (props: TErrorMessageProps): JSX.Element => {
-  const { message, icon, dataId, className } = props;
+  const { message, icon, dataId, className, ...rest } = props;
   return (
     <Text
       className={`error-message ${className}`}
       size="small"
       type="danger-light"
       dataId={dataId ? `${dataId}-error-message` : ''}
+      {...rest}
     >
       <>
         {icon && <IconDynamicComponent componentName={icon} className="mr-4" size="xsmall" type="danger-light" />}

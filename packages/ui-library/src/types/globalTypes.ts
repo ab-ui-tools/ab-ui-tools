@@ -102,6 +102,7 @@ export interface IFormCompProps {
   dataId?: string;
   name?: string;
   setFieldValue?: (name: string, value: TFormValue, shouldValidate?: { shouldValidate: boolean }) => void;
+  [key: `data-${string}`]: string | boolean | number;
 }
 
 export type TTooltipPosition =
