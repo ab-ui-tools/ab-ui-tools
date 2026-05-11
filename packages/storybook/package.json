@@ -61,11 +61,7 @@
     "yup": "^1.7.0"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@ab.uitools/ui-library": "^1.9.10",
-=======
     "@ab.uitools/ui-library": "^1.10.0-beta.0",
->>>>>>> 8c7bb50 (chore(release): publish)
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/sortable": "^10.0.0",
     "@hookform/error-message": "^2.0.1",
