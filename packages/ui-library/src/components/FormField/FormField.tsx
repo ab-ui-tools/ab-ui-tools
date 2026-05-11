@@ -19,6 +19,7 @@ export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
     hideErrorMessage = false,
     errorMessageIcon,
     shouldValidate = false,
+    ...rest
   } = props;
   const { register, errors, setValue, control } = useContext(FormContext);
 
@@ -29,7 +30,7 @@ export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
   const registerOptions = register(name);
 
   return (
-    <div className={classnames('form-container__field', className, name)}>
+    <div className={classnames('form-container__field', className, name)} {...rest}>
       <Controller
         control={control}
         name={name}
@@ -49,6 +50,7 @@ export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
                     ...options,
                   }),
                 ...field,
+                ...rest,
               })}
               {!hideErrorMessage ? (
                 <ReactHookFormErrorMessage
@@ -61,6 +63,7 @@ export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
                         message={message || ''}
                         className="full-width mt-8"
                         icon={errorMessageIcon}
+                        {...rest}
                       />
                     );
                   }}

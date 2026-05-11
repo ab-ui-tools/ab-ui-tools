@@ -1,4 +1,4 @@
-import type { ChangeEvent, MouseEvent, ReactElement } from 'react';
+import type { ChangeEvent, HTMLAttributes, MouseEvent, ReactElement } from 'react';
 
 import type { ISVGIconProps, TSVGIconType } from '../components/SVGIcons/types';
 
@@ -94,7 +94,7 @@ export type TFormValue =
 
 export type TOnChange = (event: TChangeEventType) => void;
 
-export interface IFormCompProps {
+export interface IFormCompProps extends HTMLAttributes<HTMLElement> {
   hasError?: boolean;
   isValid?: boolean;
   value?: TFormValue;

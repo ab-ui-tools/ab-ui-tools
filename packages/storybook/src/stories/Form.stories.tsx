@@ -160,7 +160,7 @@ const Template = (): JSX.Element => {
         initialValues={INITIAL_VALUES}
       >
         <>
-          <FormField name="firstname" As={props => <Input {...props} />} />
+          <FormField data-uxcam-occlude name="firstname" As={props => <Input {...props} data-uxcam-blur="true" />} />
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
       </_FormContainer>
