@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0-beta.1](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.19...@ab.uitools/base@1.3.0-beta.1) (2026-05-11)
+
+### Features
+
+- updated rollup versions and added nx for build cache ([095338e](https://github.com/ab-devtools/uilibrary/commit/095338e0d74a914bcc8d2a4c942cdd18350a7925))
+- updated rollup versions and added nx for build cache ([ecf72cf](https://github.com/ab-devtools/uilibrary/commit/ecf72cfc4a998b23df3ee08143617c25faa6f903))
+
 # [1.3.0-beta.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.19...@ab.uitools/base@1.3.0-beta.0) (2026-05-08)
 
 ### Features
