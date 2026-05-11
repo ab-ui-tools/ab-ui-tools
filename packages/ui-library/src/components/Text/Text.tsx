@@ -19,6 +19,7 @@ export const Text = (props: TextPropTypes): ReactElement => {
     onClick = noop,
     id = '',
     title,
+    ...rest
   } = props;
   return (
     <As
@@ -34,6 +35,7 @@ export const Text = (props: TextPropTypes): ReactElement => {
         `lh-body-${lineHeight}`,
         className
       )}
+      {...rest}
     >
       {children}
     </As>
