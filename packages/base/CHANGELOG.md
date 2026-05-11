@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0-beta.1](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.19...@ab.uitools/base@1.3.0-beta.1) (2026-05-11)
+
+### Features
+
+- updated rollup versions and added nx for build cache ([095338e](https://github.com/ab-devtools/uilibrary/commit/095338e0d74a914bcc8d2a4c942cdd18350a7925))
+- updated rollup versions and added nx for build cache ([ecf72cf](https://github.com/ab-devtools/uilibrary/commit/ecf72cfc4a998b23df3ee08143617c25faa6f903))
+
+# [1.3.0-beta.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.19...@ab.uitools/base@1.3.0-beta.0) (2026-05-08)
+
+### Features
+
+- updated rollup versions and added nx for build cache ([ba91927](https://github.com/ab-devtools/uilibrary/commit/ba91927d16cbfb5d5ed32965e6f8847cd08062da))
+- updated rollup versions and added nx for build cache ([4cf888a](https://github.com/ab-devtools/uilibrary/commit/4cf888a43248c0d08db246e328c9845aa096be9f))
+
 ## [1.2.19](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/base@1.2.18...@ab.uitools/base@1.2.19) (2026-04-22)
 
 ### Bug Fixes
