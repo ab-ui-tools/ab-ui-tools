@@ -1,5 +1,7 @@
 import type { ElementType, HTMLAttributes, MouseEvent, ReactNode } from 'react';
 
+import type { IDataAttributes } from '../../types/globalTypes';
+
 export type TTextTypes =
   | 'primary'
   | 'secondary'
@@ -24,7 +26,7 @@ export type TTextSize = 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' |
 export type TTextWeight = 'regular' | 'semibold' | 'bold' | 'bolder';
 export type TTextLineHeight = 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large';
 
-export interface TextPropTypes extends HTMLAttributes<HTMLElement> {
+export interface TextPropTypes extends HTMLAttributes<HTMLElement>, IDataAttributes {
   as?: ElementType;
   type?: TTextTypes;
   size?: TTextSize;

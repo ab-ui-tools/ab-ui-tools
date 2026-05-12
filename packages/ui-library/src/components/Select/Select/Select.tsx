@@ -75,6 +75,10 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     renderOptions,
     isAllowed,
     defaultValue,
+    onChange,
+    error,
+    dataIdPrefix,
+    ...rest
   } = props;
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -278,6 +282,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         'select--opened': isOpen,
       })}
       ref={containerRef}
+      {...rest}
     >
       <Input
         onClick={disabled ? noop : onOpenOptions}
