@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.0...@ab.uitools/ui-library@1.11.1) (2026-05-12)
+
+### Bug Fixes
+
+- DES-27 change secondary button disabled state ui ([56a8e44](https://github.com/ab-ui-tools/ab-ui-tools/commit/56a8e447cbcf91647cfd50a6a31ea6790e31dd9b))
+
 # [1.11.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.10.0...@ab.uitools/ui-library@1.11.0) (2026-05-11)
 
 ### Bug Fixes
