@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.1...@ab.uitools/ui-library@1.11.2) (2026-05-12)
+
+### Bug Fixes
+
+- react select empty value issue ([09353cc](https://github.com/ab-ui-tools/ab-ui-tools/commit/09353cc36254d7dd0ee8671c49391369cda8c29f))
+
 ## [1.11.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.0...@ab.uitools/ui-library@1.11.1) (2026-05-12)
 
 ### Bug Fixes
