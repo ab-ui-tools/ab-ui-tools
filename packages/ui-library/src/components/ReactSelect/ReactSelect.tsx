@@ -133,7 +133,11 @@ export const ReactSelect = ({
 
   useEffect(() => {
     const currentValue = selectedValue || value;
-    if (options.length && currentValue && !isMounted) {
+    if (!currentValue) {
+      setSelectedOption(null);
+      return;
+    }
+    if (options.length && !isMounted) {
       setIsMounted(true);
       let selectedOptions;
       if (isCreatable) {
