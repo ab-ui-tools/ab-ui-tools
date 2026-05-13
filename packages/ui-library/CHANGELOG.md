@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.2...@ab.uitools/ui-library@1.12.0) (2026-05-13)
+
+### Features
+
+- propagate data attributes and standard form props to component ([09040d7](https://github.com/ab-ui-tools/ab-ui-tools/commit/09040d7bb2918231faf2106827aa6c08de6b0d88))
+
+## [1.11.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.1...@ab.uitools/ui-library@1.11.2) (2026-05-12)
+
+### Bug Fixes
+
+- react select empty value issue ([09353cc](https://github.com/ab-ui-tools/ab-ui-tools/commit/09353cc36254d7dd0ee8671c49391369cda8c29f))
+
+## [1.11.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.0...@ab.uitools/ui-library@1.11.1) (2026-05-12)
+
+### Bug Fixes
+
+- DES-27 change secondary button disabled state ui ([56a8e44](https://github.com/ab-ui-tools/ab-ui-tools/commit/56a8e447cbcf91647cfd50a6a31ea6790e31dd9b))
+
 # [1.11.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.10.0...@ab.uitools/ui-library@1.11.0) (2026-05-11)
 
 ### Bug Fixes

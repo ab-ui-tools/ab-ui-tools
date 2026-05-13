@@ -23,6 +23,10 @@ export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element
     labelAddons,
     hasError,
     selected,
+    onChange,
+    dataId,
+    isValid,
+    ...rest
   } = props;
 
   const onSelect = (selected: number | string | boolean) => {
@@ -44,6 +48,7 @@ export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element
         },
         className
       )}
+      {...rest}
     >
       <Label
         className="radio-group__label"
