@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.0...@ab.uitools/ui-library@1.12.1) (2026-05-13)
+
+### Bug Fixes
+
+- DES-28 change secondary dark tab selected ui ([26a761f](https://github.com/ab-ui-tools/ab-ui-tools/commit/26a761f27b19e418cd51c5ed50e5f1c3f6a02b31))
+
 # [1.12.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.2...@ab.uitools/ui-library@1.12.0) (2026-05-13)
 
 ### Features
