@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.2...@ab.uitools/ui-library@1.12.0) (2026-05-13)
+
+### Features
+
+- propagate data attributes and standard form props to component ([09040d7](https://github.com/ab-ui-tools/ab-ui-tools/commit/09040d7bb2918231faf2106827aa6c08de6b0d88))
+
 ## [1.11.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.1...@ab.uitools/ui-library@1.11.2) (2026-05-12)
 
 ### Bug Fixes
