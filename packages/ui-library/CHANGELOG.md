@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.0...@ab.uitools/ui-library@1.13.1) (2026-05-14)
+
+### Bug Fixes
+
+- close menu on scroll issue ([b3d93f1](https://github.com/ab-ui-tools/ab-ui-tools/commit/b3d93f130e43110584764e30cdcd229cc37066bc))
+
+# [1.13.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.2...@ab.uitools/ui-library@1.13.0) (2026-05-14)
+
+### Features
+
+- added organization icons ([43bf128](https://github.com/ab-ui-tools/ab-ui-tools/commit/43bf1285e0d65ecbc08372563574088f89bc530f))
+
+## [1.12.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.1...@ab.uitools/ui-library@1.12.2) (2026-05-14)
+
+### Bug Fixes
+
+- added xsmall size for framedicon ([f6ac303](https://github.com/ab-ui-tools/ab-ui-tools/commit/f6ac30335a3ab454df38f3106160678c6d65d163))
+
 ## [1.12.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.0...@ab.uitools/ui-library@1.12.1) (2026-05-13)
 
 ### Bug Fixes

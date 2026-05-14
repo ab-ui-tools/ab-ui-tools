@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.35](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.34...@ab.uitools/storybook@1.7.35) (2026-05-14)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.7.34](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.33...@ab.uitools/storybook@1.7.34) (2026-05-14)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.7.33](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.32...@ab.uitools/storybook@1.7.33) (2026-05-14)
+
+### Bug Fixes
+
+- added xsmall size for framedicon ([f6ac303](https://github.com/ab-devtools/uilibrary/commit/f6ac30335a3ab454df38f3106160678c6d65d163))
+
 ## [1.7.32](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.31...@ab.uitools/storybook@1.7.32) (2026-05-13)
 
 **Note:** Version bump only for package @ab.uitools/storybook
