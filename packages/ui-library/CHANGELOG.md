@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.1...@ab.uitools/ui-library@1.13.2) (2026-05-14)
+
+### Bug Fixes
+
+- fixed framedicon border radiuses ([4fc081c](https://github.com/ab-ui-tools/ab-ui-tools/commit/4fc081c6ceadcc1ccf0afe0b9bfd07852e670c50))
+
 ## [1.13.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.0...@ab.uitools/ui-library@1.13.1) (2026-05-14)
 
 ### Bug Fixes
