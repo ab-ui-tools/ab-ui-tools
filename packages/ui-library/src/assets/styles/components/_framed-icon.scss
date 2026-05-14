@@ -11,33 +11,39 @@
   --ds-framed-icon-size-xs: var(--ds-size-32);
 
 
-  --ds-framed-icon-border-radius: var(--ds-border-radius-lg);
+  --ds-framed-icon-border-radius-lg: var(--ds-border-radius-2xl);
+  --ds-framed-icon-border-radius-md: var(--ds-border-radius-2xl);
+  --ds-framed-icon-border-radius-sm: var(--ds-border-radius-xl);
+  --ds-framed-icon-border-radius-xs: var(--ds-border-radius-lg);
 
   //----------//
 
   @include mixin.flexbox;
   @include mixin.align-items(center);
   @include mixin.justify-content(center);
-  border-radius: var(--ds-framed-icon-border-radius);
 
   &--large {
     height: var(--ds-framed-icon-size-lg);
     width: var(--ds-framed-icon-size-lg);
+    border-radius: var(--ds-framed-icon-border-radius-lg);
   }
 
   &--medium {
     height: var(--ds-framed-icon-size-md);
     width: var(--ds-framed-icon-size-md);
+    border-radius: var(--ds-framed-icon-border-radius-md);
   }
 
   &--small {
     height: var(--ds-framed-icon-size-sm);
     width: var(--ds-framed-icon-size-sm);
+    border-radius: var(--ds-framed-icon-border-radius-sm);
   }
 
   &--xsmall {
     height: var(--ds-framed-icon-size-xs);
     width: var(--ds-framed-icon-size-xs);
+    border-radius: var(--ds-framed-icon-border-radius-xs);
   }
 
   &--secondary {
