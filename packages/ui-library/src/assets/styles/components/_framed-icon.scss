@@ -8,6 +8,7 @@
   --ds-framed-icon-size-lg: var(--ds-size-64);
   --ds-framed-icon-size-md: var(--ds-size-48);
   --ds-framed-icon-size-sm: var(--ds-size-40);
+  --ds-framed-icon-size-xs: var(--ds-size-32);
 
 
   --ds-framed-icon-border-radius: var(--ds-border-radius-lg);
@@ -32,6 +33,11 @@
   &--small {
     height: var(--ds-framed-icon-size-sm);
     width: var(--ds-framed-icon-size-sm);
+  }
+
+  &--xsmall {
+    height: var(--ds-framed-icon-size-xs);
+    width: var(--ds-framed-icon-size-xs);
   }
 
   &--secondary {

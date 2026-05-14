@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.2...@ab.uitools/ui-library@1.13.0) (2026-05-14)
+
+### Features
+
+- added organization icons ([43bf128](https://github.com/ab-ui-tools/ab-ui-tools/commit/43bf1285e0d65ecbc08372563574088f89bc530f))
+
+## [1.12.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.1...@ab.uitools/ui-library@1.12.2) (2026-05-14)
+
+### Bug Fixes
+
+- added xsmall size for framedicon ([f6ac303](https://github.com/ab-ui-tools/ab-ui-tools/commit/f6ac30335a3ab454df38f3106160678c6d65d163))
+
+## [1.12.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.0...@ab.uitools/ui-library@1.12.1) (2026-05-13)
+
+### Bug Fixes
+
+- DES-28 change secondary dark tab selected ui ([26a761f](https://github.com/ab-ui-tools/ab-ui-tools/commit/26a761f27b19e418cd51c5ed50e5f1c3f6a02b31))
+
+# [1.12.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.2...@ab.uitools/ui-library@1.12.0) (2026-05-13)
+
+### Features
+
+- propagate data attributes and standard form props to component ([09040d7](https://github.com/ab-ui-tools/ab-ui-tools/commit/09040d7bb2918231faf2106827aa6c08de6b0d88))
+
+## [1.11.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.1...@ab.uitools/ui-library@1.11.2) (2026-05-12)
+
+### Bug Fixes
+
+- react select empty value issue ([09353cc](https://github.com/ab-ui-tools/ab-ui-tools/commit/09353cc36254d7dd0ee8671c49391369cda8c29f))
+
 ## [1.11.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.0...@ab.uitools/ui-library@1.11.1) (2026-05-12)
 
 ### Bug Fixes
