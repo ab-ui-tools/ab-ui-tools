@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.1...@ab.uitools/ui-library@1.12.2) (2026-05-14)
+
+### Bug Fixes
+
+- added xsmall size for framedicon ([f6ac303](https://github.com/ab-ui-tools/ab-ui-tools/commit/f6ac30335a3ab454df38f3106160678c6d65d163))
+
 ## [1.12.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.0...@ab.uitools/ui-library@1.12.1) (2026-05-13)
 
 ### Bug Fixes
