@@ -37,7 +37,7 @@ export const ReactSelect = ({
   isCreatable = false,
   isCreateOnOutsideClick,
   closeMenuOnScroll = e => {
-    return !(e.target as HTMLElement).closest('.react-select__menu');
+    return !(e.target as HTMLElement).closest?.('.react-select__menu');
   },
   isRadio,
   isMulti,
