@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.2...@ab.uitools/ui-library@1.13.3) (2026-05-15)
+
+### Bug Fixes
+
+- prevent premature validation on Select option click ([3932eb8](https://github.com/ab-ui-tools/ab-ui-tools/commit/3932eb83049a634454b5ded2b74b086c89ff5905))
+
 ## [1.13.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.1...@ab.uitools/ui-library@1.13.2) (2026-05-14)
 
 ### Bug Fixes
