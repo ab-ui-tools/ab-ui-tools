@@ -311,6 +311,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
       {isOpen && (
         <div
           className="select__options"
+          onMouseDown={e => e.preventDefault()}
           style={{
             left,
             width,
