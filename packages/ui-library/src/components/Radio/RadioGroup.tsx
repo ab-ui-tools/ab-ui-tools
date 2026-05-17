@@ -48,7 +48,6 @@ export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element
         },
         className
       )}
-      {...rest}
     >
       <Label
         className="radio-group__label"
@@ -58,7 +57,7 @@ export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element
         disabled={disabled}
         labelAddons={labelAddons}
       />
-      <div className="radio-group__inner">
+      <div className="radio-group__inner" {...rest}>
         {options.map((radioOption: TRadioOptionItem) => {
           return (
             <Radio
