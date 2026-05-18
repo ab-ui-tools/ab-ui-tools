@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.4...@ab.uitools/ui-library@1.13.5) (2026-05-18)
+
+### Bug Fixes
+
+- progress stepper active item border color ([13b353d](https://github.com/ab-ui-tools/ab-ui-tools/commit/13b353dd932afbb34b4c217e9b44e01de469067f))
+- ui fixes for progress stepper ([100b45c](https://github.com/ab-ui-tools/ab-ui-tools/commit/100b45ce0ef0ed69179a9afec9db32607db29835))
+
 ## [1.13.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.3...@ab.uitools/ui-library@1.13.4) (2026-05-15)
 
 **Note:** Version bump only for package @ab.uitools/ui-library
