@@ -1,7 +1,7 @@
 @use "../helpers/mixin";
 
 :root {
-  --ds-step-circle-size-lg: 36px;
+  --ds-step-circle-size-lg: 32px;
   --ds-step-circle-size-sm: 24px;
 }
 
@@ -20,7 +20,7 @@
     .step {
       @include mixin.flex-direction(column);
 
-      &__top {
+      &__circle {
         width: 100%;
 
         &:before, &:after {
@@ -38,7 +38,7 @@
       }
 
       &--large {
-        .step__top {
+        .step__circle {
           &:before, &:after {
             height: var(--ds-step-between-border-size-lg);
           }
@@ -46,7 +46,7 @@
       }
 
       &--small {
-        .step__top {
+        .step__circle {
           &:before, &:after {
             height: var(--ds-step-between-border-size-sm);
           }
@@ -68,7 +68,7 @@
       @include mixin.flex-direction(row);
       @include mixin.align-items(center);
 
-      &__top {
+      &__circle {
         height: 100%;
         padding: var(--ds-step-vertical-item-space);
         @include mixin.align-items(center);
@@ -89,7 +89,7 @@
 
 
       &--large {
-        .step__top {
+        .step__circle {
           &:before, &:after {
             width: var(--ds-step-between-border-size-lg);
           }
@@ -101,7 +101,7 @@
       }
 
       &--small {
-        .step__top {
+        .step__circle {
           &:before, &:after {
             width: var(--ds-step-between-border-size-sm);
           }
@@ -134,9 +134,9 @@
   --ds-step-circle-bg-danger: var(--ds-color-bg-danger);
 
   --ds-step-circle-border-color: var(--ds-color-bg-grey-lighter);
-  --ds-step-circle-border-color-active: var(--ds-color-border-brand-dark);
-  --ds-step-circle-border-color-completed: var(--ds-color-border-brand-dark);
-  --ds-step-circle-border-color-danger: var(--ds-color-border-danger-dark);
+  --ds-step-circle-border-color-active: var(--brand-500);
+  --ds-step-circle-border-color-completed: var(--brand-500);
+  --ds-step-circle-border-color-danger: var(--red-500);
 
   --ds-step-circle-completed-shadow: 0px 0px 0px 4px rgba(202,231,185, 0.80);
   --ds-step-circle-danger-shadow: 0px 0px 0px 4px rgba(255, 181, 171, 0.80);
@@ -145,7 +145,7 @@
   flex: 1;
 
   &:first-child {
-    #{$this}__top {
+    #{$this}__circle {
       &:before {
         content: none;
       }
@@ -153,7 +153,7 @@
   }
 
   &:last-child {
-    #{$this}__top {
+    #{$this}__circle {
       &:after {
         content: none;
       }
@@ -162,7 +162,9 @@
 
   &.active {
     #{$this}__circle {
-      border-color: var(--ds-step-circle-border-color-active);
+      &__inner {
+        border-color: var(--ds-step-circle-border-color-active);
+      }
 
       &__dot {
         background: var(--ds-step-circle-bg-active);
@@ -172,31 +174,51 @@
 
   &.completed {
     #{$this}__circle {
-      background-color: var(--ds-step-circle-bg-completed);
-      border-color: var(--ds-step-circle-border-color-completed);
+      &__inner {
+        background-color: var(--ds-step-circle-bg-completed);
+        border-color: var(--ds-step-circle-border-color-completed);
+      }
+
+      &:after {
+        background-color: var(--ds-step-circle-border-color-completed);
+      }
+    }
+
+    & +  #{$this} {
+      #{$this}__circle {
+        &:before {
+          background-color: var(--ds-step-circle-border-color-completed);
+        }
+      }
     }
 
     &.review {
       #{$this}__circle {
-        box-shadow: var(--ds-step-circle-completed-shadow);
+        &__inner {
+          box-shadow: var(--ds-step-circle-completed-shadow);
+        }
       }
     }
   }
 
   &.rejected {
     #{$this}__circle {
-      background-color: var(--ds-step-circle-bg-danger);
-      border-color: var(--ds-step-circle-border-color-danger);
+      &__inner {
+        background-color: var(--ds-step-circle-bg-danger);
+        border-color: var(--ds-step-circle-border-color-danger);
+      }
     }
 
     &.review {
       #{$this}__circle {
-        box-shadow: var(--ds-step-circle-danger-shadow);
+        &__inner {
+          box-shadow: var(--ds-step-circle-danger-shadow);
+        }
       }
     }
   }
 
-  &__top {
+  &__circle {
     @include mixin.flexbox;
     @include mixin.justify-content(center);
     position: relative;
@@ -204,22 +226,22 @@
     &:before, &:after {
       content: '';
       position: absolute;
-      background-color: var(--ds-step-circle-border-color-active);
+      background-color: var(--ds-step-circle-border-color);
       box-sizing: border-box;
       z-index: 0;
     }
-  }
 
-  &__circle {
-    @include mixin.flexbox;
-    @include mixin.align-items(center);
-    @include mixin.justify-content(center);
-    cursor: pointer;
-    border-style: solid;
-    border-radius: var(--ds-border-radius-full);
-    background-color: var(--ds-step-circle-bg);
-    border-color: var(--ds-step-circle-border-color);
-    z-index: 1;
+    &__inner {
+      @include mixin.flexbox;
+      @include mixin.align-items(center);
+      @include mixin.justify-content(center);
+      cursor: pointer;
+      border-style: solid;
+      border-radius: var(--ds-border-radius-full);
+      background-color: var(--ds-step-circle-bg);
+      border-color: var(--ds-step-circle-border-color);
+      z-index: 1;
+    }
 
     &__dot {
       background-color: inherit;
@@ -230,10 +252,12 @@
 
   &--large {
     #{$this}__circle {
-      width: var(--ds-step-circle-size-lg);
-      min-width: var(--ds-step-circle-size-lg);
-      height: var(--ds-step-circle-size-lg);
-      border-width: var(--ds-step-circle-border-size-lg);
+      &__inner {
+        width: var(--ds-step-circle-size-lg);
+        min-width: var(--ds-step-circle-size-lg);
+        height: var(--ds-step-circle-size-lg);
+        border-width: var(--ds-step-circle-border-size-lg);
+      }
 
       &__dot {
         width: var(--ds-step-dot-size-lg);
@@ -244,10 +268,12 @@
 
   &--small {
     #{$this}__circle {
-      width: var(--ds-step-circle-size-sm);
-      min-width: var(--ds-step-circle-size-sm);
-      height: var(--ds-step-circle-size-sm);
-      border-width: var(--ds-step-circle-border-size-sm);
+      &__inner {
+        width: var(--ds-step-circle-size-sm);
+        min-width: var(--ds-step-circle-size-sm);
+        height: var(--ds-step-circle-size-sm);
+        border-width: var(--ds-step-circle-border-size-sm);
+      }
 
       &__dot {
         width: var(--ds-step-dot-size-sm);
