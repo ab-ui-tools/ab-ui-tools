@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.6...@ab.uitools/ui-library@1.14.0) (2026-05-20)
+
+### Features
+
+- added new icons ([9a6fef3](https://github.com/ab-ui-tools/ab-ui-tools/commit/9a6fef3981ba99906ee3ed1e002b10acdcf34914))
+
+## [1.13.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.5...@ab.uitools/ui-library@1.13.6) (2026-05-20)
+
+### Bug Fixes
+
+- change the modal title type from string to react node ([a3952f9](https://github.com/ab-ui-tools/ab-ui-tools/commit/a3952f9fc66ca182c7a6188637b96ff5f6a4805d))
+- resolve comment ([6ad6538](https://github.com/ab-ui-tools/ab-ui-tools/commit/6ad6538a291d655e7f3054de21a94c042a80c80f))
+
+## [1.13.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.4...@ab.uitools/ui-library@1.13.5) (2026-05-18)
+
+### Bug Fixes
+
+- progress stepper active item border color ([13b353d](https://github.com/ab-ui-tools/ab-ui-tools/commit/13b353dd932afbb34b4c217e9b44e01de469067f))
+- ui fixes for progress stepper ([100b45c](https://github.com/ab-ui-tools/ab-ui-tools/commit/100b45ce0ef0ed69179a9afec9db32607db29835))
+
 ## [1.13.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.3...@ab.uitools/ui-library@1.13.4) (2026-05-15)
 
 **Note:** Version bump only for package @ab.uitools/ui-library

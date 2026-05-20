@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import type { ISVGIconProps } from '../SVGIcons/types';
 import type { TCheckboxProps } from '../Checkbox/types';
@@ -11,7 +11,7 @@ export interface TModalPropTypes {
   onClose: () => void;
   onSubmit: () => void;
   titleProps?: {
-    title?: string;
+    title?: ReactElement | string;
     size?: 'large' | 'small';
   };
   subtitle?: string;
