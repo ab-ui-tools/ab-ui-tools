@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.5...@ab.uitools/ui-library@1.13.6) (2026-05-20)
+
+### Bug Fixes
+
+- change the modal title type from string to react node ([a3952f9](https://github.com/ab-ui-tools/ab-ui-tools/commit/a3952f9fc66ca182c7a6188637b96ff5f6a4805d))
+- resolve comment ([6ad6538](https://github.com/ab-ui-tools/ab-ui-tools/commit/6ad6538a291d655e7f3054de21a94c042a80c80f))
+
 ## [1.13.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.4...@ab.uitools/ui-library@1.13.5) (2026-05-18)
 
 ### Bug Fixes
