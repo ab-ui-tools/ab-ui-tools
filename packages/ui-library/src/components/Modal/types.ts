@@ -11,7 +11,7 @@ export interface TModalPropTypes {
   onClose: () => void;
   onSubmit: () => void;
   titleProps?: {
-    title?: string;
+    title?: ReactNode;
     size?: 'large' | 'small';
   };
   subtitle?: string;
