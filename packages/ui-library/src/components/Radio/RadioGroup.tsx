@@ -23,6 +23,10 @@ export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element
     labelAddons,
     hasError,
     selected,
+    onChange,
+    dataId,
+    isValid,
+    ...rest
   } = props;
 
   const onSelect = (selected: number | string | boolean) => {
@@ -53,7 +57,7 @@ export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element
         disabled={disabled}
         labelAddons={labelAddons}
       />
-      <div className="radio-group__inner">
+      <div className="radio-group__inner" {...rest}>
         {options.map((radioOption: TRadioOptionItem) => {
           return (
             <Radio

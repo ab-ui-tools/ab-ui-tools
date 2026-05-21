@@ -59,7 +59,7 @@ export const Step = (props: TStepProps): ReactElement => {
         return <span className={classNames('step__circle__dot')} />;
       }
       if (isCompleted) {
-        const iconSize = stepSize == 'large' ? 'small' : 'xsmall';
+        const iconSize = stepSize == 'large' ? 'medium' : 'xsmall';
         if (isRejected) {
           return <IconDismissCircle size={iconSize} type="inverse" />;
         }
@@ -80,8 +80,8 @@ export const Step = (props: TStepProps): ReactElement => {
       style={{ width }}
       onClick={onClick}
     >
-      <div className="step__top">
-        <div className="step__circle">{stepItemContent}</div>
+      <div className="step__circle">
+        <div className="step__circle__inner">{stepItemContent}</div>
       </div>
       <div className="step__label">
         <Text size={stepSize == 'large' ? 'standard' : 'small'} weight="semibold" className="text-truncate">

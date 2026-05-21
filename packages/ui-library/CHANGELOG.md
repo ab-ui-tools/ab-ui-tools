@@ -3,6 +3,84 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.6...@ab.uitools/ui-library@1.14.0) (2026-05-20)
+
+### Features
+
+- added new icons ([9a6fef3](https://github.com/ab-ui-tools/ab-ui-tools/commit/9a6fef3981ba99906ee3ed1e002b10acdcf34914))
+
+## [1.13.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.5...@ab.uitools/ui-library@1.13.6) (2026-05-20)
+
+### Bug Fixes
+
+- change the modal title type from string to react node ([a3952f9](https://github.com/ab-ui-tools/ab-ui-tools/commit/a3952f9fc66ca182c7a6188637b96ff5f6a4805d))
+- resolve comment ([6ad6538](https://github.com/ab-ui-tools/ab-ui-tools/commit/6ad6538a291d655e7f3054de21a94c042a80c80f))
+
+## [1.13.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.4...@ab.uitools/ui-library@1.13.5) (2026-05-18)
+
+### Bug Fixes
+
+- progress stepper active item border color ([13b353d](https://github.com/ab-ui-tools/ab-ui-tools/commit/13b353dd932afbb34b4c217e9b44e01de469067f))
+- ui fixes for progress stepper ([100b45c](https://github.com/ab-ui-tools/ab-ui-tools/commit/100b45ce0ef0ed69179a9afec9db32607db29835))
+
+## [1.13.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.3...@ab.uitools/ui-library@1.13.4) (2026-05-15)
+
+**Note:** Version bump only for package @ab.uitools/ui-library
+
+## [1.13.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.2...@ab.uitools/ui-library@1.13.3) (2026-05-15)
+
+### Bug Fixes
+
+- prevent premature validation on Select option click ([3932eb8](https://github.com/ab-ui-tools/ab-ui-tools/commit/3932eb83049a634454b5ded2b74b086c89ff5905))
+
+## [1.13.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.1...@ab.uitools/ui-library@1.13.2) (2026-05-14)
+
+### Bug Fixes
+
+- fixed framedicon border radiuses ([4fc081c](https://github.com/ab-ui-tools/ab-ui-tools/commit/4fc081c6ceadcc1ccf0afe0b9bfd07852e670c50))
+
+## [1.13.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.13.0...@ab.uitools/ui-library@1.13.1) (2026-05-14)
+
+### Bug Fixes
+
+- close menu on scroll issue ([b3d93f1](https://github.com/ab-ui-tools/ab-ui-tools/commit/b3d93f130e43110584764e30cdcd229cc37066bc))
+
+# [1.13.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.2...@ab.uitools/ui-library@1.13.0) (2026-05-14)
+
+### Features
+
+- added organization icons ([43bf128](https://github.com/ab-ui-tools/ab-ui-tools/commit/43bf1285e0d65ecbc08372563574088f89bc530f))
+
+## [1.12.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.1...@ab.uitools/ui-library@1.12.2) (2026-05-14)
+
+### Bug Fixes
+
+- added xsmall size for framedicon ([f6ac303](https://github.com/ab-ui-tools/ab-ui-tools/commit/f6ac30335a3ab454df38f3106160678c6d65d163))
+
+## [1.12.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.12.0...@ab.uitools/ui-library@1.12.1) (2026-05-13)
+
+### Bug Fixes
+
+- DES-28 change secondary dark tab selected ui ([26a761f](https://github.com/ab-ui-tools/ab-ui-tools/commit/26a761f27b19e418cd51c5ed50e5f1c3f6a02b31))
+
+# [1.12.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.2...@ab.uitools/ui-library@1.12.0) (2026-05-13)
+
+### Features
+
+- propagate data attributes and standard form props to component ([09040d7](https://github.com/ab-ui-tools/ab-ui-tools/commit/09040d7bb2918231faf2106827aa6c08de6b0d88))
+
+## [1.11.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.1...@ab.uitools/ui-library@1.11.2) (2026-05-12)
+
+### Bug Fixes
+
+- react select empty value issue ([09353cc](https://github.com/ab-ui-tools/ab-ui-tools/commit/09353cc36254d7dd0ee8671c49391369cda8c29f))
+
+## [1.11.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.11.0...@ab.uitools/ui-library@1.11.1) (2026-05-12)
+
+### Bug Fixes
+
+- DES-27 change secondary button disabled state ui ([56a8e44](https://github.com/ab-ui-tools/ab-ui-tools/commit/56a8e447cbcf91647cfd50a6a31ea6790e31dd9b))
+
 # [1.11.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.10.0...@ab.uitools/ui-library@1.11.0) (2026-05-11)
 
 ### Bug Fixes

@@ -75,6 +75,10 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     renderOptions,
     isAllowed,
     defaultValue,
+    onChange,
+    error,
+    dataIdPrefix,
+    ...rest
   } = props;
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -301,11 +305,13 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         isAllowed={isAllowed}
         labelAddons={labelAddons}
         autoComplete="false"
+        {...rest}
       />
 
       {isOpen && (
         <div
           className="select__options"
+          onMouseDown={e => e.preventDefault()}
           style={{
             left,
             width,

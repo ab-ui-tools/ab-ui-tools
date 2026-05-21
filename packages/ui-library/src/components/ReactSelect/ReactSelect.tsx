@@ -37,7 +37,7 @@ export const ReactSelect = ({
   isCreatable = false,
   isCreateOnOutsideClick,
   closeMenuOnScroll = e => {
-    return !(e.target as HTMLElement).closest('.react-select__menu');
+    return !(e.target as HTMLElement).closest?.('.react-select__menu');
   },
   isRadio,
   isMulti,
@@ -133,7 +133,11 @@ export const ReactSelect = ({
 
   useEffect(() => {
     const currentValue = selectedValue || value;
-    if (options.length && currentValue && !isMounted) {
+    if (!currentValue) {
+      setSelectedOption(null);
+      return;
+    }
+    if (options.length && !isMounted) {
       setIsMounted(true);
       let selectedOptions;
       if (isCreatable) {
