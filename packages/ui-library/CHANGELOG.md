@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.14.1...@ab.uitools/ui-library@1.14.2) (2026-05-21)
+
+### Bug Fixes
+
+- select value updating issue ([ce39b0e](https://github.com/ab-ui-tools/ab-ui-tools/commit/ce39b0ef1a09c0f67b133c4873f7d555520a7ac7))
+
 ## [1.14.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.14.0...@ab.uitools/ui-library@1.14.1) (2026-05-21)
 
 ### Bug Fixes
