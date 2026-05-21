@@ -10,6 +10,8 @@ export const useScreenSize = (): ScreenSize => {
   const [screenSize, setScreenSize] = useState<ScreenSize>(getScreenSize);
 
   function getScreenSize(): ScreenSize {
+    if (typeof window === 'undefined') return 'large';
+
     const width = window.innerWidth;
 
     switch (true) {
