@@ -52,7 +52,6 @@ export const ReactSelect = ({
   ...selectProps
 }: TReactSelectProps) => {
   const [selectedOption, setSelectedOption] = useState<TSelectValue>();
-  const [isMounted, setIsMounted] = useState(false);
 
   const handleChangeOption = (selectedOption: TSelectValue, actionMeta?: ActionMeta<TOption>) => {
     const val = !Array.isArray(selectedOption)
@@ -137,8 +136,7 @@ export const ReactSelect = ({
       setSelectedOption(null);
       return;
     }
-    if (options.length && !isMounted) {
-      setIsMounted(true);
+    if (options.length) {
       let selectedOptions;
       if (isCreatable) {
         selectedOptions = getCreatableSelectedOptions(currentValue as TItemValue | TItemValue[]);
