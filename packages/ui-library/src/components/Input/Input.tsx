@@ -115,6 +115,7 @@ export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
         {...cleanRest}
         format={format}
         name={name}
+        mask={mask}
         onBlur={blurHandler}
         onChange={changeHandler}
         placeholder={placeHolder}
