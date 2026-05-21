@@ -164,13 +164,14 @@
   --ds-tabs-secondary-gap: var(--ds-space-4);
   --ds-tabs-secondary-padding: var(--ds-space-4);
   --ds-tabs-secondary-border-radius: var(--ds-border-radius-xl);
+  --ds-tabs-secondary-selected-shadow: 0px 0px 28px 4px #4E4E4E14;
 
   --ds-tabs-tertiary-gap: var(--ds-space-12);
 
   --ds-tabs-dark-bg: var(--ds-color-bg-container-light);
 
   --ds-tabs-light-bg: var(--ds-color-bg-white);
-  --ds-tabs-light-border: 1px solid var(--ds-color-border-tertiary);
+  --ds-tabs-light-border: 1px solid var(--ds-color-border-quintary);
 
   @include mixin.flexbox;
   @include mixin.align-items(stretch);
@@ -258,11 +259,20 @@
 
     .tab {
       flex: 1;
+      border: 0;
     }
 
     &#{$this}--scrollable {
       .tab {
         flex: 0 0 auto; // Don't flex grow when scrollable
+      }
+    }
+
+    &#{$this}--dark {
+      .tab {
+        &--selected {
+          box-shadow: var(--ds-tabs-secondary-selected-shadow);
+        }
       }
     }
   }

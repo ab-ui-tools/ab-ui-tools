@@ -94,7 +94,11 @@ export type TFormValue =
 
 export type TOnChange = (event: TChangeEventType) => void;
 
-export interface IFormCompProps {
+export interface IDataAttributes {
+  [key: `data-${string}`]: string | boolean | number;
+}
+
+export interface IFormCompProps extends IDataAttributes {
   hasError?: boolean;
   isValid?: boolean;
   value?: TFormValue;
@@ -102,7 +106,6 @@ export interface IFormCompProps {
   dataId?: string;
   name?: string;
   setFieldValue?: (name: string, value: TFormValue, shouldValidate?: { shouldValidate: boolean }) => void;
-  [key: `data-${string}`]: string | boolean | number;
 }
 
 export type TTooltipPosition =

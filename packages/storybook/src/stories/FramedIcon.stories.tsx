@@ -9,7 +9,7 @@ export default {
   component: _FramedIcon,
   argTypes: {
     size: {
-      options: ['large', 'medium', 'small'],
+      options: ['large', 'medium', 'small', 'xsmall'],
       control: { type: 'radio' },
       description: 'Size of the framed icon',
     },
