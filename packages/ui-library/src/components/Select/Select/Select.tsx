@@ -75,11 +75,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     renderOptions,
     isAllowed,
     defaultValue,
-    onChange: _onChange,
-    error: _error,
-    dataIdPrefix: _dataIdPrefix,
     dataAttributes,
-    ..._rest
   } = props;
 
   const scrollRef = useRef<HTMLDivElement>(null);

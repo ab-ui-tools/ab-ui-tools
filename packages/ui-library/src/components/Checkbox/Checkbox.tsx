@@ -32,10 +32,6 @@ export const Checkbox = forwardRef(
       popoverAddons,
       isInvalid,
       dataAttributes,
-      onChange,
-      hasError,
-      isValid,
-      ...rest
     } = props;
 
     const localRef = useRef(null);
