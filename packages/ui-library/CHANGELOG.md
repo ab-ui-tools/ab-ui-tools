@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.14.3...@ab.uitools/ui-library@1.15.0) (2026-05-22)
+
+### Bug Fixes
+
+- move dataAttributes to IFormCompProps and cleanup unused props ([945ea6c](https://github.com/ab-ui-tools/ab-ui-tools/commit/945ea6c82781fec93b7145dd9d60d2e2ef6b073a))
+
+### Features
+
+- revert rest props spread to input and add dataAttributes prop for tracking ([071081a](https://github.com/ab-ui-tools/ab-ui-tools/commit/071081a87b2b0099272e9d07bc5abbe3c9322c59))
+
 ## [1.14.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.14.2...@ab.uitools/ui-library@1.14.3) (2026-05-22)
 
 ### Reverts
