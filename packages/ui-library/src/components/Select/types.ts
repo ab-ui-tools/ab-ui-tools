@@ -39,6 +39,7 @@ interface TSelectBaseProps {
   avatar?: string;
   size?: 'small' | 'large' | 'medium';
   className?: string;
+  dataAttributes?: Record<string, string | boolean | number>;
 }
 
 export interface TNestedSelectProps {

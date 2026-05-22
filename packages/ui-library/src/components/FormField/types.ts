@@ -1,8 +1,8 @@
-import type { HTMLAttributes, JSX } from 'react';
+import type { JSX } from 'react';
 
-import type { IDataAttributes, IFormCompProps } from '../../types/globalTypes';
+import type { IFormCompProps } from '../../types/globalTypes';
 
-export interface TFormFieldPropTypes extends HTMLAttributes<HTMLElement>, IDataAttributes {
+export interface TFormFieldPropTypes {
   As: (props: IFormCompProps) => JSX.Element;
   name: string;
   className?: string;
@@ -10,4 +10,5 @@ export interface TFormFieldPropTypes extends HTMLAttributes<HTMLElement>, IDataA
   shouldValidate?: boolean;
   hideErrorMessage?: boolean;
   errorMessageIcon?: string;
+  dataAttributes?: Record<string, string | boolean | number>;
 }
