@@ -52,6 +52,7 @@ export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
       isAllowed,
       isTrimValues = false,
       decimalScale,
+      dataAttributes,
       ...rest
     },
     ref
@@ -125,6 +126,7 @@ export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
         maxLength={maxCount}
         allowEmptyFormatting={allowEmptyFormatting}
         {...(currentValue ? { value: currentValue } : { value: '' })}
+        {...dataAttributes}
       />
     ) : mask ? (
       // @ts-ignore
@@ -143,6 +145,7 @@ export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
         {...(currentValue ? { value: currentValue } : {})}
         maskChar={maskChar}
         maskPlaceholder={maskPlaceholder}
+        {...dataAttributes}
       />
     ) : type === 'numeric' ? (
       // @ts-ignore
@@ -163,6 +166,7 @@ export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
         getInputRef={ref}
         decimalScale={decimalScale}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
+        {...dataAttributes}
       />
     ) : (
       // @ts-ignore
@@ -178,6 +182,7 @@ export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
         data-id={dataId}
         {...cleanRest}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
+        {...dataAttributes}
       />
     );
 

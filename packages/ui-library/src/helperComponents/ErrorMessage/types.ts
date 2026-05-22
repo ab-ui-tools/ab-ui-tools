@@ -1,8 +1,9 @@
-import type { HTMLAttributes, JSX } from 'react';
+import type { JSX } from 'react';
 
-export interface TErrorMessageProps extends HTMLAttributes<HTMLElement> {
+export interface TErrorMessageProps {
   message?: string | JSX.Element;
   icon?: string;
   dataId?: string;
   className?: string;
+  dataAttributes?: Record<string, string | boolean | number>;
 }
