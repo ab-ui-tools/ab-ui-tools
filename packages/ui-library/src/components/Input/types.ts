@@ -45,6 +45,7 @@ export interface InputCustomProps
   isTrimValues?: boolean;
   decimalScale?: number;
   isAllowed?: (values: { formattedValue: string; value: string; floatValue: number | undefined }) => boolean;
+  dataAttributes?: Record<string, string | boolean | number>;
 }
 
 interface IPasswordValidationRule {
