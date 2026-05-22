@@ -19,6 +19,8 @@ export * from './IconAppsListFilled';
 export * from './IconAppStore';
 export * from './IconArrowCircleDown';
 export * from './IconArrowCircleDownSplit';
+export * from './IconArrowClockwise';
+export * from './IconArrowClockwiseFilled';
 export * from './IconArrowCounterclockwise';
 export * from './IconArrowCounterclockwiseFilled';
 export * from './IconArrowDown';
