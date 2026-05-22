@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.14.2...@ab.uitools/ui-library@1.14.3) (2026-05-22)
+
+### Reverts
+
+- Revert "refactor: move rest props from Select container to Input component and fix indentation" ([291b668](https://github.com/ab-ui-tools/ab-ui-tools/commit/291b668784563b56c6db9e29358ea94a7039887c))
+
 ## [1.14.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.14.1...@ab.uitools/ui-library@1.14.2) (2026-05-21)
 
 ### Bug Fixes
