@@ -95,7 +95,7 @@ export type TFormValue =
 export type TOnChange = (event: TChangeEventType) => void;
 
 export interface IDataAttributes {
-  [key: `data-${string}`]: string | boolean | number;
+  dataAttributes?: Record<string, string | boolean | number>;
 }
 
 export interface IFormCompProps extends IDataAttributes {

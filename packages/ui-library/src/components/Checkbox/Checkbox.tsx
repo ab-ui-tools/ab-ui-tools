@@ -31,6 +31,10 @@ export const Checkbox = forwardRef(
       helperText = '',
       popoverAddons,
       isInvalid,
+      dataAttributes,
+      onChange,
+      hasError,
+      isValid,
       ...rest
     } = props;
 
@@ -113,7 +117,7 @@ export const Checkbox = forwardRef(
             onChange={changeHandler}
             checked={Boolean(isChecked)}
             disabled={disabled}
-            {...rest}
+            {...dataAttributes}
           />
           <span className="controller__icon">
             <IconDynamicComponent
