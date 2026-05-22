@@ -282,6 +282,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         'select--opened': isOpen,
       })}
       ref={containerRef}
+      {...rest}
     >
       <Input
         onClick={disabled ? noop : onOpenOptions}
@@ -305,7 +306,6 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         isAllowed={isAllowed}
         labelAddons={labelAddons}
         autoComplete="false"
-        {...rest}
       />
 
       {isOpen && (
