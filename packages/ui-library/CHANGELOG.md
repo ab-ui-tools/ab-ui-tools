@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.15.1...@ab.uitools/ui-library@1.15.2) (2026-05-25)
+
+### Bug Fixes
+
+- fixed isMobile issue in ssr ([cff86c4](https://github.com/ab-ui-tools/ab-ui-tools/commit/cff86c4f1a1a4ff12f74559948d0d1f333ceb6da))
+
 ## [1.15.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.15.0...@ab.uitools/ui-library@1.15.1) (2026-05-25)
 
 ### Bug Fixes
