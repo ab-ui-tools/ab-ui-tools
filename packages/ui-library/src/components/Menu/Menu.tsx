@@ -64,37 +64,51 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
   }
 
   return ReactDOM.createPortal(
-    <div className={classNames('select', 'select--menu', className)} style={menuStyles} ref={setMenuRef}>
-      <>
+    <div
+      className={classNames("select", "select--menu", className)}
+      style={menuStyles}
+      ref={setMenuRef}
+    >
+      <div className={'select__options'}>
         {children ? (
           children
         ) : (
           <>
-            {menuItems.map(({ label, meta, value, handler, iconProps, disabled, dataId }: TMenuItem) => {
-              return (
-                <OptionItem
-                  dataId={dataId}
-                  withTitleOption={withTitleOption}
-                  disabled={disabled}
-                  key={value}
-                  data={{
-                    label,
-                    value,
-                    meta,
-                  }}
-                  labelLeftIconProps={iconProps}
-                  onClick={() => {
-                    onClose();
-                    if (handler) {
-                      handler();
-                    }
-                  }}
-                />
-              );
-            })}
+            {menuItems.map(
+              ({
+                label,
+                meta,
+                value,
+                handler,
+                iconProps,
+                disabled,
+                dataId,
+              }: TMenuItem) => {
+                return (
+                  <OptionItem
+                    dataId={dataId}
+                    withTitleOption={withTitleOption}
+                    disabled={disabled}
+                    key={value}
+                    data={{
+                      label,
+                      value,
+                      meta,
+                    }}
+                    labelLeftIconProps={iconProps}
+                    onClick={() => {
+                      onClose();
+                      if (handler) {
+                        handler();
+                      }
+                    }}
+                  />
+                );
+              }
+            )}
           </>
         )}
-      </>
+      </div>
     </div>,
     parentRef
   );
