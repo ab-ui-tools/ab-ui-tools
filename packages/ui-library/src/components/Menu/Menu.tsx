@@ -65,7 +65,7 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
 
   return ReactDOM.createPortal(
     <div className={classNames('select', 'select--menu', className)} style={menuStyles} ref={setMenuRef}>
-      <>
+      <div className={'select__options'}>
         {children ? (
           children
         ) : (
@@ -94,7 +94,7 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
             })}
           </>
         )}
-      </>
+      </div>
     </div>,
     parentRef
   );
