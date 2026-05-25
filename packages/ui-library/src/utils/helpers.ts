@@ -119,7 +119,9 @@ export const getMonthByIndex = (index: number, base: Date = new Date()): Date =>
   return startOfMonth(addMonths(base, index));
 };
 
-export const isMobile = () => {
+export const isMobile = (): boolean => {
+  if (typeof window === 'undefined') return false;
+
   const toMatch = [
     /Android/i,
     /webOS/i,

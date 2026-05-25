@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.15.1...@ab.uitools/ui-library@1.15.2) (2026-05-25)
+
+### Bug Fixes
+
+- fixed isMobile issue in ssr ([cff86c4](https://github.com/ab-ui-tools/ab-ui-tools/commit/cff86c4f1a1a4ff12f74559948d0d1f333ceb6da))
+
+## [1.15.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.15.0...@ab.uitools/ui-library@1.15.1) (2026-05-25)
+
+### Bug Fixes
+
+- remove unused forwardref to fix ts error ([8abcdc0](https://github.com/ab-ui-tools/ab-ui-tools/commit/8abcdc0ca6e88fc31440e7ef98d4d2083be662d5))
+- remove unused forwardref to fix ts error ([e4d145d](https://github.com/ab-ui-tools/ab-ui-tools/commit/e4d145d593ed83992f6cc1932e25a0dbc51ed9a2))
+- reset direct push to master ([0aa84d8](https://github.com/ab-ui-tools/ab-ui-tools/commit/0aa84d8ab6d2f723114b5a084c5aac57813748d0))
+
 # [1.15.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.14.3...@ab.uitools/ui-library@1.15.0) (2026-05-22)
 
 ### Bug Fixes
