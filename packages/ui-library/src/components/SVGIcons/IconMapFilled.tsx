@@ -1,0 +1,37 @@
+import type { ReactElement } from 'react';
+
+import classNames from 'classnames';
+
+import type { ISVGIconProps } from './types';
+
+export const IconMapFilled = ({
+  size,
+  type,
+  className = '',
+  onClick,
+  refHandler,
+  id,
+  dataId,
+}: ISVGIconProps): ReactElement => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={classNames('svg-icon', {
+      [`svg-icon__size-${size}`]: size,
+      [`svg-icon__type-${type}`]: type,
+      [className]: className,
+    })}
+    viewBox="0 0 24 24"
+    fill="none"
+    onClick={onClick}
+    ref={refHandler}
+    id={id}
+    data-id={dataId ? `${dataId}-svg-icon` : ''}
+  >
+    <path
+      d="M8.49983 4.35792V16.8229L4.18015 19.8613C3.71244 20.1901 3.0787 19.8946 3.00576 19.3523L2.99883 19.2478V8.61525C2.99883 8.40593 3.08618 8.20785 3.23695 8.06708L3.31751 8.00169L8.49983 4.35792ZM20.9942 4.64773L21.0012 4.75222V15.3848C21.0012 15.5941 20.9138 15.7922 20.763 15.9329L20.6825 15.9983L15.4998 19.6399V7.17392L19.8198 4.13866C20.2876 3.80987 20.9213 4.10539 20.9942 4.64773ZM9.99983 4.35892L13.9998 7.17092V19.6379L9.99983 16.8239V4.35892Z"
+      fill="#222222"
+    />
+  </svg>
+);
+
+export default IconMapFilled;

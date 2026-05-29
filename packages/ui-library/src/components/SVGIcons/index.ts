@@ -306,6 +306,8 @@ export * from './IconMailArrowForwardFilled';
 export * from './IconMailFilled';
 export * from './IconMailLink';
 export * from './IconMailLinkFilled';
+export * from './IconMap';
+export * from './IconMapFilled';
 export * from './IconMedium';
 export * from './IconMegaphoneLoud';
 export * from './IconMention';
