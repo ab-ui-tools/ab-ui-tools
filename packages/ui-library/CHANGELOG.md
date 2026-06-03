@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.17.1...@ab.uitools/ui-library@1.17.2) (2026-06-03)
+
+### Bug Fixes
+
+- menu position fix ([9246ce3](https://github.com/ab-ui-tools/ab-ui-tools/commit/9246ce3693443f7bf090a728615dc0f8e07aafe6))
+
 ## [1.17.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.17.0...@ab.uitools/ui-library@1.17.1) (2026-06-03)
 
 ### Bug Fixes

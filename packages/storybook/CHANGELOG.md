@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.52](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.51...@ab.uitools/storybook@1.7.52) (2026-06-03)
+
+### Bug Fixes
+
+- menu position fix ([9246ce3](https://github.com/ab-devtools/uilibrary/commit/9246ce3693443f7bf090a728615dc0f8e07aafe6))
+- ui fix ([b2cdbe4](https://github.com/ab-devtools/uilibrary/commit/b2cdbe45c40ff0a4d04bd9f08bd186ac13a734be))
+- ui fix ([6a2cfd4](https://github.com/ab-devtools/uilibrary/commit/6a2cfd4ef701a43d9561812ea4baf5eda478d87f))
+
 ## [1.7.51](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.50...@ab.uitools/storybook@1.7.51) (2026-06-03)
 
 **Note:** Version bump only for package @ab.uitools/storybook
