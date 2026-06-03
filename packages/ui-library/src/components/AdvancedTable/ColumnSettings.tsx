@@ -59,7 +59,7 @@ export function ColumnSettings<T>({
       />
       <Menu
         className="settings-menu"
-        position="top-left"
+        position="bottom-left"
         onClose={closeUserMenu}
         isOpen={isOpen}
         parentRef={ref}

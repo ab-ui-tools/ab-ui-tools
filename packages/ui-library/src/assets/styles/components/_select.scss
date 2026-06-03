@@ -179,6 +179,7 @@
     position: fixed;
 
     #{$this}__options {
+      position: relative;
       border-radius: var(--ds-border-radius-2xl);
     }
 
