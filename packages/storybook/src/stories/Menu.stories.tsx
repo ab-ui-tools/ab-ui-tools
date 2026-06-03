@@ -21,12 +21,7 @@ export default {
   component: _Menu,
   argTypes: {
     position: {
-      options: [
-        'top-left',
-        'top-right',
-        'bottom-left',
-        'bottom-right'
-      ],
+      options: ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
       control: { type: 'radio' },
     },
   },
@@ -90,13 +85,7 @@ const Template: StoryFn<LinkPropTypes> = args => {
         ref={setRef}
       >
         <Button onClick={() => setOpen(!open)} iconProps={{ Component: IconMore }} />
-        <_Menu
-          {...args}
-          onClose={() => setOpen(false)}
-          parentRef={ref}
-          menuItems={items}
-          isOpen={open}
-        />
+        <_Menu {...args} onClose={() => setOpen(false)} parentRef={ref} menuItems={items} isOpen={open} />
       </div>
     </div>
   );
@@ -169,13 +158,7 @@ const NestedMenuTemplate = (args: any) => {
     <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
       <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
         <Button onClick={() => setOpen(!open)} iconProps={{ Component: IconSettings }} type="tertiary" />
-        <_NestedMenu
-          {...args}
-          onClose={() => setOpen(false)}
-          parentRef={ref}
-          menuItems={NestedItems}
-          isOpen={open}
-        />
+        <_NestedMenu {...args} onClose={() => setOpen(false)} parentRef={ref} menuItems={NestedItems} isOpen={open} />
       </div>
     </div>
   );
