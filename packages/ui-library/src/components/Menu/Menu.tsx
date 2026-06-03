@@ -43,16 +43,16 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
   });
 
   const menuStyles = useMemo(() => {
-    if (tooltipPosition === 'bottom-right') {
+    if (tooltipPosition === 'bottom-left') {
       return { left: left + 4, top: top + 4 + height };
     }
-    if (tooltipPosition === 'bottom-left') {
+    if (tooltipPosition === 'bottom-right') {
       return { left: left - menuWidth + width, top: top + 4 + height };
     }
-    if (tooltipPosition === 'top-right') {
+    if (tooltipPosition === 'top-left') {
       return { left: left + 4, top: top - menuHeight - 4 };
     }
-    if (tooltipPosition === 'top-left') {
+    if (tooltipPosition === 'top-right') {
       return { left: left - menuWidth + width, top: top - menuHeight - 4 };
     }
 
