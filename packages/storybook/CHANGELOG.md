@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.51](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.50...@ab.uitools/storybook@1.7.51) (2026-06-03)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
 ## [1.7.50](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.49...@ab.uitools/storybook@1.7.50) (2026-06-01)
 
 **Note:** Version bump only for package @ab.uitools/storybook

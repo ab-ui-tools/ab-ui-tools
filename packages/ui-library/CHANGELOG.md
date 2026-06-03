@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.17.0...@ab.uitools/ui-library@1.17.1) (2026-06-03)
+
+### Bug Fixes
+
+- added freeze and unfreeze icons ([96bdeba](https://github.com/ab-ui-tools/ab-ui-tools/commit/96bdeba681d3a4621f3cc6c668b56365f3817e54))
+- fix menu positioning issue ([639ab4e](https://github.com/ab-ui-tools/ab-ui-tools/commit/639ab4ef0a477ddcaa77238cc9aa6c934d483800))
+
 # [1.17.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.16.1...@ab.uitools/ui-library@1.17.0) (2026-06-01)
 
 ### Features
