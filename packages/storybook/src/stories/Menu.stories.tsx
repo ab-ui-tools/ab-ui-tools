@@ -76,9 +76,26 @@ const Template: StoryFn<LinkPropTypes> = args => {
 
   return (
     <div>
-      <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
-        <Button onClick={() => setOpen(!open)} iconProps={{ Component: IconMore }} />
-        <_Menu {...args} onClose={() => setOpen(false)} parentRef={ref} menuItems={items} isOpen={open} />
+      <div
+        style={{
+          position: "relative",
+          width: "fit-content",
+          margin: "300px 300px",
+        }}
+        ref={setRef}
+      >
+        <Button
+          onClick={() => setOpen(!open)}
+          iconProps={{ Component: IconMore }}
+        />
+        <_Menu
+          {...args}
+          onClose={() => setOpen(false)}
+          parentRef={ref}
+          menuItems={items}
+          isOpen={open}
+          position={'top-right'}
+        />
       </div>
     </div>
   );
