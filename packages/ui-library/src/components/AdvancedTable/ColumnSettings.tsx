@@ -28,7 +28,12 @@ export function ColumnSettings<T>({
   menuIconTooltipText,
   hiddenColumns = [],
   allToggleText = 'All',
-  buttonProps,
+  buttonProps = {
+    type: 'secondary',
+    iconProps: {
+      Component: IconSettings,
+    }
+  },
 }: ColumnSettingsProps<T>) {
   const [menuButtonRef, setMenuButtonRef] = useState<HTMLButtonElement | null>(null);
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
@@ -55,11 +60,7 @@ export function ColumnSettings<T>({
       <Button
         {...buttonProps}
         refHandler={setMenuButtonRef}
-        type="secondary"
         id="column-settings-menu-icon"
-        iconProps={{
-          Component: IconSettings,
-        }}
         onClick={() => setIsOpen((prev: boolean) => !prev)}
       />
       <Menu
