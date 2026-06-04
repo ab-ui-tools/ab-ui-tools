@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.17.2...@ab.uitools/ui-library@1.17.3) (2026-06-04)
+
+### Bug Fixes
+
+- added button props for settings button ([6ce3004](https://github.com/ab-ui-tools/ab-ui-tools/commit/6ce3004d72714acf85d7a549fb7eba3cd0acaa87))
+- fix for button props ([a27645b](https://github.com/ab-ui-tools/ab-ui-tools/commit/a27645b83e2da8f95b178874ffc4fdab83b40628))
+- lint fix ([67f2209](https://github.com/ab-ui-tools/ab-ui-tools/commit/67f220952da82c7d62cd3af109d0b6037c6a0ea1))
+- lint fix ([5a835dd](https://github.com/ab-ui-tools/ab-ui-tools/commit/5a835dde8cb13c237fb8e04193cb26a371bb1537))
+- ui fix for advanced table settings dropdown ([72f6921](https://github.com/ab-ui-tools/ab-ui-tools/commit/72f692172d4907a32004532d3d12d8a3f605a2b3))
+
 ## [1.17.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.17.1...@ab.uitools/ui-library@1.17.2) (2026-06-03)
 
 ### Bug Fixes
