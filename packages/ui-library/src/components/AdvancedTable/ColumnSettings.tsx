@@ -2,6 +2,8 @@ import type { Column, Table } from '@tanstack/react-table';
 
 import { useState } from 'react';
 
+import type { TButtonPropTypes } from '../Button/types';
+
 import { Positions } from '../Tooltip/types';
 import { Tooltip } from '../Tooltip';
 import { Switcher } from '../Switcher';
@@ -15,6 +17,7 @@ interface ColumnSettingsProps<T> {
   hiddenColumns?: string[];
   allToggleText?: string;
   menuIconTooltipText?: string;
+  buttonProps?: TButtonPropTypes;
 }
 
 const defaultHiddenColumnSettings = ['select', 'actions', 'expand'];
@@ -25,6 +28,12 @@ export function ColumnSettings<T>({
   menuIconTooltipText,
   hiddenColumns = [],
   allToggleText = 'All',
+  buttonProps = {
+    type: 'secondary',
+    iconProps: {
+      Component: IconSettings,
+    },
+  },
 }: ColumnSettingsProps<T>) {
   const [menuButtonRef, setMenuButtonRef] = useState<HTMLButtonElement | null>(null);
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
@@ -49,17 +58,14 @@ export function ColumnSettings<T>({
         <Tooltip position={Positions.TOP_CENTER} text={menuIconTooltipText} id="column-settings-menu-icon" />
       )}
       <Button
+        {...buttonProps}
         refHandler={setMenuButtonRef}
-        type="secondary"
         id="column-settings-menu-icon"
-        iconProps={{
-          Component: IconSettings,
-        }}
         onClick={() => setIsOpen((prev: boolean) => !prev)}
       />
       <Menu
         className="settings-menu"
-        position="bottom-left"
+        position="bottom-right"
         onClose={closeUserMenu}
         isOpen={isOpen}
         parentRef={ref}
