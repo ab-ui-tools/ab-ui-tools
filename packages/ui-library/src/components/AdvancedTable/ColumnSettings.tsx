@@ -32,7 +32,7 @@ export function ColumnSettings<T>({
     type: 'secondary',
     iconProps: {
       Component: IconSettings,
-    }
+    },
   },
 }: ColumnSettingsProps<T>) {
   const [menuButtonRef, setMenuButtonRef] = useState<HTMLButtonElement | null>(null);
