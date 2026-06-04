@@ -8,6 +8,7 @@ import { Switcher } from '../Switcher';
 import { IconSettings } from '../SVGIcons';
 import { Menu } from '../Menu';
 import { Button } from '../Button';
+import type { TButtonPropTypes } from "../Button/types";
 
 interface ColumnSettingsProps<T> {
   table: Table<T>;
@@ -15,6 +16,7 @@ interface ColumnSettingsProps<T> {
   hiddenColumns?: string[];
   allToggleText?: string;
   menuIconTooltipText?: string;
+  buttonProps?: TButtonPropTypes;
 }
 
 const defaultHiddenColumnSettings = ['select', 'actions', 'expand'];
@@ -24,9 +26,12 @@ export function ColumnSettings<T>({
   tooltipText,
   menuIconTooltipText,
   hiddenColumns = [],
-  allToggleText = 'All',
+  allToggleText = "All",
+  buttonProps,
 }: ColumnSettingsProps<T>) {
-  const [menuButtonRef, setMenuButtonRef] = useState<HTMLButtonElement | null>(null);
+  const [menuButtonRef, setMenuButtonRef] = useState<HTMLButtonElement | null>(
+    null
+  );
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -41,14 +46,20 @@ export function ColumnSettings<T>({
     }
   };
 
-  const hiddenColumnSettings = defaultHiddenColumnSettings.concat(hiddenColumns);
+  const hiddenColumnSettings =
+    defaultHiddenColumnSettings.concat(hiddenColumns);
 
   return (
     <div ref={setRef}>
       {menuIconTooltipText && (
-        <Tooltip position={Positions.TOP_CENTER} text={menuIconTooltipText} id="column-settings-menu-icon" />
+        <Tooltip
+          position={Positions.TOP_CENTER}
+          text={menuIconTooltipText}
+          id="column-settings-menu-icon"
+        />
       )}
       <Button
+        {...buttonProps}
         refHandler={setMenuButtonRef}
         type="secondary"
         id="column-settings-menu-icon"
@@ -73,19 +84,28 @@ export function ColumnSettings<T>({
                 selectedValue={table.getIsAllColumnsVisible()}
                 onClick={() => table.toggleAllColumnsVisible()}
                 inlineType={true}
-                size={'small'}
+                size={"small"}
               />
             </div>
           </div>
           <div className="scrollbar--content scrollbar scrollbar--vertical">
-            {table.getAllLeafColumns().map(column => {
+            {table.getAllLeafColumns().map((column) => {
               if (!hiddenColumnSettings?.includes(column.id)) {
                 const label =
-                  typeof column.columnDef.header === 'string' ? column.columnDef.header : column.columnDef.id;
+                  typeof column.columnDef.header === "string"
+                    ? column.columnDef.header
+                    : column.columnDef.id;
                 return (
-                  <div key={column.id} className={'settings-menu__dropdown__option'}>
+                  <div
+                    key={column.id}
+                    className={"settings-menu__dropdown__option"}
+                  >
                     {tooltipText && !column.getCanHide() && (
-                      <Tooltip position={Positions.TOP_CENTER} text={tooltipText} id={column.columnDef.id} />
+                      <Tooltip
+                        position={Positions.TOP_CENTER}
+                        text={tooltipText}
+                        id={column.columnDef.id}
+                      />
                     )}
                     <Switcher
                       label={label}
@@ -94,7 +114,7 @@ export function ColumnSettings<T>({
                       onClick={() => handleClick(column)}
                       disabled={!column.getCanHide()}
                       inlineType={true}
-                      size={'small'}
+                      size={"small"}
                     />
                   </div>
                 );
