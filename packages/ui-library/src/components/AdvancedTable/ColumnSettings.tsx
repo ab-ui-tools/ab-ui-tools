@@ -3,13 +3,18 @@ import type { Column, Table } from '@tanstack/react-table';
 import { useState } from 'react';
 
 import type { TButtonPropTypes } from '../Button/types';
+import type { TSVGIconComponent } from '../../types/globalTypes';
 
 import { Positions } from '../Tooltip/types';
 import { Tooltip } from '../Tooltip';
-import { Switcher } from '../Switcher';
 import { IconSettings } from '../SVGIcons';
 import { Menu } from '../Menu';
+import { Checkbox } from '../Checkbox';
 import { Button } from '../Button';
+
+type TColumnMeta = {
+  icon?: TSVGIconComponent;
+};
 
 interface ColumnSettingsProps<T> {
   table: Table<T>;
@@ -74,33 +79,38 @@ export function ColumnSettings<T>({
         <div className="settings-menu__dropdown">
           <div className="relative">
             <div className="settings-menu__dropdown__option sticky">
-              <Switcher
+              <Checkbox
                 label={allToggleText}
                 selectedValue={table.getIsAllColumnsVisible()}
                 onClick={() => table.toggleAllColumnsVisible()}
-                inlineType={true}
-                size={'small'}
               />
             </div>
           </div>
           <div className="scrollbar--content scrollbar scrollbar--vertical">
             {table.getAllLeafColumns().map(column => {
               if (!hiddenColumnSettings?.includes(column.id)) {
-                const label =
+                const text =
                   typeof column.columnDef.header === 'string' ? column.columnDef.header : column.columnDef.id;
+                const Icon = (column.columnDef.meta as TColumnMeta | undefined)?.icon;
+                const label = Icon ? (
+                  <span className="flexbox align-items--center" style={{ gap: 'var(--ds-space-8)' }}>
+                    <Icon size="small" />
+                    {text}
+                  </span>
+                ) : (
+                  text
+                );
                 return (
                   <div key={column.id} className={'settings-menu__dropdown__option'}>
                     {tooltipText && !column.getCanHide() && (
                       <Tooltip position={Positions.TOP_CENTER} text={tooltipText} id={column.columnDef.id} />
                     )}
-                    <Switcher
+                    <Checkbox
                       label={label}
-                      id={column.columnDef.id}
+                      dataId={column.columnDef.id}
                       selectedValue={column.getIsVisible()}
                       onClick={() => handleClick(column)}
                       disabled={!column.getCanHide()}
-                      inlineType={true}
-                      size={'small'}
                     />
                   </div>
                 );
