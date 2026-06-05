@@ -13,6 +13,12 @@ import {
   IconDelete,
   IconEdit,
   IconAdd,
+  IconColumn,
+  IconPerson,
+  IconTicket,
+  IconDocument,
+  IconBuilding,
+  IconMoney,
   Chips,
 } from '@ab.uitools/ui-library';
 
@@ -138,12 +144,14 @@ const Template: StoryFn<TTableProps<any>> = args => {
       id: 'user',
       header: 'User',
       accessorKey: 'user',
+      meta: { icon: IconPerson },
     },
     {
       header: 'Status',
       id: 'status',
       accessorKey: 'status',
       cell: row => <Chips text={'Created'} type={'accent'} color={'information'} />,
+      meta: { icon: IconTicket },
     },
     {
       id: 'age',
@@ -154,16 +162,19 @@ const Template: StoryFn<TTableProps<any>> = args => {
       header: 'Profile Progress',
       id: 'progress',
       accessorKey: 'progress',
+      meta: { icon: IconDocument },
     },
     {
       header: 'Test 1',
       id: 'test_1',
       accessorKey: 'visits',
+      meta: { icon: IconBuilding },
     },
     {
       header: 'Test 2',
       id: 'test_2',
       accessorKey: 'visits',
+      meta: { icon: IconMoney },
     },
     {
       header: 'Test 3',
@@ -201,7 +212,7 @@ const Template: StoryFn<TTableProps<any>> = args => {
   ];
 
   return (
-    <div style={{ height: '95vh' }}>
+    <div style={{ height: '95vh', margin: '24px' }}>
       <_Table
         {...args}
         data={data}
@@ -215,8 +226,18 @@ const Template: StoryFn<TTableProps<any>> = args => {
         emptyTitle="Empty title"
         emptySubTitle="Please try to reload the page or use another keyword."
         renderHeader={table => (
-          <div className="advanced-table__header justify-content--end">
-            <ColumnSettings hiddenColumns={['user']} tooltipText="Column is disabled" table={table} />
+          <div className="advanced-table__header justify-content--end pr-24 pl-24" style={{ marginRight: '240px' }}>
+            <ColumnSettings
+              table={table}
+              hiddenColumns={['user']}
+              tooltipText="Column is disabled"
+              allToggleText="Ընտրել բոլորը"
+              buttonProps={{
+                buttonText: 'Սյունյակներ',
+                type: 'secondary',
+                iconProps: { Component: IconColumn },
+              }}
+            />
           </div>
         )}
         renderFooter={table => (
