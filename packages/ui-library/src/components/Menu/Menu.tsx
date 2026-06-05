@@ -64,12 +64,14 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
   }
 
   return ReactDOM.createPortal(
-    <div className={classNames('select', 'select--menu', className)} style={menuStyles} ref={setMenuRef}>
-      <div className={'select__options'}>
-        {children ? (
-          children
-        ) : (
-          <>
+    <>
+      {children ? (
+        <div className={classNames('menu-dropdown', className)} style={menuStyles} ref={setMenuRef}>
+          {children}
+        </div>
+      ) : (
+        <div className={classNames('select', 'select--menu', className)} style={menuStyles} ref={setMenuRef}>
+          <div className={'select__options'}>
             {menuItems.map(({ label, meta, value, handler, iconProps, disabled, dataId }: TMenuItem) => {
               return (
                 <OptionItem
@@ -92,10 +94,10 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
                 />
               );
             })}
-          </>
-        )}
-      </div>
-    </div>,
+          </div>
+        </div>
+      )}
+    </>,
     parentRef
   );
 };

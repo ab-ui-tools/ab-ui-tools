@@ -7,6 +7,7 @@ import type { TSVGIconComponent } from '../../types/globalTypes';
 
 import { Positions } from '../Tooltip/types';
 import { Tooltip } from '../Tooltip';
+import { Text } from '../Text';
 import { IconSettings } from '../SVGIcons';
 import { Menu } from '../Menu';
 import { Checkbox } from '../Checkbox';
@@ -69,43 +70,42 @@ export function ColumnSettings<T>({
         onClick={() => setIsOpen((prev: boolean) => !prev)}
       />
       <Menu
-        className="settings-menu"
+        className="column-settings"
         position="bottom-right"
         onClose={closeUserMenu}
         isOpen={isOpen}
         parentRef={ref}
         additionalRef={menuButtonRef}
       >
-        <div className="settings-menu__dropdown">
-          <div className="relative">
-            <div className="settings-menu__dropdown__option sticky">
-              <Checkbox
-                label={allToggleText}
-                selectedValue={table.getIsAllColumnsVisible()}
-                onClick={() => table.toggleAllColumnsVisible()}
-              />
-            </div>
+        <div className={'column-settings__inner'}>
+          <div className="column-settings__top">
+            <Checkbox
+              label={allToggleText}
+              selectedValue={table.getIsAllColumnsVisible()}
+              onClick={() => table.toggleAllColumnsVisible()}
+            />
           </div>
-          <div className="scrollbar--content scrollbar scrollbar--vertical">
+          <div className="column-settings__content scrollbar scrollbar--vertical">
             {table.getAllLeafColumns().map(column => {
               if (!hiddenColumnSettings?.includes(column.id)) {
                 const text =
                   typeof column.columnDef.header === 'string' ? column.columnDef.header : column.columnDef.id;
                 const Icon = (column.columnDef.meta as TColumnMeta | undefined)?.icon;
                 const label = Icon ? (
-                  <span className="flexbox align-items--center" style={{ gap: 'var(--ds-space-8)' }}>
+                  <div className="column-settings__control__info">
                     <Icon size="small" />
-                    {text}
-                  </span>
+                    <Text className={'column-settings__control__info__text'}>{text}</Text>
+                  </div>
                 ) : (
                   text
                 );
                 return (
-                  <div key={column.id} className={'settings-menu__dropdown__option'}>
+                  <div key={column.id} className={'column-settings__option'}>
                     {tooltipText && !column.getCanHide() && (
                       <Tooltip position={Positions.TOP_CENTER} text={tooltipText} id={column.columnDef.id} />
                     )}
                     <Checkbox
+                      className={'column-settings__control'}
                       label={label}
                       dataId={column.columnDef.id}
                       selectedValue={column.getIsVisible()}

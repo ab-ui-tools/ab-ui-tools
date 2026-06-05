@@ -212,7 +212,7 @@ const Template: StoryFn<TTableProps<any>> = args => {
   ];
 
   return (
-    <div style={{ height: '95vh' }}>
+    <div style={{ height: '95vh', margin: '24px' }}>
       <_Table
         {...args}
         data={data}
@@ -226,7 +226,7 @@ const Template: StoryFn<TTableProps<any>> = args => {
         emptyTitle="Empty title"
         emptySubTitle="Please try to reload the page or use another keyword."
         renderHeader={table => (
-          <div className="advanced-table__header justify-content--end" style={{ marginRight: '116px' }}>
+          <div className="advanced-table__header justify-content--end pr-24 pl-24" style={{ marginRight: '240px' }}>
             <ColumnSettings
               table={table}
               hiddenColumns={['user']}
