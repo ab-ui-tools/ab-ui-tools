@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.53...@ab.uitools/storybook@1.8.0) (2026-06-05)
+
+### Bug Fixes
+
+- ui fixes for column settings component ([976a83b](https://github.com/ab-devtools/uilibrary/commit/976a83b4f75a4debe5afcea6cb6486e6052b8fc6))
+
+### Features
+
+- advanced story seeting ([252a26d](https://github.com/ab-devtools/uilibrary/commit/252a26da9a5eb214f9ee838427a9695fca103b24))
+
 ## [1.7.53](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.7.52...@ab.uitools/storybook@1.7.53) (2026-06-04)
 
 **Note:** Version bump only for package @ab.uitools/storybook
