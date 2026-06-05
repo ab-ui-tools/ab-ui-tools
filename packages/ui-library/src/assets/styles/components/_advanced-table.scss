@@ -425,6 +425,10 @@
     border-top: 1px solid var(--ds-color-border-quintary);
     height: calc(100% - var(--ds-size-48));
     min-height: 1px;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
   }
 
   &__option {
