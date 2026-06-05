@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.17.3...@ab.uitools/ui-library@1.18.0) (2026-06-05)
+
+### Bug Fixes
+
+- ui fixes for column settings component ([9803118](https://github.com/ab-ui-tools/ab-ui-tools/commit/9803118ba256c807125a72c324262d12601c4c82))
+- ui fixes for column settings component ([976a83b](https://github.com/ab-ui-tools/ab-ui-tools/commit/976a83b4f75a4debe5afcea6cb6486e6052b8fc6))
+
+### Features
+
+- **DES-30:** changed columns settings component ([76ccf76](https://github.com/ab-ui-tools/ab-ui-tools/commit/76ccf763e9193c545a64ff193587fd545f88f0be))
+
 ## [1.17.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.17.2...@ab.uitools/ui-library@1.17.3) (2026-06-04)
 
 ### Bug Fixes
