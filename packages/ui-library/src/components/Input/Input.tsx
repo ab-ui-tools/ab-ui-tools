@@ -189,21 +189,27 @@ export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
     return (
       <div
         className={classNames(`input input--${size}`, className, {
-          'input--icon-left': leftIconProps,
-          'input--icon-right': rightIconProps,
-          'input--invalid': isErrorVisible || !!error,
-          'input--valid': isValid,
-          'input--disabled': disabled,
+          "input--icon-left": leftIconProps,
+          "input--icon-right": rightIconProps,
+          "input--invalid": isErrorVisible || !!error,
+          "input--valid": isValid,
+          "input--disabled": disabled,
         })}
       >
-        <Label text={label} required={required} disabled={disabled} labelAddons={labelAddons} dataId={dataId} />
+        <Label
+          text={label}
+          required={required}
+          disabled={disabled}
+          labelAddons={labelAddons}
+          dataId={dataId}
+        />
         <div className="input__inner">
           {input}
           {leftIconProps?.Component ? (
             <leftIconProps.Component
               size="small"
               {...leftIconProps}
-              className={classNames('input__icon', 'input__icon--left', {
+              className={classNames("input__icon", "input__icon--left", {
                 [`${leftIconProps.className}`]: !!leftIconProps.className,
               })}
             />
@@ -212,7 +218,7 @@ export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
             <rightIconProps.Component
               size="small"
               {...rightIconProps}
-              className={classNames('input__icon', 'input__icon--right', {
+              className={classNames("input__icon", "input__icon--right", {
                 [`${rightIconProps.className}`]: !!rightIconProps.className,
               })}
             />
@@ -221,23 +227,39 @@ export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
 
         {error || successMessage || helperText || maxCount ? (
           <div className="input__message mt-8">
-            {isErrorVisible && error ? <ErrorMessage message={error} icon="infoFilled" dataId={dataId} /> : null}
+            {isErrorVisible && error ? (
+              <ErrorMessage message={error} icon="infoFilled" dataId={dataId} />
+            ) : null}
             {successMessage ? (
-              <Text size="small" type="success-light" className="flexbox align-items--center">
+              <Text
+                size="small"
+                type={disabled || readonly ? "disabled" : "success-light"}
+                className="flexbox align-items--center"
+              >
                 <>
-                  <IconCheckmarkCircleFilled type="success-light" size="xsmall" />
+                  <IconCheckmarkCircleFilled
+                    type={disabled || readonly ? "disabled" : "success-light"}
+                    size="xsmall"
+                  />
                   <span className="ml-4">{successMessage}</span>
                 </>
               </Text>
             ) : null}
             {helperText && !successMessage && !(isErrorVisible || error) ? (
-              <Text size="small" type={disabled ? 'disabled' : 'secondary'}>
+              <Text
+                size="small"
+                type={disabled || readonly ? "disabled" : "secondary"}
+              >
                 {helperText}
               </Text>
             ) : null}
 
             {maxCount && !hideCounter && !hasError ? (
-              <Text size="small" type={disabled ? 'disabled' : 'secondary'} className="input__counter">
+              <Text
+                size="small"
+                type={disabled || readonly ? "disabled" : "secondary"}
+                className="input__counter"
+              >
                 {`${currentLength}/${maxCount}`}
               </Text>
             ) : null}
