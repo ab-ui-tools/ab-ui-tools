@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.3](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.8.2...@ab.uitools/storybook@1.8.3) (2026-06-08)
+
+### Bug Fixes
+
+- ui fixes for input disabled ynd readonly states ([a505057](https://github.com/ab-devtools/uilibrary/commit/a505057c815a0a29fee0bed1bc9520c943653579))
+
 ## [1.8.2](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.8.1...@ab.uitools/storybook@1.8.2) (2026-06-08)
 
 **Note:** Version bump only for package @ab.uitools/storybook

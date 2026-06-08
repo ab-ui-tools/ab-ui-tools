@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.0...@ab.uitools/ui-library@1.19.1) (2026-06-08)
+
+### Bug Fixes
+
+- added new icons ([6883fca](https://github.com/ab-ui-tools/ab-ui-tools/commit/6883fcaed548ede03648ddeeed351a852fe0bb96))
+- added new icons ([28b07c9](https://github.com/ab-ui-tools/ab-ui-tools/commit/28b07c967b56d61bb2bd4de23cad8e1439ef790f))
+- ui fix ([610f511](https://github.com/ab-ui-tools/ab-ui-tools/commit/610f511d44b7903a2c1c2a4603a9bce8ca29034a))
+- ui fixes for input disabled ynd readonly states ([a505057](https://github.com/ab-ui-tools/ab-ui-tools/commit/a505057c815a0a29fee0bed1bc9520c943653579))
+
 # [1.19.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.18.1...@ab.uitools/ui-library@1.19.0) (2026-06-08)
 
 ### Features
