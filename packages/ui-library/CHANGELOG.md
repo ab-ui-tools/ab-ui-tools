@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.18.1...@ab.uitools/ui-library@1.19.0) (2026-06-08)
+
+### Features
+
+- **DES-30:** add select-all states and column icons to column settings ([5609934](https://github.com/ab-ui-tools/ab-ui-tools/commit/560993454bc6e851c93ba5a7cd69139760c9927f))
+
 ## [1.18.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.18.0...@ab.uitools/ui-library@1.18.1) (2026-06-08)
 
 ### Bug Fixes
