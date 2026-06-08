@@ -223,21 +223,25 @@ export const Input = forwardRef<HTMLInputElement, InputCustomProps>(
           <div className="input__message mt-8">
             {isErrorVisible && error ? <ErrorMessage message={error} icon="infoFilled" dataId={dataId} /> : null}
             {successMessage ? (
-              <Text size="small" type="success-light" className="flexbox align-items--center">
+              <Text
+                size="small"
+                type={disabled || readonly ? 'disabled' : 'success-light'}
+                className="flexbox align-items--center"
+              >
                 <>
-                  <IconCheckmarkCircleFilled type="success-light" size="xsmall" />
+                  <IconCheckmarkCircleFilled type={disabled || readonly ? 'disabled' : 'success-light'} size="xsmall" />
                   <span className="ml-4">{successMessage}</span>
                 </>
               </Text>
             ) : null}
             {helperText && !successMessage && !(isErrorVisible || error) ? (
-              <Text size="small" type={disabled ? 'disabled' : 'secondary'}>
+              <Text size="small" type={disabled || readonly ? 'disabled' : 'secondary'}>
                 {helperText}
               </Text>
             ) : null}
 
             {maxCount && !hideCounter && !hasError ? (
-              <Text size="small" type={disabled ? 'disabled' : 'secondary'} className="input__counter">
+              <Text size="small" type={disabled || readonly ? 'disabled' : 'secondary'} className="input__counter">
                 {`${currentLength}/${maxCount}`}
               </Text>
             ) : null}

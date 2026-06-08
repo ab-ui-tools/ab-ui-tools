@@ -123,6 +123,7 @@ Input.args = {
   },
   disabled: false,
   required: true,
+  readonly: true,
   maxCount: 15,
   witUpperCase: false,
   placeholder: 'Some text',
