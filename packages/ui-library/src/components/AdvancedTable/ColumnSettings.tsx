@@ -58,7 +58,12 @@ export function ColumnSettings<T>({
 
   const hiddenColumnSettings = defaultHiddenColumnSettings.concat(hiddenColumns);
 
-  const isAllSelected = table.getIsAllColumnsVisible();
+  const columns = table
+    .getAllLeafColumns()
+    .filter(column => column.getCanHide() && !hiddenColumnSettings.includes(column.id));
+
+  const isAllSelected = columns.every(column => column.getIsVisible());
+  const isSomeSelected = columns.some(column => column.getIsVisible());
 
   return (
     <div ref={setRef}>
@@ -84,7 +89,7 @@ export function ColumnSettings<T>({
             <Checkbox
               iconProps={{ name: isAllSelected ? 'checkmark' : 'subtract' }}
               label={allToggleText}
-              selectedValue={isAllSelected || table.getIsSomeColumnsVisible()}
+              selectedValue={isSomeSelected}
               onClick={() => table.toggleAllColumnsVisible()}
             />
           </div>
