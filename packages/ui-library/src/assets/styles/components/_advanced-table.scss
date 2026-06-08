@@ -447,8 +447,10 @@
     height: var(--ds-size-40);
     border-radius: var(--ds-border-radius-xl);
 
-    &:hover {
-      background-color: var(--ds-color-bg-container-lighter);
+    &:not(.controller--disabled) {
+      &:hover {
+        background-color: var(--ds-color-bg-container-lighter);
+      }
     }
 
     &__info {
