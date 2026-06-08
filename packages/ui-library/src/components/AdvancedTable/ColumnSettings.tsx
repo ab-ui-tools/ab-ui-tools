@@ -58,6 +58,8 @@ export function ColumnSettings<T>({
 
   const hiddenColumnSettings = defaultHiddenColumnSettings.concat(hiddenColumns);
 
+  const isAllSelected = table.getIsAllColumnsVisible();
+
   return (
     <div ref={setRef}>
       {menuIconTooltipText && (
@@ -80,8 +82,9 @@ export function ColumnSettings<T>({
         <div className={'column-settings__inner'}>
           <div className="column-settings__top">
             <Checkbox
+              iconProps={{ name: isAllSelected ? 'checkmark' : 'subtract' }}
               label={allToggleText}
-              selectedValue={table.getIsAllColumnsVisible()}
+              selectedValue={isAllSelected || table.getIsSomeColumnsVisible()}
               onClick={() => table.toggleAllColumnsVisible()}
             />
           </div>

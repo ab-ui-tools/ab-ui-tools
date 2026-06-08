@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.18.0...@ab.uitools/ui-library@1.18.1) (2026-06-08)
+
+### Bug Fixes
+
+- replace switcher with checkbox in column settings ([d3e9f06](https://github.com/ab-ui-tools/ab-ui-tools/commit/d3e9f0620053fca10d0555a2c55b8ddf84d7c4ee))
+- ui fix ([15cd9d3](https://github.com/ab-ui-tools/ab-ui-tools/commit/15cd9d3d524768c474764bcba82f83d4a11a9471))
+
 # [1.18.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.17.3...@ab.uitools/ui-library@1.18.0) (2026-06-05)
 
 ### Bug Fixes
