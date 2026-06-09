@@ -231,6 +231,12 @@
         &:focus {
           box-shadow: var(--ds-select-language-shadow-focused);
         }
+
+        & + .input__icon {
+          path {
+            fill: revert-layer !important;
+          }
+        }
       }
 
       &__inner {
