@@ -141,20 +141,6 @@
       }
     }
 
-    &:read-only {
-      background-color: var(--ds-input-bg-readonly);
-      cursor: default;
-
-      & + #{$this}__icon,
-      & + #{$this}__icon + #{$this}__icon {
-        color: var(--ds-input-body-icon-readonly);
-
-        path {
-          fill: var(--ds-input-body-icon-readonly);
-        }
-      }
-    }
-
     &[disabled] {
       cursor: default;
       background-color: var(--ds-input-bg-disabled);
@@ -268,6 +254,24 @@
   &__counter {
     flex: 1;
     text-align: right;
+  }
+
+  &:not(#{$this}--select) {
+    input {
+      &:read-only {
+        background-color: var(--ds-input-bg-readonly);
+        cursor: default;
+
+        & + #{$this}__icon,
+        & + #{$this}__icon + #{$this}__icon {
+          color: var(--ds-input-body-icon-readonly);
+
+          path {
+            fill: var(--ds-input-body-icon-readonly);
+          }
+        }
+      }
+    }
   }
 }
 

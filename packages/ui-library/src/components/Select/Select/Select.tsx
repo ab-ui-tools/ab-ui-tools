@@ -285,7 +285,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         size={size === 'large' ? 'large' : 'small'}
         dataId={dataId}
         hasError={hasError}
-        className="select__input"
+        className="select__input input--select"
         label={label}
         onChange={onSearch}
         onInput={onInputChange as InputHTMLAttributes<HTMLInputElement>['onInput']}
