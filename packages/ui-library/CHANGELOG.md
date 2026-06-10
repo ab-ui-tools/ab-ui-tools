@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.3...@ab.uitools/ui-library@1.19.4) (2026-06-10)
+
+### Bug Fixes
+
+- fix for select input ui ([29e2b54](https://github.com/ab-ui-tools/ab-ui-tools/commit/29e2b5446ac4f3bb5c313c068c56290138328ab0))
+
 ## [1.19.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.2...@ab.uitools/ui-library@1.19.3) (2026-06-10)
 
 ### Bug Fixes
