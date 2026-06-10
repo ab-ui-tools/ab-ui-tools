@@ -101,7 +101,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
       <div onClick={toggleDropdown}>
         <Input
           ref={inputRef}
-          className="select__input"
+          className="select__input input--select"
           label={label}
           required={isRequiredField}
           rightIconProps={{
