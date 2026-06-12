@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.4...@ab.uitools/ui-library@1.19.5) (2026-06-12)
+
+### Bug Fixes
+
+- show indeterminate state on table row select checkbox ([3d611a5](https://github.com/ab-ui-tools/ab-ui-tools/commit/3d611a5d5dac7f7c8fed4e17f498ec61f49c5fa6))
+
 ## [1.19.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.3...@ab.uitools/ui-library@1.19.4) (2026-06-10)
 
 ### Bug Fixes
