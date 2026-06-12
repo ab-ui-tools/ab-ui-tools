@@ -23,15 +23,16 @@ export const IndeterminateCheckbox = forwardRef(
       resolvedRef.current.indeterminate = indeterminate;
     }, [resolvedRef, indeterminate]);
 
-    const handleChange = (v: boolean) => {
-      onChange({ target: { checked: v } });
+    const handleChange = () => {
+      onChange({ target: { checked: !checked } });
     };
 
     return (
       <div className={'actions-list'}>
         <Checkbox
-          className={classNames('actions-list__checkbox', { 'active-checkbox': checked })}
-          value={checked}
+          className={classNames('actions-list__checkbox', { 'active-checkbox': checked || indeterminate })}
+          value={checked || indeterminate}
+          iconProps={{ name: checked ? 'checkmark' : 'subtract' }}
           disabled={disabled}
           onClick={handleChange}
           ref={resolvedRef}
