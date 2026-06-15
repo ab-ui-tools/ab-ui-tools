@@ -76,6 +76,10 @@ export const OneTimePassword = ({
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>, index: number) => {
+    if ((type === 'number' || type === 'numeric') && ['e', 'E', '+', '-', '.', ','].includes(event.key)) {
+      event.preventDefault();
+      return;
+    }
     if (event.key === 'Backspace' && !otp[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
       const newOtp = [...otp];
