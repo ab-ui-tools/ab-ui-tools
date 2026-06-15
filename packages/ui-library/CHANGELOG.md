@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.5...@ab.uitools/ui-library@1.19.6) (2026-06-15)
+
+### Bug Fixes
+
+- one time password ([3fe2e97](https://github.com/ab-ui-tools/ab-ui-tools/commit/3fe2e9742e040dc1781239a131a7f025672bc0f5))
+- otp ([6008bcd](https://github.com/ab-ui-tools/ab-ui-tools/commit/6008bcd6df8a16af66e99bfcc1717d83ae83a463))
+- otp ([96f62c1](https://github.com/ab-ui-tools/ab-ui-tools/commit/96f62c1a7952240967b6b4a10b1aecda061e3867))
+
 ## [1.19.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.4...@ab.uitools/ui-library@1.19.5) (2026-06-12)
 
 ### Bug Fixes
