@@ -76,7 +76,7 @@ export const OneTimePassword = ({
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>, index: number) => {
-    if (['e', 'E', '+', '-', '.', ','].includes(event.key)) {
+    if ((type === 'number' || type === 'numeric') && ['e', 'E', '+', '-', '.', ','].includes(event.key)) {
       event.preventDefault();
       return;
     }
