@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.6...@ab.uitools/ui-library@1.20.0) (2026-06-16)
+
+### Features
+
+- add onChipClick prop to support global click events and update stories accordingly ([92eedc4](https://github.com/ab-ui-tools/ab-ui-tools/commit/92eedc40409c7dc234f4b090b4222ecb943b431f))
+
 ## [1.19.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.5...@ab.uitools/ui-library@1.19.6) (2026-06-15)
 
 ### Bug Fixes
