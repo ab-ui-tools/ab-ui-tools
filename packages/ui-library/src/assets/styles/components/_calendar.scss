@@ -3,6 +3,8 @@
 .calendar {
   position: relative;
   .calendar-popup-container {
+    @include mixin.flexbox;
+    @include mixin.flex-direction(column);
     position: fixed;
     z-index: 3;
     .react-calendar-wrapper {
@@ -13,6 +15,9 @@
       border-radius: var(--ds-border-radius-2xl);
       border: 1px solid var(--ds-color-border-quintary);
       background-color: var(--ds-color-bg-white);
+      overflow-y: auto;
+      flex: 1;
+      min-height: 0;
       @media (max-width: 768px) {
         max-width: 361px;
       }
@@ -21,7 +26,11 @@
         @include mixin.justify-content(space-between);
         padding: var(--ds-space-16);
         height: var(--ds-size-56);
+        background-color: var(--ds-color-bg-white);
         border-bottom: 1px solid var(--ds-color-border-quintary);
+        position: sticky;
+        top: 0;
+        z-index: 1;
         .switcher {
           @include mixin.flexbox;
           @include mixin.align-items(center);
