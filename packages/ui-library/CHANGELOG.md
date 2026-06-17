@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.20.0...@ab.uitools/ui-library@1.20.1) (2026-06-17)
+
+### Bug Fixes
+
+- calendar position ([6aad279](https://github.com/ab-ui-tools/ab-ui-tools/commit/6aad2799067edc59a5376cc11460e31af6ca7da9))
+
 # [1.20.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.6...@ab.uitools/ui-library@1.20.0) (2026-06-16)
 
 ### Features
