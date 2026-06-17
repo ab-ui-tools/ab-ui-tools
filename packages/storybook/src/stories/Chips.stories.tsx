@@ -23,7 +23,15 @@ export default {
   },
 };
 
-const Template: StoryFn<TChipsProps> = args => <_Chips {...args} />;
+const Template: StoryFn<TChipsProps> = args => {
+  const handleChipClick = (e: any) => {
+    console.log('Global chip click (onChipClick)', e);
+  };
+  const handleDeleteClick = (e: any) => {
+    console.log('Delete action click (onClick)', e);
+  };
+  return <_Chips {...args} onClick={handleDeleteClick} onChipClick={handleChipClick} />;
+};
 
 export const Chips = Template.bind({});
 
@@ -32,10 +40,7 @@ Chips.args = {
   color: 'default',
   size: 'large',
   text: 'Badge',
-  leftIconProps: {
-    Component: IconPerson,
-  },
   disabled: false,
-  withAction: false,
+  withAction: true,
   isReadOnly: false,
 };
