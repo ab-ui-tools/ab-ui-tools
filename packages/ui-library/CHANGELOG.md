@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.0...@ab.uitools/ui-library@1.21.1) (2026-06-19)
+
+### Bug Fixes
+
+- added documentData icon, and remove documentReport icon ([a83bcea](https://github.com/ab-ui-tools/ab-ui-tools/commit/a83bcea137676227b2f93fd98d6a2a7d77c899ca))
+
 # [1.21.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.20.2...@ab.uitools/ui-library@1.21.0) (2026-06-19)
 
 ### Features
