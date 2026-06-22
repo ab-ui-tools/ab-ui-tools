@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.1...@ab.uitools/ui-library@1.21.2) (2026-06-22)
+
+### Bug Fixes
+
+- added condition for modal cancel button ([7773c53](https://github.com/ab-ui-tools/ab-ui-tools/commit/7773c5396067889746c1914028cb2dbce0dd48c7))
+
 ## [1.21.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.0...@ab.uitools/ui-library@1.21.1) (2026-06-19)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.5](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.4...@ab.uitools/storybook@1.9.5) (2026-06-22)
+
+### Bug Fixes
+
+- added condition for modal cancel button ([7773c53](https://github.com/ab-devtools/uilibrary/commit/7773c5396067889746c1914028cb2dbce0dd48c7))
+
 ## [1.9.4](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.3...@ab.uitools/storybook@1.9.4) (2026-06-19)
 
 **Note:** Version bump only for package @ab.uitools/storybook
