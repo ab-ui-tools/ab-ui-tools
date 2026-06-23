@@ -409,7 +409,6 @@
   &__inner {
     @include mixin.flexbox;
     @include mixin.flex-direction(column);
-    max-height: 394px;
   }
 
   &__top {
@@ -421,13 +420,19 @@
 
   &__content {
     flex: 1;
-    padding: var(--ds-space-6);
+    padding-right: var(--ds-space-4);
     border-top: 1px solid var(--ds-color-border-quintary);
     height: calc(100% - var(--ds-size-48));
     min-height: 1px;
 
+  }
+
+  &__scrollbar {
+    max-height: 346px;
+    padding: var(--ds-space-6) var(--ds-space-2) var(--ds-space-6) var(--ds-space-6);
+
     &::-webkit-scrollbar {
-      width: 4px;
+      width: var(--ds-size-4);
     }
   }
 
