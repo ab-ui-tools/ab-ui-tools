@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.6](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.5...@ab.uitools/storybook@1.9.6) (2026-06-23)
+
+### Bug Fixes
+
+- ui fix ([dac580d](https://github.com/ab-devtools/uilibrary/commit/dac580da768c984bf4726ebae5f6109ce37c6d6d))
+
 ## [1.9.5](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.4...@ab.uitools/storybook@1.9.5) (2026-06-22)
 
 ### Bug Fixes

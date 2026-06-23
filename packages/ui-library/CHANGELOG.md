@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.2...@ab.uitools/ui-library@1.21.3) (2026-06-23)
+
+### Bug Fixes
+
+- fixed spacing for columnsettings dropdown ([66fe141](https://github.com/ab-ui-tools/ab-ui-tools/commit/66fe14126ffc92273870e542f058a428680e40b5))
+- ui fix ([dac580d](https://github.com/ab-ui-tools/ab-ui-tools/commit/dac580da768c984bf4726ebae5f6109ce37c6d6d))
+
 ## [1.21.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.1...@ab.uitools/ui-library@1.21.2) (2026-06-22)
 
 ### Bug Fixes
