@@ -35,7 +35,7 @@ export function ColumnSettings<T>({
   menuIconTooltipText,
   hiddenColumns = [],
   allToggleText = 'All',
-  menuPosition = Positions.BOTTOM_RIGHT,
+  menuPosition = Positions.TOP_RIGHT,
   buttonProps = {
     type: 'secondary',
     iconProps: {
