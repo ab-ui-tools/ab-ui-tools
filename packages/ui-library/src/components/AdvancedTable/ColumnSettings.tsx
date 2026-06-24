@@ -24,6 +24,7 @@ interface ColumnSettingsProps<T> {
   allToggleText?: string;
   menuIconTooltipText?: string;
   buttonProps?: TButtonPropTypes;
+  menuPosition?: Positions;
 }
 
 const defaultHiddenColumnSettings = ['select', 'actions', 'expand'];
@@ -34,6 +35,7 @@ export function ColumnSettings<T>({
   menuIconTooltipText,
   hiddenColumns = [],
   allToggleText = 'All',
+  menuPosition = Positions.BOTTOM_RIGHT,
   buttonProps = {
     type: 'secondary',
     iconProps: {
@@ -78,7 +80,7 @@ export function ColumnSettings<T>({
       />
       <Menu
         className="column-settings"
-        position={Positions.BOTTOM_RIGHT}
+        position={menuPosition}
         onClose={closeUserMenu}
         isOpen={isOpen}
         parentRef={ref}
