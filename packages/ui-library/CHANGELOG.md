@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.5...@ab.uitools/ui-library@1.21.6) (2026-06-25)
+
+### Bug Fixes
+
+- react select crate on outside click issue ([600c248](https://github.com/ab-ui-tools/ab-ui-tools/commit/600c2484f9c540d2f44e207baa0f180629f98543))
+- react select crate on outside click issue ([1ae00f4](https://github.com/ab-ui-tools/ab-ui-tools/commit/1ae00f4daa9e45163b0bc870b97565265ffbec92))
+
 ## [1.21.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.4...@ab.uitools/ui-library@1.21.5) (2026-06-24)
 
 ### Bug Fixes
