@@ -1,6 +1,6 @@
 import CreatableSelect from 'react-select/creatable';
 import Select, { type ActionMeta } from 'react-select';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import type { TOption, TReactSelectProps, TSelectValue, SingleValue } from './types';
@@ -52,6 +52,7 @@ export const ReactSelect = ({
   ...selectProps
 }: TReactSelectProps) => {
   const [selectedOption, setSelectedOption] = useState<TSelectValue>();
+  const isMenuMouseDownRef = useRef(false);
 
   const handleChangeOption = (selectedOption: TSelectValue, actionMeta?: ActionMeta<TOption>) => {
     const val = !Array.isArray(selectedOption)
@@ -72,6 +73,10 @@ export const ReactSelect = ({
 
   const handleCreateOnOutsideClick = (event: React.FocusEvent) => {
     if (!isCreatable || !isCreateOnOutsideClick) return;
+    if (isMenuMouseDownRef.current) {
+      isMenuMouseDownRef.current = false;
+      return;
+    }
 
     const inputValue = (event?.target as HTMLInputElement)?.value;
     if (!inputValue) return;
@@ -150,7 +155,15 @@ export const ReactSelect = ({
   const SelectComponent = isCreatable ? CreatableSelect : Select;
 
   return (
-    <div data-id={dataId} className="react-select-wrapper">
+    <div
+      data-id={dataId}
+      className="react-select-wrapper"
+      onMouseDown={e => {
+        if ((e.target as HTMLElement).closest?.('.react-select__menu')) {
+          isMenuMouseDownRef.current = true;
+        }
+      }}
+    >
       <Label text={label} required={required} disabled={isDisabled} labelAddons={labelAddons} />
       <SelectComponent
         {...selectProps}
