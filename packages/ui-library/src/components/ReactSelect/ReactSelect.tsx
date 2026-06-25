@@ -1,6 +1,6 @@
 import CreatableSelect from 'react-select/creatable';
 import Select, { type ActionMeta } from 'react-select';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, type MouseEvent } from 'react';
 import classNames from 'classnames';
 
 import type { TOption, TReactSelectProps, TSelectValue, SingleValue } from './types';
@@ -135,6 +135,12 @@ export const ReactSelect = ({
     return generateCreatableSelectedOptions(value);
   };
 
+  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+    if ((e.target as HTMLElement).closest?.('.react-select__menu')) {
+      isMenuMouseDownRef.current = true;
+    }
+  };
+
   useEffect(() => {
     const currentValue = selectedValue || value;
     if (!currentValue) {
@@ -155,15 +161,7 @@ export const ReactSelect = ({
   const SelectComponent = isCreatable ? CreatableSelect : Select;
 
   return (
-    <div
-      data-id={dataId}
-      className="react-select-wrapper"
-      onMouseDown={e => {
-        if ((e.target as HTMLElement).closest?.('.react-select__menu')) {
-          isMenuMouseDownRef.current = true;
-        }
-      }}
-    >
+    <div data-id={dataId} className="react-select-wrapper" onMouseDown={handleMouseDown}>
       <Label text={label} required={required} disabled={isDisabled} labelAddons={labelAddons} />
       <SelectComponent
         {...selectProps}
