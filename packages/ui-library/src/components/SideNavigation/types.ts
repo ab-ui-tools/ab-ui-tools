@@ -16,6 +16,7 @@ export interface TSideNavigationPropTypes extends SideNavigationControls {
   className?: string;
   logo?: string;
   logoUrl?: string;
+  logoTarget?: string;
   logoClosed?: string;
   headerChildren?: ComponentType<{ isOpen: boolean }>;
   actionElm?: JSX.Element;
