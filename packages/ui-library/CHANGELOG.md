@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.6...@ab.uitools/ui-library@1.22.0) (2026-06-26)
+
+### Features
+
+- add target property for link ([e69a182](https://github.com/ab-ui-tools/ab-ui-tools/commit/e69a182fdab316e0ddf5483290a85a5fc54797b9))
+
 ## [1.21.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.5...@ab.uitools/ui-library@1.21.6) (2026-06-25)
 
 ### Bug Fixes
