@@ -132,7 +132,8 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
               </div>
             ) : null}
 
-            <div className="modal__content scrollbar scrollbar--vertical">{children}</div>
+            {children ? <div className="modal__content scrollbar scrollbar--vertical">{children}</div> : null}
+
             {buttons || checkbox ? (
               <div className={`modal__footer ${checkbox ? 'justify-content--between' : 'justify-content--end'}`}>
                 {checkbox}
