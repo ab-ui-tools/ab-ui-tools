@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.22.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.22.0...@ab.uitools/ui-library@1.22.1) (2026-07-06)
+
+### Bug Fixes
+
+- hide modal content if there is no children ([8d73fcd](https://github.com/ab-ui-tools/ab-ui-tools/commit/8d73fcd45b41e707fc9dab97789d404be0623c81))
+- ui fix ([bf6bf40](https://github.com/ab-ui-tools/ab-ui-tools/commit/bf6bf402f97d93af2f8e32b9f7920110737a4b40))
+
 # [1.22.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.6...@ab.uitools/ui-library@1.22.0) (2026-06-26)
 
 ### Features
