@@ -14,11 +14,11 @@
   --ds-modal-border-radius: var(--ds-border-radius-3xl);
   --ds-modal-shadow: var(--shadow-7);
 
-  --ds-modal-header-padding-lg: var(--ds-space-28) var(--ds-space-28) 0;
-  --ds-modal-header-padding-sm: var(--ds-space-24) var(--ds-space-24) 0;
+  --ds-modal-header-padding-lg: var(--ds-space-28);
+  --ds-modal-header-padding-sm: var(--ds-space-24);
 
-  --ds-modal-content-padding-lg: var(--ds-space-28) var(--ds-space-14) var(--ds-space-28) var(--ds-space-28);
-  --ds-modal-content-padding-sm: var(--ds-space-24) var(--ds-space-10) var(--ds-space-24) var(--ds-space-24);
+  --ds-modal-content-padding-lg: 0 var(--ds-space-14) var(--ds-space-28) var(--ds-space-28);
+  --ds-modal-content-padding-sm: 0 var(--ds-space-10) var(--ds-space-24) var(--ds-space-24);
 
   --ds-modal-footer-height: var(--ds-size-72);
   --ds-modal-footer-padding-lg: var(--ds-space-20) var(--ds-space-28);
