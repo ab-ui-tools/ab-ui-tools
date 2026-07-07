@@ -43,7 +43,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     hasError,
     isLoading,
     isValid,
-    allowOpenOnFocus = false,
+    openDropdownOnFocus = false,
     isSearchable = false,
     isDynamicSearchable = false,
     trimSearchValue = false,
@@ -275,7 +275,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   return (
     <div
-      onFocus={allowOpenOnFocus ? openDropdown : undefined}
+      onFocus={openDropdownOnFocus ? openDropdown : undefined}
       data-id={`${dataId}-content`}
       className={classNames(`select select--${size}`, className, {
         'select--opened': isOpen,
