@@ -152,6 +152,7 @@ export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps
   setSelectedItem?: (items: TItemValue | undefined) => void;
   onInputChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onInputFormatting?: (value: string) => string;
+  allowOpenOnFocus?: boolean;
   isSearchable?: boolean;
   isDynamicSearchable?: boolean;
   trimSearchValue?: boolean;
