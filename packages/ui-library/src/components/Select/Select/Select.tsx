@@ -43,6 +43,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     hasError,
     isLoading,
     isValid,
+    openDropdownOnFocus = false,
     isSearchable = false,
     isDynamicSearchable = false,
     trimSearchValue = false,
@@ -247,7 +248,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const rightIconProps = useMemo(() => {
     return {
       className: 'cursor-pointer pointer-events-unset',
-      onClick: () => setIsOpen(true),
+      onClick: openDropdown,
       ...selectRightIconProps,
     };
   }, [selectRightIconProps]);
@@ -274,6 +275,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   return (
     <div
+      onFocus={openDropdownOnFocus ? openDropdown : undefined}
       data-id={`${dataId}-content`}
       className={classNames(`select select--${size}`, className, {
         'select--opened': isOpen,
