@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.22.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.22.2...@ab.uitools/ui-library@1.22.3) (2026-07-07)
+
+### Bug Fixes
+
+- adding open select after focus with TAB button ([dfdf772](https://github.com/ab-ui-tools/ab-ui-tools/commit/dfdf772094fc986fc60f7d0def2ac13ebe3832be))
+- resolve comment ([22e0b84](https://github.com/ab-ui-tools/ab-ui-tools/commit/22e0b8413246f2d4ab65aff54b89ef1db682f507))
+
 ## [1.22.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.22.1...@ab.uitools/ui-library@1.22.2) (2026-07-07)
 
 ### Bug Fixes
