@@ -45,6 +45,9 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
     } else {
       openDropdown();
     }
+    if (isDropdownOpen) {
+      closeDropdown();
+    }
   };
 
   useOnOutsideClick(containerRef, closeDropdown, isDropdownOpen, useId());
