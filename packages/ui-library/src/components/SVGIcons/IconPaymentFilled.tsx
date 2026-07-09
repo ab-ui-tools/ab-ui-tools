@@ -1,0 +1,37 @@
+import type { ReactElement } from 'react';
+
+import classNames from 'classnames';
+
+import type { ISVGIconProps } from './types';
+
+export const IconPaymentFilled = ({
+  size,
+  type,
+  className = '',
+  onClick,
+  refHandler,
+  id,
+  dataId,
+}: ISVGIconProps): ReactElement => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={classNames('svg-icon', {
+      [`svg-icon__size-${size}`]: size,
+      [`svg-icon__type-${type}`]: type,
+      [className]: className,
+    })}
+    viewBox="0 0 24 24"
+    fill="none"
+    onClick={onClick}
+    ref={refHandler}
+    id={id}
+    data-id={dataId ? `${dataId}-svg-icon` : ''}
+  >
+    <path
+      d="M5.25 5C3.45507 5 2 6.45507 2 8.25V9.5H22V8.25C22 6.45507 20.5449 5 18.75 5H5.25ZM22 11H2V15.75C2 17.5449 3.45507 19 5.25 19H18.75C20.5449 19 22 17.5449 22 15.75V11ZM15.75 14.5H18.25C18.6642 14.5 19 14.8358 19 15.25C19 15.6642 18.6642 16 18.25 16H15.75C15.3358 16 15 15.6642 15 15.25C15 14.8358 15.3358 14.5 15.75 14.5Z"
+      fill="#222222"
+    />
+  </svg>
+);
+
+export default IconPaymentFilled;

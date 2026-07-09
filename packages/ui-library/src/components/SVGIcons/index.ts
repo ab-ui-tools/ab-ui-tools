@@ -353,6 +353,8 @@ export * from './IconPatient';
 export * from './IconPatientFilled';
 export * from './IconPauseCircle';
 export * from './IconPauseCircleFilled';
+export * from './IconPayment';
+export * from './IconPaymentFilled';
 export * from './IconPeople';
 export * from './IconPeopleAdd';
 export * from './IconPeopleAddFilled';
