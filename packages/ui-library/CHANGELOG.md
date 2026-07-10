@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.22.4...@ab.uitools/ui-library@1.23.0) (2026-07-10)
+
+### Features
+
+- added new icons ([932f215](https://github.com/ab-ui-tools/ab-ui-tools/commit/932f215c91c9b78f80bedf10dcf642e70eb999bc))
+- added new icons, remove additional spacing for menu dropdown ([a7e37af](https://github.com/ab-ui-tools/ab-ui-tools/commit/a7e37af8c71f07a87da0fbe84b2a37dcd8710f89))
+
 ## [1.22.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.22.3...@ab.uitools/ui-library@1.22.4) (2026-07-09)
 
 ### Bug Fixes
