@@ -1,0 +1,37 @@
+import type { ReactElement } from 'react';
+
+import classNames from 'classnames';
+
+import type { ISVGIconProps } from './types';
+
+export const IconCloudFilled = ({
+  size,
+  type,
+  className = '',
+  onClick,
+  refHandler,
+  id,
+  dataId,
+}: ISVGIconProps): ReactElement => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={classNames('svg-icon', {
+      [`svg-icon__size-${size}`]: size,
+      [`svg-icon__type-${type}`]: type,
+      [className]: className,
+    })}
+    viewBox="0 0 24 24"
+    fill="none"
+    onClick={onClick}
+    ref={refHandler}
+    id={id}
+    data-id={dataId ? `${dataId}-svg-icon` : ''}
+  >
+    <path
+      d="M6.08664 9.75C6.56096 7.04276 8.92458 5 11.75 5C14.5754 5 16.939 7.04276 17.4134 9.75L17.5 9.75C19.7091 9.75 21.5 11.5409 21.5 13.75C21.5 15.9591 19.7091 17.75 17.5 17.75H6C3.79086 17.75 2 15.9591 2 13.75C2 11.5409 3.79086 9.75 6.00002 9.75L6.08664 9.75Z"
+      fill="#222222"
+    />
+  </svg>
+);
+
+export default IconCloudFilled;

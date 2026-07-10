@@ -178,6 +178,7 @@
     position: fixed;
 
     #{$this}__options {
+      margin-top: 0;
       position: relative;
       border-radius: var(--ds-border-radius-2xl);
     }
@@ -326,7 +327,6 @@
   --ds-menu-dropdown-shadow: 0px 0px 40px 0px #4E4E4E0F;
   --ds-menu-dropdown-border-radius: var(--ds-border-radius-2xl);
   --ds-menu-dropdown-border: 1px solid var(--ds-color-border-quintary);
-  --ds-menu-dropdown-margin: var(--ds-space-4);
   --ds-menu-dropdown-padding: 0;
 
   @include mixin.flexbox;
@@ -335,7 +335,6 @@
   z-index: 9999;
   background-color: var(--ds-menu-dropdown-bg);
   padding: var(--ds-menu-dropdown-padding);
-  margin-top: var(--ds-menu-dropdown-margin);
   box-shadow: var(--ds-menu-dropdown-shadow);
   border: var(--ds-menu-dropdown-border);
   border-radius: var(--ds-menu-dropdown-border-radius);
