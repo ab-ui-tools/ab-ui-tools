@@ -1,3 +1,4 @@
+export * from './useFitToViewport';
 export * from './useGetElemSizes';
 export * from './useGetTooltipStyles';
 export * from './useGetElemPositions';
