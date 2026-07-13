@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.24.1...@ab.uitools/ui-library@1.24.2) (2026-07-13)
+
+### Bug Fixes
+
+- fixed tooltip position issue when browser edge is close ([2285806](https://github.com/ab-ui-tools/ab-ui-tools/commit/2285806493e2efd84f7d3946244295d6edfecbcc))
+
 ## [1.24.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.24.0...@ab.uitools/ui-library@1.24.1) (2026-07-13)
 
 ### Bug Fixes
