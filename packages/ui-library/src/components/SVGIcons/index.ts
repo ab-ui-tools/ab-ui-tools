@@ -484,6 +484,8 @@ export * from './IconTrophyFilled';
 export * from './IconTv';
 export * from './IconTvFilled';
 export * from './IconTwitter';
+export * from './IconUmbrella';
+export * from './IconUmbrellaFilled';
 export * from './IconUnarchive';
 export * from './IconUnarchiveFilled';
 export * from './IconUndo';
