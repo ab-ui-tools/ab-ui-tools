@@ -28,7 +28,6 @@ export default {
 };
 
 const Template: StoryFn<TTooltipProps> = args => {
-  // const [elemRef, setelemRef] = useState<HTMLElement | null>(null)
   return (
     <div
       style={{
