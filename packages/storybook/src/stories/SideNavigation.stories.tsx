@@ -13,7 +13,10 @@ import IconLockClosed from '@ab.uitools/ui-library/components/SVGIcons/IconLockC
 import IconHome from '@ab.uitools/ui-library/components/SVGIcons/IconHome';
 import IconDocumentFilled from '@ab.uitools/ui-library/components/SVGIcons/IconDocumentFilled';
 import IconDocument from '@ab.uitools/ui-library/components/SVGIcons/IconDocument';
-import { NavigationItemTypes } from '@ab.uitools/ui-library/components/SideNavigation/NavigationItem/types';
+import {
+  ExpandIconPosition,
+  NavigationItemTypes,
+} from '@ab.uitools/ui-library/components/SideNavigation/NavigationItem/types';
 import { Block } from '@ab.uitools/ui-library/components/SideNavigation/Block';
 import { NavigationItem, SideNavigation as _SideNavigation } from '@ab.uitools/ui-library/components/SideNavigation';
 import { ButtonIcon } from '@ab.uitools/ui-library/components/ButtonIcon';
@@ -193,7 +196,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
                 type={NavigationItemTypes.MAIN}
                 isOpen={isNavigationItemOpen}
                 expandable
-                expandIconPosition={'left'}
+                expandIconPosition={ExpandIconPosition.LEFT}
                 actionsList={[{ iconProps: IconMore }]}
               >
                 <>

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import type { TActionItemProps, TNavigationLinkPropTypes } from './types';
 
-import { NavigationItemTypes } from './types';
+import { ExpandIconPosition, NavigationItemTypes } from './types';
 import IconChevronDown from '../../SVGIcons/IconChevronDown';
 import { ButtonIcon } from '../../ButtonIcon';
 import IconDynamicComponent from '../../../helperComponents/IconDynamicComponent/IconDynamicComponent';
@@ -24,7 +24,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
       Component: IconChevronDown,
       size: 'medium',
     },
-    expandIconPosition = 'right',
+    expandIconPosition = ExpandIconPosition.RIGHT,
     children,
     actionsList,
     className = '',
@@ -49,7 +49,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
           'navigation-item',
           `navigation-item--${type}`,
           `${expandable ? 'navigation-item--expandable' : ''}`,
-          expandable && expandIconPosition === 'left' && 'navigation-item--expand-left',
+          expandable && expandIconPosition === ExpandIconPosition.LEFT && 'navigation-item--expand-left',
           className
         )}
         onClick={() => setChildOpen(!childOpen)}
@@ -57,7 +57,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
         <div className={classNames('navigation-item__inner', active && 'active')}>
           {expandable || actionsList?.length ? (
             <div className={'navigation-item__actions'}>
-              {expandable && expandIconPosition === 'left' && (
+              {expandable && expandIconPosition === ExpandIconPosition.LEFT && (
                 <span
                   className={classNames(
                     'navigation-item__actions__expand_mobile',
@@ -68,7 +68,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
                   {expandIconProps.Component && <expandIconProps.Component size={expandIconProps.size || 'medium'} />}
                 </span>
               )}
-              {(actionsList?.length || (expandable && expandIconPosition === 'right')) && (
+              {(actionsList?.length || (expandable && expandIconPosition === ExpandIconPosition.RIGHT)) && (
                 <div className={'navigation-item__actions__right'}>
                   {actionsList?.map((item: TActionItemProps, index) => {
                     return (
@@ -84,7 +84,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
                       </div>
                     );
                   })}
-                  {expandable && expandIconPosition === 'right' && (
+                  {expandable && expandIconPosition === ExpandIconPosition.RIGHT && (
                     <span className={classNames('navigation-item__actions__expand_mobile', childOpen && 'opened')}>
                       {expandIconProps.Component && (
                         <expandIconProps.Component size={expandIconProps.size || 'small'} className={'mr-12'} />
