@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.26.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.25.0...@ab.uitools/ui-library@1.26.0) (2026-07-17)
+
+### Features
+
+- support xlsx file upload ([6846bb9](https://github.com/ab-ui-tools/ab-ui-tools/commit/6846bb9512d8c5cee1578aa8a7cba27765d0466a))
+
 # [1.25.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.24.2...@ab.uitools/ui-library@1.25.0) (2026-07-14)
 
 ### Features
