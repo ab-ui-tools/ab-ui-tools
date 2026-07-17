@@ -24,6 +24,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
       Component: IconChevronDown,
       size: 'medium',
     },
+    expandIconPosition = 'right',
     children,
     actionsList,
     className = '',
@@ -48,6 +49,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
           'navigation-item',
           `navigation-item--${type}`,
           `${expandable ? 'navigation-item--expandable' : ''}`,
+          expandable && expandIconPosition === 'left' && 'navigation-item--expand-left',
           className
         )}
         onClick={() => setChildOpen(!childOpen)}
@@ -55,23 +57,34 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
         <div className={classNames('navigation-item__inner', active && 'active')}>
           {expandable || actionsList?.length ? (
             <div className={'navigation-item__actions'}>
-              {expandable && (
-                <span className={classNames('navigation-item__actions__expand', childOpen && 'opened')}>
-                  {expandIconProps.Component && (
-                    <expandIconProps.Component size={expandIconProps.size || 'small'} className={'mr-12'} />
+              {expandable && expandIconPosition === 'left' && (
+                <span
+                  className={classNames(
+                    'navigation-item__actions__expand_mobile',
+                    'navigation-item__actions__expand_mobile--left',
+                    childOpen && 'opened'
                   )}
+                >
+                  {expandIconProps.Component && <expandIconProps.Component size={expandIconProps.size || 'medium'} />}
                 </span>
               )}
-              {(actionsList?.length || expandable) && (
+              {(actionsList?.length || (expandable && expandIconPosition === 'right')) && (
                 <div className={'navigation-item__actions__right'}>
                   {actionsList?.map((item: TActionItemProps, index) => {
                     return (
-                      <div key={index}>
-                        <ButtonIcon iconProps={{ Component: item.iconProps }} size={'small'} />
+                      <div key={index} className={'navigation-item__actions__action'}>
+                        <ButtonIcon
+                          iconProps={{ Component: item.iconProps }}
+                          size={'small'}
+                          onClick={event => {
+                            event.stopPropagation();
+                            item.onClick?.();
+                          }}
+                        />
                       </div>
                     );
                   })}
-                  {expandable && (
+                  {expandable && expandIconPosition === 'right' && (
                     <span className={classNames('navigation-item__actions__expand_mobile', childOpen && 'opened')}>
                       {expandIconProps.Component && (
                         <expandIconProps.Component size={expandIconProps.size || 'small'} className={'mr-12'} />

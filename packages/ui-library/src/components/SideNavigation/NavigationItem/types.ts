@@ -17,9 +17,12 @@ export type TActionItemProps = {
   iconProps: TSVGIconComponent;
   onClick?: () => void;
 };
+
+export type TExpandIconPosition = 'left' | 'right';
 export interface TNavigationLinkPropTypes {
   As: () => JSX.Element;
   expandIconProps?: ISVGIconProps;
+  expandIconPosition?: TExpandIconPosition;
   type: NavigationItemTypes;
   isOpen: boolean;
   iconName?: string;

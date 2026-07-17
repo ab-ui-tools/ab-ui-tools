@@ -193,6 +193,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = args => {
                 type={NavigationItemTypes.MAIN}
                 isOpen={isNavigationItemOpen}
                 expandable
+                expandIconPosition={'left'}
                 actionsList={[{ iconProps: IconMore }]}
               >
                 <>
