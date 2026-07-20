@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.26.0...@ab.uitools/ui-library@1.26.1) (2026-07-20)
+
+### Bug Fixes
+
+- side navigation expand button ([5360d85](https://github.com/ab-ui-tools/ab-ui-tools/commit/5360d852190a329d7e9da8e2a6ef5d4f0517ef02))
+- side navigation expand button ([7b79894](https://github.com/ab-ui-tools/ab-ui-tools/commit/7b79894f713c0a5cdd18d2f0a738866729c86e69))
+
 # [1.26.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.25.0...@ab.uitools/ui-library@1.26.0) (2026-07-17)
 
 ### Features

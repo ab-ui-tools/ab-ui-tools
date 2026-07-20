@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.22](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.21...@ab.uitools/storybook@1.9.22) (2026-07-20)
+
+### Bug Fixes
+
+- side navigation expand button ([5360d85](https://github.com/ab-devtools/uilibrary/commit/5360d852190a329d7e9da8e2a6ef5d4f0517ef02))
+- side navigation expand button ([7b79894](https://github.com/ab-devtools/uilibrary/commit/7b79894f713c0a5cdd18d2f0a738866729c86e69))
+
 ## [1.9.21](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.20...@ab.uitools/storybook@1.9.21) (2026-07-17)
 
 **Note:** Version bump only for package @ab.uitools/storybook
