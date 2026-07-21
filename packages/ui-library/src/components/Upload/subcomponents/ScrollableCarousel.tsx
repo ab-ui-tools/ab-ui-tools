@@ -1,0 +1,58 @@
+import type { ReactElement } from 'react';
+
+import React, { Children, useRef } from 'react';
+import classnames from 'classnames';
+
+import type { TScrollableCarouselProps } from '../types';
+
+import { useScrollEdges } from '../hooks/useScrollEdges';
+import { DEFAULT_SCROLL_STEP } from '../consts';
+import IconArrowRight from '../../SVGIcons/IconArrowRight';
+import IconArrowLeft from '../../SVGIcons/IconArrowLeft';
+import { ButtonIcon } from '../../ButtonIcon';
+
+export const ScrollableCarousel = ({
+  children,
+  className = '',
+  scrollStep = DEFAULT_SCROLL_STEP,
+  prevAriaLabel = 'Previous',
+  nextAriaLabel = 'Next',
+}: TScrollableCarouselProps): ReactElement => {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const { canScrollLeft, canScrollRight, recompute } = useScrollEdges(trackRef, Children.count(children));
+
+  const scrollByStep = (direction: 1 | -1) => {
+    trackRef.current?.scrollBy({
+      left: direction * scrollStep,
+      behavior: 'smooth',
+    });
+  };
+
+  return (
+    <div className={classnames('upload-carousel', className)}>
+      <div ref={trackRef} className="upload-carousel__track" onScroll={recompute}>
+        {children}
+      </div>
+
+      {canScrollLeft ? (
+        <ButtonIcon
+          size="medium"
+          aria-label={prevAriaLabel}
+          className="upload-carousel__arrow upload-carousel__arrow--prev"
+          iconProps={{ Component: IconArrowLeft, type: 'primary' }}
+          onClick={() => scrollByStep(-1)}
+        />
+      ) : null}
+
+      {canScrollRight ? (
+        <ButtonIcon
+          size="medium"
+          aria-label={nextAriaLabel}
+          className="upload-carousel__arrow upload-carousel__arrow--next"
+          iconProps={{ Component: IconArrowRight, type: 'primary' }}
+          onClick={() => scrollByStep(1)}
+        />
+      ) : null}
+    </div>
+  );
+};
