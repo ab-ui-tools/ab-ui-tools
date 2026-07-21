@@ -332,6 +332,8 @@ export * from './IconMoreVertical';
 export * from './IconMoreVerticalFilled';
 export * from './IconNavigation';
 export * from './IconNavigationFilled';
+export * from './IconNote';
+export * from './IconNoteFilled';
 export * from './IconNotebook';
 export * from './IconNotebookAdd';
 export * from './IconNotebookAddFilled';
