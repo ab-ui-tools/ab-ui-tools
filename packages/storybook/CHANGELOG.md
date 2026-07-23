@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.24](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.23...@ab.uitools/storybook@1.9.24) (2026-07-23)
+
+### Bug Fixes
+
+- fixed react select issues ([9e34e84](https://github.com/ab-devtools/uilibrary/commit/9e34e8494ce9e970237f0e724860caeb69840e05))
+- fixed react select issues ([26e3189](https://github.com/ab-devtools/uilibrary/commit/26e3189a19da533bd3782f24d5003db1e94c9422))
+
 ## [1.9.23](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.22...@ab.uitools/storybook@1.9.23) (2026-07-21)
 
 **Note:** Version bump only for package @ab.uitools/storybook

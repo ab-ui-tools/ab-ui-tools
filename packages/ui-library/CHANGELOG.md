@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.26.2...@ab.uitools/ui-library@1.26.3) (2026-07-23)
+
+### Bug Fixes
+
+- fixed react select issues ([26e3189](https://github.com/ab-ui-tools/ab-ui-tools/commit/26e3189a19da533bd3782f24d5003db1e94c9422))
+
 ## [1.26.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.26.1...@ab.uitools/ui-library@1.26.2) (2026-07-21)
 
 ### Bug Fixes
