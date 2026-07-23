@@ -4,6 +4,7 @@ import type { TReactSelectProps, TOption } from '@ab.uitools/ui-library/componen
 
 import React, { useState } from 'react';
 import IconInfo from '@ab.uitools/ui-library/components/SVGIcons/IconInfo';
+import { Modal as _Modal } from '@ab.uitools/ui-library/components/Modal';
 import { ReactSelect as _ReactSelect } from '@ab.uitools/ui-library';
 
 export default {
@@ -14,6 +15,14 @@ export default {
       options: ['large', 'small'],
       control: { type: 'radio' },
       defaultValue: 'large',
+    },
+    error: {
+      control: { type: 'text' },
+      description: 'Error message shown under the select',
+    },
+    hasError: {
+      control: { type: 'boolean' },
+      description: 'Applies the invalid styling to the control',
     },
   },
 };
@@ -109,6 +118,41 @@ const Template: StoryFn<TReactSelectProps> = args => {
 };
 export const ReactSelect = Template.bind({});
 
+// -----------REACT SELECT IN MODAL---------
+const InModalTemplate: StoryFn<TReactSelectProps> = args => {
+  const [isOpen, setIsOpen] = useState(true);
+  const [selectedValue, setSelectedValue] = useState<TItemValue | TItemValue[]>();
+
+  return (
+    <_Modal
+      isOpen={isOpen}
+      onClose={() => setIsOpen(false)}
+      onSubmit={() => setIsOpen(false)}
+      size="small"
+      closeIcon
+      titleProps={{ title: 'Select country', size: 'small' }}
+      subtitle="The dropdown is rendered inside the modal"
+      buttonProps={{
+        cancel: { buttonText: 'Cancel', type: 'tertiary' },
+        confirm: { buttonText: 'Save' },
+      }}
+    >
+      <_ReactSelect {...args} selectedValue={selectedValue} setSelectedValue={setSelectedValue} />
+    </_Modal>
+  );
+};
+export const ReactSelectInModal = InModalTemplate.bind({});
+ReactSelectInModal.args = {
+  isMulti: true,
+  required: true,
+  isClearable: true,
+  isSearchable: true,
+  options: GROUP_OPTIONS,
+  label: 'Select label',
+  placeholder: 'Placeholder text',
+  helperText: 'helper text',
+};
+
 ReactSelect.args = {
   isMulti: true,
   required: true,
@@ -124,6 +168,7 @@ ReactSelect.args = {
   hasError: false,
   label: 'Select label',
   placeholder: 'Placeholder text',
-  helperText: 'helper text',
+  error: 'here is error',
+  // helperText: 'helper text',
   labelAddons: <IconInfo size="xsmall" type="information-light" className="ml-4" />,
 };
