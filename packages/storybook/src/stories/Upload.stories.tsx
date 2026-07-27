@@ -2,7 +2,7 @@ import type { JSX } from 'react';
 import type { StoryFn } from '@storybook/react';
 import type { TUploadError, TUploadFile, TUploadProps } from '@ab.uitools/ui-library/components/Upload';
 
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AttachmentCard, ScrollableCarousel, Upload as _Upload } from '@ab.uitools/ui-library/components/Upload';
 import { UploadFileStatus, generateFileId } from '@ab.uitools/ui-library/components/Upload';
 import IconSend from '@ab.uitools/ui-library/components/SVGIcons/IconSend';
@@ -11,6 +11,10 @@ import IconAttach from '@ab.uitools/ui-library/components/SVGIcons/IconAttach';
 import { Input } from '@ab.uitools/ui-library/components/Input';
 import { ButtonIcon } from '@ab.uitools/ui-library/components/ButtonIcon';
 import { Button } from '@ab.uitools/ui-library/components/Button';
+
+type TUploadStoryArgs = TUploadProps & {
+  filesDemo?: 'none' | 'preset' | 'error';
+};
 
 export default {
   title: 'Upload',
@@ -35,6 +39,13 @@ export default {
     filesLayout: {
       control: { type: 'inline-radio' },
       options: ['list', 'carousel'],
+    },
+    maxFiles: { control: { type: 'number', min: 1, max: 10, step: 1 } },
+    filesDemo: {
+      name: 'files demo',
+      control: { type: 'inline-radio' },
+      options: ['none', 'preset', 'error'],
+      description: 'Seed the file list with preset or error-state files.',
     },
   },
 };
@@ -83,92 +94,6 @@ const trackFileProgress = (
   };
 
   reader.readAsArrayBuffer(file);
-};
-
-const Template: StoryFn<TUploadProps> = args => {
-  const [files, setFiles] = useState<TUploadFile[]>([]);
-
-  const handleAdd = useCallback((nativeFiles: File[]) => {
-    const enriched = nativeFiles.map(fromNativeFile);
-    setFiles(prev => [...prev, ...enriched]);
-    enriched.forEach(entry => {
-      if (entry.file) trackFileProgress(entry.id, entry.file, setFiles);
-    });
-  }, []);
-
-  const handleRemove = useCallback((file: TUploadFile) => {
-    setFiles(prev => prev.filter(f => f.id !== file.id));
-  }, []);
-
-  const handleError = useCallback((error: TUploadError) => {
-    console.warn('Upload error:', error);
-  }, []);
-
-  return (
-    <div style={{ width: 560, padding: 20 }}>
-      <_Upload {...args} files={files} onAdd={handleAdd} onRemove={handleRemove} onError={handleError} />
-    </div>
-  );
-};
-
-export const Default = Template.bind({});
-Default.args = {
-  label: 'uploads',
-  browseText: 'Ներբեռնեք ֆայլը',
-  dropZoneText: 'կամ տեղափոխեք այստեղ',
-  dropZoneHint: 'JPEG, PNG, PDF, DOC և MP4 ձևաչափեր՝ մինչև 50 ՄԲ',
-  multiple: true,
-  withDropZone: true,
-  fileAllowedSize: 50 * 1024 * 1024,
-  labelAddons: <IconInfo size="xsmall" type="information-light" className="ml-4" />,
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  ...Default.args,
-  dropzoneSize: 'small',
-};
-
-export const ButtonOnly = Template.bind({});
-ButtonOnly.args = {
-  label: 'Կցել փաստաթղթեր',
-  buttonText: 'Կցել ֆայլ',
-  helperText: 'Կոմպակտ տարբերակ առանց տեղափոխման դաշտի։',
-  withDropZone: false,
-  multiple: true,
-};
-
-export const SingleFile = Template.bind({});
-SingleFile.args = {
-  label: 'Պրոֆիլի նկար',
-  browseText: 'Ներբեռնեք նկարը',
-  dropZoneText: 'կամ տեղափոխեք այստեղ',
-  dropZoneHint: 'PNG կամ JPG՝ մինչև 10 ՄԲ',
-  allowedTypes: 'image/png, image/jpeg',
-  multiple: false,
-  withDropZone: true,
-};
-
-export const WithMaxFiles = Template.bind({});
-WithMaxFiles.args = {
-  label: 'Փաստաթղթեր (առավելագույնը 3 ֆայլ)',
-  browseText: 'Ներբեռնեք ֆայլը',
-  dropZoneText: 'կամ տեղափոխեք այստեղ',
-  dropZoneHint: 'Մինչև 3 ֆայլ',
-  helperText: 'Կարող եք ներբեռնել մինչև 3 ֆայլ։',
-  maxFiles: 3,
-  multiple: true,
-  withDropZone: true,
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  label: 'uploads',
-  browseText: 'Ներբեռնեք ֆայլը',
-  dropZoneText: 'կամ տեղափոխեք այստեղ',
-  dropZoneHint: 'Ներբեռնումն անջատված է',
-  disabled: true,
-  withDropZone: true,
 };
 
 const PRESET_FILES: TUploadFile[] = [
@@ -225,11 +150,42 @@ const PRESET_FILES: TUploadFile[] = [
   },
 ];
 
-const PresetTemplate: StoryFn<TUploadProps> = args => {
-  const [files, setFiles] = useState<TUploadFile[]>(PRESET_FILES);
+const ERROR_DEMO_FILES: TUploadFile[] = [
+  {
+    id: 'ok-1',
+    name: 'valid-document.pdf',
+    size: 1.2 * 1024 * 1024,
+    status: UploadFileStatus.success,
+  },
+  {
+    id: 'err-1',
+    name: 'too-large-video.mp4',
+    size: 120 * 1024 * 1024,
+    status: UploadFileStatus.error,
+    errorMessage: 'Ֆայլը գերազանցում է թույլատրելի չափը',
+  },
+];
+
+const getInitialFiles = (filesDemo: TUploadStoryArgs['filesDemo']): TUploadFile[] => {
+  if (filesDemo === 'preset') return PRESET_FILES;
+  if (filesDemo === 'error') return ERROR_DEMO_FILES;
+  return [];
+};
+
+const Template: StoryFn<TUploadStoryArgs> = args => {
+  const { filesDemo = 'none', ...uploadArgs } = args;
+  const [files, setFiles] = useState<TUploadFile[]>(() => getInitialFiles(filesDemo));
+
+  useEffect(() => {
+    setFiles(getInitialFiles(filesDemo));
+  }, [filesDemo]);
+
   const downloadedIds = useMemo(
-    () => new Set<string>(['preset-4', 'preset-5', 'preset-6', 'preset-7', 'preset-8']),
-    []
+    () =>
+      filesDemo === 'preset'
+        ? new Set<string>(['preset-4', 'preset-5', 'preset-6', 'preset-7', 'preset-8'])
+        : undefined,
+    [filesDemo]
   );
 
   const handleAdd = useCallback((nativeFiles: File[]) => {
@@ -263,116 +219,43 @@ const PresetTemplate: StoryFn<TUploadProps> = args => {
     );
   }, []);
 
+  const handleError = useCallback((error: TUploadError) => {
+    console.warn('Upload error:', error);
+  }, []);
+
   return (
     <div style={{ width: 560, padding: 20 }}>
       <_Upload
-        {...args}
+        {...uploadArgs}
         files={files}
         downloadedIds={downloadedIds}
         onAdd={handleAdd}
         onRemove={handleRemove}
-        onDownload={handleDownload}
-        onRetry={handleRetry}
+        onDownload={filesDemo === 'none' ? undefined : handleDownload}
+        onRetry={filesDemo === 'none' ? undefined : handleRetry}
+        onError={handleError}
       />
     </div>
   );
 };
 
-export const WithPresetFiles = PresetTemplate.bind({});
-WithPresetFiles.args = {
-  browseText: 'Ներբեռնեք ֆայլը',
-  dropZoneText: 'կամ տեղափոխեք այստեղ',
-  dropZoneHint: 'JPEG, PNG, PDF, DOC և MP4 ձևաչափեր՝ մինչև 50 ՄԲ',
-  downloadedLabel: 'Ներբեռնված',
-  multiple: true,
-  withDropZone: true,
-  filesLayout: 'list',
-};
-
-export const WithPresetFilesCarousel = PresetTemplate.bind({});
-WithPresetFilesCarousel.args = {
-  ...WithPresetFiles.args,
-  filesLayout: 'carousel',
-};
-
-export const WithUploadProgress = (args: TUploadProps): JSX.Element => {
-  const [files, setFiles] = useState<TUploadFile[]>([]);
-
-  const handleAdd = useCallback((nativeFiles: File[]) => {
-    const enriched = nativeFiles.map(file => ({
-      ...fromNativeFile(file),
-      status: UploadFileStatus.uploading,
-      progress: 20,
-    }));
-
-    setFiles(prev => [...prev, ...enriched]);
-
-    enriched.forEach(entry => {
-      let progress = 20;
-      const interval = setInterval(() => {
-        progress += 20;
-        setFiles(prev =>
-          prev.map(f =>
-            f.id === entry.id
-              ? {
-                  ...f,
-                  progress,
-                  status: progress >= 100 ? UploadFileStatus.success : UploadFileStatus.uploading,
-                }
-              : f
-          )
-        );
-        if (progress >= 100) clearInterval(interval);
-      }, 500);
-    });
-  }, []);
-
-  const handleRemove = useCallback((file: TUploadFile) => {
-    setFiles(prev => prev.filter(f => f.id !== file.id));
-  }, []);
-
-  return (
-    <div style={{ width: 560, padding: 20 }}>
-      <_Upload {...args} files={files} onAdd={handleAdd} onRemove={handleRemove} />
-    </div>
-  );
-};
-WithUploadProgress.args = {
-  label: 'uploads (մոդելավորված ընթացք)',
-  browseText: 'Ներբեռնեք ֆայլը',
-  dropZoneText: 'կամ տեղափոխեք այստեղ՝ ներբեռնումը սկսելու համար',
-  multiple: true,
-  withDropZone: true,
-};
-
-export const WithErrorState = (args: TUploadProps): JSX.Element => {
-  const [files] = useState<TUploadFile[]>([
-    {
-      id: 'ok-1',
-      name: 'valid-document.pdf',
-      size: 1.2 * 1024 * 1024,
-      status: UploadFileStatus.success,
-    },
-    {
-      id: 'err-1',
-      name: 'too-large-video.mp4',
-      size: 120 * 1024 * 1024,
-      status: UploadFileStatus.error,
-      errorMessage: 'Ֆայլը գերազանցում է թույլատրելի չափը',
-    },
-  ]);
-
-  return (
-    <div style={{ width: 560, padding: 20 }}>
-      <_Upload {...args} files={files} />
-    </div>
-  );
-};
-WithErrorState.args = {
+export const Default = Template.bind({});
+Default.args = {
   label: 'uploads',
   browseText: 'Ներբեռնեք ֆայլը',
   dropZoneText: 'կամ տեղափոխեք այստեղ',
+  dropZoneHint: 'JPEG, PNG, PDF, DOC և MP4 ձևաչափեր՝ մինչև 50 ՄԲ',
+  buttonText: 'Կցել ֆայլ',
+  downloadedLabel: 'Ներբեռնված',
+  multiple: true,
+  disabled: false,
+  required: false,
   withDropZone: true,
+  dropzoneSize: 'default',
+  filesLayout: 'list',
+  filesDemo: 'none',
+  fileAllowedSize: 50 * 1024 * 1024,
+  labelAddons: <IconInfo size="xsmall" type="information-light" className="ml-4" />,
 };
 
 const COMPOSER_PRESET_FILES: TUploadFile[] = [
