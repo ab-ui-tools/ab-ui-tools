@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.26.3...@ab.uitools/ui-library@1.26.4) (2026-07-28)
+
+### Bug Fixes
+
+- added new icons ([db1b403](https://github.com/ab-ui-tools/ab-ui-tools/commit/db1b403f29f00686c6218b6dc8be82cb10a67b32))
+
 ## [1.26.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.26.2...@ab.uitools/ui-library@1.26.3) (2026-07-23)
 
 ### Bug Fixes
