@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.26...@ab.uitools/storybook@1.10.0) (2026-08-03)
+
+### Features
+
+- create new upload component ([5ba8f89](https://github.com/ab-devtools/uilibrary/commit/5ba8f89a9a86fc99f16764e1c9914647e7d65c43))
+- enhance Upload component with demo file options and improved state management ([35ac2fc](https://github.com/ab-devtools/uilibrary/commit/35ac2fc992f9bce023e73bf463eaea2cfac78e16))
+
 ## [1.9.26](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.25...@ab.uitools/storybook@1.9.26) (2026-07-30)
 
 **Note:** Version bump only for package @ab.uitools/storybook
