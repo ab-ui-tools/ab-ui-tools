@@ -15,6 +15,14 @@ export default {
       control: { type: 'radio' },
       defaultValue: 'large',
     },
+    error: {
+      control: { type: 'text' },
+      description: 'Error message shown under the select',
+    },
+    hasError: {
+      control: { type: 'boolean' },
+      description: 'Applies the invalid styling to the control',
+    },
   },
 };
 
@@ -124,6 +132,7 @@ ReactSelect.args = {
   hasError: false,
   label: 'Select label',
   placeholder: 'Placeholder text',
+  error: 'here is error',
   helperText: 'helper text',
   labelAddons: <IconInfo size="xsmall" type="information-light" className="ml-4" />,
 };

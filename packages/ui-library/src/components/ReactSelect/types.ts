@@ -1,6 +1,6 @@
 import type { CreatableProps } from 'react-select/creatable';
 import type { Props, GroupBase, SingleValue, MultiValue, ActionMeta } from 'react-select';
-import type { JSX, ReactNode } from 'react';
+import type { JSX, ReactElement, ReactNode } from 'react';
 
 import type { TFormValue, TItemLabel, TItemValue, TOnChange } from '../../types/globalTypes';
 
@@ -46,6 +46,7 @@ export interface BaseProps extends Omit<Props<TOption, boolean, GroupBase<TOptio
   label?: string;
   required?: boolean;
   hasError?: boolean;
+  error?: string | ReactElement;
   helperText?: string;
   onChange?: TOnChange;
   value?: TFormValue;

@@ -17,7 +17,7 @@ import {
   Option,
 } from './components';
 import { Text } from '../Text';
-import { Label } from '../../helperComponents';
+import { ErrorMessage, Label } from '../../helperComponents';
 
 export const ReactSelect = ({
   options = [],
@@ -42,6 +42,7 @@ export const ReactSelect = ({
   isRadio,
   isMulti,
   hasError,
+  error,
   required,
   label,
   size = 'large',
@@ -196,7 +197,7 @@ export const ReactSelect = ({
           ...customComponents,
         }}
         className={classNames(className, `react-select__${size}`, {
-          'react-select__invalid': hasError,
+          'react-select__invalid': hasError || error,
           'react-select__dropdown': !isSearchable && !isCreatable,
         })}
         classNamePrefix="react-select"
@@ -206,6 +207,7 @@ export const ReactSelect = ({
           {helperText}
         </Text>
       )}
+      {error ? <ErrorMessage className="mt-8" message={error} icon="infoFilled" dataId={dataId} /> : null}
     </div>
   );
 };
