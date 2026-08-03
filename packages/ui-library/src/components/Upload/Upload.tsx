@@ -5,9 +5,9 @@ import classnames from 'classnames';
 
 import type { TUploadFile, TUploadProps } from './types';
 
-import { AttachmentCard, ScrollableCarousel, UploadIllustration, UploadIllustrationSmall } from './subcomponents';
 import { useUploadFiles } from './hooks';
 import { DEFAULT_ALLOWED_TYPES } from './consts';
+import { AttachmentCard, ScrollableCarousel, UploadIllustration, UploadIllustrationSmall } from './components';
 import { Text } from '../Text';
 import IconAttach from '../SVGIcons/IconAttach';
 import { Button } from '../Button';
