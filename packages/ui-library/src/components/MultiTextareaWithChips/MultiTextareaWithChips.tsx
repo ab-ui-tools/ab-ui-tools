@@ -3,12 +3,10 @@ import type { ChangeEvent, FC } from 'react';
 import { useState, useRef, useMemo, memo, useCallback } from 'react';
 import classNames from 'classnames';
 
-import type { TMultiTextareaWithChipsProps, ChipValue } from './types';
+import type { TMultiTextareaWithChipsProps } from './types';
 
 import { useChipManagement, useChipValidation, useDropdownLogic, useKeyboardNavigation, useOnBlurLogic } from './hooks';
-import { IconSearch } from '../SVGIcons';
-import { Chips } from '../Chips';
-import { Checkbox } from '../Checkbox';
+import { ChipsList, CheckboxOptionsDropdown, RadioOptionsDropdown } from './components';
 import { useFormProps } from '../../hooks';
 import { ErrorMessage } from '../../helperComponents';
 
@@ -148,6 +146,16 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
     }
   };
 
+  const handleRemoveChip = useCallback(
+    (index: number) => {
+      chipManagement.removeChip(index);
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 0);
+    },
+    [chipManagement]
+  );
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (disabled) return;
     let value = e.target.value;
@@ -239,31 +247,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
 
       <div className={inputWrapperClassName}>
         <div className="multi-textarea-chips__content">
-          {chipManagement.chips.map((chip: ChipValue, index: number) => {
-            const isItem = typeof chip === 'object';
-            const text = isItem ? chip.text : chip;
-            const hasError = isItem ? Boolean(chip.hasError) : false;
-
-            return (
-              <Chips
-                key={`${text}-${index}`}
-                text={text}
-                withAction={!disabled}
-                onClick={() => {
-                  // Pass index instead of text to remove specific chip
-                  chipManagement.removeChip(index);
-                  setTimeout(() => {
-                    inputRef.current?.focus();
-                  }, 0);
-                }}
-                size="small"
-                color={hasError ? 'danger' : 'default'}
-                type="accent"
-                disabled={disabled}
-                aria-label={`Remove ${text} chip`}
-              />
-            );
-          })}
+          <ChipsList chips={chipManagement.chips} disabled={disabled} onRemoveChip={handleRemoveChip} />
 
           <div className="multi-textarea-chips__input-container">
             <input
@@ -289,71 +273,21 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
 
             {multiSelect
               ? dropdownLogic.showDropdown && (
-                  <div
-                    className="multi-textarea-chips__dropdown scrollbar scrollbar--vertical"
-                    role="listbox"
-                    aria-label="Available options"
-                    aria-multiselectable="true"
-                  >
-                    {dropdownLogic.filteredOptions.length === 0 ? (
-                      <div className="multi-textarea-chips__dropdown-empty">
-                        <IconSearch size="large" className="multi-textarea-chips__dropdown-empty-icon" />
-                        <span className="multi-textarea-chips__dropdown-empty-text">{noResultsText}</span>
-                      </div>
-                    ) : (
-                      dropdownLogic.filteredOptions.map(option => {
-                        const isChecked = chipManagement.getChipTexts().includes(option);
-
-                        return (
-                          <div
-                            key={option}
-                            className={classNames(
-                              'multi-textarea-chips__dropdown-item',
-                              'multi-textarea-chips__dropdown-item--checkbox'
-                            )}
-                            role="option"
-                            aria-selected={isChecked}
-                          >
-                            <Checkbox
-                              value={isChecked}
-                              label={option}
-                              onClick={() => handleToggleOption(option)}
-                              dataId={`${fieldName}-option-${option}`}
-                            />
-                          </div>
-                        );
-                      })
-                    )}
-                  </div>
+                  <CheckboxOptionsDropdown
+                    filteredOptions={dropdownLogic.filteredOptions}
+                    chipTexts={chipManagement.getChipTexts()}
+                    noResultsText={noResultsText}
+                    fieldName={fieldName}
+                    onToggleOption={handleToggleOption}
+                  />
                 )
               : dropdownLogic.showDropdown &&
                 dropdownLogic.filteredOptions.length > 0 && (
-                  <div
-                    className="multi-textarea-chips__dropdown scrollbar scrollbar--vertical"
-                    role="listbox"
-                    aria-label="Available options"
-                  >
-                    {dropdownLogic.filteredOptions.map(option => (
-                      <div
-                        key={option}
-                        className={classNames('multi-textarea-chips__dropdown-item', {
-                          'multi-textarea-chips__dropdown-item--selected': dropdownLogic.selectedOption === option,
-                        })}
-                        onClick={() => handleSelectOption(option)}
-                        role="option"
-                        aria-selected={dropdownLogic.selectedOption === option}
-                      >
-                        <div className="multi-textarea-chips__radio">
-                          <div
-                            className={classNames('multi-textarea-chips__radio-button', {
-                              'multi-textarea-chips__radio-button--selected': dropdownLogic.selectedOption === option,
-                            })}
-                          />
-                        </div>
-                        <span className="multi-textarea-chips__option-text">{option}</span>
-                      </div>
-                    ))}
-                  </div>
+                  <RadioOptionsDropdown
+                    filteredOptions={dropdownLogic.filteredOptions}
+                    selectedOption={dropdownLogic.selectedOption}
+                    onSelectOption={handleSelectOption}
+                  />
                 )}
           </div>
         </div>
