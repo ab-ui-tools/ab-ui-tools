@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.10.0...@ab.uitools/storybook@1.11.0) (2026-08-04)
+
+### Features
+
+- add multiple checkbox ([bba120a](https://github.com/ab-devtools/uilibrary/commit/bba120a97cb3b851c33fe74d492fb6b8cd38472c))
+
 # [1.10.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.26...@ab.uitools/storybook@1.10.0) (2026-08-03)
 
 ### Features
