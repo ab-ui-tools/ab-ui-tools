@@ -178,6 +178,20 @@ export const SimpleFormUsage = (): JSX.Element => {
   );
 };
 
+export const CheckboxMultiSelect = (): JSX.Element => {
+  return (
+    <div style={{ maxWidth: 440, padding: 20 }}>
+      <MultiTextareaWithChips
+        fieldName="fruits"
+        label="Favorite fruits"
+        placeholder="Click to select fruits"
+        multiSelect
+        availableOptions={['Apple', 'Banana', 'Cherry', 'Dragon fruit', 'Elderberry', 'Fig', 'Grape', 'Honeydew melon']}
+      />
+    </div>
+  );
+};
+
 const FormStatus = (): JSX.Element | null => {
   const { errors, isSubmitted, getValues } = useFormProps();
   const values = getValues?.() as any;

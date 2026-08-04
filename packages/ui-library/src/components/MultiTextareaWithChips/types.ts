@@ -40,6 +40,8 @@ export interface TMultiTextareaWithChipsProps extends IFormCompProps {
   transformToUppercase?: boolean;
   typeAndEnterPlaceholderText?: string;
   noOptionsPlaceholderText?: string;
+  multiSelect?: boolean;
+  noResultsText?: string;
   fieldName?: string;
   onBlurConfig?: OnBlurConfig;
   formProps?: {

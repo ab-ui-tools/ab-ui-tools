@@ -6,9 +6,15 @@ interface UseDropdownLogicProps {
   availableOptions: string[];
   chipTexts: string[];
   containerRef: RefObject<HTMLDivElement | null>;
+  multiSelect?: boolean;
 }
 
-export const useDropdownLogic = ({ availableOptions, chipTexts, containerRef }: UseDropdownLogicProps) => {
+export const useDropdownLogic = ({
+  availableOptions,
+  chipTexts,
+  containerRef,
+  multiSelect = false,
+}: UseDropdownLogicProps) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
   const [selectedOption, setSelectedOption] = useState<string>('');
@@ -17,12 +23,13 @@ export const useDropdownLogic = ({ availableOptions, chipTexts, containerRef }: 
     (inputValue: string) => {
       if (availableOptions.length === 0) return;
 
-      const filtered = availableOptions.filter(
-        option => option.toLowerCase().includes(inputValue.toLowerCase()) && !chipTexts.includes(option)
-      );
+      const filtered = availableOptions.filter(option => {
+        const matchesInput = option.toLowerCase().includes(inputValue.toLowerCase());
+        return multiSelect ? matchesInput : matchesInput && !chipTexts.includes(option);
+      });
       setFilteredOptions(filtered);
     },
-    [availableOptions, chipTexts]
+    [availableOptions, chipTexts, multiSelect]
   );
 
   const handleInputFocus = useCallback(
@@ -43,9 +50,9 @@ export const useDropdownLogic = ({ availableOptions, chipTexts, containerRef }: 
     (inputValue: string) => {
       setSelectedOption('');
       filterOptions(inputValue);
-      setShowDropdown(availableOptions.length > 0 && inputValue.trim().length > 0);
+      setShowDropdown(availableOptions.length > 0 && (multiSelect || inputValue.trim().length > 0));
     },
-    [filterOptions, availableOptions.length]
+    [filterOptions, availableOptions.length, multiSelect]
   );
 
   const navigateOptions = useCallback(

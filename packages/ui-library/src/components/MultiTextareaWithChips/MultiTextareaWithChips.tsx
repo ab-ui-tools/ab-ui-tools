@@ -6,7 +6,9 @@ import classNames from 'classnames';
 import type { TMultiTextareaWithChipsProps, ChipValue } from './types';
 
 import { useChipManagement, useChipValidation, useDropdownLogic, useKeyboardNavigation, useOnBlurLogic } from './hooks';
+import { IconSearch } from '../SVGIcons';
 import { Chips } from '../Chips';
+import { Checkbox } from '../Checkbox';
 import { useFormProps } from '../../hooks';
 import { ErrorMessage } from '../../helperComponents';
 
@@ -29,6 +31,8 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   searchPlaceholderText = 'Search and select...',
   typeAndEnterPlaceholderText = 'Type and press Enter...',
   noOptionsPlaceholderText = 'No more options available',
+  multiSelect = false,
+  noResultsText = "Sorry, we couldn't find any results",
   fieldName = 'skills',
   formProps,
   minChipLength,
@@ -64,23 +68,45 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
     availableOptions,
     chipTexts: chipManagement.getChipTexts(),
     containerRef,
+    multiSelect,
   });
 
-  const handleSelectOption = (option: string) => {
-    if (!allowDuplicates && chipManagement.getChipTexts().includes(option)) return;
+  const addOptionAsChip = useCallback(
+    (option: string) => {
+      if (!allowDuplicates && chipManagement.getChipTexts().includes(option)) return false;
 
-    try {
-      const valueToValidate = transformToUppercase ? option.toUpperCase() : option;
-      const validatedChip = chipValidation.createValidatedChip(valueToValidate);
-      chipManagement.addChip(validatedChip);
+      try {
+        const valueToValidate = transformToUppercase ? option.toUpperCase() : option;
+        const validatedChip = chipValidation.createValidatedChip(valueToValidate);
+        chipManagement.addChip(validatedChip);
+        setChipError('');
+        return true;
+      } catch (error) {
+        if (!allowInvalidChips) {
+          setChipError(error instanceof Error ? error.message : 'Invalid value');
+        }
+        return false;
+      }
+    },
+    [chipManagement, chipValidation, allowInvalidChips, transformToUppercase, allowDuplicates]
+  );
+
+  const handleSelectOption = (option: string) => {
+    if (addOptionAsChip(option)) {
       setInputValue('');
       dropdownLogic.closeDropdown();
-      setChipError('');
-    } catch (error) {
-      if (!allowInvalidChips) {
-        setChipError(error instanceof Error ? error.message : 'Invalid value');
-      }
     }
+  };
+
+  const handleToggleOption = (option: string) => {
+    if (chipManagement.getChipTexts().includes(option)) {
+      chipManagement.removeChipByText(option);
+      setChipError('');
+    } else {
+      addOptionAsChip(option);
+    }
+    setInputValue('');
+    inputRef.current?.focus();
   };
 
   const handleAddCustomValue = useCallback(
@@ -150,6 +176,13 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
     onAddCustomValue: handleAddCustomValue,
     onNavigateOptions: dropdownLogic.navigateOptions,
     onSelectOption: option => {
+      if (multiSelect) {
+        const optionToToggle = option || dropdownLogic.selectedOption || dropdownLogic.filteredOptions[0];
+        if (optionToToggle) {
+          handleToggleOption(optionToToggle);
+        }
+        return;
+      }
       const selected = dropdownLogic.selectOption(option);
       if (selected) {
         handleSelectOption(selected);
@@ -254,34 +287,74 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
               role="combobox"
             />
 
-            {dropdownLogic.showDropdown && dropdownLogic.filteredOptions.length > 0 && (
-              <div
-                className="multi-textarea-chips__dropdown scrollbar scrollbar--vertical"
-                role="listbox"
-                aria-label="Available options"
-              >
-                {dropdownLogic.filteredOptions.map(option => (
+            {multiSelect
+              ? dropdownLogic.showDropdown && (
                   <div
-                    key={option}
-                    className={classNames('multi-textarea-chips__dropdown-item', {
-                      'multi-textarea-chips__dropdown-item--selected': dropdownLogic.selectedOption === option,
-                    })}
-                    onClick={() => handleSelectOption(option)}
-                    role="option"
-                    aria-selected={dropdownLogic.selectedOption === option}
+                    className="multi-textarea-chips__dropdown scrollbar scrollbar--vertical"
+                    role="listbox"
+                    aria-label="Available options"
+                    aria-multiselectable="true"
                   >
-                    <div className="multi-textarea-chips__radio">
-                      <div
-                        className={classNames('multi-textarea-chips__radio-button', {
-                          'multi-textarea-chips__radio-button--selected': dropdownLogic.selectedOption === option,
-                        })}
-                      />
-                    </div>
-                    <span className="multi-textarea-chips__option-text">{option}</span>
+                    {dropdownLogic.filteredOptions.length === 0 ? (
+                      <div className="multi-textarea-chips__dropdown-empty">
+                        <IconSearch size="large" className="multi-textarea-chips__dropdown-empty-icon" />
+                        <span className="multi-textarea-chips__dropdown-empty-text">{noResultsText}</span>
+                      </div>
+                    ) : (
+                      dropdownLogic.filteredOptions.map(option => {
+                        const isChecked = chipManagement.getChipTexts().includes(option);
+
+                        return (
+                          <div
+                            key={option}
+                            className={classNames(
+                              'multi-textarea-chips__dropdown-item',
+                              'multi-textarea-chips__dropdown-item--checkbox'
+                            )}
+                            role="option"
+                            aria-selected={isChecked}
+                          >
+                            <Checkbox
+                              value={isChecked}
+                              label={option}
+                              onClick={() => handleToggleOption(option)}
+                              dataId={`${fieldName}-option-${option}`}
+                            />
+                          </div>
+                        );
+                      })
+                    )}
                   </div>
-                ))}
-              </div>
-            )}
+                )
+              : dropdownLogic.showDropdown &&
+                dropdownLogic.filteredOptions.length > 0 && (
+                  <div
+                    className="multi-textarea-chips__dropdown scrollbar scrollbar--vertical"
+                    role="listbox"
+                    aria-label="Available options"
+                  >
+                    {dropdownLogic.filteredOptions.map(option => (
+                      <div
+                        key={option}
+                        className={classNames('multi-textarea-chips__dropdown-item', {
+                          'multi-textarea-chips__dropdown-item--selected': dropdownLogic.selectedOption === option,
+                        })}
+                        onClick={() => handleSelectOption(option)}
+                        role="option"
+                        aria-selected={dropdownLogic.selectedOption === option}
+                      >
+                        <div className="multi-textarea-chips__radio">
+                          <div
+                            className={classNames('multi-textarea-chips__radio-button', {
+                              'multi-textarea-chips__radio-button--selected': dropdownLogic.selectedOption === option,
+                            })}
+                          />
+                        </div>
+                        <span className="multi-textarea-chips__option-text">{option}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
           </div>
         </div>
       </div>
