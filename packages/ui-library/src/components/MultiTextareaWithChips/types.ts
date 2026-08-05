@@ -18,6 +18,22 @@ export interface OnBlurConfig {
   minLength?: number;
 }
 
+export interface TMultiTextareaOption {
+  value: string;
+  label?: string;
+  secondaryText?: string;
+  labelClassName?: string;
+  secondaryTextClassName?: string;
+}
+
+export interface TNormalizedOption {
+  display: string;
+  label: string;
+  secondaryText?: string;
+  labelClassName?: string;
+  secondaryTextClassName?: string;
+}
+
 export interface TMultiTextareaWithChipsProps extends IFormCompProps {
   label: string;
   placeholder: string;
@@ -27,7 +43,7 @@ export interface TMultiTextareaWithChipsProps extends IFormCompProps {
   onRemoveChip?: (chipText: string, index: number) => void;
   className?: string;
   disabled?: boolean;
-  availableOptions?: string[];
+  availableOptions?: Array<string | TMultiTextareaOption>;
   allowCustomValues?: boolean;
   allowDuplicates?: boolean;
   searchPlaceholder?: string;
