@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.29.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.28.0...@ab.uitools/ui-library@1.29.0) (2026-08-04)
+
+### Features
+
+- add multiple checkbox ([bba120a](https://github.com/ab-ui-tools/ab-ui-tools/commit/bba120a97cb3b851c33fe74d492fb6b8cd38472c))
+- decompose and add multiple checkbox ([c18d4fb](https://github.com/ab-ui-tools/ab-ui-tools/commit/c18d4fba891e20852aa2ce022808ed83f0cfebe5))
+
 # [1.28.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.27.0...@ab.uitools/ui-library@1.28.0) (2026-08-03)
 
 ### Bug Fixes
