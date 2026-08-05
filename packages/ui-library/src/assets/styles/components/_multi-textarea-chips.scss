@@ -118,7 +118,27 @@
     &__option-text {
         flex: 1;
         font-size: 14px;
+    }
+
+    :where(#{&}__option-text) {
         color: var(--ds-color-text-primary);
+    }
+
+    &__option-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--ds-space-12);
+        flex: 1;
+    }
+
+    &__option-secondary {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    :where(#{&}__option-secondary) {
+        color: var(--ds-color-text-secondary);
     }
 
     &__dropdown-item--checkbox {
@@ -126,6 +146,11 @@
 
         .controller {
             width: 100%;
+
+            &__right {
+                flex: 1;
+                max-width: none;
+            }
         }
     }
 

@@ -2,11 +2,14 @@ import type { FC } from 'react';
 
 import classNames from 'classnames';
 
+import type { TNormalizedOption } from '../types';
+
+import { OptionLabel } from './OptionLabel';
 import { IconSearch } from '../../SVGIcons';
 import { Checkbox } from '../../Checkbox';
 
 interface CheckboxOptionsDropdownProps {
-  filteredOptions: string[];
+  filteredOptions: TNormalizedOption[];
   chipTexts: string[];
   noResultsText: string;
   fieldName: string;
@@ -33,11 +36,11 @@ export const CheckboxOptionsDropdown: FC<CheckboxOptionsDropdownProps> = ({
       </div>
     ) : (
       filteredOptions.map(option => {
-        const isChecked = chipTexts.includes(option);
+        const isChecked = chipTexts.includes(option.display);
 
         return (
           <div
-            key={option}
+            key={option.display}
             className={classNames(
               'multi-textarea-chips__dropdown-item',
               'multi-textarea-chips__dropdown-item--checkbox'
@@ -47,9 +50,9 @@ export const CheckboxOptionsDropdown: FC<CheckboxOptionsDropdownProps> = ({
           >
             <Checkbox
               value={isChecked}
-              label={option}
-              onClick={() => onToggleOption(option)}
-              dataId={`${fieldName}-option-${option}`}
+              label={option.secondaryText || option.labelClassName ? <OptionLabel option={option} /> : option.label}
+              onClick={() => onToggleOption(option.display)}
+              dataId={`${fieldName}-option-${option.display}`}
             />
           </div>
         );

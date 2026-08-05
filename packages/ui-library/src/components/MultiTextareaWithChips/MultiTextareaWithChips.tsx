@@ -3,12 +3,14 @@ import type { ChangeEvent, FC } from 'react';
 import { useState, useRef, useMemo, memo, useCallback } from 'react';
 import classNames from 'classnames';
 
-import type { TMultiTextareaWithChipsProps } from './types';
+import type { TMultiTextareaWithChipsProps, TMultiTextareaOption, TNormalizedOption } from './types';
 
 import { useChipManagement, useChipValidation, useDropdownLogic, useKeyboardNavigation, useOnBlurLogic } from './hooks';
 import { ChipsList, CheckboxOptionsDropdown, RadioOptionsDropdown } from './components';
 import { useFormProps } from '../../hooks';
 import { ErrorMessage } from '../../helperComponents';
+
+const EMPTY_OPTIONS: Array<string | TMultiTextareaOption> = [];
 
 const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   label,
@@ -19,7 +21,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   onRemoveChip,
   className = '',
   disabled = false,
-  availableOptions = [],
+  availableOptions = EMPTY_OPTIONS,
   allowCustomValues = true,
   allowDuplicates = false,
   searchPlaceholder,
@@ -45,6 +47,25 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
 
   const { setValue } = useFormProps();
 
+  const { normalizedOptions, optionsMeta } = useMemo(() => {
+    const meta = new Map<string, Omit<TNormalizedOption, 'display'>>();
+    const list = availableOptions.map(option => {
+      if (typeof option === 'string') {
+        meta.set(option, { label: option });
+        return option;
+      }
+      const label = option.label ?? option.value;
+      meta.set(label, {
+        label,
+        secondaryText: option.secondaryText,
+        labelClassName: option.labelClassName,
+        secondaryTextClassName: option.secondaryTextClassName,
+      });
+      return label;
+    });
+    return { normalizedOptions: list, optionsMeta: meta };
+  }, [availableOptions]);
+
   const chipManagement = useChipManagement({
     initialChips: chips,
     fieldName,
@@ -63,11 +84,26 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   });
 
   const dropdownLogic = useDropdownLogic({
-    availableOptions,
+    availableOptions: normalizedOptions,
     chipTexts: chipManagement.getChipTexts(),
     containerRef,
     multiSelect,
   });
+
+  const dropdownRowOptions: TNormalizedOption[] = useMemo(
+    () =>
+      dropdownLogic.filteredOptions.map(display => {
+        const meta = optionsMeta.get(display);
+        return {
+          display,
+          label: meta?.label ?? display,
+          secondaryText: meta?.secondaryText,
+          labelClassName: meta?.labelClassName,
+          secondaryTextClassName: meta?.secondaryTextClassName,
+        };
+      }),
+    [dropdownLogic.filteredOptions, optionsMeta]
+  );
 
   const addOptionAsChip = useCallback(
     (option: string) => {
@@ -130,7 +166,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
     inputValue,
     disabled,
     allowCustomValues,
-    availableOptions,
+    availableOptions: normalizedOptions,
     minChipLength,
     maxChipLength,
     onBlurConfig,
@@ -203,13 +239,13 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
 
   const inputPlaceholder = useMemo(() => {
     if (chipManagement.chips.length === 0) return placeholder;
-    if (availableOptions.length > 0) return searchPlaceholder || searchPlaceholderText;
+    if (normalizedOptions.length > 0) return searchPlaceholder || searchPlaceholderText;
     if (allowCustomValues) return typeAndEnterPlaceholderText;
     return noOptionsPlaceholderText;
   }, [
     chipManagement.chips.length,
     placeholder,
-    availableOptions.length,
+    normalizedOptions.length,
     searchPlaceholder,
     searchPlaceholderText,
     allowCustomValues,
@@ -237,6 +273,18 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
     [hasError]
   );
 
+  const domSafeFormProps = useMemo(() => {
+    const {
+      hasError: _hasError,
+      isValid: _isValid,
+      dataId: _dataId,
+      setFieldValue: _setFieldValue,
+      dataAttributes: _dataAttributes,
+      ...rest
+    } = formProps ?? {};
+    return rest;
+  }, [formProps]);
+
   return (
     <div className={containerClassName} ref={containerRef}>
       {label && (
@@ -252,7 +300,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
           <div className="multi-textarea-chips__input-container">
             <input
               id={`${fieldName}-input`}
-              {...formProps}
+              {...domSafeFormProps}
               autoComplete="off"
               ref={inputRef}
               type="text"
@@ -274,7 +322,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
             {multiSelect
               ? dropdownLogic.showDropdown && (
                   <CheckboxOptionsDropdown
-                    filteredOptions={dropdownLogic.filteredOptions}
+                    filteredOptions={dropdownRowOptions}
                     chipTexts={chipManagement.getChipTexts()}
                     noResultsText={noResultsText}
                     fieldName={fieldName}
@@ -282,9 +330,9 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
                   />
                 )
               : dropdownLogic.showDropdown &&
-                dropdownLogic.filteredOptions.length > 0 && (
+                dropdownRowOptions.length > 0 && (
                   <RadioOptionsDropdown
-                    filteredOptions={dropdownLogic.filteredOptions}
+                    filteredOptions={dropdownRowOptions}
                     selectedOption={dropdownLogic.selectedOption}
                     onSelectOption={handleSelectOption}
                   />
