@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.30.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.29.0...@ab.uitools/ui-library@1.30.0) (2026-08-05)
+
+### Features
+
+- change available options model ([cd1fda4](https://github.com/ab-ui-tools/ab-ui-tools/commit/cd1fda4cb2bd35441246bf2b27f2d481203ce956))
+
 # [1.29.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.28.0...@ab.uitools/ui-library@1.29.0) (2026-08-04)
 
 ### Features
