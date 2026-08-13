@@ -1,4 +1,6 @@
-import { JSX, ReactElement, ReactNode } from "react";
+import type { ReactElement, ReactNode } from 'react';
+
+import { JSX } from 'react';
 
 import type { ISVGIconProps } from '../SVGIcons/types';
 import type { TCheckboxProps } from '../Checkbox/types';
