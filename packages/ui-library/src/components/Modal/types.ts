@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from 'react';
+import { JSX, ReactElement, ReactNode } from "react";
 
 import type { ISVGIconProps } from '../SVGIcons/types';
 import type { TCheckboxProps } from '../Checkbox/types';
@@ -20,7 +20,7 @@ export interface TModalPropTypes {
     cancel?: TButtonPropTypes;
     confirm: TButtonPropTypes;
   };
-
+  renderCustomFooter?: ReactNode;
   checkProps?: TCheckboxProps;
   closeIcon?: boolean;
   children?: ReactNode;
