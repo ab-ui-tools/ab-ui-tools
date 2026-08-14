@@ -18,7 +18,7 @@
         align-items: center;
         overflow-x: auto;
         overflow-y: hidden;
-        min-height: 30px;
+        min-height: 40px;
 
         &::-webkit-scrollbar {
             display: none;
@@ -193,14 +193,14 @@
     --ds-multi-input-border: var(--ds-border-thin) solid var(--ds-multi-input-border-color-default);
 
     --ds-multi-input-border-radius: var(--ds-border-radius-lg);
-    --ds-multi-input-padding: var(--ds-space-12);
+    --ds-multi-input-padding: var(--ds-space-8) var(--ds-space-12);
     --ds-multi-input-transition: background-color .3s linear, border-color .3s linear;
 
     border: var(--ds-multi-input-border);
     border-radius: var(--ds-multi-input-border-radius);
     background-color: var(--ds-multi-input-bg-default);
-    padding: 5px;
-    min-height: 30px;
+    padding: var(--ds-multi-input-padding);
+    min-height: 40px;
     transition: var(--ds-multi-input-transition);
 
     &:hover {
