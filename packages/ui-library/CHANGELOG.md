@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.30.0...@ab.uitools/ui-library@1.31.0) (2026-08-14)
+
+### Features
+
+- added renderCustomFooter props for modal ([e141162](https://github.com/ab-ui-tools/ab-ui-tools/commit/e1411625f9c430556181a934912f8762bf838529))
+- lint fix ([c52dd62](https://github.com/ab-ui-tools/ab-ui-tools/commit/c52dd625346906a69cf3b16755e955fffb3037ed))
+
 # [1.30.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.29.0...@ab.uitools/ui-library@1.30.0) (2026-08-05)
 
 ### Features
