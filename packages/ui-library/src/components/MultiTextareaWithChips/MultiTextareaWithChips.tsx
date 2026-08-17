@@ -3,12 +3,15 @@ import type { ChangeEvent, FC } from 'react';
 import { useState, useRef, useMemo, memo, useCallback } from 'react';
 import classNames from 'classnames';
 
-import type { TMultiTextareaWithChipsProps, ChipValue } from './types';
+import type { TMultiTextareaWithChipsProps, TMultiTextareaOption, TNormalizedOption } from './types';
 
 import { useChipManagement, useChipValidation, useDropdownLogic, useKeyboardNavigation, useOnBlurLogic } from './hooks';
-import { Chips } from '../Chips';
+import { ChipsList, CheckboxOptionsDropdown, RadioOptionsDropdown } from './components';
+import { Text } from '../Text';
 import { useFormProps } from '../../hooks';
 import { ErrorMessage } from '../../helperComponents';
+
+const EMPTY_OPTIONS: Array<string | TMultiTextareaOption> = [];
 
 const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   label,
@@ -19,7 +22,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   onRemoveChip,
   className = '',
   disabled = false,
-  availableOptions = [],
+  availableOptions = EMPTY_OPTIONS,
   allowCustomValues = true,
   allowDuplicates = false,
   searchPlaceholder,
@@ -29,6 +32,8 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   searchPlaceholderText = 'Search and select...',
   typeAndEnterPlaceholderText = 'Type and press Enter...',
   noOptionsPlaceholderText = 'No more options available',
+  multiSelect = false,
+  noResultsText = "Sorry, we couldn't find any results",
   fieldName = 'skills',
   formProps,
   minChipLength,
@@ -42,6 +47,25 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { setValue } = useFormProps();
+
+  const { normalizedOptions, optionsMeta } = useMemo(() => {
+    const meta = new Map<string, Omit<TNormalizedOption, 'display'>>();
+    const list = availableOptions.map(option => {
+      if (typeof option === 'string') {
+        meta.set(option, { label: option });
+        return option;
+      }
+      const label = option.label ?? option.value;
+      meta.set(label, {
+        label,
+        secondaryText: option.secondaryText,
+        labelClassName: option.labelClassName,
+        secondaryTextClassName: option.secondaryTextClassName,
+      });
+      return label;
+    });
+    return { normalizedOptions: list, optionsMeta: meta };
+  }, [availableOptions]);
 
   const chipManagement = useChipManagement({
     initialChips: chips,
@@ -61,26 +85,63 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   });
 
   const dropdownLogic = useDropdownLogic({
-    availableOptions,
+    availableOptions: normalizedOptions,
     chipTexts: chipManagement.getChipTexts(),
     containerRef,
+    multiSelect,
   });
 
-  const handleSelectOption = (option: string) => {
-    if (!allowDuplicates && chipManagement.getChipTexts().includes(option)) return;
+  const dropdownRowOptions: TNormalizedOption[] = useMemo(
+    () =>
+      dropdownLogic.filteredOptions.map(display => {
+        const meta = optionsMeta.get(display);
+        return {
+          display,
+          label: meta?.label ?? display,
+          secondaryText: meta?.secondaryText,
+          labelClassName: meta?.labelClassName,
+          secondaryTextClassName: meta?.secondaryTextClassName,
+        };
+      }),
+    [dropdownLogic.filteredOptions, optionsMeta]
+  );
 
-    try {
-      const valueToValidate = transformToUppercase ? option.toUpperCase() : option;
-      const validatedChip = chipValidation.createValidatedChip(valueToValidate);
-      chipManagement.addChip(validatedChip);
+  const addOptionAsChip = useCallback(
+    (option: string) => {
+      if (!allowDuplicates && chipManagement.getChipTexts().includes(option)) return false;
+
+      try {
+        const valueToValidate = transformToUppercase ? option.toUpperCase() : option;
+        const validatedChip = chipValidation.createValidatedChip(valueToValidate);
+        chipManagement.addChip(validatedChip);
+        setChipError('');
+        return true;
+      } catch (error) {
+        if (!allowInvalidChips) {
+          setChipError(error instanceof Error ? error.message : 'Invalid value');
+        }
+        return false;
+      }
+    },
+    [chipManagement, chipValidation, allowInvalidChips, transformToUppercase, allowDuplicates]
+  );
+
+  const handleSelectOption = (option: string) => {
+    if (addOptionAsChip(option)) {
       setInputValue('');
       dropdownLogic.closeDropdown();
-      setChipError('');
-    } catch (error) {
-      if (!allowInvalidChips) {
-        setChipError(error instanceof Error ? error.message : 'Invalid value');
-      }
     }
+  };
+
+  const handleToggleOption = (option: string) => {
+    if (chipManagement.getChipTexts().includes(option)) {
+      chipManagement.removeChipByText(option);
+      setChipError('');
+    } else {
+      addOptionAsChip(option);
+    }
+    setInputValue('');
+    inputRef.current?.focus();
   };
 
   const handleAddCustomValue = useCallback(
@@ -106,7 +167,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
     inputValue,
     disabled,
     allowCustomValues,
-    availableOptions,
+    availableOptions: normalizedOptions,
     minChipLength,
     maxChipLength,
     onBlurConfig,
@@ -121,6 +182,16 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
       chipManagement.removeChip(lastChipIndex);
     }
   };
+
+  const handleRemoveChip = useCallback(
+    (index: number) => {
+      chipManagement.removeChip(index);
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 0);
+    },
+    [chipManagement]
+  );
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (disabled) return;
@@ -150,6 +221,13 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
     onAddCustomValue: handleAddCustomValue,
     onNavigateOptions: dropdownLogic.navigateOptions,
     onSelectOption: option => {
+      if (multiSelect) {
+        const optionToToggle = option || dropdownLogic.selectedOption || dropdownLogic.filteredOptions[0];
+        if (optionToToggle) {
+          handleToggleOption(optionToToggle);
+        }
+        return;
+      }
       const selected = dropdownLogic.selectOption(option);
       if (selected) {
         handleSelectOption(selected);
@@ -162,13 +240,13 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
 
   const inputPlaceholder = useMemo(() => {
     if (chipManagement.chips.length === 0) return placeholder;
-    if (availableOptions.length > 0) return searchPlaceholder || searchPlaceholderText;
+    if (normalizedOptions.length > 0) return searchPlaceholder || searchPlaceholderText;
     if (allowCustomValues) return typeAndEnterPlaceholderText;
     return noOptionsPlaceholderText;
   }, [
     chipManagement.chips.length,
     placeholder,
-    availableOptions.length,
+    normalizedOptions.length,
     searchPlaceholder,
     searchPlaceholderText,
     allowCustomValues,
@@ -196,6 +274,18 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
     [hasError]
   );
 
+  const domSafeFormProps = useMemo(() => {
+    const {
+      hasError: _hasError,
+      isValid: _isValid,
+      dataId: _dataId,
+      setFieldValue: _setFieldValue,
+      dataAttributes: _dataAttributes,
+      ...rest
+    } = formProps ?? {};
+    return rest;
+  }, [formProps]);
+
   return (
     <div className={containerClassName} ref={containerRef}>
       {label && (
@@ -206,36 +296,12 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
 
       <div className={inputWrapperClassName}>
         <div className="multi-textarea-chips__content">
-          {chipManagement.chips.map((chip: ChipValue, index: number) => {
-            const isItem = typeof chip === 'object';
-            const text = isItem ? chip.text : chip;
-            const hasError = isItem ? Boolean(chip.hasError) : false;
-
-            return (
-              <Chips
-                key={`${text}-${index}`}
-                text={text}
-                withAction={!disabled}
-                onClick={() => {
-                  // Pass index instead of text to remove specific chip
-                  chipManagement.removeChip(index);
-                  setTimeout(() => {
-                    inputRef.current?.focus();
-                  }, 0);
-                }}
-                size="small"
-                color={hasError ? 'danger' : 'default'}
-                type="accent"
-                disabled={disabled}
-                aria-label={`Remove ${text} chip`}
-              />
-            );
-          })}
+          <ChipsList chips={chipManagement.chips} disabled={disabled} onRemoveChip={handleRemoveChip} />
 
           <div className="multi-textarea-chips__input-container">
             <input
               id={`${fieldName}-input`}
-              {...formProps}
+              {...domSafeFormProps}
               autoComplete="off"
               ref={inputRef}
               type="text"
@@ -254,45 +320,39 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
               role="combobox"
             />
 
-            {dropdownLogic.showDropdown && dropdownLogic.filteredOptions.length > 0 && (
-              <div
-                className="multi-textarea-chips__dropdown scrollbar scrollbar--vertical"
-                role="listbox"
-                aria-label="Available options"
-              >
-                {dropdownLogic.filteredOptions.map(option => (
-                  <div
-                    key={option}
-                    className={classNames('multi-textarea-chips__dropdown-item', {
-                      'multi-textarea-chips__dropdown-item--selected': dropdownLogic.selectedOption === option,
-                    })}
-                    onClick={() => handleSelectOption(option)}
-                    role="option"
-                    aria-selected={dropdownLogic.selectedOption === option}
-                  >
-                    <div className="multi-textarea-chips__radio">
-                      <div
-                        className={classNames('multi-textarea-chips__radio-button', {
-                          'multi-textarea-chips__radio-button--selected': dropdownLogic.selectedOption === option,
-                        })}
-                      />
-                    </div>
-                    <span className="multi-textarea-chips__option-text">{option}</span>
-                  </div>
-                ))}
-              </div>
-            )}
+            {multiSelect
+              ? dropdownLogic.showDropdown && (
+                  <CheckboxOptionsDropdown
+                    filteredOptions={dropdownRowOptions}
+                    chipTexts={chipManagement.getChipTexts()}
+                    noResultsText={noResultsText}
+                    fieldName={fieldName}
+                    onToggleOption={handleToggleOption}
+                  />
+                )
+              : dropdownLogic.showDropdown &&
+                dropdownRowOptions.length > 0 && (
+                  <RadioOptionsDropdown
+                    filteredOptions={dropdownRowOptions}
+                    selectedOption={dropdownLogic.selectedOption}
+                    onSelectOption={handleSelectOption}
+                  />
+                )}
           </div>
         </div>
       </div>
 
-      {hasError && <ErrorMessage message={errorMessage} />}
+      {hasError || helperText ? (
+        <div className={'mt-8'}>
+          {hasError && <ErrorMessage message={errorMessage} />}
 
-      {helperText && !hasError && (
-        <div id={`${fieldName}-helper`} className="multi-textarea-chips__helper">
-          {helperText}
+          {helperText && !hasError && (
+            <Text id={`${fieldName}-helper`} type={'tertiary'} size={'small'}>
+              {helperText}
+            </Text>
+          )}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

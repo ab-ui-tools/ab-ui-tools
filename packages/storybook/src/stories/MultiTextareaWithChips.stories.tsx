@@ -178,6 +178,51 @@ export const SimpleFormUsage = (): JSX.Element => {
   );
 };
 
+export const CheckboxMultiSelect = (): JSX.Element => {
+  return (
+    <div style={{ maxWidth: 440, padding: 20 }}>
+      <MultiTextareaWithChips
+        fieldName="fruits"
+        label="Favorite fruits"
+        placeholder="Click to select fruits"
+        multiSelect
+        availableOptions={['Apple', 'Banana', 'Cherry', 'Dragon fruit', 'Elderberry', 'Fig', 'Grape', 'Honeydew melon']}
+      />
+    </div>
+  );
+};
+
+export const CheckboxMultiSelectWithSecondaryText = (): JSX.Element => {
+  return (
+    <div style={{ maxWidth: 440, padding: 20 }}>
+      <style>{`
+        .employees-select .multi-textarea-chips__option-text {
+          font-weight: var(--ds-font-weight-active);
+        }
+        .employees-select .multi-textarea-chips__option-secondary {
+          color: var(--ds-color-text-disabled);
+        }
+      `}</style>
+      <MultiTextareaWithChips
+        className="employees-select"
+        fieldName="employees"
+        label="Employees with disabilities"
+        placeholder="Search or select employees"
+        multiSelect
+        availableOptions={[
+          { value: 'anahit-avetisyan', label: 'Anahit Avetisyan', secondaryText: 'AR1199098' },
+          { value: 'aram-petrosyan', label: 'Aram Petrosyan', secondaryText: 'AS4567890' },
+          { value: 'levon-karapetyan', label: 'Levon Karapetyan', secondaryText: 'AR0987654' },
+          { value: 'narek-sargsyan', label: 'Narek Sargsyan', secondaryText: 'AS4567899' },
+          { value: 'mariam-mkrtchyan', label: 'Mariam Mkrtchyan', secondaryText: 'AR4362789' },
+          { value: 'meline-danielyan', label: 'Meline Danielyan', secondaryText: 'AR9876545' },
+          { value: 'sona-grigoryan', label: 'Sona Grigoryan', secondaryText: 'AS4567890' },
+        ]}
+      />
+    </div>
+  );
+};
+
 const FormStatus = (): JSX.Element | null => {
   const { errors, isSubmitted, getValues } = useFormProps();
   const values = getValues?.() as any;

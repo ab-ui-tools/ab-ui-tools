@@ -37,7 +37,6 @@ const Template: StoryFn<TModalPropTypes> = args => {
             buttonText: 'Save',
             buttonActionType: 'submit',
           },
-          cancel: { buttonText: 'Cancel' },
         }}
         checkProps={{ label: 'Check Label' }}
       >

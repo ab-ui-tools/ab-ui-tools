@@ -18,7 +18,7 @@
         align-items: center;
         overflow-x: auto;
         overflow-y: hidden;
-        min-height: 30px;
+        min-height: var(--ds-size-24);
 
         &::-webkit-scrollbar {
             display: none;
@@ -118,12 +118,59 @@
     &__option-text {
         flex: 1;
         font-size: 14px;
+    }
+
+    :where(#{&}__option-text) {
         color: var(--ds-color-text-primary);
     }
 
-    &__helper {
-        font-size: 12px;
-        color: #666;
+    &__option-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--ds-space-12);
+        flex: 1;
+    }
+
+    &__option-secondary {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    :where(#{&}__option-secondary) {
+        color: var(--ds-color-text-secondary);
+    }
+
+    &__dropdown-item--checkbox {
+        cursor: pointer;
+
+        .controller {
+            width: 100%;
+
+            &__right {
+                flex: 1;
+                max-width: none;
+            }
+        }
+    }
+
+    &__dropdown-empty {
+        @include mixin.flexbox;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--ds-space-12);
+        padding: var(--ds-space-24) var(--ds-space-12);
+        text-align: center;
+    }
+
+    &__dropdown-empty-icon {
+        opacity: 0.4;
+    }
+
+    &__dropdown-empty-text {
+        font-size: 14px;
+        color: var(--ds-color-text-secondary);
     }
 }
 
@@ -141,14 +188,14 @@
     --ds-multi-input-border: var(--ds-border-thin) solid var(--ds-multi-input-border-color-default);
 
     --ds-multi-input-border-radius: var(--ds-border-radius-lg);
-    --ds-multi-input-padding: var(--ds-space-12);
+    --ds-multi-input-padding: var(--ds-space-6) var(--ds-space-12);
     --ds-multi-input-transition: background-color .3s linear, border-color .3s linear;
 
     border: var(--ds-multi-input-border);
     border-radius: var(--ds-multi-input-border-radius);
     background-color: var(--ds-multi-input-bg-default);
-    padding: 5px;
-    min-height: 30px;
+    padding: var(--ds-multi-input-padding);
+    min-height: 40px;
     transition: var(--ds-multi-input-transition);
 
     &:hover {

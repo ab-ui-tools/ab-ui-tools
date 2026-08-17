@@ -50,6 +50,7 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     dataIdPrefix,
     closeOnOutsideClick = true,
     confirmBtnTooltipText,
+    renderCustomFooter,
   } = props;
 
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null);
@@ -60,13 +61,16 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
 
   const buttons = buttonProps ? (
     <div className={`flexbox ${checkProps ? '' : 'full-width justify-content--end'}`}>
-      <Button
-        type="tertiary"
-        className="modal__footer__btn mr-16"
-        onClick={onClose}
-        dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
-        {...(buttonProps.cancel || {})}
-      />
+      {buttonProps?.cancel ? (
+        <Button
+          type="tertiary"
+          className="modal__footer__btn mr-16"
+          onClick={onClose}
+          dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
+          {...(buttonProps.cancel || {})}
+        />
+      ) : null}
+
       {confirmBtnTooltipText ? (
         <Tooltip text={confirmBtnTooltipText as string} id={'confirm-btn-tooltip'} position={Positions.TOP_CENTER} />
       ) : null}
@@ -129,11 +133,13 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
               </div>
             ) : null}
 
-            <div className="modal__content scrollbar scrollbar--vertical">{children}</div>
-            {buttons || checkbox ? (
+            {children ? <div className="modal__content scrollbar scrollbar--vertical">{children}</div> : null}
+
+            {buttons || checkbox || renderCustomFooter ? (
               <div className={`modal__footer ${checkbox ? 'justify-content--between' : 'justify-content--end'}`}>
                 {checkbox}
                 {buttons}
+                {renderCustomFooter}
               </div>
             ) : null}
           </div>

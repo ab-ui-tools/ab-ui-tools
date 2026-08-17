@@ -3,6 +3,212 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.0...@ab.uitools/ui-library@1.31.1) (2026-08-17)
+
+### Bug Fixes
+
+- ui fixes for multiTextareaWithChips component ([07e9daf](https://github.com/ab-ui-tools/ab-ui-tools/commit/07e9daf08bcc277a6e5f4829d5659977e3d70a7e))
+
+# [1.31.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.30.0...@ab.uitools/ui-library@1.31.0) (2026-08-14)
+
+### Features
+
+- added renderCustomFooter props for modal ([e141162](https://github.com/ab-ui-tools/ab-ui-tools/commit/e1411625f9c430556181a934912f8762bf838529))
+- lint fix ([c52dd62](https://github.com/ab-ui-tools/ab-ui-tools/commit/c52dd625346906a69cf3b16755e955fffb3037ed))
+
+# [1.30.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.29.0...@ab.uitools/ui-library@1.30.0) (2026-08-05)
+
+### Features
+
+- change available options model ([cd1fda4](https://github.com/ab-ui-tools/ab-ui-tools/commit/cd1fda4cb2bd35441246bf2b27f2d481203ce956))
+
+# [1.29.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.28.0...@ab.uitools/ui-library@1.29.0) (2026-08-04)
+
+### Features
+
+- add multiple checkbox ([bba120a](https://github.com/ab-ui-tools/ab-ui-tools/commit/bba120a97cb3b851c33fe74d492fb6b8cd38472c))
+- decompose and add multiple checkbox ([c18d4fb](https://github.com/ab-ui-tools/ab-ui-tools/commit/c18d4fba891e20852aa2ce022808ed83f0cfebe5))
+
+# [1.28.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.27.0...@ab.uitools/ui-library@1.28.0) (2026-08-03)
+
+### Bug Fixes
+
+- the subcomponents to componen ([14d5006](https://github.com/ab-ui-tools/ab-ui-tools/commit/14d5006814c3148f00527c35b4c487e007fb47cf))
+
+### Features
+
+- create new upload component ([5ba8f89](https://github.com/ab-ui-tools/ab-ui-tools/commit/5ba8f89a9a86fc99f16764e1c9914647e7d65c43))
+
+# [1.27.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.26.4...@ab.uitools/ui-library@1.27.0) (2026-07-30)
+
+### Features
+
+- added new icons ([ed61195](https://github.com/ab-ui-tools/ab-ui-tools/commit/ed61195182f7096c540a78616b36fb1bc7272da0))
+
+## [1.26.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.26.3...@ab.uitools/ui-library@1.26.4) (2026-07-28)
+
+### Bug Fixes
+
+- added new icons ([db1b403](https://github.com/ab-ui-tools/ab-ui-tools/commit/db1b403f29f00686c6218b6dc8be82cb10a67b32))
+
+## [1.26.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.26.2...@ab.uitools/ui-library@1.26.3) (2026-07-23)
+
+### Bug Fixes
+
+- fixed react select issues ([26e3189](https://github.com/ab-ui-tools/ab-ui-tools/commit/26e3189a19da533bd3782f24d5003db1e94c9422))
+
+## [1.26.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.26.1...@ab.uitools/ui-library@1.26.2) (2026-07-21)
+
+### Bug Fixes
+
+- added note icon ([9d2ee57](https://github.com/ab-ui-tools/ab-ui-tools/commit/9d2ee574d57e1f674dbfd599c645db82b58c4560))
+
+## [1.26.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.26.0...@ab.uitools/ui-library@1.26.1) (2026-07-20)
+
+### Bug Fixes
+
+- side navigation expand button ([5360d85](https://github.com/ab-ui-tools/ab-ui-tools/commit/5360d852190a329d7e9da8e2a6ef5d4f0517ef02))
+- side navigation expand button ([7b79894](https://github.com/ab-ui-tools/ab-ui-tools/commit/7b79894f713c0a5cdd18d2f0a738866729c86e69))
+
+# [1.26.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.25.0...@ab.uitools/ui-library@1.26.0) (2026-07-17)
+
+### Features
+
+- support xlsx file upload ([6846bb9](https://github.com/ab-ui-tools/ab-ui-tools/commit/6846bb9512d8c5cee1578aa8a7cba27765d0466a))
+
+# [1.25.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.24.2...@ab.uitools/ui-library@1.25.0) (2026-07-14)
+
+### Features
+
+- umbrella icon added ([ce574ac](https://github.com/ab-ui-tools/ab-ui-tools/commit/ce574acb738e7d6e1165aa9cb83e729b15721aa6))
+
+## [1.24.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.24.1...@ab.uitools/ui-library@1.24.2) (2026-07-13)
+
+### Bug Fixes
+
+- fixed tooltip position issue when browser edge is close ([2285806](https://github.com/ab-ui-tools/ab-ui-tools/commit/2285806493e2efd84f7d3946244295d6edfecbcc))
+
+## [1.24.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.24.0...@ab.uitools/ui-library@1.24.1) (2026-07-13)
+
+### Bug Fixes
+
+- fixed tooltip issues when tooltip is close to browser border ([dd616de](https://github.com/ab-ui-tools/ab-ui-tools/commit/dd616de0d0512824736c587335cefd84e2ac7800))
+
+# [1.24.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.23.0...@ab.uitools/ui-library@1.24.0) (2026-07-13)
+
+### Features
+
+- added new icons ([646b54d](https://github.com/ab-ui-tools/ab-ui-tools/commit/646b54d3a6f003d275cb55191f5fe2fd1da25f2a))
+
+# [1.23.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.22.4...@ab.uitools/ui-library@1.23.0) (2026-07-10)
+
+### Features
+
+- added new icons ([932f215](https://github.com/ab-ui-tools/ab-ui-tools/commit/932f215c91c9b78f80bedf10dcf642e70eb999bc))
+- added new icons, remove additional spacing for menu dropdown ([a7e37af](https://github.com/ab-ui-tools/ab-ui-tools/commit/a7e37af8c71f07a87da0fbe84b2a37dcd8710f89))
+
+## [1.22.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.22.3...@ab.uitools/ui-library@1.22.4) (2026-07-09)
+
+### Bug Fixes
+
+- fix menu positioning ([7f0a786](https://github.com/ab-ui-tools/ab-ui-tools/commit/7f0a786a94a1d9bfe5111f2cb5cae8cc90c0598f))
+
+## [1.22.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.22.2...@ab.uitools/ui-library@1.22.3) (2026-07-07)
+
+### Bug Fixes
+
+- adding open select after focus with TAB button ([dfdf772](https://github.com/ab-ui-tools/ab-ui-tools/commit/dfdf772094fc986fc60f7d0def2ac13ebe3832be))
+- resolve comment ([22e0b84](https://github.com/ab-ui-tools/ab-ui-tools/commit/22e0b8413246f2d4ab65aff54b89ef1db682f507))
+
+## [1.22.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.22.1...@ab.uitools/ui-library@1.22.2) (2026-07-07)
+
+### Bug Fixes
+
+- close nested select after clicking on input ([c68f0f3](https://github.com/ab-ui-tools/ab-ui-tools/commit/c68f0f3ba264935ff9640cbca99e8fa4546fb64e))
+
+## [1.22.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.22.0...@ab.uitools/ui-library@1.22.1) (2026-07-06)
+
+### Bug Fixes
+
+- hide modal content if there is no children ([8d73fcd](https://github.com/ab-ui-tools/ab-ui-tools/commit/8d73fcd45b41e707fc9dab97789d404be0623c81))
+- ui fix ([bf6bf40](https://github.com/ab-ui-tools/ab-ui-tools/commit/bf6bf402f97d93af2f8e32b9f7920110737a4b40))
+
+# [1.22.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.6...@ab.uitools/ui-library@1.22.0) (2026-06-26)
+
+### Features
+
+- add target property for link ([e69a182](https://github.com/ab-ui-tools/ab-ui-tools/commit/e69a182fdab316e0ddf5483290a85a5fc54797b9))
+
+## [1.21.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.5...@ab.uitools/ui-library@1.21.6) (2026-06-25)
+
+### Bug Fixes
+
+- react select crate on outside click issue ([600c248](https://github.com/ab-ui-tools/ab-ui-tools/commit/600c2484f9c540d2f44e207baa0f180629f98543))
+- react select crate on outside click issue ([1ae00f4](https://github.com/ab-ui-tools/ab-ui-tools/commit/1ae00f4daa9e45163b0bc870b97565265ffbec92))
+
+## [1.21.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.4...@ab.uitools/ui-library@1.21.5) (2026-06-24)
+
+### Bug Fixes
+
+- change column settings menu default position ([f2c4ba3](https://github.com/ab-ui-tools/ab-ui-tools/commit/f2c4ba3d81fd5c720ba835187afebec21ba6756c))
+
+## [1.21.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.3...@ab.uitools/ui-library@1.21.4) (2026-06-24)
+
+### Bug Fixes
+
+- column menu position ([4c3948f](https://github.com/ab-ui-tools/ab-ui-tools/commit/4c3948fa4309974ddaaacf1697c20126b164e7d7))
+
+## [1.21.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.2...@ab.uitools/ui-library@1.21.3) (2026-06-23)
+
+### Bug Fixes
+
+- fixed spacing for columnsettings dropdown ([66fe141](https://github.com/ab-ui-tools/ab-ui-tools/commit/66fe14126ffc92273870e542f058a428680e40b5))
+- ui fix ([dac580d](https://github.com/ab-ui-tools/ab-ui-tools/commit/dac580da768c984bf4726ebae5f6109ce37c6d6d))
+
+## [1.21.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.1...@ab.uitools/ui-library@1.21.2) (2026-06-22)
+
+### Bug Fixes
+
+- added condition for modal cancel button ([7773c53](https://github.com/ab-ui-tools/ab-ui-tools/commit/7773c5396067889746c1914028cb2dbce0dd48c7))
+
+## [1.21.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.21.0...@ab.uitools/ui-library@1.21.1) (2026-06-19)
+
+### Bug Fixes
+
+- added documentData icon, and remove documentReport icon ([a83bcea](https://github.com/ab-ui-tools/ab-ui-tools/commit/a83bcea137676227b2f93fd98d6a2a7d77c899ca))
+
+# [1.21.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.20.2...@ab.uitools/ui-library@1.21.0) (2026-06-19)
+
+### Features
+
+- added archive, unarchive icons ([c23b426](https://github.com/ab-ui-tools/ab-ui-tools/commit/c23b4268ffe2c7cd4ac76ef08a36cbfda6bf010b))
+
+## [1.20.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.20.1...@ab.uitools/ui-library@1.20.2) (2026-06-17)
+
+### Bug Fixes
+
+- calendar styles ([e1e2ae9](https://github.com/ab-ui-tools/ab-ui-tools/commit/e1e2ae9d198d618495813543d90e5f5fc4f3dbe0))
+
+## [1.20.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.20.0...@ab.uitools/ui-library@1.20.1) (2026-06-17)
+
+### Bug Fixes
+
+- calendar position ([6aad279](https://github.com/ab-ui-tools/ab-ui-tools/commit/6aad2799067edc59a5376cc11460e31af6ca7da9))
+
+# [1.20.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.6...@ab.uitools/ui-library@1.20.0) (2026-06-16)
+
+### Features
+
+- add onChipClick prop to support global click events and update stories accordingly ([92eedc4](https://github.com/ab-ui-tools/ab-ui-tools/commit/92eedc40409c7dc234f4b090b4222ecb943b431f))
+
+## [1.19.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.5...@ab.uitools/ui-library@1.19.6) (2026-06-15)
+
+### Bug Fixes
+
+- one time password ([3fe2e97](https://github.com/ab-ui-tools/ab-ui-tools/commit/3fe2e9742e040dc1781239a131a7f025672bc0f5))
+- otp ([6008bcd](https://github.com/ab-ui-tools/ab-ui-tools/commit/6008bcd6df8a16af66e99bfcc1717d83ae83a463))
+- otp ([96f62c1](https://github.com/ab-ui-tools/ab-ui-tools/commit/96f62c1a7952240967b6b4a10b1aecda061e3867))
+
 ## [1.19.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.19.4...@ab.uitools/ui-library@1.19.5) (2026-06-12)
 
 ### Bug Fixes

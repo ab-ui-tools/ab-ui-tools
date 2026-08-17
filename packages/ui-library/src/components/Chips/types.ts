@@ -23,6 +23,7 @@ export interface TChipsProps extends IFormCompProps {
   withAction?: boolean;
   isReadOnly?: boolean;
   onClick?: (e: TClickEventType) => void;
+  onChipClick?: (e: TClickEventType) => void;
   dataId?: string;
   id?: string | number;
 }

@@ -7,6 +7,7 @@ import { CalendarPopup } from './CalendarPopup';
 import { useChangePositionsOnScroll } from '../../hooks/useChangePositionsOnScroll';
 import {
   useGetElemPositions,
+  useGetElemSizes,
   useGetHasBottomSpace,
   useGetHasTopSpace,
   useHideOnResize,
@@ -34,6 +35,12 @@ export const Calendar = ({ children, shouldRecalculatePosition = false, ...props
   });
 
   const { bottom, top, left } = useGetElemPositions(childrenRef.current);
+  const { width: calendarWidth } = useGetElemSizes(calendarRef);
+
+  const clampedLeft =
+    typeof window !== 'undefined' && calendarWidth
+      ? Math.max(0, Math.min(left, window.innerWidth - calendarWidth))
+      : left;
 
   useChangePositionsOnScroll({
     parentElement: childrenRef?.current,
@@ -60,10 +67,11 @@ export const Calendar = ({ children, shouldRecalculatePosition = false, ...props
         <div
           className="calendar-popup-container"
           style={{
-            left,
+            left: clampedLeft,
             ...(hasBottomSpace || !hasTopSpace
               ? {
                   top: bottom + DROPDOWN_AND_INPUT_GAP,
+                  maxHeight: window.innerHeight - bottom - DROPDOWN_AND_INPUT_GAP,
                 }
               : {
                   bottom: window.innerHeight - top + DROPDOWN_AND_INPUT_GAP,

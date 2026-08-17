@@ -1,6 +1,6 @@
 import CreatableSelect from 'react-select/creatable';
 import Select, { type ActionMeta } from 'react-select';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState, type MouseEvent } from 'react';
 import classNames from 'classnames';
 
 import type { TOption, TReactSelectProps, TSelectValue, SingleValue } from './types';
@@ -17,7 +17,7 @@ import {
   Option,
 } from './components';
 import { Text } from '../Text';
-import { Label } from '../../helperComponents';
+import { ErrorMessage, Label } from '../../helperComponents';
 
 export const ReactSelect = ({
   options = [],
@@ -42,6 +42,7 @@ export const ReactSelect = ({
   isRadio,
   isMulti,
   hasError,
+  error,
   required,
   label,
   size = 'large',
@@ -52,6 +53,7 @@ export const ReactSelect = ({
   ...selectProps
 }: TReactSelectProps) => {
   const [selectedOption, setSelectedOption] = useState<TSelectValue>();
+  const isMenuMouseDownRef = useRef(false);
 
   const handleChangeOption = (selectedOption: TSelectValue, actionMeta?: ActionMeta<TOption>) => {
     const val = !Array.isArray(selectedOption)
@@ -72,6 +74,10 @@ export const ReactSelect = ({
 
   const handleCreateOnOutsideClick = (event: React.FocusEvent) => {
     if (!isCreatable || !isCreateOnOutsideClick) return;
+    if (isMenuMouseDownRef.current) {
+      isMenuMouseDownRef.current = false;
+      return;
+    }
 
     const inputValue = (event?.target as HTMLInputElement)?.value;
     if (!inputValue) return;
@@ -130,6 +136,12 @@ export const ReactSelect = ({
     return generateCreatableSelectedOptions(value);
   };
 
+  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+    if ((e.target as HTMLElement).closest?.('.react-select__menu')) {
+      isMenuMouseDownRef.current = true;
+    }
+  };
+
   useEffect(() => {
     const currentValue = selectedValue || value;
     if (!currentValue) {
@@ -150,7 +162,7 @@ export const ReactSelect = ({
   const SelectComponent = isCreatable ? CreatableSelect : Select;
 
   return (
-    <div data-id={dataId} className="react-select-wrapper">
+    <div data-id={dataId} className="react-select-wrapper" onMouseDown={handleMouseDown}>
       <Label text={label} required={required} disabled={isDisabled} labelAddons={labelAddons} />
       <SelectComponent
         {...selectProps}
@@ -185,7 +197,7 @@ export const ReactSelect = ({
           ...customComponents,
         }}
         className={classNames(className, `react-select__${size}`, {
-          'react-select__invalid': hasError,
+          'react-select__invalid': hasError || error,
           'react-select__dropdown': !isSearchable && !isCreatable,
         })}
         classNamePrefix="react-select"
@@ -195,6 +207,7 @@ export const ReactSelect = ({
           {helperText}
         </Text>
       )}
+      {error ? <ErrorMessage className="mt-8" message={error} icon="infoFilled" dataId={dataId} /> : null}
     </div>
   );
 };

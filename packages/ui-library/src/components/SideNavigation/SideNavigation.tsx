@@ -19,6 +19,7 @@ export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => 
     logo,
     logoClosed,
     logoUrl,
+    logoTarget,
     headerChildren: HeaderChildren,
     isOpen,
     isPined,
@@ -40,7 +41,7 @@ export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => 
       )}
     >
       <header>
-        <Link url={logoUrl} className={'side-navigation__logo'}>
+        <Link url={logoUrl} target={logoTarget} className={'side-navigation__logo'}>
           <Image imagePath={isOpen ? logo : logoClosed} isBackgroundImage={false} />
         </Link>
         {HeaderChildren && isOpen ? <HeaderChildren isOpen={!!isOpen} /> : null}

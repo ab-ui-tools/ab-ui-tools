@@ -19,7 +19,7 @@ import { FILE_UPLOAD_ERRORS } from '../../consts';
 
 export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
-    allowedTypes = 'application/pdf, .png, .jpg, .jpeg, image/jpeg, image/png, image/jpg, text/plain, image/*, .pdf, .doc, .docx, application/vnd',
+    allowedTypes = 'application/pdf, .png, .jpg, .jpeg, image/jpeg, image/png, image/jpg, text/plain, image/*, .pdf, .doc, .docx, .xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd',
     label,
     getFiles,
     removeFiles,

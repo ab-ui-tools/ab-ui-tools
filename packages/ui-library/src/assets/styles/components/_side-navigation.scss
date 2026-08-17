@@ -40,6 +40,14 @@
     box-shadow: none;
   }
 
+  @media (min-width: 1025px) {
+    &:not(#{$this}--pin):not(#{$this}--opened) {
+      .navigation-item__actions__expand_mobile:not(.navigation-item__actions__expand_mobile--left) {
+        display: none;
+      }
+    }
+  }
+
   &--opened {
     width: 280px;
     min-width: 280px;
@@ -114,6 +122,23 @@
     margin-bottom: var(--ds-space-2);
   }
 
+  &--expandable > #{$this}__inner {
+    cursor: pointer;
+  }
+
+  &--expand-left {
+    > #{$this}__inner {
+      > a > .svg-icon:first-child,
+      > div:not(#{$this}__right-content, #{$this}__actions) > .svg-icon:first-child {
+        transition: opacity 0.2s linear;
+
+        @media (max-width: 1024px) {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
   &__inner {
       @include mixin.flexbox;
       @include mixin.align-items(center);
@@ -156,19 +181,11 @@
       @media (min-width: 1025px) {
         &:hover {
           background-color: var(--ds-color-bg-container-light);
-
-          #{$this}__actions {
-            @include mixin.flexbox;
-          }
         }
       }
 
       @media (max-width: 1024px) {
         background-color: var(--ds-color-bg-container-light);
-
-        #{$this}__actions {
-          @include mixin.flexbox;
-        }
       }
 
       &.active {
@@ -188,20 +205,6 @@
       }
   }
 
-  &--expandable {
-    > #{$this}__inner {
-      @media (min-width: 1025px) {
-        &:hover {
-          > a, > div:not(.navigation-item__right-content, .navigation-item__actions) {
-            > .svg-icon {
-              opacity: 0;
-            }
-          }
-        }
-      }
-    }
-  }
-
   &__child {
     overflow: hidden;
     max-height: 0;
@@ -219,10 +222,11 @@
     @include mixin.justify-content(space-between);
     gap: var(--ds-space-8);
     position: absolute;
-    display: none;
+    z-index: 1;
+    pointer-events: none;
+    @include mixin.flexbox;
     padding: 0 var(--ds-space-8);
 
-    &__expand,
     &__expand_mobile {
       width: 20px;
 
@@ -241,19 +245,22 @@
       }
     }
 
-    &__expand {
-      @media (max-width: 1024px) {
-        display: none;
-      }
+    &__expand_mobile {
+      @include mixin.flexbox;
+      @include mixin.align-items(center);
+      margin-left: auto;
+      gap: var(--ds-space-8);
     }
 
-    &__expand_mobile {
-      display: none;
-      @media (max-width: 1024px) {
-        @include mixin.flexbox;
-        @include mixin.align-items(center);
-        margin-left: auto;
-        gap: var(--ds-space-8);
+    &__expand_mobile--left {
+      margin-left: 0;
+      margin-right: auto;
+      padding-left: var(--ds-space-6);
+      pointer-events: none;
+
+      @media (min-width: 1025px) {
+        opacity: 0;
+        transition: opacity 0.2s linear;
       }
     }
 
@@ -262,6 +269,28 @@
       @include mixin.align-items(center);
       margin-left: auto;
       gap: var(--ds-space-8);
+      pointer-events: auto;
+    }
+
+    &__action {
+      @media (min-width: 1025px) {
+        opacity: 0;
+        transition: opacity 0.2s linear;
+      }
+    }
+  }
+
+  @media (min-width: 1025px) {
+    &:hover > #{$this}__inner #{$this}__actions__action,
+    &:hover > #{$this}__inner #{$this}__actions__expand_mobile--left {
+      opacity: 1;
+    }
+
+    &--expand-left:hover > #{$this}__inner {
+      > a > .svg-icon:first-child,
+      > div:not(#{$this}__right-content, #{$this}__actions) > .svg-icon:first-child {
+        opacity: 0;
+      }
     }
   }
 

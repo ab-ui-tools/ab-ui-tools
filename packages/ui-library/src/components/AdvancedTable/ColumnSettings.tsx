@@ -24,6 +24,7 @@ interface ColumnSettingsProps<T> {
   allToggleText?: string;
   menuIconTooltipText?: string;
   buttonProps?: TButtonPropTypes;
+  menuPosition?: Positions;
 }
 
 const defaultHiddenColumnSettings = ['select', 'actions', 'expand'];
@@ -34,6 +35,7 @@ export function ColumnSettings<T>({
   menuIconTooltipText,
   hiddenColumns = [],
   allToggleText = 'All',
+  menuPosition = Positions.TOP_RIGHT,
   buttonProps = {
     type: 'secondary',
     iconProps: {
@@ -78,7 +80,7 @@ export function ColumnSettings<T>({
       />
       <Menu
         className="column-settings"
-        position="bottom-right"
+        position={menuPosition}
         onClose={closeUserMenu}
         isOpen={isOpen}
         parentRef={ref}
@@ -93,37 +95,39 @@ export function ColumnSettings<T>({
               onClick={() => table.toggleAllColumnsVisible()}
             />
           </div>
-          <div className="column-settings__content scrollbar scrollbar--vertical">
-            {table.getAllLeafColumns().map(column => {
-              if (!hiddenColumnSettings?.includes(column.id)) {
-                const text =
-                  typeof column.columnDef.header === 'string' ? column.columnDef.header : column.columnDef.id;
-                const Icon = (column.columnDef.meta as TColumnMeta | undefined)?.icon;
-                const label = Icon ? (
-                  <div className="column-settings__control__info">
-                    <Icon size="small" />
-                    <Text className={'column-settings__control__info__text'}>{text}</Text>
-                  </div>
-                ) : (
-                  text
-                );
-                return (
-                  <div key={column.id} className={'column-settings__option'}>
-                    {tooltipText && !column.getCanHide() && (
-                      <Tooltip position={Positions.TOP_CENTER} text={tooltipText} id={column.columnDef.id} />
-                    )}
-                    <Checkbox
-                      className={'column-settings__control'}
-                      label={label}
-                      dataId={column.columnDef.id}
-                      selectedValue={column.getIsVisible()}
-                      onClick={() => handleClick(column)}
-                      disabled={!column.getCanHide()}
-                    />
-                  </div>
-                );
-              }
-            })}
+          <div className="column-settings__content">
+            <div className={'column-settings__scrollbar scrollbar scrollbar--vertical'}>
+              {table.getAllLeafColumns().map(column => {
+                if (!hiddenColumnSettings?.includes(column.id)) {
+                  const text =
+                    typeof column.columnDef.header === 'string' ? column.columnDef.header : column.columnDef.id;
+                  const Icon = (column.columnDef.meta as TColumnMeta | undefined)?.icon;
+                  const label = Icon ? (
+                    <div className="column-settings__control__info">
+                      <Icon size="small" />
+                      <Text className={'column-settings__control__info__text'}>{text}</Text>
+                    </div>
+                  ) : (
+                    text
+                  );
+                  return (
+                    <div key={column.id} className={'column-settings__option'}>
+                      {tooltipText && !column.getCanHide() && (
+                        <Tooltip position={Positions.TOP_CENTER} text={tooltipText} id={column.columnDef.id} />
+                      )}
+                      <Checkbox
+                        className={'column-settings__control'}
+                        label={label}
+                        dataId={column.columnDef.id}
+                        selectedValue={column.getIsVisible()}
+                        onClick={() => handleClick(column)}
+                        disabled={!column.getCanHide()}
+                      />
+                    </div>
+                  );
+                }
+              })}
+            </div>
           </div>
         </div>
       </Menu>

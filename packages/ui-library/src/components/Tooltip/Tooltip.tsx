@@ -7,10 +7,11 @@ import type { TTooltipProps } from './types';
 
 import { Positions } from './types';
 import { Text } from '../Text';
-import { useGetTooltipStyles, useHideOnScroll } from '../../hooks';
+import { useFitToViewport, useGetTooltipStyles, useHideOnScroll } from '../../hooks';
 
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const tooltipRef = useRef<HTMLDivElement | null>(null);
+  const arrowRef = useRef<HTMLSpanElement | null>(null);
   const {
     size = 'large',
     text,
@@ -67,6 +68,15 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     }
   }, [isHovered]);
 
+  useFitToViewport({
+    enabled: isHovered,
+    elemRef: parent,
+    tooltipRef,
+    arrowRef,
+    position: tooltipPosition,
+    arrowSize: size === 'small' ? 8 : 16,
+  });
+
   if (!isHovered) {
     return null;
   }
@@ -87,7 +97,7 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
       >
         {text}
       </Text>
-      <span className="tooltip__arrow"></span>
+      <span className="tooltip__arrow" ref={arrowRef}></span>
     </div>
   );
 };

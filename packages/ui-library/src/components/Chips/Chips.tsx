@@ -21,6 +21,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
     leftIconProps,
     withAction,
     onClick,
+    onChipClick,
     isReadOnly = false,
     dataId = '',
   } = props;
@@ -31,7 +32,13 @@ export const Chips = (props: TChipsProps): ReactElement => {
       ? ChipCustomType.inverse
       : COLOR_MAPPING[color];
 
-  const handleClick = (event: TClickEventType) => {
+  const handleGlobalClick = (event: TClickEventType) => {
+    if (disabled) return;
+    onChipClick?.(event);
+  };
+
+  const handleDeleteClick = (event: TClickEventType) => {
+    if (disabled) return;
     event.stopPropagation();
     onClick?.(event);
   };
@@ -40,6 +47,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
     <div
       className={classNames(`chips chips--${type} chips--${disabled ? 'disabled' : color} chips--${size}`, className)}
       aria-readonly={isReadOnly}
+      onClick={onChipClick ? handleGlobalClick : undefined}
     >
       {leftIconProps?.Component ? (
         <leftIconProps.Component
@@ -66,7 +74,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
           size={LEFT_ICON_SIZE_MAPPING[size]}
           type={customType}
           className="chips__delete ml-4"
-          onClick={handleClick}
+          onClick={handleDeleteClick}
         />
       )}
     </div>

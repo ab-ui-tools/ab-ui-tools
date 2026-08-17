@@ -32,6 +32,14 @@
       }
     }
 
+    &__caret {
+      transition: transform 0.2s ease;
+
+      &--open {
+        transform: rotate(180deg);
+      }
+    }
+
     &__container {
       width: 100%;
     }

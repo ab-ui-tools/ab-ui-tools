@@ -3,6 +3,159 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.2](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.12.1...@ab.uitools/storybook@1.12.2) (2026-08-17)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.12.1](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.12.0...@ab.uitools/storybook@1.12.1) (2026-08-14)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+# [1.12.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.11.0...@ab.uitools/storybook@1.12.0) (2026-08-05)
+
+### Features
+
+- change available options model ([cd1fda4](https://github.com/ab-devtools/uilibrary/commit/cd1fda4cb2bd35441246bf2b27f2d481203ce956))
+
+# [1.11.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.10.0...@ab.uitools/storybook@1.11.0) (2026-08-04)
+
+### Features
+
+- add multiple checkbox ([bba120a](https://github.com/ab-devtools/uilibrary/commit/bba120a97cb3b851c33fe74d492fb6b8cd38472c))
+
+# [1.10.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.26...@ab.uitools/storybook@1.10.0) (2026-08-03)
+
+### Features
+
+- create new upload component ([5ba8f89](https://github.com/ab-devtools/uilibrary/commit/5ba8f89a9a86fc99f16764e1c9914647e7d65c43))
+- enhance Upload component with demo file options and improved state management ([35ac2fc](https://github.com/ab-devtools/uilibrary/commit/35ac2fc992f9bce023e73bf463eaea2cfac78e16))
+
+## [1.9.26](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.25...@ab.uitools/storybook@1.9.26) (2026-07-30)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.25](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.24...@ab.uitools/storybook@1.9.25) (2026-07-28)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.24](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.23...@ab.uitools/storybook@1.9.24) (2026-07-23)
+
+### Bug Fixes
+
+- fixed react select issues ([9e34e84](https://github.com/ab-devtools/uilibrary/commit/9e34e8494ce9e970237f0e724860caeb69840e05))
+- fixed react select issues ([26e3189](https://github.com/ab-devtools/uilibrary/commit/26e3189a19da533bd3782f24d5003db1e94c9422))
+
+## [1.9.23](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.22...@ab.uitools/storybook@1.9.23) (2026-07-21)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.22](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.21...@ab.uitools/storybook@1.9.22) (2026-07-20)
+
+### Bug Fixes
+
+- side navigation expand button ([5360d85](https://github.com/ab-devtools/uilibrary/commit/5360d852190a329d7e9da8e2a6ef5d4f0517ef02))
+- side navigation expand button ([7b79894](https://github.com/ab-devtools/uilibrary/commit/7b79894f713c0a5cdd18d2f0a738866729c86e69))
+
+## [1.9.21](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.20...@ab.uitools/storybook@1.9.21) (2026-07-17)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.20](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.19...@ab.uitools/storybook@1.9.20) (2026-07-15)
+
+### Bug Fixes
+
+- testing storybook deploy ([73652e2](https://github.com/ab-devtools/uilibrary/commit/73652e28da5e1b657a96eff9258d163a04f598ff))
+
+## [1.9.19](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.18...@ab.uitools/storybook@1.9.19) (2026-07-14)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.18](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.17...@ab.uitools/storybook@1.9.18) (2026-07-13)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.17](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.16...@ab.uitools/storybook@1.9.17) (2026-07-13)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.16](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.15...@ab.uitools/storybook@1.9.16) (2026-07-13)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.15](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.14...@ab.uitools/storybook@1.9.15) (2026-07-10)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.14](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.13...@ab.uitools/storybook@1.9.14) (2026-07-09)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.13](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.12...@ab.uitools/storybook@1.9.13) (2026-07-07)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.12](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.11...@ab.uitools/storybook@1.9.12) (2026-07-07)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.11](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.10...@ab.uitools/storybook@1.9.11) (2026-07-06)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.10](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.9...@ab.uitools/storybook@1.9.10) (2026-06-26)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.9](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.8...@ab.uitools/storybook@1.9.9) (2026-06-25)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.8](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.7...@ab.uitools/storybook@1.9.8) (2026-06-24)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.7](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.6...@ab.uitools/storybook@1.9.7) (2026-06-24)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.6](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.5...@ab.uitools/storybook@1.9.6) (2026-06-23)
+
+### Bug Fixes
+
+- ui fix ([dac580d](https://github.com/ab-devtools/uilibrary/commit/dac580da768c984bf4726ebae5f6109ce37c6d6d))
+
+## [1.9.5](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.4...@ab.uitools/storybook@1.9.5) (2026-06-22)
+
+### Bug Fixes
+
+- added condition for modal cancel button ([7773c53](https://github.com/ab-devtools/uilibrary/commit/7773c5396067889746c1914028cb2dbce0dd48c7))
+
+## [1.9.4](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.3...@ab.uitools/storybook@1.9.4) (2026-06-19)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.3](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.2...@ab.uitools/storybook@1.9.3) (2026-06-19)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.2](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.1...@ab.uitools/storybook@1.9.2) (2026-06-17)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+## [1.9.1](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.9.0...@ab.uitools/storybook@1.9.1) (2026-06-17)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
+# [1.9.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.8.8...@ab.uitools/storybook@1.9.0) (2026-06-16)
+
+### Features
+
+- add onChipClick prop to support global click events and update stories accordingly ([92eedc4](https://github.com/ab-devtools/uilibrary/commit/92eedc40409c7dc234f4b090b4222ecb943b431f))
+
+## [1.8.8](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.8.7...@ab.uitools/storybook@1.8.8) (2026-06-15)
+
+**Note:** Version bump only for package @ab.uitools/storybook
+
 ## [1.8.7](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.8.6...@ab.uitools/storybook@1.8.7) (2026-06-12)
 
 **Note:** Version bump only for package @ab.uitools/storybook
