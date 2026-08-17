@@ -101,6 +101,7 @@ export interface IFormCompProps {
   onChange?: TOnChange;
   dataId?: string;
   name?: string;
+  onBlur?: () => void;
   setFieldValue?: (name: string, value: TFormValue, shouldValidate?: { shouldValidate: boolean }) => void;
   dataAttributes?: Record<string, string | boolean | number>;
 }
