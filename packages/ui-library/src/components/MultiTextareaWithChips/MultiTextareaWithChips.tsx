@@ -7,6 +7,7 @@ import type { TMultiTextareaWithChipsProps, TMultiTextareaOption, TNormalizedOpt
 
 import { useChipManagement, useChipValidation, useDropdownLogic, useKeyboardNavigation, useOnBlurLogic } from './hooks';
 import { ChipsList, CheckboxOptionsDropdown, RadioOptionsDropdown } from './components';
+import { Text } from '../Text';
 import { useFormProps } from '../../hooks';
 import { ErrorMessage } from '../../helperComponents';
 
@@ -341,13 +342,17 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
         </div>
       </div>
 
-      {hasError && <ErrorMessage message={errorMessage} />}
+      {hasError || helperText ? (
+        <div className={'mt-8'}>
+          {hasError && <ErrorMessage message={errorMessage} />}
 
-      {helperText && !hasError && (
-        <div id={`${fieldName}-helper`} className="multi-textarea-chips__helper">
-          {helperText}
+          {helperText && !hasError && (
+            <Text id={`${fieldName}-helper`} type={'tertiary'} size={'small'}>
+              {helperText}
+            </Text>
+          )}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
