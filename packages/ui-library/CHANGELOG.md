@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.0...@ab.uitools/ui-library@1.31.1) (2026-08-17)
+
+### Bug Fixes
+
+- ui fixes for multiTextareaWithChips component ([07e9daf](https://github.com/ab-ui-tools/ab-ui-tools/commit/07e9daf08bcc277a6e5f4829d5659977e3d70a7e))
+
 # [1.31.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.30.0...@ab.uitools/ui-library@1.31.0) (2026-08-14)
 
 ### Features
