@@ -14,22 +14,6 @@
   --ds-status-circle-bg-success: var(--ds-color-icon-success-light);
   --ds-status-circle-bg-discovery: var(--ds-color-icon-discovery-light);
   --ds-status-circle-bg-disabled: var(--ds-color-icon-disabled);
-  --ds-status-circle-bg-secondary: var(--ds-color-icon-secondary);
-  --ds-status-circle-bg-tertiary: var(--ds-color-icon-tertiary);
-  --ds-status-circle-bg-quaternary: var(--ds-color-icon-quaternary);
-  --ds-status-circle-bg-inverse: var(--ds-color-icon-inverse);
-  --ds-status-circle-bg-brand-light: var(--ds-color-icon-brand-light);
-  --ds-status-circle-bg-brand-dark: var(--ds-color-icon-brand-dark);
-  --ds-status-circle-bg-danger-light: var(--ds-color-icon-danger-light);
-  --ds-status-circle-bg-danger-dark: var(--ds-color-icon-danger-dark);
-  --ds-status-circle-bg-warning-light: var(--ds-color-icon-warning-light);
-  --ds-status-circle-bg-warning-dark: var(--ds-color-icon-warning-dark);
-  --ds-status-circle-bg-success-light: var(--ds-color-icon-success-light);
-  --ds-status-circle-bg-success-dark: var(--ds-color-icon-success-dark);
-  --ds-status-circle-bg-information-light: var(--ds-color-icon-info-light);
-  --ds-status-circle-bg-information-dark: var(--ds-color-icon-info-dark);
-  --ds-status-circle-bg-discovery-light: var(--ds-color-icon-discovery-light);
-  --ds-status-circle-bg-discovery-dark: var(--ds-color-icon-discovery-dark);
 
   @include mixin.inline-flex;
   @include mixin.align-items(center);
@@ -64,54 +48,6 @@
   }
   &__circle--disabled {
     background-color: var(--ds-status-circle-bg-disabled);
-  }
-  &__circle--secondary {
-    background-color: var(--ds-status-circle-bg-secondary);
-  }
-  &__circle--tertiary {
-    background-color: var(--ds-status-circle-bg-tertiary);
-  }
-  &__circle--quaternary {
-    background-color: var(--ds-status-circle-bg-quaternary);
-  }
-  &__circle--inverse {
-    background-color: var(--ds-status-circle-bg-inverse);
-  }
-  &__circle--brand-light {
-    background-color: var(--ds-status-circle-bg-brand-light);
-  }
-  &__circle--brand-dark {
-    background-color: var(--ds-status-circle-bg-brand-dark);
-  }
-  &__circle--danger-light {
-    background-color: var(--ds-status-circle-bg-danger-light);
-  }
-  &__circle--danger-dark {
-    background-color: var(--ds-status-circle-bg-danger-dark);
-  }
-  &__circle--warning-light {
-    background-color: var(--ds-status-circle-bg-warning-light);
-  }
-  &__circle--warning-dark {
-    background-color: var(--ds-status-circle-bg-warning-dark);
-  }
-  &__circle--success-light {
-    background-color: var(--ds-status-circle-bg-success-light);
-  }
-  &__circle--success-dark {
-    background-color: var(--ds-status-circle-bg-success-dark);
-  }
-  &__circle--information-light {
-    background-color: var(--ds-status-circle-bg-information-light);
-  }
-  &__circle--information-dark {
-    background-color: var(--ds-status-circle-bg-information-dark);
-  }
-  &__circle--discovery-light {
-    background-color: var(--ds-status-circle-bg-discovery-light);
-  }
-  &__circle--discovery-dark {
-    background-color: var(--ds-status-circle-bg-discovery-dark);
   }
 
   &--small {
