@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.2...@ab.uitools/ui-library@1.31.3) (2026-08-18)
+
+### Bug Fixes
+
+- added new icons, fixed status component colors ([decbb83](https://github.com/ab-ui-tools/ab-ui-tools/commit/decbb83b38ef379c1ce5999ab2ae5d931dd2ffe2))
+- fixed status component colors ([6a4c5c5](https://github.com/ab-ui-tools/ab-ui-tools/commit/6a4c5c50443674e821b1e4694ea50fd79b658c14))
+- revert status component colors ([0488378](https://github.com/ab-ui-tools/ab-ui-tools/commit/0488378dbd4d9d4ea0a9ae0fda04519b46a8fef2))
+
 ## [1.31.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.1...@ab.uitools/ui-library@1.31.2) (2026-08-18)
 
 ### Bug Fixes
