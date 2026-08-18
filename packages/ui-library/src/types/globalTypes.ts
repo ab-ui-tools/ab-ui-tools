@@ -1,4 +1,4 @@
-import type { ChangeEvent, MouseEvent, ReactElement } from 'react';
+import type { ChangeEvent, MouseEvent, ReactElement, FocusEvent } from 'react';
 
 import type { ISVGIconProps, TSVGIconType } from '../components/SVGIcons/types';
 
@@ -99,6 +99,7 @@ export interface IFormCompProps {
   isValid?: boolean;
   value?: TFormValue;
   onChange?: TOnChange;
+  onBlur?: (e?: FocusEvent<HTMLInputElement>) => void;
   dataId?: string;
   name?: string;
   setFieldValue?: (name: string, value: TFormValue, shouldValidate?: { shouldValidate: boolean }) => void;
