@@ -7,10 +7,16 @@
   --ds-status-circle-size-sm: var(--ds-size-6);
 
   --ds-status-circle-bg-primary: var(--ds-color-icon-primary);
+  --ds-status-circle-bg-information: var(--ds-color-icon-info-light);
+  --ds-status-circle-bg-brand: var(--ds-color-icon-brand-light);
+  --ds-status-circle-bg-danger: var(--ds-color-icon-danger-light);
+  --ds-status-circle-bg-warning: var(--ds-color-icon-warning-light);
+  --ds-status-circle-bg-success: var(--ds-color-icon-success-light);
+  --ds-status-circle-bg-discovery: var(--ds-color-icon-discovery-light);
+  --ds-status-circle-bg-disabled: var(--ds-color-icon-disabled);
   --ds-status-circle-bg-secondary: var(--ds-color-icon-secondary);
   --ds-status-circle-bg-tertiary: var(--ds-color-icon-tertiary);
   --ds-status-circle-bg-quaternary: var(--ds-color-icon-quaternary);
-  --ds-status-circle-bg-disabled: var(--ds-color-icon-disabled);
   --ds-status-circle-bg-inverse: var(--ds-color-icon-inverse);
   --ds-status-circle-bg-brand-light: var(--ds-color-icon-brand-light);
   --ds-status-circle-bg-brand-dark: var(--ds-color-icon-brand-dark);
@@ -38,6 +44,27 @@
   &__circle--primary {
     background-color: var(--ds-status-circle-bg-primary);
   }
+  &__circle--information {
+    background-color: var(--ds-status-circle-bg-information);
+  }
+  &__circle--brand {
+    background-color: var(--ds-status-circle-bg-brand);
+  }
+  &__circle--danger {
+    background-color: var(--ds-status-circle-bg-danger);
+  }
+  &__circle--success {
+    background-color: var(--ds-status-circle-bg-success);
+  }
+  &__circle--warning {
+    background-color: var(--ds-status-circle-bg-warning);
+  }
+  &__circle--discovery {
+    background-color: var(--ds-status-circle-bg-discovery);
+  }
+  &__circle--disabled {
+    background-color: var(--ds-status-circle-bg-disabled);
+  }
   &__circle--secondary {
     background-color: var(--ds-status-circle-bg-secondary);
   }
@@ -46,9 +73,6 @@
   }
   &__circle--quaternary {
     background-color: var(--ds-status-circle-bg-quaternary);
-  }
-  &__circle--disabled {
-    background-color: var(--ds-status-circle-bg-disabled);
   }
   &__circle--inverse {
     background-color: var(--ds-status-circle-bg-inverse);

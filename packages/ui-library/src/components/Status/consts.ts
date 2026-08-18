@@ -1,13 +1,18 @@
 import type { TTextTypes } from '../Text/types';
-import type { TSVGIconType } from '../SVGIcons/types';
 
-export const COLOR_MAPPING: Record<TSVGIconType, TTextTypes> = {
+export const COLOR_MAPPING: { [key: string]: TTextTypes } = {
   primary: 'primary',
   secondary: 'secondary',
   tertiary: 'tertiary',
   quaternary: 'quaternary',
   disabled: 'disabled',
   inverse: 'inverse',
+  brand: 'brand-light',
+  danger: 'danger-light',
+  warning: 'warning-light',
+  success: 'success-light',
+  information: 'information-light',
+  discovery: 'discovery-light',
   'brand-light': 'brand-light',
   'brand-dark': 'brand-dark',
   'danger-light': 'danger-light',
