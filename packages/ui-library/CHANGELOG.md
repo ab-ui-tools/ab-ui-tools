@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.1...@ab.uitools/ui-library@1.31.2) (2026-08-18)
+
+### Bug Fixes
+
+- blure props ([be7c6e9](https://github.com/ab-ui-tools/ab-ui-tools/commit/be7c6e9addce58ff73b2eab5698361c039b16514))
+
 ## [1.31.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.0...@ab.uitools/ui-library@1.31.1) (2026-08-17)
 
 ### Bug Fixes

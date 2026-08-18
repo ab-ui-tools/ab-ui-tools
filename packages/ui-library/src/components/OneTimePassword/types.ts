@@ -4,7 +4,7 @@ import type { IFormCompProps, TChangeEventType, TClickEventType } from '../../ty
 export interface OtpCustomProps
   extends
     IFormCompProps,
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onFocus' | 'value' | 'onChange' | 'autoComplete'> {
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onFocus' | 'value' | 'onChange' | 'onBlur' | 'autoComplete'> {
   className?: string;
   size?: 'large' | 'small';
   currentValue?: string;
