@@ -10,6 +10,7 @@ export type TMenuItem = {
   disabled?: boolean;
   dataId?: string;
   meta?: string;
+  className?: string;
 };
 
 export type TMenuProps = {
