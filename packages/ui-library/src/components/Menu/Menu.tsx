@@ -40,9 +40,10 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
       ) : (
         <div className={classNames('select', 'select--menu', className)} style={menuStyles} ref={setMenuRef}>
           <div className={'select__options'}>
-            {menuItems.map(({ label, meta, value, handler, iconProps, disabled, dataId }: TMenuItem) => {
+            {menuItems.map(({ label, meta, value, handler, iconProps, disabled, dataId, className }: TMenuItem) => {
               return (
                 <OptionItem
+                  className={className}
                   dataId={dataId}
                   withTitleOption={withTitleOption}
                   disabled={disabled}
