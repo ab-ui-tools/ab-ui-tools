@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.4...@ab.uitools/ui-library@1.31.5) (2026-08-26)
+
+### Bug Fixes
+
+- ui fixes for card and item selects ([4071de7](https://github.com/ab-ui-tools/ab-ui-tools/commit/4071de7450dd0a60e82bc1629f9f01bc0f9e912b))
+
 ## [1.31.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.3...@ab.uitools/ui-library@1.31.4) (2026-08-24)
 
 ### Bug Fixes
