@@ -101,9 +101,9 @@ export const ItemSelectGroup = ItemSelectGroupTemplate.bind({});
 ItemSelectGroup.args = {
   isHorizontal: false,
   withoutControl: true,
-  // iconGroup: {
-  //   Component: IconCheckmark,
-  //   type: 'brand-light',
-  //   className: 'ml-16',
-  // },
+  iconGroup: {
+    Component: IconCheckmark,
+    type: 'brand-light',
+    className: 'ml-16',
+  },
 };
