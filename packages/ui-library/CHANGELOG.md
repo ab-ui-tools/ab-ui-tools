@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.4](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.3...@ab.uitools/ui-library@1.31.4) (2026-08-24)
+
+### Bug Fixes
+
+- add classname for Menu ([48e8e2c](https://github.com/ab-ui-tools/ab-ui-tools/commit/48e8e2cc539df1669bdee5d1b5f6f8e3919cf4a6))
+
 ## [1.31.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.2...@ab.uitools/ui-library@1.31.3) (2026-08-18)
 
 ### Bug Fixes
