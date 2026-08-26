@@ -74,6 +74,7 @@ ItemSelect.args = {
   rightContent: <Text type={'tertiary'}>Right Content</Text>,
   disabled: false,
   deSelectable: true,
+  withoutControl: false,
   // value: null,
 };
 
