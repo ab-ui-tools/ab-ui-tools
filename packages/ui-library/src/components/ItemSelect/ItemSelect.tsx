@@ -24,10 +24,15 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
     rightIconProps,
     rightContent,
     deSelectable,
+    withoutControl,
   } = props;
   const selected = itemValue === value;
   const itemSelectStyle = classNames(
-    `item-select ${disabled ? 'item-select--disabled' : selected ? 'item-select--selected' : ''}`,
+    'item-select',
+    {
+      'item-select--disabled': disabled,
+      'item-select--selected': selected,
+    },
     className
   );
   const handleItemSelectValue = (selected: number | string) => {
@@ -69,13 +74,15 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
         ) : null}
       </div>
       {rightContent ? <div className={'item-select__right ml-16'}>{rightContent}</div> : null}
-      {rightIconProps && rightIconProps.Component ? (
-        selected ? (
-          <rightIconProps.Component {...rightIconProps} />
-        ) : null
-      ) : (
-        <Radio name={name} isSelected={selected} disabled={disabled} className={'item-select__radio ml-16'} />
-      )}
+      {!withoutControl ? (
+        rightIconProps?.Component ? (
+          selected ? (
+            <rightIconProps.Component {...rightIconProps} />
+          ) : null
+        ) : (
+          <Radio name={name} isSelected={selected} disabled={disabled} className="item-select__radio ml-16" />
+        )
+      ) : null}
     </div>
   );
 };

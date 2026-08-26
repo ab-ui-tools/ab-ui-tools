@@ -22,7 +22,7 @@ const ITEMS = [
     value: 1,
     image: imageFile1,
     title: 'Arca',
-    disabled: false,
+    disabled: true,
     onClick: (e: any) => {
       console.log(e);
     },
