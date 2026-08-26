@@ -22,7 +22,7 @@ const ITEMS = [
     value: 1,
     image: imageFile1,
     title: 'Arca',
-    disabled: false,
+    disabled: true,
     onClick: (e: any) => {
       console.log(e);
     },
@@ -74,6 +74,7 @@ ItemSelect.args = {
   rightContent: <Text type={'tertiary'}>Right Content</Text>,
   disabled: false,
   deSelectable: true,
+  withoutControl: false,
   // value: null,
 };
 

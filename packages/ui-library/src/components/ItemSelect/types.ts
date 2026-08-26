@@ -17,6 +17,7 @@ export interface TItemSelectProps extends IFormCompProps {
   rightIconProps?: TSelectIconProps;
   deSelectable?: boolean;
   rightContent?: ReactElement;
+  withoutControl?: boolean;
 }
 export interface TItemSelectGroupProps extends IFormCompProps {
   isHorizontal?: boolean;
