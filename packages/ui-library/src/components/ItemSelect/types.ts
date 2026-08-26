@@ -27,4 +27,5 @@ export interface TItemSelectGroupProps extends IFormCompProps {
   handleChange?: (selected: number | string) => void;
   value: number | string;
   deSelectable?: boolean;
+  withoutControl?: boolean;
 }
