@@ -41,9 +41,14 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
   } = props;
 
   const elementId = popoverAddons?.id ?? tooltipAddons?.id ?? '';
-  const selected = cardValue === value;
+
+  const selected = cardValue != null && cardValue === value;
   const cardSelectStyle = classNames(
-    `card-select ${disabled ? 'card-select--disabled' : selected ? 'card-select--selected' : ''}`,
+    'card-select',
+    {
+      'card-select--disabled': disabled,
+      'card-select--selected': selected,
+    },
     className
   );
 

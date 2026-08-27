@@ -26,7 +26,8 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
     deSelectable,
     withoutControl,
   } = props;
-  const selected = itemValue === value;
+
+  const selected = itemValue != null && itemValue === value;
   const itemSelectStyle = classNames(
     'item-select',
     {
