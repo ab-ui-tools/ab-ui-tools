@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.8](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.12.7...@ab.uitools/storybook@1.12.8) (2026-08-27)
+
+### Bug Fixes
+
+- added leftIconProps for cardItem component ([73291c3](https://github.com/ab-devtools/uilibrary/commit/73291c35ffd43426b9d30c081aafaa8ddc9481f6))
+- item select and card item ui fixes ([24485cc](https://github.com/ab-devtools/uilibrary/commit/24485cc47af5036e6f0b283b25f8e2574b8eedd6))
+
 ## [1.12.7](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.12.6...@ab.uitools/storybook@1.12.7) (2026-08-27)
 
 ### Bug Fixes
