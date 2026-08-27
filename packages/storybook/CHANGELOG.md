@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.6](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.12.5...@ab.uitools/storybook@1.12.6) (2026-08-26)
+
+### Bug Fixes
+
+- add control to story ([6db51e8](https://github.com/ab-devtools/uilibrary/commit/6db51e81a5275878e7539342e668c46cf486f66b))
+- ui fixes for card and item selects ([4071de7](https://github.com/ab-devtools/uilibrary/commit/4071de7450dd0a60e82bc1629f9f01bc0f9e912b))
+
 ## [1.12.5](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.12.4...@ab.uitools/storybook@1.12.5) (2026-08-24)
 
 **Note:** Version bump only for package @ab.uitools/storybook
