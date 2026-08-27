@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.6...@ab.uitools/ui-library@1.31.7) (2026-08-27)
+
+### Bug Fixes
+
+- added leftIconProps for cardItem component ([73291c3](https://github.com/ab-ui-tools/ab-ui-tools/commit/73291c35ffd43426b9d30c081aafaa8ddc9481f6))
+- card and item select default values ([aa59eb8](https://github.com/ab-ui-tools/ab-ui-tools/commit/aa59eb8da782b97abde4427b4ab7ca27c849825c))
+- item select and card item ui fixes ([24485cc](https://github.com/ab-ui-tools/ab-ui-tools/commit/24485cc47af5036e6f0b283b25f8e2574b8eedd6))
+- lint formating ([8bd367c](https://github.com/ab-ui-tools/ab-ui-tools/commit/8bd367c5a44e6244bb05d189611f271a297ce587))
+
 ## [1.31.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.5...@ab.uitools/ui-library@1.31.6) (2026-08-27)
 
 ### Bug Fixes
