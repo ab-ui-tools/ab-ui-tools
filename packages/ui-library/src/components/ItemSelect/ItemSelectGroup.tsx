@@ -7,7 +7,7 @@ import type { TItemSelectGroupProps } from './types';
 import { ItemSelect } from './ItemSelect';
 
 export const ItemSelectGroup = (props: TItemSelectGroupProps): JSX.Element => {
-  const { items, name, value, isHorizontal, handleChange, className, iconGroup } = props;
+  const { items, name, value, isHorizontal, handleChange, className, iconGroup, withoutControl } = props;
   return (
     <div
       className={classnames(
@@ -38,6 +38,7 @@ export const ItemSelectGroup = (props: TItemSelectGroupProps): JSX.Element => {
               value={value}
               disabled={disabled}
               deSelectable={deSelectable}
+              withoutControl={withoutControl}
             />
           );
         }
