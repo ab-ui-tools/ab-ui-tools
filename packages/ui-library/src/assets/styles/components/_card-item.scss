@@ -5,6 +5,7 @@
 
   --ds-card-item-bg: var(--ds-color-bg-container-lighter);
   --ds-card-item-padding: var(--ds-space-12) var(--ds-space-16);
+  --ds-card-item-gap: var(--ds-space-12);
   --ds-card-item-border: 1px solid var(--ds-color-border-quintary);
   --ds-card-item-border-radius: var(--ds-border-radius-2xl);
 
@@ -21,9 +22,17 @@
   padding: var(--ds-card-item-padding);
   background-color: var(--ds-card-item-bg);
   border: var(--ds-card-item-border);
+  gap: var(--ds-card-item-gap);
+
+  &__left {
+    gap: var(--ds-card-item-gap);
+  }
 
   &__content {
+    @include mixin.flexbox;
+    @include mixin.flex-direction(column);
     flex: 1;
+    gap: var(--ds-space-2);
   }
 
   &__image {

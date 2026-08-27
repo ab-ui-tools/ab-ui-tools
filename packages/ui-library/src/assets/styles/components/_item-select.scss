@@ -8,6 +8,7 @@
   --ds-item-select-bg-active: var(--ds-color-bg-white);
   --ds-item-select-bg-selected-disable: var(--ds-color-bg-container-lighter);
   --ds-item-select-padding: var(--ds-space-12) var(--ds-space-16);
+  --ds-item-select-gap: var(--ds-space-12);
   --ds-item-select-border-radius: var(--ds-border-radius-2xl);
   --ds-item-select-border-color: var(--ds-color-border-tertiary);
   --ds-item-select-border-color-hover: var(--ds-color-border-tertiary);
@@ -29,6 +30,7 @@
   background-color: var(--ds-item-select-bg-default);
   border: 1px solid var(--ds-item-select-border-color);
   position: relative;
+  gap: var(--ds-item-select-gap);
 
   >* {
     z-index: 1;
@@ -85,8 +87,15 @@
     }
   }
 
+  &__left {
+    gap: var(--ds-item-select-gap);
+  }
+
   &__content {
+    @include mixin.flexbox;
+    @include mixin.flex-direction(column);
     flex: 1;
+    gap: var(--ds-space-2);
   }
 
   &__image {
