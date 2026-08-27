@@ -20,7 +20,7 @@ export const Cards = Template.bind({});
 Cards.args = {
   image: imageFile1,
   icon: { Component: IconPerson },
-  leftIconProps: <span>lldldl</span>,
+  // leftIconProps: <img src={} />,
   title: 'Michael Jordan',
   subtitleProps: {
     subtitle: 'Michael Jordan',
