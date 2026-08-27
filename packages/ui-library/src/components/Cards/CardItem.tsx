@@ -7,14 +7,15 @@ import type { TCardItemProps } from './types';
 import { Text } from '../Text';
 import { Image } from '../Image';
 export const CardItem = (props: TCardItemProps): ReactElement => {
-  const { title, icon, subtitleProps, children, className, image, disabled } = props;
+  const { title, icon, subtitleProps, children, className, image, disabled, leftIconProps } = props;
 
   return (
     <div className={classNames('card-item', className)}>
       <div className={'card-item__left flexbox align-items--center'}>
-        {image ? (
+        {image || leftIconProps ? (
           <div className={'card-item__image flexbox align-items--center justify-content--center'}>
-            <Image imagePath={image} />
+            {image && <Image imagePath={image} />}
+            {leftIconProps && leftIconProps}
           </div>
         ) : icon && icon.Component ? (
           <icon.Component {...icon} />

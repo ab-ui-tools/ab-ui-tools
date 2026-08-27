@@ -63,10 +63,10 @@
       border-color: var(--ds-card-select-border-color-active);
       box-shadow: var(--ds-card-select-shadow-focused);
       background-color: var(--ds-card-select-bg-active);
-    }
 
-    &:before {
-      border-color: var(--ds-card-select-border-color-selected);
+      &:before {
+        border-color: var(--ds-card-select-border-color-active);
+      }
     }
   }
 
