@@ -7,7 +7,7 @@ import type { TCardItemProps } from './types';
 import { Text } from '../Text';
 import { Image } from '../Image';
 export const CardItem = (props: TCardItemProps): ReactElement => {
-  const { title, icon, subtitleProps, children, className, image, disabled } = props;
+  const { title, icon, subtitleProps, children, className, image, disabled, leftIconProps } = props;
 
   return (
     <div className={classNames('card-item', className)}>
@@ -18,6 +18,8 @@ export const CardItem = (props: TCardItemProps): ReactElement => {
           </div>
         ) : icon && icon.Component ? (
           <icon.Component {...icon} />
+        ) : leftIconProps ? (
+          leftIconProps
         ) : null}
         <div className={`card-item__content ${(image || (icon && icon?.Component)) && 'pl-12'}`}>
           <Text weight={'semibold'}>{title}</Text>

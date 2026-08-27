@@ -22,7 +22,7 @@ const ITEMS = [
     value: 1,
     image: imageFile1,
     title: 'Arca',
-    disabled: true,
+    disabled: false,
     onClick: (e: any) => {
       console.log(e);
     },
@@ -37,7 +37,7 @@ const ITEMS = [
     onClick: (e: any) => {
       console.log(e);
     },
-    deSelectable: true,
+    deSelectable: false,
   },
   {
     value: 3,

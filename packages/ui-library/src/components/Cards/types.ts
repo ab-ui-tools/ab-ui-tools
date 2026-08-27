@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import type { TSelectIconProps } from '../../types/globalTypes';
 
@@ -14,4 +14,5 @@ export interface TCardItemProps {
   className?: string;
   image?: string;
   disabled?: boolean;
+  leftIconProps?: ReactElement;
 }
