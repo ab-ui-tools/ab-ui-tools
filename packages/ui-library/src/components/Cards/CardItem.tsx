@@ -20,9 +20,9 @@ export const CardItem = (props: TCardItemProps): ReactElement => {
         ) : icon && icon.Component ? (
           <icon.Component {...icon} />
         ) : null}
-        <div className={`card-item__content ${(image || (icon && icon?.Component)) && 'pl-12'}`}>
+        <div className={`card-item__content`}>
           <Text weight={'semibold'}>{title}</Text>
-          <Text type={'tertiary'} className={'flexbox align-items--center mt-2'}>
+          <Text type={'tertiary'} className={'flexbox align-items--center'}>
             <>
               {subtitleProps?.subtitle}
               {subtitleProps?.iconProps && subtitleProps.iconProps.Component ? (
@@ -32,7 +32,7 @@ export const CardItem = (props: TCardItemProps): ReactElement => {
           </Text>
         </div>
       </div>
-      {!disabled ? <div className={'card-item__right ml-12'}>{children ? children : null}</div> : null}
+      {!disabled ? <div className={'card-item__right'}>{children ? children : null}</div> : null}
     </div>
   );
 };

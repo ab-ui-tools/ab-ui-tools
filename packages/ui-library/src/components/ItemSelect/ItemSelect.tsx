@@ -52,7 +52,7 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
   return (
     <div className={itemSelectStyle} onClick={handleItemSelect}>
       {image || leftIconProps ? (
-        <div className={'item-select__left mr-16'}>
+        <div className={'item-select__left'}>
           {image ? (
             <div className={'item-select__image flexbox align-items--center justify-content--center'}>
               <Image imagePath={image} />
@@ -68,20 +68,16 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
             {title}
           </Text>
         ) : null}
-        {subtitle ? (
-          <Text type={disabled ? 'disabled' : 'primary'} className={'mt-2'}>
-            {subtitle}
-          </Text>
-        ) : null}
+        {subtitle ? <Text type={disabled ? 'disabled' : 'primary'}>{subtitle}</Text> : null}
       </div>
-      {rightContent ? <div className={'item-select__right ml-16'}>{rightContent}</div> : null}
+      {rightContent ? <div className={'item-select__right'}>{rightContent}</div> : null}
       {!withoutControl ? (
         rightIconProps?.Component ? (
           selected ? (
             <rightIconProps.Component {...rightIconProps} />
           ) : null
         ) : (
-          <Radio name={name} isSelected={selected} disabled={disabled} className="item-select__radio ml-16" />
+          <Radio name={name} isSelected={selected} disabled={disabled} className="item-select__radio" />
         )
       ) : null}
     </div>
