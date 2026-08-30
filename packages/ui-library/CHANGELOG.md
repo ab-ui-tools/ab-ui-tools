@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.8](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.7...@ab.uitools/ui-library@1.31.8) (2026-08-30)
+
+### Bug Fixes
+
+- lint fix ([9b30a9b](https://github.com/ab-ui-tools/ab-ui-tools/commit/9b30a9bafe2894ec02d8fb7070b845737e807688))
+- remove spacing classes from html ([aeef514](https://github.com/ab-ui-tools/ab-ui-tools/commit/aeef51452df9a661c7903f7bcb5436254e28326a))
+
 ## [1.31.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.6...@ab.uitools/ui-library@1.31.7) (2026-08-27)
 
 ### Bug Fixes
