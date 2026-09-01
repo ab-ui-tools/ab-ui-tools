@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.9](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.8...@ab.uitools/ui-library@1.31.9) (2026-09-01)
+
+### Bug Fixes
+
+- remove custom spacing for sorting header ([a6ce228](https://github.com/ab-ui-tools/ab-ui-tools/commit/a6ce228c92bf848f20b5908ab71dd2183ba99a73))
+
 ## [1.31.8](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.7...@ab.uitools/ui-library@1.31.8) (2026-08-30)
 
 ### Bug Fixes
