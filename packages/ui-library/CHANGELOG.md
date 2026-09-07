@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.32.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.9...@ab.uitools/ui-library@1.32.0) (2026-09-07)
+
+### Features
+
+- added headset icon ([797aa23](https://github.com/ab-ui-tools/ab-ui-tools/commit/797aa232ff9b3b3f618bd50b26c4efb9ca2203fb))
+
 ## [1.31.9](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.8...@ab.uitools/ui-library@1.31.9) (2026-09-01)
 
 ### Bug Fixes
