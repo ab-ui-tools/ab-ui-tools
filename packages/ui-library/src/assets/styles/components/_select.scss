@@ -107,6 +107,7 @@
     padding: var(--ds-select-option-padding);
     margin-bottom: var(--ds-select-option-margin);
     font: var(--ds-select-option-font);
+    gap: var(--ds-space-8);
 
     &:last-child {
       margin-bottom: 0;
@@ -122,8 +123,13 @@
       min-width: 1px;
     }
 
+    &__inner {
+      gap: var(--ds-space-8);
+    }
+
     &__content {
       @include mixin.justify-content(flex-start);
+      gap: var(--ds-space-4);
     }
 
     &__text {
@@ -185,6 +191,10 @@
 
     #{$this}__option {
       border-radius: var(--ds-border-radius-lg);
+
+      &__inner {
+        order: -1;
+      }
     }
   }
 
