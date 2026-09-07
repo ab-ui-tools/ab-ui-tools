@@ -1,6 +1,5 @@
 import type { StoryFn } from '@storybook/react';
-import type { TMenuItem } from '@ab.uitools/ui-library/components/Menu/types';
-import type { LinkPropTypes } from '@ab.uitools/ui-library/components/Link/types';
+import type { TMenuItem, TMenuProps } from '@ab.uitools/ui-library/components/Menu/types';
 
 import { useState } from 'react';
 import {
@@ -23,6 +22,9 @@ export default {
     position: {
       options: ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
       control: { type: 'radio' },
+    },
+    withSelectedOption: {
+      control: { type: 'boolean' },
     },
   },
 };
@@ -61,7 +63,7 @@ const items: TMenuItem[] = [
   },
   {
     label: 'logout',
-    value: 1,
+    value: 4,
     iconProps: {
       Component: IconArrowExit,
     },
@@ -69,10 +71,20 @@ const items: TMenuItem[] = [
   },
 ];
 
-const Template: StoryFn<LinkPropTypes> = args => {
+const Template: StoryFn<TMenuProps> = args => {
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
-
   const [open, setOpen] = useState(false);
+  const [selectedVal, setSelectedVal] = useState<number | string>(2);
+
+  const menuItems = items.map(item => ({
+    ...item,
+    isSelected: item.value === selectedVal,
+    handler: () => {
+      // @ts-ignore
+      setSelectedVal(item.value);
+      item.handler?.();
+    },
+  }));
 
   return (
     <div>
@@ -85,13 +97,16 @@ const Template: StoryFn<LinkPropTypes> = args => {
         ref={setRef}
       >
         <Button onClick={() => setOpen(!open)} iconProps={{ Component: IconMore }} />
-        <_Menu {...args} onClose={() => setOpen(false)} parentRef={ref} menuItems={items} isOpen={open} />
+        <_Menu {...args} onClose={() => setOpen(false)} parentRef={ref} menuItems={menuItems} isOpen={open} />
       </div>
     </div>
   );
 };
 
 export const Menu = Template.bind({});
+Menu.args = {
+  withSelectedOption: true,
+};
 
 const NestedItems = [
   {
