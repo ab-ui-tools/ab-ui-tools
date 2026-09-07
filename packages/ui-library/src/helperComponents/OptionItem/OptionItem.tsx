@@ -76,7 +76,6 @@ export const OptionItem = forwardRef((props: TSelectItemProps, ref: ForwardedRef
           <labelLeftIconProps.Component
             size="xsmall"
             type={disabled ? 'disabled' : 'primary'}
-            className="mr-4"
             {...labelLeftIconProps}
           />
         ) : null}
