@@ -280,6 +280,8 @@ export * from './IconHandWave';
 export * from './IconHandWaveFilled';
 export * from './IconHdm';
 export * from './IconHdmFilled';
+export * from './IconHeadset';
+export * from './IconHeadsetFilled';
 export * from './IconHeart';
 export * from './IconHeartFilled';
 export * from './IconHistory';
