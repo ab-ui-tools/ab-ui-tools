@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.33.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.32.0...@ab.uitools/ui-library@1.33.0) (2026-09-09)
+
+### Bug Fixes
+
+- added checkmark styles for menu optionItem ([2a97b35](https://github.com/ab-ui-tools/ab-ui-tools/commit/2a97b352b92d539f4259478fd03a9158aa5b62be))
+- added checkmark styles for menu optionItem ([0d3c3a0](https://github.com/ab-ui-tools/ab-ui-tools/commit/0d3c3a064649b186c4b04709663f5ae65ca7fef8))
+
+### Features
+
+- check is selected with menu options ([662e9a8](https://github.com/ab-ui-tools/ab-ui-tools/commit/662e9a8312e6dc7c60357ef5ca28389813e24fd3))
+
 # [1.32.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.31.9...@ab.uitools/ui-library@1.32.0) (2026-09-07)
 
 ### Features
