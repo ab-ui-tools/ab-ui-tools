@@ -62,26 +62,25 @@ export const OptionItem = forwardRef((props: TSelectItemProps, ref: ForwardedRef
       )}
       onClick={handleClick}
     >
-      {isCheckbox ? <Checkbox className="mr-8" selectedValue={isSelected} disabled={disabled} /> : null}
-      {isRadio ? <Radio className="mr-8" isSelected={isSelected} disabled={disabled} /> : null}
+      {isCheckbox ? <Checkbox selectedValue={isSelected} disabled={disabled} /> : null}
+      {isRadio ? <Radio isSelected={isSelected} disabled={disabled} /> : null}
       {!isCheckbox && !isRadio && isSelected ? (
-        <IconCheckmark size="xsmall" type={disabled ? 'disabled' : 'brand-light'} className="mr-8" />
+        <IconCheckmark size="xsmall" type={disabled ? 'disabled' : 'brand-light'} />
       ) : null}
       <div className="select__option__inner">
         {optionLeftIcon && optionLeftIcon.Component ? (
-          <optionLeftIcon.Component {...optionLeftIcon} size="small" className="mr-8" />
+          <optionLeftIcon.Component {...optionLeftIcon} size="small" />
         ) : null}
-        {avatar ? <Avatar size="xxsmall" imagePath={avatar} className="mr-4" /> : null}
+        {avatar ? <Avatar size="xxsmall" imagePath={avatar} /> : null}
         {labelLeftIconProps?.Component ? (
           <labelLeftIconProps.Component
             size="xsmall"
             type={disabled ? 'disabled' : 'primary'}
-            className="mr-4"
             {...labelLeftIconProps}
           />
         ) : null}
         <div className="select__option__content" data-id={dataId}>
-          <span className={`select__option__text pr-4 ${disabled ? 'color-disabled' : ''}`}>{label}</span>
+          <span className={`select__option__text ${disabled ? 'color-disabled' : ''}`}>{label}</span>
           {LabelRightIconComponent && LabelRightIconComponent(value)}
 
           {meta ? <span className={`select__option__meta ${disabled ? 'color-disabled' : ''}`}>{meta}</span> : null}

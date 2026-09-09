@@ -20,6 +20,7 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
     position = 'bottom-right',
     className = '',
     withTitleOption = false,
+    withSelectedOption = true,
     children,
   } = props;
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null);
@@ -40,29 +41,32 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
       ) : (
         <div className={classNames('select', 'select--menu', className)} style={menuStyles} ref={setMenuRef}>
           <div className={'select__options'}>
-            {menuItems.map(({ label, meta, value, handler, iconProps, disabled, dataId, className }: TMenuItem) => {
-              return (
-                <OptionItem
-                  className={className}
-                  dataId={dataId}
-                  withTitleOption={withTitleOption}
-                  disabled={disabled}
-                  key={value}
-                  data={{
-                    label,
-                    value,
-                    meta,
-                  }}
-                  labelLeftIconProps={iconProps}
-                  onClick={() => {
-                    onClose();
-                    if (handler) {
-                      handler();
-                    }
-                  }}
-                />
-              );
-            })}
+            {menuItems.map(
+              ({ label, meta, value, handler, iconProps, disabled, dataId, className, isSelected }: TMenuItem) => {
+                return (
+                  <OptionItem
+                    className={className}
+                    dataId={dataId}
+                    withTitleOption={withTitleOption}
+                    disabled={disabled}
+                    isSelected={withSelectedOption ? isSelected : undefined}
+                    key={value}
+                    data={{
+                      label,
+                      value,
+                      meta,
+                    }}
+                    labelLeftIconProps={iconProps}
+                    onClick={() => {
+                      onClose();
+                      if (handler) {
+                        handler();
+                      }
+                    }}
+                  />
+                );
+              }
+            )}
           </div>
         </div>
       )}

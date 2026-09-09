@@ -11,6 +11,7 @@ export type TMenuItem = {
   dataId?: string;
   meta?: string;
   className?: string;
+  isSelected?: boolean;
 };
 
 export type TMenuProps = {
@@ -24,6 +25,7 @@ export type TMenuProps = {
   children?: ReactNode;
   additionalRef?: HTMLElement | null;
   containerRef?: HTMLElement | Window | null;
+  withSelectedOption?: boolean;
 };
 
 export type TNestedMenuItemProps = {
@@ -41,4 +43,5 @@ export type TNestedMenuProps = {
   position?: TTooltipPosition;
   isOpen?: boolean;
   additionalRef?: HTMLElement | null;
+  withSelectedOption?: boolean;
 };

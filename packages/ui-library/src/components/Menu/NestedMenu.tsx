@@ -24,6 +24,7 @@ export const NestedMenu = ({
   isOpen,
   position = 'bottom-right',
   className = '',
+  withSelectedOption = true,
 }: TNestedMenuProps): ReactElement | null => {
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null);
   useOnOutsideClick([menuRef, additionalRef], onClose, !!isOpen, useId());
@@ -66,11 +67,12 @@ export const NestedMenu = ({
       ...item,
       content: item.subItems ? (
         <div className="nested-menu__sub-items select">
-          {item.subItems.map(({ label, meta, value, handler, iconProps, disabled, dataId }: TMenuItem) => {
+          {item.subItems.map(({ label, meta, value, handler, iconProps, disabled, dataId, isSelected }: TMenuItem) => {
             return (
               <OptionItem
                 dataId={dataId}
                 disabled={disabled}
+                isSelected={withSelectedOption ? isSelected : undefined}
                 key={`${index}-${value}`}
                 data={{
                   label,
