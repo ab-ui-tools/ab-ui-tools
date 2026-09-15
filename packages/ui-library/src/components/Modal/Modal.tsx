@@ -70,18 +70,25 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
           {...(buttonProps.cancel || {})}
         />
       ) : null}
-
-      {confirmBtnTooltipText ? (
-        <Tooltip text={confirmBtnTooltipText as string} id={'confirm-btn-tooltip'} position={Positions.TOP_CENTER} />
+      {buttonProps?.confirm ? (
+        <>
+          {confirmBtnTooltipText ? (
+            <Tooltip
+              text={confirmBtnTooltipText as string}
+              id={'confirm-btn-tooltip'}
+              position={Positions.TOP_CENTER}
+            />
+          ) : null}
+          <Button
+            id={'confirm-btn-tooltip'}
+            className={'modal__footer__btn'}
+            type="primary"
+            onClick={onSubmit}
+            dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
+            {...buttonProps.confirm}
+          />
+        </>
       ) : null}
-      <Button
-        id={'confirm-btn-tooltip'}
-        className={'modal__footer__btn'}
-        type="primary"
-        onClick={onSubmit}
-        dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
-        {...buttonProps.confirm}
-      />
     </div>
   ) : null;
 
