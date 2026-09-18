@@ -268,10 +268,7 @@ export function Table<TData>({
                                   key={cell.id}
                                   onClick={() => handleRowClick(cell.column, row)}
                                   onDoubleClick={() => handleRowDoubleClick(cell.column, row)}
-                                  style={{
-                                    ...getCommonPinningStyles(cell.column),
-                                    userSelect: onRowDoubleClick ? 'none' : undefined,
-                                  }}
+                                  style={{ ...getCommonPinningStyles(cell.column) }}
                                 >
                                   {cell.column.id === ColumnId.Actions && !isActionsVisible ? (
                                     <div className="actions-list__right">
