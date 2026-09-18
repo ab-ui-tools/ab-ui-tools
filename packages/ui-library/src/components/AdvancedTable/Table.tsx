@@ -68,6 +68,7 @@ export function Table<TData>({
   renderFooter,
   onSortChange,
   onRowClick,
+  onRowDoubleClick,
   tableSettings,
   rowSelection,
   onRowSelection,
@@ -149,9 +150,17 @@ export function Table<TData>({
     };
   };
 
+  const isRowActionColumn = (column: Column<TData>) => column.id === ColumnId.Actions || column.id === ColumnId.Select;
+
   const handleRowClick = (column: Column<TData>, row: Row<TData>) => {
-    if (column.id !== ColumnId.Actions && column.id !== ColumnId.Select && onRowClick) {
+    if (!isRowActionColumn(column) && onRowClick) {
       onRowClick(row);
+    }
+  };
+
+  const handleRowDoubleClick = (column: Column<TData>, row: Row<TData>) => {
+    if (!isRowActionColumn(column) && onRowDoubleClick) {
+      onRowDoubleClick(row);
     }
   };
 
@@ -258,6 +267,7 @@ export function Table<TData>({
                                   id={cell.id}
                                   key={cell.id}
                                   onClick={() => handleRowClick(cell.column, row)}
+                                  onDoubleClick={() => handleRowDoubleClick(cell.column, row)}
                                   style={{ ...getCommonPinningStyles(cell.column) }}
                                 >
                                   {cell.column.id === ColumnId.Actions && !isActionsVisible ? (
