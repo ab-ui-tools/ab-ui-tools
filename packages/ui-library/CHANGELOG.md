@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.34.0...@ab.uitools/ui-library@1.34.1) (2026-09-22)
+
+### Bug Fixes
+
+- calendar month view ([22dac03](https://github.com/ab-ui-tools/ab-ui-tools/commit/22dac03146311c2a18d8172cbd5bc4d5ffa7328e))
+
 # [1.34.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.33.1...@ab.uitools/ui-library@1.34.0) (2026-09-18)
 
 ### Features
