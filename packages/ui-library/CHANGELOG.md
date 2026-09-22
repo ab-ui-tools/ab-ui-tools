@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.34.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.33.1...@ab.uitools/ui-library@1.34.0) (2026-09-18)
+
+### Features
+
+- added double click on table row ([f6cfd16](https://github.com/ab-ui-tools/ab-ui-tools/commit/f6cfd1680db6057f86e742cdbd0f44b2122da080))
+- added double click on table row ([5051c1f](https://github.com/ab-ui-tools/ab-ui-tools/commit/5051c1f2bb9fd50049a69dcc748df7df94cfafd5))
+
 ## [1.33.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.33.0...@ab.uitools/ui-library@1.33.1) (2026-09-10)
 
 ### Bug Fixes
