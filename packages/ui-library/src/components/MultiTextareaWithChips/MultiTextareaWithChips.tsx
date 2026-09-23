@@ -1,6 +1,6 @@
 import type { ChangeEvent, FC } from 'react';
 
-import { useState, useRef, useMemo, memo, useCallback } from 'react';
+import { useState, useRef, useMemo, memo, useCallback, useEffect } from 'react';
 import classNames from 'classnames';
 
 import type { TMultiTextareaWithChipsProps, TMultiTextareaOption, TNormalizedOption } from './types';
@@ -38,6 +38,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   formProps,
   minChipLength,
   maxChipLength,
+  maxChips,
   onBlurConfig,
   transformToUppercase = false,
 }) => {
@@ -74,7 +75,10 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
     setValue,
     onAddChip,
     onRemoveChip,
+    maxChips,
   });
+
+  const isLimitReached = maxChips !== undefined && chipManagement.chips.length >= maxChips;
 
   const chipValidation = useChipValidation({
     validationSchema: chipValidationSchema,
@@ -105,6 +109,13 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
       }),
     [dropdownLogic.filteredOptions, optionsMeta]
   );
+
+  const { showDropdown, closeDropdown } = dropdownLogic;
+  useEffect(() => {
+    if (isLimitReached && showDropdown) {
+      closeDropdown();
+    }
+  }, [isLimitReached, showDropdown, closeDropdown]);
 
   const addOptionAsChip = useCallback(
     (option: string) => {
@@ -206,6 +217,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
   };
 
   const handleInputFocus = () => {
+    if (isLimitReached) return;
     dropdownLogic.handleInputFocus(inputValue);
   };
 
@@ -262,8 +274,9 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
       classNames('multi-textarea-chips', className, {
         'multi-textarea-chips--disabled': disabled,
         'multi-textarea-chips--error': hasError,
+        'multi-textarea-chips--limit-reached': isLimitReached,
       }),
-    [className, disabled, hasError]
+    [className, disabled, hasError, isLimitReached]
   );
 
   const inputWrapperClassName = useMemo(
@@ -312,7 +325,7 @@ const MultiTextareaWithChipsComponent: FC<TMultiTextareaWithChipsProps> = ({
               onBlur={handleInputBlur}
               placeholder={inputPlaceholder}
               className={'multi-textarea-chips__input'}
-              disabled={disabled}
+              disabled={disabled || isLimitReached}
               aria-describedby={hasError ? `${fieldName}-error` : helperText ? `${fieldName}-helper` : undefined}
               aria-invalid={hasError ? 'true' : 'false'}
               aria-expanded={dropdownLogic.showDropdown}

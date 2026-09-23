@@ -3,6 +3,19 @@
 .multi-textarea-chips {
     width: 100%;
 
+    &--limit-reached {
+        .multi-textarea-input-wrapper {
+            background-color: var(--ds-color-bg-disabled);
+            border-color: var(--ds-multi-input-border-color-disabled);
+
+            &:hover,
+            &:focus-within {
+                background-color: var(--ds-color-bg-disabled);
+                border-color: var(--ds-multi-input-border-color-disabled);
+            }
+        }
+    }
+
     &__label {
         display: block;
         font: var(--font-weight-500) var(--font-size-14) var(--font-family-primary);
