@@ -46,6 +46,7 @@ export type TTableProps<TData> = {
   renderHeader?: (table: TTable<TData>) => ReactNode;
   renderFooter?: (table: Table<TData>) => ReactNode;
   onRowClick?: (row: Row<TData>) => void;
+  onRowDoubleClick?: (row: Row<TData>) => void;
   onSortChange?: (state: SortingUpdateEvent) => void;
   rowEventsProps?: HTMLAttributes<HTMLTableRowElement>;
   rowSelection?: TRowSelectionState;
