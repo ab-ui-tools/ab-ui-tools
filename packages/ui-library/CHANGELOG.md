@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.35.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.35.0...@ab.uitools/ui-library@1.35.1) (2026-09-23)
+
+### Bug Fixes
+
+- made modal confirm button optional ([f3c129c](https://github.com/ab-ui-tools/ab-ui-tools/commit/f3c129cf5cee66769fe17c2007b54f8731088da3))
+- made modal confirm button optional ([08f80d4](https://github.com/ab-ui-tools/ab-ui-tools/commit/08f80d460a48be7e8488fecb7b09c32ad40a5384))
+
 # [1.35.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.34.1...@ab.uitools/ui-library@1.35.0) (2026-09-23)
 
 ### Features
