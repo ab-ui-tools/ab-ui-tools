@@ -6,8 +6,11 @@ export const getMonthOptions = (locale: string) => {
   const localeMap = { en, ru, hy };
   const dateFnsLocale = localeMap[locale as keyof typeof localeMap] ?? en;
 
-  return Array.from({ length: 12 }, (_, i) => ({
-    value: i,
-    label: dateFnsLocale.localize?.month(i, { width: 'abbreviated' }),
-  }));
+  return Array.from({ length: 12 }, (_, i) => {
+    const label = dateFnsLocale.localize?.month(i, { width: 'abbreviated' });
+    return {
+      value: i,
+      label: locale === 'ru' && label ? label.replace(/\./g, '') : label,
+    };
+  });
 };
