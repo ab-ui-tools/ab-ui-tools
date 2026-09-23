@@ -13,6 +13,7 @@ interface UseChipManagementProps {
   setValue?: (fieldName: string, value: TFormValue) => void;
   onAddChip?: (chip: string) => void;
   onRemoveChip?: (chip: string, index: number) => void;
+  maxChips?: number;
 }
 
 export const useChipManagement = ({
@@ -22,6 +23,7 @@ export const useChipManagement = ({
   setValue,
   onAddChip,
   onRemoveChip,
+  maxChips,
 }: UseChipManagementProps) => {
   const [chips, setChips] = useState<ChipValue[]>(initialChips);
   const isUserInteraction = useRef(false);
@@ -48,6 +50,10 @@ export const useChipManagement = ({
 
   const addChip = useCallback(
     (chip: ChipValue) => {
+      if (maxChips !== undefined && chips.length >= maxChips) {
+        return false;
+      }
+
       isUserInteraction.current = true;
       const newChips = [...chips, chip];
       setChips(newChips);
@@ -58,8 +64,10 @@ export const useChipManagement = ({
       } else {
         onAddChip?.(chip.text);
       }
+
+      return true;
     },
-    [chips, updateFormValue, onAddChip]
+    [chips, updateFormValue, onAddChip, maxChips]
   );
 
   const removeChip = useCallback(
