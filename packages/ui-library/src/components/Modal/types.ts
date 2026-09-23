@@ -20,7 +20,7 @@ export interface TModalPropTypes {
   size?: 'small' | 'medium' | 'large' | 'xlarge';
   buttonProps?: {
     cancel?: TButtonPropTypes;
-    confirm: TButtonPropTypes;
+    confirm?: TButtonPropTypes;
   };
   renderCustomFooter?: ReactNode;
   checkProps?: TCheckboxProps;
