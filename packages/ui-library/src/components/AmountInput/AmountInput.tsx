@@ -1,16 +1,17 @@
-import type { NumberFormatValues, SourceInfo } from 'react-number-format';
 import type { FocusEvent, JSX } from 'react';
 
 import { NumericFormat, numericFormatter } from 'react-number-format';
-import { forwardRef, useCallback, useEffect, useId, useRef, useState } from 'react';
+import { forwardRef, useCallback, useId, useRef, useState } from 'react';
 import classNames from 'classnames';
 
-import type { TAmountChangeInfo, TAmountInputProps, TAmountValue } from './types';
+import type { TAmountInputProps } from './types';
 
-import { buildPlaceholder, limitScale, parseNumeric, splitAmount, toNumericString } from './utils';
-import { CurrencySelect } from './CurrencySelect';
+import { buildPlaceholder, getDisplayText, isAmountAllowed, limitScale } from './utils';
+import { useAmountValue, useCurrency } from './hooks';
+import { AmountDisplay, CurrencySelect } from './components';
 import { Text } from '../Text';
 import { IconDismissCircle } from '../SVGIcons/IconDismissCircle';
+import { ButtonIcon } from '../ButtonIcon';
 import { ErrorMessage } from '../../helperComponents';
 
 const DEFAULT_DECIMAL_SCALE = 2;
@@ -33,14 +34,14 @@ export const AmountInput = forwardRef<HTMLInputElement, TAmountInputProps>(
       dataId = '',
       dataAttributes,
       value,
-      valueType = 'string',
+      valueType,
       onValueChange,
       onBlur,
       onFocus,
       setFieldValue,
       decimalScale = DEFAULT_DECIMAL_SCALE,
       fixedDecimalScale = true,
-      thousandSeparator = ',',
+      thousandSeparator,
       decimalSeparator = '.',
       allowNegative = false,
       min,
@@ -63,28 +64,25 @@ export const AmountInput = forwardRef<HTMLInputElement, TAmountInputProps>(
     const generatedId = useId();
     const inputId = id ?? `amount-input-${generatedId}`;
     const inputRef = useRef<HTMLInputElement | null>(null);
-
     const [isFocused, setIsFocused] = useState(false);
-    // Clean numeric string ("1234.5") is the source of truth while typing, so partial input
-    // like "12." or "-" survives a controlled parent that only stores numbers.
-    const [text, setText] = useState(() => toNumericString(value));
-
-    useEffect(() => {
-      if (value === undefined) return;
-      const incoming = toNumericString(value);
-      setText(current => (parseNumeric(current) === parseNumeric(incoming) ? current : incoming));
-    }, [value]);
-
-    const [innerCurrency, setInnerCurrency] = useState(currency);
-    const activeCurrency = currency ?? innerCurrency ?? currencies?.[0]?.value;
-    const selectedCurrency = currencies?.find(option => option.value === activeCurrency);
-    const scale = selectedCurrency?.decimalScale ?? decimalScale;
 
     const isInvalid = hasError ?? !!error;
     const isInteractive = !disabled && !readonly;
-    const hasValue = parseNumeric(text) !== null;
-    const canNegate = allowNegative && !(min !== undefined && min >= 0);
-    const groupSeparator = thousandSeparator === false ? undefined : thousandSeparator;
+
+    const amount = useAmountValue({ value, valueType, name, setFieldValue, onValueChange, shouldValidate: isInvalid });
+    const currencyState = useCurrency({ currencies, currency, decimalScale });
+    const { scale } = currencyState;
+    const groupSeparator = (thousandSeparator ?? (decimalSeparator === ',' ? ' ' : ',')) || undefined;
+
+    const formatAmount = (text: string, decimals = scale, padDecimals = fixedDecimalScale) =>
+      numericFormatter(text, {
+        thousandSeparator: groupSeparator,
+        decimalSeparator,
+        decimalScale: decimals,
+        fixedDecimalScale: padDecimals,
+        prefix,
+        suffix,
+      });
 
     const setRefs = useCallback(
       (node: HTMLInputElement | null) => {
@@ -95,65 +93,23 @@ export const AmountInput = forwardRef<HTMLInputElement, TAmountInputProps>(
       [ref]
     );
 
-    const emit = (info: TAmountChangeInfo) => {
-      const output: TAmountValue = valueType === 'number' ? (info.floatValue ?? null) : info.value;
-      if (name && setFieldValue) {
-        // While the field shows an error, re-validate on every change so the message clears
-        // (or updates) as the user fixes it — otherwise it would stay stale until the next submit.
-        setFieldValue(name, output, isInvalid ? { shouldValidate: true } : undefined);
-      }
-      onValueChange?.(output, info);
-    };
-
-    const handleValueChange = (values: NumberFormatValues, { source }: SourceInfo) => {
-      // Re-formatting caused by prop changes (e.g. padding ".00" on blur) is not a user change.
-      if (source !== 'event') return;
-      setText(values.value);
-      emit({
-        value: values.floatValue === undefined ? '' : values.value.replace(/\.$/, ''),
-        floatValue: values.floatValue,
-        formattedValue: values.formattedValue,
-      });
-    };
-
-    const checkAllowed = (values: NumberFormatValues) => {
-      const { floatValue, formattedValue } = values;
-      if (maxIntegerDigits !== undefined) {
-        const integerDigits = values.value.replace('-', '').split('.')[0];
-        if (integerDigits.length > maxIntegerDigits) return false;
-      }
-      if (floatValue !== undefined) {
-        if (max !== undefined && floatValue > max) return false;
-        // A positive minimum can't be enforced per keystroke (typing "1" on the way to "10"),
-        // so only lower bounds at or below zero are blocked here; validate the rest in the form schema.
-        if (min !== undefined && min <= 0 && floatValue < min) return false;
-      }
-      return isAllowed ? isAllowed({ value: values.value, floatValue, formattedValue }) : true;
-    };
-
     const handleClear = () => {
-      setText('');
-      emit({ value: '', floatValue: undefined, formattedValue: '' });
+      amount.commit('', '');
       onClear?.();
       inputRef.current?.focus();
     };
 
     const handleCurrencyChange = (nextCurrency: string) => {
-      setInnerCurrency(nextCurrency);
+      currencyState.setCurrency(nextCurrency);
       onCurrencyChange?.(nextCurrency);
       if (currencyName && setFieldValue) {
         setFieldValue(currencyName, nextCurrency);
       }
 
-      const nextScale = currencies?.find(option => option.value === nextCurrency)?.decimalScale ?? decimalScale;
-      const trimmed = limitScale(text, nextScale);
-      if (trimmed !== text) {
-        setText(trimmed);
-        emit({
-          value: trimmed,
-          floatValue: parseNumeric(trimmed) ?? undefined,
-          formattedValue: numericFormatter(trimmed, { thousandSeparator: groupSeparator, decimalSeparator }),
-        });
+      const nextScale = currencyState.getScale(nextCurrency);
+      const trimmed = limitScale(amount.text, nextScale);
+      if (trimmed !== amount.text) {
+        amount.commit(trimmed, formatAmount(trimmed, nextScale, false));
       }
     };
 
@@ -167,28 +123,15 @@ export const AmountInput = forwardRef<HTMLInputElement, TAmountInputProps>(
       onBlur?.(event);
     };
 
-    const formatOptions = {
-      thousandSeparator: groupSeparator,
-      decimalSeparator,
-      decimalScale: scale,
-      // Pad the fraction only after editing, so typing "600000" doesn't jump to "600,000.00".
-      fixedDecimalScale: fixedDecimalScale && !isFocused,
-      prefix,
-      suffix,
-    };
-
-    // The fraction is styled lighter than the integer part, which a native input can't do,
-    // so an aria-hidden layer mirrors the value whenever the user isn't actively editing it.
-    const isEmpty = text === '';
-    let displayText = text; // partial input such as "-" is shown as typed
-    if (isEmpty) displayText = placeholder ?? buildPlaceholder(decimalSeparator, scale, prefix, suffix);
-    else if (hasValue) displayText = numericFormatter(text, { ...formatOptions, fixedDecimalScale });
-    const display = splitAmount(displayText, decimalSeparator, scale);
-
-    const showDisplay = isEmpty || !isFocused;
-    const showClear = allowClear && hasValue && isInteractive;
-    const currencyOptions = currencies ?? [];
-    const hasCurrency = currencyOptions.length > 0;
+    const displayText = getDisplayText(
+      amount.text,
+      placeholder || buildPlaceholder(decimalSeparator, scale, prefix, suffix),
+      formatAmount
+    );
+    const showDisplay = amount.isEmpty || !isFocused;
+    const showClear = allowClear && amount.hasValue && isInteractive;
+    const hasCurrencies = currencyState.currencies.length > 0;
+    const message = isInvalid && error ? error : undefined;
 
     return (
       <div
@@ -197,7 +140,6 @@ export const AmountInput = forwardRef<HTMLInputElement, TAmountInputProps>(
           'amount-input--invalid': isInvalid,
           'amount-input--disabled': disabled,
           'amount-input--readonly': readonly,
-          'amount-input--filled': hasValue,
         })}
       >
         <div className="amount-input__field">
@@ -211,17 +153,22 @@ export const AmountInput = forwardRef<HTMLInputElement, TAmountInputProps>(
 
             <div className="amount-input__control">
               <NumericFormat
-                {...formatOptions}
                 {...dataAttributes}
                 id={inputId}
                 name={name}
                 getInputRef={setRefs}
                 className={classNames('amount-input__input', { 'amount-input__input--masked': showDisplay })}
-                value={text}
+                value={amount.text}
                 valueIsNumericString
-                allowNegative={canNegate}
-                isAllowed={checkAllowed}
-                onValueChange={handleValueChange}
+                thousandSeparator={groupSeparator}
+                decimalSeparator={decimalSeparator}
+                decimalScale={scale}
+                fixedDecimalScale={fixedDecimalScale && !isFocused}
+                prefix={prefix}
+                suffix={suffix}
+                allowNegative={allowNegative && !(min !== undefined && min >= 0)}
+                isAllowed={values => isAmountAllowed(values, { min, max, maxIntegerDigits, isAllowed })}
+                onValueChange={amount.handleValueChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 disabled={disabled}
@@ -234,38 +181,33 @@ export const AmountInput = forwardRef<HTMLInputElement, TAmountInputProps>(
                 data-id={dataId || undefined}
               />
               {showDisplay ? (
-                <span
-                  aria-hidden="true"
-                  className={classNames('amount-input__display', {
-                    'amount-input__display--placeholder': isEmpty,
-                  })}
-                >
-                  <span className="amount-input__integer">{display.integer}</span>
-                  {display.fraction ? <span className="amount-input__fraction">{display.fraction}</span> : null}
-                </span>
+                <AmountDisplay
+                  text={displayText}
+                  isPlaceholder={amount.isEmpty}
+                  decimalSeparator={decimalSeparator}
+                  decimalScale={scale}
+                />
               ) : null}
             </div>
           </div>
 
-          {showClear || hasCurrency ? (
+          {showClear || hasCurrencies ? (
             <div className="amount-input__actions">
               {showClear ? (
-                <button
-                  type="button"
-                  className="amount-input__clear"
+                <ButtonIcon
+                  size="small"
+                  iconProps={{ Component: IconDismissCircle }}
                   aria-label="Clear amount"
                   onMouseDown={event => event.preventDefault()}
                   onClick={handleClear}
-                  data-id={dataId ? `${dataId}-clear` : undefined}
-                >
-                  <IconDismissCircle size="small" type="tertiary" />
-                </button>
+                  dataId={dataId ? `${dataId}-clear` : ''}
+                />
               ) : null}
-              {showClear && hasCurrency ? <span className="amount-input__divider" /> : null}
-              {hasCurrency ? (
+              {showClear && hasCurrencies ? <span className="amount-input__divider" /> : null}
+              {hasCurrencies ? (
                 <CurrencySelect
-                  options={currencyOptions}
-                  value={activeCurrency}
+                  options={currencyState.currencies}
+                  value={currencyState.activeCurrency}
                   onChange={handleCurrencyChange}
                   disabled={!isInteractive || currencyDisabled}
                   dropdownWidth={currencyDropdownWidth}
@@ -276,10 +218,10 @@ export const AmountInput = forwardRef<HTMLInputElement, TAmountInputProps>(
           ) : null}
         </div>
 
-        {(isInvalid && error) || helperText ? (
-          <div className="amount-input__message mt-8">
-            {isInvalid && error ? (
-              <ErrorMessage message={error} icon="infoFilled" dataId={dataId} />
+        {message || helperText ? (
+          <div className="mt-8">
+            {message ? (
+              <ErrorMessage message={message} icon="infoFilled" dataId={dataId} />
             ) : (
               <Text size="small" type={disabled ? 'disabled' : 'secondary'}>
                 {helperText}

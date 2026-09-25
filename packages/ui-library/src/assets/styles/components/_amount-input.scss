@@ -3,8 +3,6 @@
 .amount-input {
   $this: &;
 
-  //----------- component specific tokens -------------//
-
   --ds-amount-input-min-height: var(--ds-size-64);
   --ds-amount-input-padding: var(--ds-space-8) var(--ds-space-12);
   --ds-amount-input-gap: var(--ds-space-8);
@@ -15,6 +13,7 @@
   --ds-amount-input-bg-hover: var(--ds-color-bg-container-lighter);
   --ds-amount-input-bg-invalid-hover: var(--ds-color-bg-danger-extra-light);
   --ds-amount-input-bg-disabled: var(--ds-color-bg-container-lighter);
+  --ds-amount-input-bg-readonly: var(--ds-color-bg-container-light);
 
   --ds-amount-input-border-color: var(--ds-color-border-tertiary);
   --ds-amount-input-border-color-hover: var(--ds-color-border-secondary);
@@ -35,13 +34,12 @@
   --ds-amount-input-currency-font: var(--ds-font-weight-active) var(--ds-label-md)/var(--ds-line-height-caption) var(--ds-font-family);
   --ds-amount-input-currency-bg-hover: var(--ds-color-bg-container);
   --ds-amount-input-currency-width: 104px;
+  --ds-amount-input-currency-dropdown-width: 240px;
   --ds-amount-input-currency-padding-left: 38px;
   --ds-amount-input-currency-padding-right: 30px;
   --ds-amount-input-divider-color: var(--ds-color-divider);
 
   --ds-amount-input-transition: background-color .3s linear, border-color .3s linear;
-
-  //----------//
 
   width: 100%;
 
@@ -93,7 +91,7 @@
   &--readonly &__field,
   &--readonly &__field:hover {
     cursor: default;
-    background-color: var(--ds-color-bg-container-light);
+    background-color: var(--ds-amount-input-bg-readonly);
     border-color: var(--ds-amount-input-border-color);
   }
 
@@ -121,7 +119,6 @@
     position: relative;
   }
 
-  // Input and display layer share the exact same box and font so the mirror lines up.
   &__input,
   &__display {
     display: block;
@@ -184,28 +181,16 @@
     gap: var(--ds-space-8);
   }
 
-  &__clear {
-    @include mixin.flexbox;
-    @include mixin.align-items(center);
-    padding: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-  }
-
   &__divider {
     width: var(--ds-border-thin);
     height: var(--ds-size-20);
     background-color: var(--ds-amount-input-divider-color);
   }
 
-  // ----- currency select: the library Select, restyled as a compact trigger ----- //
-
   &__currency {
     flex-shrink: 0;
     width: var(--ds-amount-input-currency-width);
 
-    // Extra ancestor classes so these win over the shared .input / .select rules.
     .select .input {
       input {
         height: var(--ds-size-32);
@@ -249,11 +234,19 @@
       background-color: var(--ds-amount-input-currency-bg-hover);
     }
 
-    // Wider than the trigger, right edge aligned with it (the trigger sits at the end of the field).
-    // Select positions the list at the trigger's left edge, so shift it by the extra width.
+    .select__option__text {
+      flex-shrink: 0;
+    }
+
+    .select__option__meta {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .select__options {
-      min-width: var(--amount-input-currency-dropdown-width);
-      margin-left: calc(var(--ds-amount-input-currency-width) - var(--amount-input-currency-dropdown-width));
+      min-width: var(--ds-amount-input-currency-dropdown-width);
+      margin-left: calc(var(--ds-amount-input-currency-width) - var(--ds-amount-input-currency-dropdown-width));
     }
   }
 }
