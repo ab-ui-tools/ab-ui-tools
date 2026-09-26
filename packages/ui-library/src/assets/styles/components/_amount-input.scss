@@ -1,0 +1,266 @@
+@use "../helpers/mixin";
+
+.amount-input {
+  $this: &;
+
+  --ds-amount-input-min-height: var(--ds-size-72);
+  --ds-amount-input-padding: var(--ds-space-10) var(--ds-space-12);
+  --ds-amount-input-gap: var(--ds-space-8);
+  --ds-amount-input-border-radius: var(--ds-border-radius-xl);
+  --ds-amount-input-border: var(--ds-border-thin) solid var(--ds-amount-input-border-color);
+
+  --ds-amount-input-bg: var(--ds-color-bg-white);
+  --ds-amount-input-bg-hover: var(--ds-color-bg-container-lighter);
+  --ds-amount-input-bg-invalid-hover: var(--ds-color-bg-danger-extra-light);
+  --ds-amount-input-bg-disabled: var(--ds-color-bg-container-lighter);
+  --ds-amount-input-bg-readonly: var(--ds-color-bg-container-light);
+
+  --ds-amount-input-border-color: var(--ds-color-border-tertiary);
+  --ds-amount-input-border-color-hover: var(--ds-color-border-secondary);
+  --ds-amount-input-border-color-focused: var(--ds-color-border-primary-dark);
+  --ds-amount-input-border-color-invalid: var(--ds-color-border-danger-dark);
+  --ds-amount-input-border-color-disabled: var(--ds-color-border-disabled);
+
+  --ds-amount-input-label-font: var(--ds-font-weight-default) var(--ds-label-xs)/var(--ds-line-height-caption) var(--ds-font-family);
+  --ds-amount-input-label-color: var(--ds-color-text-tertiary);
+  --ds-amount-input-label-space: var(--ds-space-4);
+
+  --ds-amount-input-value-font-size: var(--ds-headline-xs);
+  --ds-amount-input-value-line-height: var(--line-height-32);
+  --ds-amount-input-value-color: var(--ds-color-text-primary);
+  --ds-amount-input-fraction-color: var(--ds-color-text-tertiary);
+  --ds-amount-input-fraction-font-size: var(--font-size-20);
+  --ds-amount-input-placeholder-color: var(--ds-color-text-quaternary);
+  --ds-amount-input-caret-color: var(--brand-700);
+
+  --ds-amount-message-spacing: 0 var(--ds-space-12);
+
+  --ds-amount-input-currency-font: var(--ds-font-weight-active) var(--ds-label-md)/var(--ds-line-height-caption) var(--ds-font-family);
+  --ds-amount-input-currency-bg-hover: var(--ds-color-bg-container);
+  --ds-amount-input-currency-width: 104px;
+  --ds-amount-input-currency-dropdown-width: 240px;
+  --ds-amount-input-currency-padding-left: 40px;
+  --ds-amount-input-currency-padding-right: 32px;
+  --ds-amount-input-divider-color: var(--ds-color-border-quintary);
+
+  --ds-amount-input-transition: background-color .3s linear, border-color .3s linear;
+
+  width: 100%;
+
+  &__field {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    gap: var(--ds-amount-input-gap);
+    min-height: var(--ds-amount-input-min-height);
+    padding: var(--ds-amount-input-padding);
+    background-color: var(--ds-amount-input-bg);
+    border: var(--ds-amount-input-border);
+    border-radius: var(--ds-amount-input-border-radius);
+    transition: var(--ds-amount-input-transition);
+    cursor: text;
+
+    &:hover {
+      background-color: var(--ds-amount-input-bg-hover);
+      border-color: var(--ds-amount-input-border-color-hover);
+    }
+  }
+
+  &--focused &__field,
+  &--focused &__field:hover {
+    background-color: var(--ds-amount-input-bg);
+    border-color: var(--ds-amount-input-border-color-focused);
+  }
+
+  &--invalid &__field {
+    border-color: var(--ds-amount-input-border-color-invalid);
+
+    &:hover {
+      background-color: var(--ds-amount-input-bg-invalid-hover);
+      border-color: var(--ds-amount-input-border-color-invalid);
+    }
+  }
+
+  &--invalid#{$this}--focused &__field {
+    background-color: var(--ds-amount-input-bg);
+    border-color: var(--ds-amount-input-border-color-invalid);
+  }
+
+  &--disabled &__field,
+  &--disabled &__field:hover {
+    cursor: default;
+    background-color: var(--ds-amount-input-bg-disabled);
+    border-color: var(--ds-amount-input-border-color-disabled);
+  }
+
+  &--readonly &__field,
+  &--readonly &__field:hover {
+    cursor: default;
+    background-color: var(--ds-amount-input-bg-readonly);
+    border-color: var(--ds-amount-input-border-color);
+  }
+
+  &__main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__label {
+    display: block;
+    font: var(--ds-amount-input-label-font);
+    color: var(--ds-amount-input-label-color);
+    margin-bottom: var(--ds-amount-input-label-space);
+    cursor: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__required {
+    margin-left: var(--ds-space-2);
+    color: var(--ds-color-text-danger-light);
+  }
+
+  &__control {
+    position: relative;
+  }
+
+  &__input,
+  &__display {
+    display: block;
+    width: 100%;
+    padding: 0;
+    font-family: var(--ds-font-family);
+    font-size: var(--ds-amount-input-value-font-size);
+    line-height: var(--ds-amount-input-value-line-height);
+    font-weight: var(--ds-font-weight-heading);
+    white-space: nowrap;
+  }
+
+  &__input {
+    height: var(--ds-amount-input-value-line-height);
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--ds-amount-input-value-color);
+    caret-color: var(--ds-amount-input-caret-color);
+    text-overflow: ellipsis;
+    cursor: inherit;
+
+    &--masked {
+      color: transparent;
+    }
+  }
+
+  &__display {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+    color: var(--ds-amount-input-value-color);
+
+    &--placeholder {
+      color: var(--ds-amount-input-placeholder-color);
+    }
+  }
+
+  &__fraction {
+    font-size: var(--ds-amount-input-fraction-font-size);
+    font-weight: var(--ds-font-weight-default);
+    color: var(--ds-amount-input-fraction-color);
+  }
+
+  &__display--placeholder &__fraction {
+    color: var(--ds-amount-input-placeholder-color);
+  }
+
+  &--disabled &__display,
+  &--disabled &__fraction,
+  &--disabled &__input {
+    color: var(--ds-color-text-disabled);
+  }
+
+  &__actions {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    flex-shrink: 0;
+    gap: var(--ds-space-8);
+  }
+
+  &__divider {
+    width: var(--ds-border-thin);
+    height: var(--ds-size-20);
+    background-color: var(--ds-amount-input-divider-color);
+  }
+
+  &__message {
+    padding: var(--ds-amount-message-spacing);
+  }
+
+  &__currency {
+    flex-shrink: 0;
+    width: var(--ds-amount-input-currency-width);
+
+    .select .input {
+      input {
+        height: var(--ds-size-32);
+        padding: 0 var(--ds-amount-input-currency-padding-right) 0 var(--ds-space-8);
+        border-color: transparent;
+        border-radius: var(--ds-border-radius-md);
+        background-color: transparent;
+        font: var(--ds-amount-input-currency-font);
+        color: var(--ds-color-text-primary);
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--ds-amount-input-currency-bg-hover);
+        }
+
+        &[disabled] {
+          cursor: default;
+          background-color: transparent;
+          color: var(--ds-color-text-disabled);
+        }
+      }
+
+      &--icon-left input {
+        padding-left: var(--ds-amount-input-currency-padding-left);
+      }
+
+      &__icon--left {
+        left: var(--ds-space-8);
+        font-size: var(--font-size-24);
+        min-width: var(--ds-size-24);
+      }
+
+      &__icon--right {
+        right: var(--ds-space-8);
+        font-size: var(--font-size-20);
+        min-width: var(--ds-size-20);
+      }
+
+      &--disabled .input__icon {
+        opacity: .4;
+      }
+    }
+
+    .select--opened .input input {
+      background-color: var(--ds-amount-input-currency-bg-hover);
+    }
+
+    .select__option__text {
+      flex-shrink: 0;
+    }
+
+    .select__option__meta {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .select__options {
+      min-width: var(--ds-amount-input-currency-dropdown-width);
+      margin-left: calc(var(--ds-amount-input-currency-width) - var(--ds-amount-input-currency-dropdown-width));
+    }
+  }
+}
