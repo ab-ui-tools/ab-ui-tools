@@ -3,8 +3,8 @@
 .amount-input {
   $this: &;
 
-  --ds-amount-input-min-height: var(--ds-size-64);
-  --ds-amount-input-padding: var(--ds-space-8) var(--ds-space-12);
+  --ds-amount-input-min-height: var(--ds-size-72);
+  --ds-amount-input-padding: var(--ds-space-10) var(--ds-space-12);
   --ds-amount-input-gap: var(--ds-space-8);
   --ds-amount-input-border-radius: var(--ds-border-radius-xl);
   --ds-amount-input-border: var(--ds-border-thin) solid var(--ds-amount-input-border-color);
@@ -23,21 +23,25 @@
 
   --ds-amount-input-label-font: var(--ds-font-weight-default) var(--ds-label-xs)/var(--ds-line-height-caption) var(--ds-font-family);
   --ds-amount-input-label-color: var(--ds-color-text-tertiary);
+  --ds-amount-input-label-space: var(--ds-space-4);
 
   --ds-amount-input-value-font-size: var(--ds-headline-xs);
   --ds-amount-input-value-line-height: var(--line-height-32);
   --ds-amount-input-value-color: var(--ds-color-text-primary);
   --ds-amount-input-fraction-color: var(--ds-color-text-tertiary);
+  --ds-amount-input-fraction-font-size: var(--font-size-20);
   --ds-amount-input-placeholder-color: var(--ds-color-text-quaternary);
   --ds-amount-input-caret-color: var(--brand-700);
+
+  --ds-amount-message-spacing: 0 var(--ds-space-12);
 
   --ds-amount-input-currency-font: var(--ds-font-weight-active) var(--ds-label-md)/var(--ds-line-height-caption) var(--ds-font-family);
   --ds-amount-input-currency-bg-hover: var(--ds-color-bg-container);
   --ds-amount-input-currency-width: 104px;
   --ds-amount-input-currency-dropdown-width: 240px;
-  --ds-amount-input-currency-padding-left: 38px;
-  --ds-amount-input-currency-padding-right: 30px;
-  --ds-amount-input-divider-color: var(--ds-color-divider);
+  --ds-amount-input-currency-padding-left: 40px;
+  --ds-amount-input-currency-padding-right: 32px;
+  --ds-amount-input-divider-color: var(--ds-color-border-quintary);
 
   --ds-amount-input-transition: background-color .3s linear, border-color .3s linear;
 
@@ -104,6 +108,7 @@
     display: block;
     font: var(--ds-amount-input-label-font);
     color: var(--ds-amount-input-label-color);
+    margin-bottom: var(--ds-amount-input-label-space);
     cursor: inherit;
     white-space: nowrap;
     overflow: hidden;
@@ -160,6 +165,7 @@
   }
 
   &__fraction {
+    font-size: var(--ds-amount-input-fraction-font-size);
     font-weight: var(--ds-font-weight-default);
     color: var(--ds-amount-input-fraction-color);
   }
@@ -185,6 +191,10 @@
     width: var(--ds-border-thin);
     height: var(--ds-size-20);
     background-color: var(--ds-amount-input-divider-color);
+  }
+
+  &__message {
+    padding: var(--ds-amount-message-spacing);
   }
 
   &__currency {
@@ -219,10 +229,14 @@
 
       &__icon--left {
         left: var(--ds-space-8);
+        font-size: var(--font-size-24);
+        min-width: var(--ds-size-24);
       }
 
       &__icon--right {
         right: var(--ds-space-8);
+        font-size: var(--font-size-20);
+        min-width: var(--ds-size-20);
       }
 
       &--disabled .input__icon {

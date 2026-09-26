@@ -195,7 +195,7 @@ export const AmountInput = forwardRef<HTMLInputElement, TAmountInputProps>(
             <div className="amount-input__actions">
               {showClear ? (
                 <ButtonIcon
-                  size="small"
+                  size="large"
                   iconProps={{ Component: IconDismissCircle }}
                   aria-label="Clear amount"
                   onMouseDown={event => event.preventDefault()}
@@ -219,7 +219,7 @@ export const AmountInput = forwardRef<HTMLInputElement, TAmountInputProps>(
         </div>
 
         {message || helperText ? (
-          <div className="mt-8">
+          <div className="amount-input__message mt-8">
             {message ? (
               <ErrorMessage message={message} icon="infoFilled" dataId={dataId} />
             ) : (
