@@ -1,0 +1,39 @@
+import type { ReactElement } from 'react';
+
+import classNames from 'classnames';
+
+import type { ISVGIconProps } from '../types';
+
+export const FlagBahrain = ({ size, className = '', onClick, refHandler, id, dataId }: ISVGIconProps): ReactElement => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={classNames('svg-icon', 'svg-flag', {
+      [`svg-icon__size-${size}`]: size,
+      [className]: className,
+    })}
+    viewBox="0 0 20 20"
+    fill="none"
+    onClick={onClick}
+    ref={refHandler}
+    id={id}
+    data-id={dataId ? `${dataId}-svg-flag` : ''}
+  >
+    <g clipPath="url(#clip0_9419_279)">
+      <path
+        d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20Z"
+        style={{ fill: '#F0F0F0' }}
+      />
+      <path
+        d="M10 0C7.99316 0 6.12473 0.591602 4.55863 1.6093L7.13047 3.33309L3.91309 4.99973L7.13047 6.66637L3.91309 8.33301L7.13047 9.99945L3.91309 11.6661L7.13047 13.3327L3.91309 14.9995L7.13047 16.6661L4.55832 18.3904C6.12449 19.4083 7.99305 20 10 20C15.5229 20 20 15.5228 20 10C20 4.47719 15.5229 0 10 0V0Z"
+        style={{ fill: '#D80027' }}
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_9419_279">
+        <rect width="20" height="20" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+export default FlagBahrain;
