@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.37.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.36.0...@ab.uitools/ui-library@1.37.0) (2026-09-28)
+
+### Bug Fixes
+
+- ui fixes for amount input ([a9f2dec](https://github.com/ab-ui-tools/ab-ui-tools/commit/a9f2dec35ffff285ff4c4de82c8c54317e68a2d8))
+
+### Features
+
+- add AmountInput component with currency select ([149b245](https://github.com/ab-ui-tools/ab-ui-tools/commit/149b245fd314e5efca84edc26ab31aa238151853))
+- add circle country flag icons with ISO lookup helpers ([e3cd053](https://github.com/ab-ui-tools/ab-ui-tools/commit/e3cd053971934de2e10745d940971dea757e2ff8))
+
 # [1.36.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.35.1...@ab.uitools/ui-library@1.36.0) (2026-09-23)
 
 ### Features
