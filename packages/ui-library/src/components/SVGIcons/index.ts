@@ -406,6 +406,8 @@ export * from './IconPersonStarFilled';
 export * from './IconPersonSubtract';
 export * from './IconPersonSubtractFilled';
 export * from './IconPhone';
+export * from './IconPhoneDesktop';
+export * from './IconPhoneDesktopFilled';
 export * from './IconPhoneFilled';
 export * from './IconPlay';
 export * from './IconPlayFilled';
