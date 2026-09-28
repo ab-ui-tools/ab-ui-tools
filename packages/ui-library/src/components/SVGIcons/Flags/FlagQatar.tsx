@@ -1,0 +1,39 @@
+import type { ReactElement } from 'react';
+
+import classNames from 'classnames';
+
+import type { ISVGIconProps } from '../types';
+
+export const FlagQatar = ({ size, className = '', onClick, refHandler, id, dataId }: ISVGIconProps): ReactElement => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={classNames('svg-icon', 'svg-flag', {
+      [`svg-icon__size-${size}`]: size,
+      [className]: className,
+    })}
+    viewBox="0 0 20 20"
+    fill="none"
+    onClick={onClick}
+    ref={refHandler}
+    id={id}
+    data-id={dataId ? `${dataId}-svg-flag` : ''}
+  >
+    <g clipPath="url(#clip0_9419_1072)">
+      <path
+        d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20Z"
+        style={{ fill: '#F0F0F0' }}
+      />
+      <path
+        d="M20 10C20 4.47719 15.5229 0 10 0C8.04379 0 6.21902 0.562305 4.6777 1.53324L6.86961 2.46453L3.91309 3.7207L6.86961 4.97684L3.91309 6.23293L6.86961 7.48898L3.91309 8.74488L6.86961 10.0007L3.91309 11.2568L6.86961 12.5128L3.91309 13.7687L6.86961 15.0247L3.91309 16.2808L6.86961 17.5367L4.67867 18.4675C6.2198 19.438 8.04418 20 10 20C15.5229 20 20 15.5228 20 10Z"
+        style={{ fill: '#751A46' }}
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_9419_1072">
+        <rect width="20" height="20" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+export default FlagQatar;

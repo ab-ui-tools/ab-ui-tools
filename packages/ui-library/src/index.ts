@@ -1,5 +1,6 @@
 import './assets/styles/index.scss';
 export * from './components/Alert';
+export * from './components/AmountInput';
 export * from './components/Avatar';
 export * from './components/AdvancedTable';
 export * from './components/Badge';
@@ -50,6 +51,7 @@ export * from './components/Text';
 export * from './components/Textarea';
 export * from './components/Tooltip';
 export * from './components/SVGIcons';
+export * from './components/SVGIcons/Flags';
 export * from './components/OneTimePassword';
 export * from './helperComponents/OptionItem';
 export * from './components/MultiTextareaWithChips';

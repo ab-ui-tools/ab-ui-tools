@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.13.6...@ab.uitools/storybook@1.14.0) (2026-09-28)
+
+### Features
+
+- add AmountInput component with currency select ([149b245](https://github.com/ab-devtools/uilibrary/commit/149b245fd314e5efca84edc26ab31aa238151853))
+- add circle country flag icons with ISO lookup helpers ([e3cd053](https://github.com/ab-devtools/uilibrary/commit/e3cd053971934de2e10745d940971dea757e2ff8))
+
 ## [1.13.6](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.13.5...@ab.uitools/storybook@1.13.6) (2026-09-23)
 
 **Note:** Version bump only for package @ab.uitools/storybook
