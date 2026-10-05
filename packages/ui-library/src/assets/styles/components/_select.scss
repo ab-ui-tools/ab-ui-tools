@@ -7,11 +7,11 @@
   --ds-select-input-color: var(--ds-color-text-primary);
 
   --ds-select-options-bg: var(--white);
-  --ds-select-options-shadow: var(--shadow-2);
+  --ds-select-options-shadow: 0 0 40px 0 #4E4E4E0F;;
   --ds-select-options-border-radius-lg: var(--ds-border-radius-lg);
   --ds-select-options-border-radius-sm: var(--ds-border-radius-md);
-  --ds-select-options-border-size: 0;
-  --ds-select-options-border-color: none;
+  --ds-select-options-border-size: 1px;
+  --ds-select-options-border-color: var(--ds-color-border-quintary);
   --ds-select-options-margin: var(--ds-space-4);
   --ds-select-options-padding: 0;
 

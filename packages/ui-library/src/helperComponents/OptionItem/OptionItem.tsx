@@ -64,9 +64,6 @@ export const OptionItem = forwardRef((props: TSelectItemProps, ref: ForwardedRef
     >
       {isCheckbox ? <Checkbox selectedValue={isSelected} disabled={disabled} /> : null}
       {isRadio ? <Radio isSelected={isSelected} disabled={disabled} /> : null}
-      {!isCheckbox && !isRadio && isSelected ? (
-        <IconCheckmark size="xsmall" type={disabled ? 'disabled' : 'brand-light'} />
-      ) : null}
       <div className="select__option__inner">
         {optionLeftIcon && optionLeftIcon.Component ? (
           <optionLeftIcon.Component {...optionLeftIcon} size="small" />
@@ -87,6 +84,9 @@ export const OptionItem = forwardRef((props: TSelectItemProps, ref: ForwardedRef
         </div>
       </div>
       {OptionRightIconComponent && OptionRightIconComponent(value)}
+      {!isCheckbox && !isRadio && isSelected ? (
+        <IconCheckmark size="xsmall" type={disabled ? 'disabled' : 'brand-light'} />
+      ) : null}
     </div>
   );
 
