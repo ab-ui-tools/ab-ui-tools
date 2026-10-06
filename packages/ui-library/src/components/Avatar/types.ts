@@ -14,7 +14,7 @@ export interface TAvatarProps extends IFormCompProps {
     type?: TSVGIconType;
   };
   initials?: string | ReactElement;
-  color?: 'grey' | 'orange' | 'purple' | 'blue' | 'green' | 'red';
+  color?: 'default' | 'warning' | 'discovery' | 'info' | 'success' | 'danger';
   type?: 'count';
   size?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall' | 'xxsmall';
   className?: string;

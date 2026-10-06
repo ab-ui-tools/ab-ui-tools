@@ -16,7 +16,7 @@ export default {
   component: _Avatar,
   argTypes: {
     color: {
-      options: ['grey', 'orange', 'purple', 'blue', 'green', 'red'],
+      options: ['default', 'warning', 'discovery', 'info', 'success', 'danger'],
       control: { type: 'radio' },
     },
     type: {
@@ -36,7 +36,7 @@ export const Avatar = Template.bind({});
 
 Avatar.args = {
   initials: 'AG',
-  color: 'orange',
+  color: 'warning',
   size: 'large',
   iconProps: {
     Component: IconPerson,
