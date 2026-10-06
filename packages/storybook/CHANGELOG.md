@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.2](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.14.1...@ab.uitools/storybook@1.14.2) (2026-10-06)
+
+### Bug Fixes
+
+- ui fixes for select ([c691582](https://github.com/ab-devtools/uilibrary/commit/c691582e858491b24e1b9e84689ec4942d1bfdf1))
+
 ## [1.14.1](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.14.0...@ab.uitools/storybook@1.14.1) (2026-09-28)
 
 **Note:** Version bump only for package @ab.uitools/storybook
