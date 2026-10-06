@@ -7,7 +7,7 @@
   --ds-select-input-color: var(--ds-color-text-primary);
 
   --ds-select-options-bg: var(--white);
-  --ds-select-options-shadow: 0 0 40px 0 #4E4E4E0F;;
+  --ds-select-options-shadow: 0 0 40px 0 #4E4E4E0F;
   --ds-select-options-border-radius-lg: var(--ds-border-radius-lg);
   --ds-select-options-border-radius-sm: var(--ds-border-radius-md);
   --ds-select-options-border-size: 1px;
@@ -16,14 +16,14 @@
   --ds-select-options-padding: 0;
 
   --ds-select-option-bg-hover: var(--grey-20);
-  --ds-select-option-margin: var(--ds-space-4);
+  --ds-select-option-margin: var(--ds-space-2);
   --ds-select-option-height: var(--ds-size-32);
   --ds-select-option-padding: 0 var(--ds-space-16);
   --ds-select-option-font: var(--ds-font-weight-default) var(--ds-paragraph-std)/var(--ds-line-height-paragraph-std) var(--ds-font-family);
 
   --ds-select-scroll-max-height: 300px;
   --ds-select-scroll-min-height: 40px;
-  --ds-select-scroll-padding: var(--ds-space-8) 0 var(--ds-space-4);
+  --ds-select-scroll-padding: var(--ds-space-6) 0;
 
   --ds-select-top-padding: var(--ds-size-16) 0;
   --ds-select-top-margin: 0 var(--ds-size-16);
@@ -177,7 +177,6 @@
     --ds-select-options-border-size: 1px;
     --ds-select-options-border-color: var(--ds-color-border-quintary);
     --ds-select-options-padding: var(--ds-space-6);
-    --ds-select-option-margin: var(--ds-space-2);
     --ds-select-option-height: var(--ds-size-40);
 
     z-index: 9999;

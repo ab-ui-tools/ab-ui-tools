@@ -331,8 +331,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
             <div
               data-id={`${dataId}-options-content`}
               ref={scrollRef}
-              className={classNames('select__options__scroll', 'scrollbar', 'scrollbar--vertical', {
-                'mr-6': (scrollRef.current?.scrollHeight || 0) > 300,
+              className={classNames('select__options__scroll', 'scrollbar scrollbar--sm', 'scrollbar--vertical', {
+                'mr-4': (scrollRef.current?.scrollHeight || 0) > 300,
               })}
             >
               {innerHelperText ? (

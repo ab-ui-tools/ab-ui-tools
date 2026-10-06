@@ -539,6 +539,8 @@ $space-prefixes: (
 //scroll
 
 .scrollbar {
+  $this: &;
+
   overflow: hidden;
 
   /* Works on Firefox */
@@ -583,6 +585,19 @@ $space-prefixes: (
     }
     &::-webkit-scrollbar {
       height: var(--ds-size-6);
+    }
+  }
+
+  &--sm {
+    &#{$this}--vertical {
+      &::-webkit-scrollbar {
+        width: var(--ds-size-4);
+      }
+    }
+    &#{$this}--horizontal {
+      &::-webkit-scrollbar {
+        height: var(--ds-size-4);
+      }
     }
   }
 }
