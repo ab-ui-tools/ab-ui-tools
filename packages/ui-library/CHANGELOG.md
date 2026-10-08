@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.1...@ab.uitools/ui-library@1.38.2) (2026-10-08)
+
+### Bug Fixes
+
+- change type names ([7a1e3c4](https://github.com/ab-ui-tools/ab-ui-tools/commit/7a1e3c4355285dc9e9f132417cf906d127e18101))
+- updates colors for avatar ([43a31ca](https://github.com/ab-ui-tools/ab-ui-tools/commit/43a31ca89260efa641a2a8e64de746f43f372ea3))
+
 ## [1.38.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.0...@ab.uitools/ui-library@1.38.1) (2026-10-06)
 
 ### Bug Fixes
