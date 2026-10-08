@@ -566,7 +566,7 @@ export const ProfileDropdown = ProfileDropdownTemplate.bind({});
 
 // @ts-ignore
 ProfileDropdown.args = {
-  avatar: <Avatar size={'medium'} initials={'RG'} />,
+  avatar: <Avatar size={'medium'} color={'warning'} initials={'RG'} />,
   name: 'Mariam Yeghiazaryan',
   email: 'mariam.yeghiazaryan@gmail.com',
   userInfoAlignment: 'left',

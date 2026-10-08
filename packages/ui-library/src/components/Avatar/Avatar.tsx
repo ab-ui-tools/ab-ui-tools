@@ -11,7 +11,7 @@ import { FileUpload, FileUploadMode } from '../FileUpload';
 export const Avatar = ({
   dataId,
   id,
-  color = 'orange',
+  color = 'default',
   size = 'medium',
   type,
   imagePath = '',

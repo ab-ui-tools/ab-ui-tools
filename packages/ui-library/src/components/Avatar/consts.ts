@@ -10,10 +10,10 @@ export const ICON_SIZE_MAPPING: { [key: string]: TSVGIconSize } = {
 };
 
 export const ICON_TYPE_MAPPING: { [key: string]: TSVGIconType } = {
-  grey: 'tertiary',
-  orange: 'warning-light',
-  purple: 'discovery-light',
-  blue: 'information-light',
-  green: 'brand-light',
-  red: 'danger-light',
+  default: 'tertiary',
+  warning: 'warning-light',
+  discovery: 'discovery-light',
+  info: 'information-light',
+  success: 'success-light',
+  danger: 'danger-light',
 };

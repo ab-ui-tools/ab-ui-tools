@@ -17,29 +17,29 @@
   --ds-avatar-font-size-xs: var(--ds-paragraph-xs);
   --ds-avatar-font-size-xxs: var(--ds-paragraph-xxs);
 
-  --ds-avatar-grey-bg: rgba(0,0,0,0.05);
-  --ds-avatar-grey-bg-hover: rgba(0,0,0,0.08);
-  --ds-avatar-grey-color: var(--grey-500);
+  --ds-avatar-default-bg: var(--ds-color-bg-container-light);
+  --ds-avatar-default-bg-hover: var(--ds-color-bg-container);
+  --ds-avatar-default-color: var(--ds-color-text-tertiary);
 
-  --ds-avatar-orange-bg: var(--yellow-200);
-  --ds-avatar-orange-bg-hover: var(--yellow-100);
-  --ds-avatar-orange-color: var(--yellow-700);
+  --ds-avatar-warning-bg: var(--ds-color-bg-warning-lighter);
+  --ds-avatar-warning-bg-hover: var(--ds-color-bg-warning-extra-light);
+  --ds-avatar-warning-color: var(--ds-color-text-warning-light);
 
-  --ds-avatar-purple-bg: var(--purple-100);
-  --ds-avatar-purple-bg-hover: var(--purple-50);
-  --ds-avatar-purple-color: var(--purple-700);
+  --ds-avatar-discovery-bg: var(--ds-color-bg-discovery-lighter);
+  --ds-avatar-discovery-bg-hover: var(--ds-color-bg-discovery-extra-light);
+  --ds-avatar-discovery-color: var(--ds-color-text-discovery-light);
 
-  --ds-avatar-green-bg: var(--green-100);
-  --ds-avatar-green-bg-hover: var(--green-50);
-  --ds-avatar-green-color: var(--green-700);
+  --ds-avatar-success-bg: var(--ds-color-bg-success-lighter);
+  --ds-avatar-success-bg-hover: var(--ds-color-bg-success-extra-light);
+  --ds-avatar-success-color: var(--ds-color-text-success-light);
 
-  --ds-avatar-blue-bg: var(--blue-100);
-  --ds-avatar-blue-bg-hover: var(--blue-50);
-  --ds-avatar-blue-color: var(--blue-700);
+  --ds-avatar-info-bg: var(--ds-color-bg-info-lighter);
+  --ds-avatar-info-bg-hover: var(--ds-color-bg-info-extra-light);
+  --ds-avatar-info-color: var(--ds-color-text-info-light);
 
-  --ds-avatar-red-bg: var(--red-100);
-  --ds-avatar-red-bg-hover: var(--red-50);
-  --ds-avatar-red-color: var(--red-700);
+  --ds-avatar-danger-bg: var(--ds-color-bg-danger-lighter);
+  --ds-avatar-danger-bg-hover: var(--ds-color-bg-danger-extra-light);
+  --ds-avatar-danger-color: var(--ds-color-text-danger-light);
 
   --ds-avatar-count-bg: var(--ds-color-bg-success-lighter);
   --ds-avatar-count-bg-hover: var(--ds-color-bg-success-light);
@@ -52,12 +52,6 @@
   --ds--avtar-border-radius: var(--ds-border-radius-full);
   --ds-avatar-font: var(--ds-font-weight-orange) var(--ds-headline-sm)/1 var(--ds-font-family);
   --ds-avatar-transition: background-color .3s linear, color .3s linear;
-
-  --ds-avatar-icon-size: var(--ds-size-24);
-  --ds-avatar-icon-shadow: var(--ds-shadow-1);
-  --ds-avatar-icon-border-radius: var(--ds-border-radius-full);
-  --ds-avatar-icon-bg: var(--ds-color-bg-white);
-  --ds-avatar-icon-position:  5px 5px;
 
   @include mixin.flexbox;
   @include mixin.align-items(center);
@@ -112,54 +106,54 @@
     font-weight: var(--ds-font-weight-active);
   }
 
-  &--grey {
-    background-color: var(--ds-avatar-grey-bg);
-    color: var(--ds-avatar-grey-color);
+  &--default {
+    background-color: var(--ds-avatar-default-bg);
+    color: var(--ds-avatar-default-color);
 
     &:hover {
-      background-color: var(--ds-avatar-grey-bg-hover);
+      background-color: var(--ds-avatar-default-bg-hover);
     }
   }
 
-  &--orange {
-    background-color: var(--ds-avatar-orange-bg);
-    color: var(--ds-avatar-orange-color);
+  &--warning {
+    background-color: var(--ds-avatar-warning-bg);
+    color: var(--ds-avatar-warning-color);
 
     &:hover {
-      background-color: var(--ds-avatar-orange-bg-hover);
+      background-color: var(--ds-avatar-warning-bg-hover);
     }
   }
 
-  &--purple {
-    background-color: var(--ds-avatar-purple-bg);
-    color: var(--ds-avatar-purple-color);
+  &--discovery {
+    background-color: var(--ds-avatar-discovery-bg);
+    color: var(--ds-avatar-discovery-color);
 
     &:hover {
-      background-color: var(--ds-avatar-purple-bg-hover);
+      background-color: var(--ds-avatar-discovery-bg-hover);
     }
   }
-  &--green {
-    background-color: var(--ds-avatar-green-bg);
-    color: var(--ds-avatar-green-color);
+  &--success {
+    background-color: var(--ds-avatar-success-bg);
+    color: var(--ds-avatar-success-color);
 
     &:hover {
-      background-color: var(--ds-avatar-green-bg-hover);
+      background-color: var(--ds-avatar-success-bg-hover);
     }
   }
-  &--blue {
-    background-color: var(--ds-avatar-blue-bg);
-    color: var(--ds-avatar-blue-color);
+  &--info {
+    background-color: var(--ds-avatar-info-bg);
+    color: var(--ds-avatar-info-color);
 
     &:hover {
-      background-color: var(--ds-avatar-blue-bg-hover);
+      background-color: var(--ds-avatar-info-bg-hover);
     }
   }
-  &--red {
-    background-color: var(--ds-avatar-red-bg);
-    color: var(--ds-avatar-red-color);
+  &--danger {
+    background-color: var(--ds-avatar-danger-bg);
+    color: var(--ds-avatar-danger-color);
 
     &:hover {
-      background-color: var(--ds-avatar-red-bg-hover);
+      background-color: var(--ds-avatar-danger-bg-hover);
     }
   }
 
