@@ -67,10 +67,6 @@ export default {
       options: ['large', 'small'],
       control: { type: 'radio' },
     },
-    userInfoAlignment: {
-      options: ['left', 'center'],
-      control: { type: 'radio' },
-    },
   },
 };
 
@@ -565,12 +561,24 @@ const ProfileDropdownTemplate = (args: any): JSX.Element => {
 export const ProfileDropdown = ProfileDropdownTemplate.bind({});
 
 // @ts-ignore
+ProfileDropdown.parameters = {
+  controls: { exclude: ['size'] },
+};
+
+// @ts-ignore
+ProfileDropdown.argTypes = {
+  userInfoAlignment: {
+    options: ['left', 'center'],
+    control: { type: 'radio' },
+  },
+};
+
+// @ts-ignore
 ProfileDropdown.args = {
   avatar: <Avatar size={'medium'} color={'warning'} initials={'RG'} />,
   name: 'Mariam Yeghiazaryan',
   email: 'mariam.yeghiazaryan@gmail.com',
   userInfoAlignment: 'left',
-  isCreateOnOutsideClick: false,
   bodyItems: [
     {
       icon: <IconQuestionCircle size={'small'} className={'mr-8'} />,
