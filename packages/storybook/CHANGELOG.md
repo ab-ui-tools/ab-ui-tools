@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.4](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.14.3...@ab.uitools/storybook@1.14.4) (2026-10-12)
+
+### Bug Fixes
+
+- fix storybook ([89b3a20](https://github.com/ab-devtools/uilibrary/commit/89b3a201a21c20611918043f5524f2a3312ee943))
+
 ## [1.14.3](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.14.2...@ab.uitools/storybook@1.14.3) (2026-10-08)
 
 ### Bug Fixes
