@@ -11,7 +11,7 @@ export default {
   component: _Modal,
   argTypes: {
     size: {
-      options: ['xlarge', 'large', 'medium', 'small'],
+      options: ['3xlarge', '2xlarge', 'xlarge', 'large', 'medium', 'small'],
       control: { type: 'radio' },
     },
   },
