@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.5](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.14.4...@ab.uitools/storybook@1.14.5) (2026-10-13)
+
+### Bug Fixes
+
+- added new modal sizes and fix footer ([7abef99](https://github.com/ab-devtools/uilibrary/commit/7abef990175746377d7dd1eac8a88db742b3c32c))
+
 ## [1.14.4](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.14.3...@ab.uitools/storybook@1.14.4) (2026-10-12)
 
 ### Bug Fixes

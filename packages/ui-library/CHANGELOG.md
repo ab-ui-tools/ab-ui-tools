@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.2...@ab.uitools/ui-library@1.38.3) (2026-10-13)
+
+### Bug Fixes
+
+- added new modal sizes and fix footer ([7abef99](https://github.com/ab-ui-tools/ab-ui-tools/commit/7abef990175746377d7dd1eac8a88db742b3c32c))
+- change card select item radius size ([3a7e70a](https://github.com/ab-ui-tools/ab-ui-tools/commit/3a7e70acd820fd382c1aef62c0c871f5a1a0f0f3))
+- update loan icon ([178d8a1](https://github.com/ab-ui-tools/ab-ui-tools/commit/178d8a11699910cd3aceeb065028eada6fc79918))
+- update loan icon ([4de4a00](https://github.com/ab-ui-tools/ab-ui-tools/commit/4de4a00303cc956d235d180bd71ab9ec6ea65e3b))
+- update loan icon ([038c6d9](https://github.com/ab-ui-tools/ab-ui-tools/commit/038c6d9420bd95a0530440532664f9f2fc828dff))
+- update loan icon ([fc92382](https://github.com/ab-ui-tools/ab-ui-tools/commit/fc923825d1127f04b502801b25a8af9eaf4a6bd8))
+- update loan icon ([31bb3a4](https://github.com/ab-ui-tools/ab-ui-tools/commit/31bb3a45a65edf57559acb5b83b21804702fb11f))
+
 ## [1.38.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.1...@ab.uitools/ui-library@1.38.2) (2026-10-08)
 
 ### Bug Fixes
