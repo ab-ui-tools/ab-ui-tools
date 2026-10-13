@@ -228,6 +228,8 @@ export * from './IconDocumentOnePage';
 export * from './IconDocumentOnePageFilled';
 export * from './IconDocumentPageBottomCenter';
 export * from './IconDocumentPageBottomCenterFilled';
+export * from './IconDocumentPdf';
+export * from './IconDocumentPdfFilled';
 export * from './IconDocumentPercent';
 export * from './IconDocumentPercentFilled';
 export * from './IconDocumentText';
