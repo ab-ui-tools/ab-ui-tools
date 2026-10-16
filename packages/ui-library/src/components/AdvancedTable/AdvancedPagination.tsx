@@ -15,6 +15,8 @@ import IconChevronDoubleLeft from '../SVGIcons/IconChevronDoubleLeft';
 import { Select } from '../Select';
 import { Input } from '../Input';
 import { Button } from '../Button';
+import IconChevronDown from "../SVGIcons/IconChevronDown";
+import IconChevronUp from "../SVGIcons/IconChevronUp";
 
 interface PaginationProps<T> {
   table: Table<T>;
@@ -85,10 +87,13 @@ export function AdvancedPagination<TData>({
   return (
     <div className="advanced-table__pagination">
       <Select
+        size={'small'}
         setSelectedItem={value => onRowCountChange(value)}
         selectedItem={`${pageSize}`}
         className={'no-border'}
         options={pageSizeOptions}
+        selectRightIconProps={{Component: IconChevronDown, size: 'small'}}
+        selectRightIconOpenedProps={{Component: IconChevronUp, size: 'small'}}
       />
       <div className={'advanced-table__pagination__right'}>
         <Text type={'tertiary'}>
@@ -104,11 +109,6 @@ export function AdvancedPagination<TData>({
           <Button onClick={onGoToPage} type="secondary" size="medium" buttonText={buttonText ?? 'Go to page'} />
         </div>
         <ul className="pagination">
-          <li className={`previous ${!table.getCanPreviousPage() ? 'disabled' : ''}`}>
-            <a rel={'prev'} role={'button'} onClick={() => table.firstPage()}>
-              <IconChevronDoubleLeft size={'small'} />
-            </a>
-          </li>
           <li className={`previous ${!table.getCanPreviousPage() ? 'disabled' : ''}`}>
             <a rel={'prev'} role={'button'} onClick={() => table.previousPage()}>
               <IconChevronLeft size={'small'} />
@@ -145,11 +145,6 @@ export function AdvancedPagination<TData>({
           <li className={`next ${!table.getCanNextPage() ? 'disabled' : ''}`}>
             <a rel={'next'} role={'button'} onClick={() => table.nextPage()}>
               <IconChevronRight size={'small'} />
-            </a>
-          </li>
-          <li className={`next ${!table.getCanNextPage() ? 'disabled' : ''}`}>
-            <a rel={'next'} role={'button'} onClick={() => table.lastPage()}>
-              <IconChevronDoubleRight size={'small'} />
             </a>
           </li>
         </ul>
