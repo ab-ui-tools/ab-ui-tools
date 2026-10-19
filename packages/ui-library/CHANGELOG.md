@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.5...@ab.uitools/ui-library@1.38.6) (2026-10-19)
+
+### Bug Fixes
+
+- lint fix ([acf315e](https://github.com/ab-ui-tools/ab-ui-tools/commit/acf315e48c243438e66a408f6648c41ace7094b9))
+- ui fixes for pagination info ([7b3dd13](https://github.com/ab-ui-tools/ab-ui-tools/commit/7b3dd132bdf2ded0074f575cae88f3ff49e2cd67))
+
 ## [1.38.5](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.4...@ab.uitools/ui-library@1.38.5) (2026-10-15)
 
 ### Bug Fixes
