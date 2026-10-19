@@ -265,11 +265,30 @@
     }
 
     .select {
-      width: 140px;
+      &__options {
+        width: 164px !important;
+      }
 
       &.no-border {
         input {
-          border: 0;
+          field-sizing: content;
+          border-color: transparent;
+          font-weight: var(--font-weight-500);
+
+            &:hover {
+              background-color: var(--ds-color-bg-container-lighter);
+              border-color: var(--ds-color-border-quintary);
+            }
+
+            &:focus {
+              background-color: var(--ds-color-bg-container-light);
+              border-color: var(--ds-color-border-tertiary);
+            }
+
+            &:active {
+              background-color: var(--ds-color-bg-container-light);
+              border-color: var(--ds-color-border-tertiary);
+            }
         }
       }
     }

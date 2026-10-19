@@ -37,7 +37,7 @@ interface TSelectBaseProps {
   selectRightIconProps?: TSelectIconProps;
   selectRightIconOpenedProps?: TSelectIconProps;
   avatar?: string;
-  size?: 'small' | 'large' | 'medium';
+  size?: 'small' | 'large';
   className?: string;
   dataAttributes?: Record<string, string | boolean | number>;
 }
@@ -238,7 +238,7 @@ export interface TFilterGroupDropdownContentProps extends IFormCompProps {
 export type TSelectWrapperProps = {
   hasError?: boolean;
   children: ReactElement;
-  size?: 'small' | 'large' | 'medium';
+  size?: 'small' | 'large';
   className?: string;
   dropdownWidth?: number;
   align?: 'left' | 'right';
