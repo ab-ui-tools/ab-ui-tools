@@ -8,15 +8,15 @@ import type { TItemValue, TSelectOptions } from '../../types/globalTypes';
 import { OPTIONS } from './constants';
 import { Text } from '../Text';
 import IconMore from '../SVGIcons/IconMore';
+import IconChevronUp from '../SVGIcons/IconChevronUp';
 import IconChevronRight from '../SVGIcons/IconChevronRight';
 import IconChevronLeft from '../SVGIcons/IconChevronLeft';
+import IconChevronDown from '../SVGIcons/IconChevronDown';
 import IconChevronDoubleRight from '../SVGIcons/IconChevronDoubleRight';
 import IconChevronDoubleLeft from '../SVGIcons/IconChevronDoubleLeft';
 import { Select } from '../Select';
 import { Input } from '../Input';
 import { Button } from '../Button';
-import IconChevronDown from "../SVGIcons/IconChevronDown";
-import IconChevronUp from "../SVGIcons/IconChevronUp";
 
 interface PaginationProps<T> {
   table: Table<T>;
@@ -92,8 +92,8 @@ export function AdvancedPagination<TData>({
         selectedItem={`${pageSize}`}
         className={'no-border'}
         options={pageSizeOptions}
-        selectRightIconProps={{Component: IconChevronDown, size: 'small'}}
-        selectRightIconOpenedProps={{Component: IconChevronUp, size: 'small'}}
+        selectRightIconProps={{ Component: IconChevronDown, size: 'small' }}
+        selectRightIconOpenedProps={{ Component: IconChevronUp, size: 'small' }}
       />
       <div className={'advanced-table__pagination__right'}>
         <Text type={'tertiary'}>
