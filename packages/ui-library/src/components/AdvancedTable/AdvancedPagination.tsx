@@ -28,24 +28,12 @@ interface PaginationProps<T> {
 export function AdvancedPagination<TData>({
   table,
   totalCount,
-  buttonText,
   pageSizeOptions = OPTIONS,
 }: PaginationProps<TData>) {
   const [navigatePage, setNavigatePage] = useState<string>('1');
 
   const pageIndex = table.getState().pagination.pageIndex;
   const pageSize = table.getState().pagination.pageSize;
-
-  const onNavigateToPage = (page: string) => {
-    if (!page || (/^[1-9]\d*$/.test(page) && table.getPageCount() >= Number(page))) {
-      setNavigatePage(page);
-    }
-  };
-
-  const onGoToPage = () => {
-    const page = navigatePage ? Number(navigatePage) - 1 : 0;
-    table.setPageIndex(page);
-  };
 
   const onRowCountChange = (value?: TItemValue) => {
     if (value) {
