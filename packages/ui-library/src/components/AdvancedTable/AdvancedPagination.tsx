@@ -21,11 +21,7 @@ interface PaginationProps<T> {
   pageSizeOptions?: TSelectOptions;
 }
 
-export function AdvancedPagination<TData>({
-  table,
-  totalCount,
-  pageSizeOptions = OPTIONS,
-}: PaginationProps<TData>) {
+export function AdvancedPagination<TData>({ table, totalCount, pageSizeOptions = OPTIONS }: PaginationProps<TData>) {
   const [navigatePage, setNavigatePage] = useState<string>('1');
 
   const pageIndex = table.getState().pagination.pageIndex;
