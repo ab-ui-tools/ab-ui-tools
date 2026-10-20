@@ -99,15 +99,7 @@ export function AdvancedPagination<TData>({
         <Text type={'tertiary'}>
           {pageIndex * pageSize + 1} - {(pageIndex + 1) * pageSize} / {totalCount}
         </Text>
-        <div className="flexbox align-items--center">
-          <Input
-            currentValue={navigatePage}
-            size="small"
-            onChange={e => onNavigateToPage(e.target.value)}
-            className="advanced-table__pagination__right__input mr-8"
-          />
-          <Button onClick={onGoToPage} type="secondary" size="medium" buttonText={buttonText ?? 'Go to page'} />
-        </div>
+
         <ul className="pagination">
           <li className={`previous ${!table.getCanPreviousPage() ? 'disabled' : ''}`}>
             <a rel={'prev'} role={'button'} onClick={() => table.previousPage()}>
