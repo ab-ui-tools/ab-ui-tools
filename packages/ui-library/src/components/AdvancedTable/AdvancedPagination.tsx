@@ -12,11 +12,7 @@ import IconChevronUp from '../SVGIcons/IconChevronUp';
 import IconChevronRight from '../SVGIcons/IconChevronRight';
 import IconChevronLeft from '../SVGIcons/IconChevronLeft';
 import IconChevronDown from '../SVGIcons/IconChevronDown';
-import IconChevronDoubleRight from '../SVGIcons/IconChevronDoubleRight';
-import IconChevronDoubleLeft from '../SVGIcons/IconChevronDoubleLeft';
 import { Select } from '../Select';
-import { Input } from '../Input';
-import { Button } from '../Button';
 
 interface PaginationProps<T> {
   table: Table<T>;
