@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.6...@ab.uitools/ui-library@1.38.7) (2026-10-21)
+
+### Bug Fixes
+
+- change spacing for select ([a718fd5](https://github.com/ab-ui-tools/ab-ui-tools/commit/a718fd5846abfa22b0c5f429d735085d8acd6490))
+- change spacing for select ([6695191](https://github.com/ab-ui-tools/ab-ui-tools/commit/66951916852fd27c54194cab9bbcc049fb302597))
+- fix ([db5233b](https://github.com/ab-ui-tools/ab-ui-tools/commit/db5233b171a76b95347eba34e249d3aef9a93e0c))
+- fix ([be00247](https://github.com/ab-ui-tools/ab-ui-tools/commit/be002471b50a3f98f0c03c877ba0933f81b367b1))
+- remove addition fields from pagination ([32d6384](https://github.com/ab-ui-tools/ab-ui-tools/commit/32d63847db4b90a9837c8e1635eb6295dfb18c32))
+- remove additional imports ([953f8c1](https://github.com/ab-ui-tools/ab-ui-tools/commit/953f8c185cae3066bacd03aa27bd79eb8a303aa0))
+- revert changes and made navigation input optional ([ed6b948](https://github.com/ab-ui-tools/ab-ui-tools/commit/ed6b9486b98141969a1fcbd50b94d683d81b7d5a))
+
 ## [1.38.6](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.5...@ab.uitools/ui-library@1.38.6) (2026-10-19)
 
 ### Bug Fixes
