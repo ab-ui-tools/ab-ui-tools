@@ -13,19 +13,39 @@ import IconChevronRight from '../SVGIcons/IconChevronRight';
 import IconChevronLeft from '../SVGIcons/IconChevronLeft';
 import IconChevronDown from '../SVGIcons/IconChevronDown';
 import { Select } from '../Select';
+import { Input } from '../Input';
+import { Button } from '../Button';
 
 interface PaginationProps<T> {
   table: Table<T>;
   totalCount: number;
   buttonText?: string;
+  showNavigationInput?: boolean;
   pageSizeOptions?: TSelectOptions;
 }
 
-export function AdvancedPagination<TData>({ table, totalCount, pageSizeOptions = OPTIONS }: PaginationProps<TData>) {
+export function AdvancedPagination<TData>({
+  table,
+  totalCount,
+  buttonText,
+  showNavigationInput,
+  pageSizeOptions = OPTIONS,
+}: PaginationProps<TData>) {
   const [navigatePage, setNavigatePage] = useState<string>('1');
 
   const pageIndex = table.getState().pagination.pageIndex;
   const pageSize = table.getState().pagination.pageSize;
+
+  const onNavigateToPage = (page: string) => {
+    if (!page || (/^[1-9]\d*$/.test(page) && table.getPageCount() >= Number(page))) {
+      setNavigatePage(page);
+    }
+  };
+
+  const onGoToPage = () => {
+    const page = navigatePage ? Number(navigatePage) - 1 : 0;
+    table.setPageIndex(page);
+  };
 
   const onRowCountChange = (value?: TItemValue) => {
     if (value) {
@@ -79,7 +99,17 @@ export function AdvancedPagination<TData>({ table, totalCount, pageSizeOptions =
         <Text type={'tertiary'}>
           {pageIndex * pageSize + 1} - {(pageIndex + 1) * pageSize} / {totalCount}
         </Text>
-
+        {showNavigationInput ? (
+          <div className="flexbox align-items--center">
+            <Input
+              currentValue={navigatePage}
+              size="small"
+              onChange={e => onNavigateToPage(e.target.value)}
+              className="advanced-table__pagination__right__input mr-8"
+            />
+            <Button onClick={onGoToPage} type="secondary" size="medium" buttonText={buttonText ?? 'Go to page'} />
+          </div>
+        ) : null}
         <ul className="pagination">
           <li className={`previous ${!table.getCanPreviousPage() ? 'disabled' : ''}`}>
             <a rel={'prev'} role={'button'} onClick={() => table.previousPage()}>
