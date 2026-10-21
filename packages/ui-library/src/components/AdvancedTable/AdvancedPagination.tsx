@@ -28,7 +28,7 @@ export function AdvancedPagination<TData>({
   table,
   totalCount,
   buttonText,
-  showNavigationInput,
+  showNavigationInput = true,
   pageSizeOptions = OPTIONS,
 }: PaginationProps<TData>) {
   const [navigatePage, setNavigatePage] = useState<string>('1');

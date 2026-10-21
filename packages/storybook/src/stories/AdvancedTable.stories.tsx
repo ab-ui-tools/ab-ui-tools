@@ -242,7 +242,7 @@ const Template: StoryFn<TTableProps<any>> = args => {
         )}
         renderFooter={table => (
           <div className="advanced-table__footer">
-            <AdvancedPagination table={table} totalCount={1000} showNavigationInput={true} />
+            <AdvancedPagination table={table} totalCount={1000} />
           </div>
         )}
         renderExpandedContent={row => {
