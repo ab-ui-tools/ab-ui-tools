@@ -83,4 +83,4 @@ export const MONTHS = [
   },
 ];
 
-export const DROPDOWN_AND_INPUT_GAP = 10;
+export const DROPDOWN_AND_INPUT_GAP = 4;
