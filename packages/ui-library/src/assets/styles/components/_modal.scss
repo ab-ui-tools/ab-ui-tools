@@ -197,12 +197,6 @@
   }
 
   &__icon {
-    @include mixin.flexbox;
-    @include mixin.align-items(center);
-    @include mixin.justify-content(center);
-    width: var(--ds-modal-icon-size);
-    height: var(--ds-modal-icon-size);
-    border-radius: var(--ds-modal-icon-border-radius);
     margin-left: auto;
     margin-right: auto;
   }
@@ -211,8 +205,12 @@
     #{$this}__footer {
       gap: var(--ds-space-16);
 
+      @include mixin.screen('phablet', max) {
+        @include mixin.flex-wrap(wrap-reverse);
+      }
+
       &__btn {
-        width: 100%;
+       min-width: calc(50% - var(--ds-space-8));
       }
 
       &-inline {
@@ -221,7 +219,6 @@
 
       &-block {
         @include mixin.flex-wrap(wrap-reverse);
-
       }
     }
 
