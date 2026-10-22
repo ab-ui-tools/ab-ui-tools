@@ -29,10 +29,6 @@
   --ds-modal-footer-border-width: var(--ds-border-thin);
   --ds-modal-footer-border-color: var(--ds-color-border-quintary);
 
-  --ds-modal-icon-size: var(--ds-size-48);
-  --ds-modal-icon-border-radius: var(--ds-border-radius-sm);
-
-
   --ds-modal-confirm-content-padding: var(--ds-space-32);
 
   @include mixin.screen('phablet', max) {
