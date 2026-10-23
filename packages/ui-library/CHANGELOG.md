@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.8](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.7...@ab.uitools/ui-library@1.38.8) (2026-10-23)
+
+### Bug Fixes
+
+- fix ([0ffc383](https://github.com/ab-ui-tools/ab-ui-tools/commit/0ffc383c1422f3ba5fb8c5611703f06ec7fc8d06))
+- ui fixes for modal responsiveness ([e90a546](https://github.com/ab-ui-tools/ab-ui-tools/commit/e90a546977ed4f077d876350ae217e7a57aaa107))
+
 ## [1.38.7](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.6...@ab.uitools/ui-library@1.38.7) (2026-10-21)
 
 ### Bug Fixes
