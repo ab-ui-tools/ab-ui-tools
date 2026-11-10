@@ -1,0 +1,176 @@
+@use "../helpers/mixin";
+
+.toaster {
+  $this: &;
+
+  //----------- component specific tokens -------------//
+  --ds-toaster-width: 450px;
+  --ds-toaster-z-index: 100000; // above dialogs (Modal is 99999) and their overlay
+  --ds-toaster-radius: var(--ds-border-radius-2xl);
+  --ds-toaster-peek-1: var(--grey-600);
+  --ds-toaster-peek-2: var(--ds-color-bg-grey-dark); // grey-400
+
+  --ds-toaster-motion: 200ms; // stack moves
+  --ds-toaster-enter: 200ms; // 16px slide + fade in
+  --ds-toaster-exit: 150ms; // 8px slide + fade out
+  --ds-toaster-enter-distance: 16px;
+  --ds-toaster-exit-distance: 8px;
+  //----------//
+
+  position: fixed;
+  z-index: var(--ds-toaster-z-index);
+  @include mixin.flexbox;
+  pointer-events: none;
+
+  // Bottom centre of the content area (offset left / right exclude the side nav).
+  &--bottom-center,
+  &--mobile {
+    left: var(--ds-toaster-left);
+    right: var(--ds-toaster-right);
+    bottom: calc(var(--ds-toaster-bottom) + env(safe-area-inset-bottom, 0px));
+    @include mixin.justify-content(center);
+  }
+
+  // Top right, under the top navigation.
+  &--top-right {
+    top: var(--ds-toaster-top);
+    right: var(--ds-toaster-right);
+
+    #{$this}__stack {
+      max-width: calc(100vw - var(--ds-toaster-right) * 2);
+    }
+  }
+
+  // Mobile: 16px from the sides, above the tab bar / sticky button / safe area.
+  &--mobile {
+    --ds-toaster-width: 600px;
+    --ds-toaster-enter: 250ms;
+  }
+
+  &__stack {
+    position: relative;
+    width: var(--ds-toaster-width);
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    pointer-events: auto;
+    transition: height var(--ds-toaster-motion) ease-in-out;
+
+    &--expanded #{$this}__item {
+      height: auto;
+    }
+  }
+
+  &__item {
+    position: absolute;
+    left: var(--ds-toast-item-inset);
+    right: var(--ds-toast-item-inset);
+    border-radius: var(--ds-toaster-radius);
+    transform: translate3d(var(--ds-toast-item-x), var(--ds-toast-item-y), 0);
+    transition:
+      transform var(--ds-toaster-motion) ease-in-out,
+      left var(--ds-toaster-motion) ease-in-out,
+      right var(--ds-toaster-motion) ease-in-out,
+      height var(--ds-toaster-motion) ease-in-out,
+      background-color var(--ds-toaster-motion) ease-in-out,
+      opacity var(--ds-toaster-motion) ease-in-out,
+      translate var(--ds-toaster-exit) ease-in;
+    touch-action: pan-y;
+    outline: none;
+
+    &--bottom {
+      bottom: 0;
+      animation: ds-toaster-enter-bottom var(--ds-toaster-enter) ease-out;
+    }
+
+    &--top {
+      top: 0;
+      animation: ds-toaster-enter-top var(--ds-toaster-enter) ease-out;
+    }
+
+    // Older toasts peek 8px behind the front one; only the front is clickable.
+    &--behind {
+      overflow: hidden;
+      pointer-events: none;
+
+      #{$this}__inner {
+        opacity: 0;
+      }
+    }
+
+    &--depth-1 {
+      background-color: var(--ds-toaster-peek-1);
+    }
+
+    &--depth-2 {
+      background-color: var(--ds-toaster-peek-2);
+    }
+
+    &--hidden {
+      opacity: 0;
+    }
+
+    &--exiting {
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        opacity var(--ds-toaster-exit) ease-in,
+        translate var(--ds-toaster-exit) ease-in;
+    }
+
+    &--bottom#{&}--exiting {
+      translate: 0 var(--ds-toaster-exit-distance);
+    }
+
+    &--top#{&}--exiting {
+      translate: 0 calc(var(--ds-toaster-exit-distance) * -1);
+    }
+
+    &--swiping {
+      transition: none;
+    }
+  }
+
+  &__inner {
+    transition: opacity var(--ds-toaster-motion) ease-in-out;
+  }
+}
+
+@include mixin.keyframes(ds-toaster-enter-bottom) {
+  from {
+    opacity: 0;
+    translate: 0 var(--ds-toaster-enter-distance);
+  }
+}
+
+@include mixin.keyframes(ds-toaster-enter-top) {
+  from {
+    opacity: 0;
+    translate: 0 calc(var(--ds-toaster-enter-distance) * -1);
+  }
+}
+
+@include mixin.keyframes(ds-toaster-fade-in) {
+  from {
+    opacity: 0;
+  }
+}
+
+// Reduced motion: fade only, 150 ms.
+@media (prefers-reduced-motion: reduce) {
+  .toaster__stack,
+  .toaster__item,
+  .toaster__inner {
+    transition: opacity 150ms linear;
+  }
+
+  .toaster__item--bottom,
+  .toaster__item--top {
+    animation: ds-toaster-fade-in 150ms linear;
+  }
+
+  .toaster__item--exiting {
+    translate: none !important;
+  }
+}
