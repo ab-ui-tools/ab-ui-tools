@@ -5,11 +5,9 @@ import { Text } from '../../Text';
 
 type TToastLabelProps = {
   title?: ReactNode;
-  /** Seconds left (Pending action), shown after a dot as mm:ss. */
   countdown?: number;
 };
 
-/** Title 16/24 SemiBold, optionally followed by the Pending action countdown. */
 export const ToastLabel = ({ title, countdown }: TToastLabelProps): ReactElement | null => {
   if (!title && countdown === undefined) {
     return null;
