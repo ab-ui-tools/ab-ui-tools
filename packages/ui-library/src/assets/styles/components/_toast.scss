@@ -1,0 +1,187 @@
+@use "../helpers/mixin";
+.toast {
+  $this: &;
+
+  //----------- component specific tokens -------------//
+  --ds-toast-bg: var(--ds-color-bg-grey-extra-darker);
+  --ds-toast-text: var(--grey-50); // Figma: #ECECEC (text-inverse is #FEFEFE)
+  --ds-toast-radius: var(--ds-border-radius-2xl);
+  --ds-toast-max-width: 720px;
+  --ds-toast-padding-inline: var(--ds-space-2);
+
+  --ds-toast-icon-size: var(--ds-size-24);
+  --ds-toast-icon-padding: var(--ds-space-14) 0 var(--ds-space-14) var(--ds-space-12);
+  --ds-toast-body-padding: var(--ds-space-14) var(--ds-space-12);
+  --ds-toast-body-gap: var(--ds-space-4);
+  --ds-toast-label-gap: var(--ds-space-6);
+  --ds-toast-actions-padding: var(--ds-space-10) var(--ds-space-10) var(--ds-space-10) 0;
+  --ds-toast-actions-gap: var(--ds-space-8);
+  --ds-toast-close-padding: var(--ds-space-14) var(--ds-space-12) var(--ds-space-14) 0;
+
+  --ds-toast-close-color: var(--ds-color-bg-grey); // grey-300
+  --ds-toast-close-bg-hover: rgba(255, 255, 255, 0.08);
+  --ds-toast-progress-bg: var(--ds-color-icon-secondary); // grey-700
+  --ds-toast-dot: var(--ds-color-icon-secondary);
+
+  --ds-toast-icon-success: var(--brand-500);
+  --ds-toast-icon-error: var(--red-500);
+  --ds-toast-icon-warning: var(--yellow-500);
+  --ds-toast-icon-info: var(--ds-color-bg-container-darker); // grey-200
+  --ds-toast-icon-info-blue: var(--blue-500);
+  --ds-toast-icon-wifi-off: var(--yellow-500);
+  --ds-toast-icon-wifi-on: var(--brand-500);
+  //----------//
+
+  position: relative;
+  @include mixin.flexbox;
+  @include mixin.flex-direction(column);
+  width: 100%;
+  max-width: var(--ds-toast-max-width);
+  padding: 0 var(--ds-toast-padding-inline);
+  border-radius: var(--ds-toast-radius);
+  background-color: var(--ds-toast-bg);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: var(--ds-font-family);
+
+  &__progress {
+    position: absolute;
+    inset: 0;
+    background-color: var(--ds-toast-progress-bg);
+    transform-origin: left center;
+    transition: transform 200ms linear;
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    @include mixin.flexbox;
+    @include mixin.align-items(flex-start);
+    width: 100%;
+  }
+
+  &__icon {
+    @include mixin.flexbox;
+    @include mixin.flex-shrink(0);
+    padding: var(--ds-toast-icon-padding);
+
+    .svg-icon {
+      font-size: var(--ds-toast-icon-size);
+      min-width: var(--ds-toast-icon-size);
+    }
+
+    // Loading: the shared Spinner (small, inverse) without its page-level wrapper spacing.
+    .spinner-wrapper {
+      width: auto;
+      height: auto;
+      padding: 0;
+    }
+  }
+
+  &__body {
+    @include mixin.flexbox;
+    @include mixin.flex-direction(column);
+    flex: 1;
+    min-width: 0;
+    gap: var(--ds-toast-body-gap);
+    padding: var(--ds-toast-body-padding);
+  }
+
+  &__label {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.flex-wrap(wrap);
+    gap: var(--ds-toast-label-gap);
+  }
+
+  // Title 16/24 SemiBold, description 14/20 Regular — never cut with "…".
+  #{$this}__title,
+  #{$this}__description {
+    margin: 0;
+    color: var(--ds-toast-text);
+    word-break: break-word;
+  }
+
+  &__description {
+    padding: var(--ds-space-2) 0;
+  }
+
+  &__countdown {
+    @include mixin.inline-flex;
+    @include mixin.align-items(center);
+    gap: var(--ds-toast-label-gap);
+  }
+
+  &__dot {
+    width: var(--ds-size-4);
+    height: var(--ds-size-4);
+    border-radius: var(--ds-border-radius-full);
+    background-color: var(--ds-toast-dot);
+  }
+
+  &__actions {
+    position: relative;
+    @include mixin.flexbox;
+    @include mixin.flex-shrink(0);
+    gap: var(--ds-toast-actions-gap);
+    padding: var(--ds-toast-actions-padding);
+  }
+
+  &__close {
+    @include mixin.flexbox;
+    @include mixin.flex-shrink(0);
+    padding: var(--ds-toast-close-padding);
+  }
+
+  &__close-button {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(center);
+    padding: var(--ds-space-2);
+    border: 0;
+    border-radius: var(--ds-border-radius-md);
+    background: transparent;
+    color: var(--ds-toast-close-color);
+    cursor: pointer;
+
+    .svg-icon path[fill] {
+      fill: var(--ds-toast-close-color);
+    }
+
+    &:hover {
+      background-color: var(--ds-toast-close-bg-hover);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--ds-toast-text);
+      outline-offset: 0;
+    }
+  }
+
+  // States: icon colour.
+  @each $state in (success, error, warning, info, info-blue, wifi-off, wifi-on) {
+    &--#{$state} #{$this}__icon {
+      color: var(--ds-toast-icon-#{$state});
+
+      path[fill] {
+        fill: var(--ds-toast-icon-#{$state});
+      }
+    }
+  }
+
+  // Mobile: buttons are full width under the text, max 2.
+  &--mobile {
+    --ds-toast-max-width: 600px;
+    --ds-toast-actions-padding: 0 var(--ds-space-12) var(--ds-space-14);
+
+    #{$this}__actions {
+      @include mixin.flex-direction(column);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    #{$this}__button {
+      width: 100%;
+    }
+  }
+}

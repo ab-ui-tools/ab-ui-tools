@@ -49,6 +49,7 @@ export * from './components/Tab';
 export * from './components/Table';
 export * from './components/Text';
 export * from './components/Textarea';
+export * from './components/Toast';
 export * from './components/Tooltip';
 export * from './components/SVGIcons';
 export * from './components/SVGIcons/Flags';
