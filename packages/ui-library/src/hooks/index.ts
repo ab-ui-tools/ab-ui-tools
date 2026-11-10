@@ -15,3 +15,6 @@ export * from './useFieldArray';
 export * from './useTabScroll';
 export * from './useRecalculateDropdownPosition';
 export * from './useGetMenuStyles';
+export * from './useDocumentHidden';
+export * from './useElementHeight';
+export * from './useInert';
