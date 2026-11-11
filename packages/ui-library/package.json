@@ -114,7 +114,7 @@
     "react-select": "^5.10.2",
     "react-syntax-highlighter": "^15.5.0",
     "react-table": "^7.8.0",
-    "react-toastify": "10.0.5",
+    "react-toastify": "11.2.0",
     "sass": "^1.99.0",
     "storybook-design-token": "^2.8.2"
   },
