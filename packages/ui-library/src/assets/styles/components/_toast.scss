@@ -1,0 +1,249 @@
+@use "../helpers/mixin";
+
+.Toastify {
+  --ds-toast-bg: var(--ds-color-bg-grey-extra-darker);
+  --ds-toast-text: var(--grey-50);
+  --ds-toast-radius: var(--ds-border-radius-2xl);
+  --ds-toast-gap: var(--ds-space-12);
+  --ds-toast-peek: 8px;
+  --ds-toast-peek-inset: var(--ds-space-16);
+  --ds-toast-peek-1: var(--grey-600);
+  --ds-toast-peek-2: var(--ds-color-bg-grey-dark);
+  --ds-toast-motion: 200ms;
+
+  --toastify-z-index: 100000;
+  --toastify-toast-width: 450px;
+  --toastify-toast-min-height: 0;
+  --toastify-toast-padding: 0;
+  --toastify-toast-bd-radius: var(--ds-toast-radius);
+  --toastify-toast-shadow: none;
+  --toastify-font-family: var(--ds-font-family);
+  --toastify-color-light: var(--ds-toast-bg);
+  --toastify-toast-top: max(12px, env(safe-area-inset-top));
+  --toastify-toast-right: max(12px, env(safe-area-inset-right));
+  --toastify-toast-bottom: max(32px, env(safe-area-inset-bottom));
+
+  .Toastify__toast.toast-item {
+    @include mixin.align-items(stretch);
+    margin-bottom: var(--ds-toast-gap);
+    background-color: var(--ds-toast-bg);
+    overflow: hidden;
+    cursor: default;
+  }
+
+  .toast-wrapper[data-stacked='true'] .Toastify__toast--stacked {
+    margin-bottom: 0;
+    transition:
+      transform var(--ds-toast-motion) ease-in-out,
+      left var(--ds-toast-motion) ease-in-out,
+      right var(--ds-toast-motion) ease-in-out,
+      background-color var(--ds-toast-motion) ease-in-out,
+      opacity var(--ds-toast-motion) ease-in-out;
+
+    &[data-collapsed='true'] {
+      --ds-toast-depth: 1;
+      left: calc(var(--ds-toast-depth) * var(--ds-toast-peek-inset));
+      right: calc(var(--ds-toast-depth) * var(--ds-toast-peek-inset));
+      width: auto;
+      height: var(--ds-toast-front-height, auto);
+      background-color: var(--ds-toast-peek-1);
+      pointer-events: none;
+
+      > * {
+        visibility: hidden;
+      }
+
+      &[data-pos='bot'] {
+        transform: translate3d(0, calc(var(--ds-toast-depth) * var(--ds-toast-peek) * -1), 0);
+      }
+
+      &[data-pos='top'] {
+        transform: translate3d(0, calc(var(--ds-toast-depth) * var(--ds-toast-peek)), 0);
+      }
+
+      &:nth-last-child(n + 3) {
+        --ds-toast-depth: 2;
+        background-color: var(--ds-toast-peek-2);
+      }
+
+      &:nth-last-child(n + 4) {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Toastify {
+    --toastify-toast-width: 100%;
+
+    .toast-wrapper.Toastify__toast-container {
+      left: max(var(--ds-space-16), env(safe-area-inset-left));
+      right: max(var(--ds-space-16), env(safe-area-inset-right));
+      bottom: max(var(--ds-space-16), env(safe-area-inset-bottom));
+      width: auto;
+      max-width: 600px;
+      margin: 0 auto;
+      transform: none;
+    }
+
+    .Toastify__toast.toast-item {
+      border-radius: var(--ds-toast-radius);
+    }
+  }
+}
+
+.toast {
+  $this: &;
+
+  --ds-toast-icon-size: var(--ds-size-24);
+  --ds-toast-close-color: var(--ds-color-bg-grey);
+  --ds-toast-close-bg-hover: rgba(255, 255, 255, 0.08);
+  --ds-toast-progress-bg: var(--ds-color-icon-secondary);
+  --ds-toast-actions-padding: var(--ds-space-10) var(--ds-space-10) var(--ds-space-10) 0;
+
+  --ds-toast-icon-success: var(--brand-500);
+  --ds-toast-icon-error: var(--red-500);
+  --ds-toast-icon-warning: var(--yellow-500);
+  --ds-toast-icon-information: var(--ds-color-bg-container-darker);
+  --ds-toast-icon-information-blue: var(--blue-500);
+  --ds-toast-icon-offline: var(--yellow-500);
+  --ds-toast-icon-online: var(--brand-500);
+
+  position: relative;
+  @include mixin.flexbox;
+  @include mixin.flex-direction(column);
+  width: 100%;
+  padding: 0 var(--ds-space-2);
+  box-sizing: border-box;
+  font-family: var(--ds-font-family);
+
+  &__progress {
+    position: absolute;
+    inset: 0;
+    background-color: var(--ds-toast-progress-bg);
+    transform-origin: left center;
+    transition: transform 200ms linear;
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    @include mixin.flexbox;
+    @include mixin.align-items(flex-start);
+    width: 100%;
+  }
+
+  &__icon {
+    @include mixin.flexbox;
+    @include mixin.flex-shrink(0);
+    padding: var(--ds-space-14) 0 var(--ds-space-14) var(--ds-space-12);
+
+    .svg-icon {
+      font-size: var(--ds-toast-icon-size);
+      min-width: var(--ds-toast-icon-size);
+    }
+
+    .spinner-wrapper {
+      width: auto;
+      height: auto;
+      padding: 0;
+    }
+  }
+
+  &__body {
+    @include mixin.flexbox;
+    @include mixin.flex-direction(column);
+    flex: 1;
+    min-width: 0;
+    gap: var(--ds-space-4);
+    padding: var(--ds-space-14) var(--ds-space-12);
+  }
+
+  &__label,
+  &__countdown {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    gap: var(--ds-space-6);
+  }
+
+  &__label {
+    @include mixin.flex-wrap(wrap);
+  }
+
+  #{$this}__title,
+  #{$this}__text {
+    margin: 0;
+    color: var(--ds-toast-text);
+    word-break: break-word;
+  }
+
+  &__text {
+    padding: var(--ds-space-2) 0;
+  }
+
+  &__dot {
+    width: var(--ds-size-4);
+    height: var(--ds-size-4);
+    border-radius: var(--ds-border-radius-full);
+    background-color: var(--ds-toast-progress-bg);
+  }
+
+  &__actions {
+    position: relative;
+    @include mixin.flexbox;
+    @include mixin.flex-shrink(0);
+    gap: var(--ds-space-8);
+    padding: var(--ds-toast-actions-padding);
+  }
+
+  &__close {
+    @include mixin.flexbox;
+    @include mixin.flex-shrink(0);
+    padding: var(--ds-space-14) var(--ds-space-12) var(--ds-space-14) 0;
+  }
+
+  &__close-button {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(center);
+    padding: var(--ds-space-2);
+    border: 0;
+    border-radius: var(--ds-border-radius-md);
+    background: transparent;
+    cursor: pointer;
+
+    .svg-icon path[fill] {
+      fill: var(--ds-toast-close-color);
+    }
+
+    &:hover {
+      background-color: var(--ds-toast-close-bg-hover);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--ds-toast-text);
+      outline-offset: 0;
+    }
+  }
+
+  @each $type in (success, error, warning, information, information-blue, offline, online) {
+    &--#{$type} #{$this}__icon path[fill] {
+      fill: var(--ds-toast-icon-#{$type});
+    }
+  }
+
+  &--mobile {
+    --ds-toast-actions-padding: 0 var(--ds-space-12) var(--ds-space-14);
+
+    #{$this}__actions {
+      @include mixin.flex-direction(column);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    #{$this}__button {
+      width: 100%;
+    }
+  }
+}
