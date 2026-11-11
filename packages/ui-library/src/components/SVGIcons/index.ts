@@ -552,6 +552,7 @@ export * from './IconWalletFilled';
 export * from './IconWarning';
 export * from './IconWarningFilled';
 export * from './IconWhatsapp';
+export * from './IconWifi';
 export * from './IconWifiOff';
 export * from './IconWrenchScrewdriver';
 export * from './IconWrenchScrewdriverFilled';
