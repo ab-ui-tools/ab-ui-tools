@@ -27,7 +27,6 @@
     @include mixin.align-items(stretch);
     margin-bottom: var(--ds-toast-gap);
     background-color: var(--ds-toast-bg);
-    overflow: hidden;
     cursor: default;
   }
 
@@ -46,6 +45,7 @@
       right: calc(var(--ds-toast-depth) * var(--ds-toast-peek-inset));
       width: auto;
       height: var(--ds-toast-front-height, auto);
+      overflow: hidden;
       background-color: var(--ds-toast-peek-1);
       pointer-events: none;
 
@@ -114,6 +114,8 @@
   @include mixin.flexbox;
   @include mixin.flex-direction(column);
   width: 100%;
+  border-radius: inherit;
+  overflow: hidden;
   padding: 0 var(--ds-space-2);
   box-sizing: border-box;
   font-family: var(--ds-font-family);
