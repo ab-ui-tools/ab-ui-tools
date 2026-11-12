@@ -4,18 +4,6 @@ import type { TToastContainerProps } from '@ab.uitools/ui-library/components/Toa
 import { Toast as _Toast, notify } from '@ab.uitools/ui-library/components/Toast';
 import { Button } from '@ab.uitools/ui-library/components/Button';
 
-export default {
-  title: 'Toast',
-  component: _Toast,
-  argTypes: {
-    position: {
-      options: ['bottom-center', 'top-right'],
-      control: { type: 'radio' },
-    },
-    stacked: { control: { type: 'boolean' } },
-  },
-};
-
 const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 const cases: { label: string; run: () => void }[] = [
@@ -83,21 +71,43 @@ const cases: { label: string; run: () => void }[] = [
         actionProps: { buttonText: 'close' },
       }),
   },
-  { label: 'Dismiss all', run: () => notify.dismiss() },
 ];
 
-const Template: StoryFn<TToastContainerProps> = args => (
-  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-    {cases.map(({ label, run }) => (
-      <Button key={label} type="secondary" size="small" buttonText={label} onClick={run} />
-    ))}
-    <_Toast {...args} />
-  </div>
-);
+export default {
+  title: 'Toast',
+  component: _Toast,
+  argTypes: {
+    position: {
+      options: ['bottom-center', 'top-right'],
+      control: { type: 'radio' },
+    },
+    stacked: { control: { type: 'boolean' } },
+    scenario: {
+      name: 'case',
+      options: cases.map(({ label }) => label),
+      control: { type: 'select' },
+    },
+  },
+};
+
+type TToastStoryArgs = TToastContainerProps & { scenario: string };
+
+const Template: StoryFn<TToastStoryArgs> = ({ scenario, ...args }) => {
+  const showToast = () => cases.find(({ label }) => label === scenario)?.run();
+
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+      <Button type="primary" size="small" buttonText="Show toast" onClick={showToast} />
+      <Button type="secondary" size="small" buttonText="Dismiss all" onClick={() => notify.dismiss()} />
+      <_Toast {...args} />
+    </div>
+  );
+};
 
 export const Toast = Template.bind({});
 
 Toast.args = {
+  scenario: cases[0].label,
   position: 'bottom-center',
   stacked: true,
 };
