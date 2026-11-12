@@ -1,10 +1,29 @@
 import type { StoryFn } from '@storybook/react';
-import type { TToastContainerProps } from '@ab.uitools/ui-library/components/Toast';
+import type { TToastContainerProps, TToastTypes } from '@ab.uitools/ui-library/components/Toast';
 
-import { Toast as _Toast, notify } from '@ab.uitools/ui-library/components/Toast';
+import { useCallback, useEffect } from 'react';
+import { Toast as _Toast, notify, TOAST_TYPE } from '@ab.uitools/ui-library/components/Toast';
 import { Button } from '@ab.uitools/ui-library/components/Button';
 
+const CUSTOM_TOAST_ID = 'toast-story';
+
 const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const RANDOM_TOASTS: { type: TToastTypes; text: string; title?: string }[] = [
+  { type: TOAST_TYPE.SUCCESS, text: 'Template saved' },
+  { type: TOAST_TYPE.SUCCESS, text: 'Your transfer was sent to John Smith.', title: 'Transfer sent' },
+  { type: TOAST_TYPE.ERROR, text: 'Changes weren’t saved. Try again.' },
+  { type: TOAST_TYPE.WARNING, text: '3 of 12 transfers failed.' },
+  { type: TOAST_TYPE.INFORMATION, text: 'Account details copied' },
+  { type: TOAST_TYPE.INFORMATION_BLUE, text: 'We’re preparing your statement.', title: 'Statement' },
+];
+
+let randomCount = 0;
+
+const showRandomToast = () => {
+  const props = RANDOM_TOASTS[Math.floor(Math.random() * RANDOM_TOASTS.length)];
+  notify({ ...props, toastId: `toast-random-${++randomCount}` });
+};
 
 const cases: { label: string; run: () => void }[] = [
   { label: 'Success', run: () => notify.success('Template saved') },
@@ -71,6 +90,15 @@ const cases: { label: string; run: () => void }[] = [
         actionProps: { buttonText: 'close' },
       }),
   },
+  {
+    label: 'Multiple random toasts',
+    run: async () => {
+      for (let i = 0; i < 3; i++) {
+        showRandomToast();
+        await wait(400);
+      }
+    },
+  },
 ];
 
 export default {
@@ -81,33 +109,89 @@ export default {
       options: ['bottom-center', 'top-right'],
       control: { type: 'radio' },
     },
-    stacked: { control: { type: 'boolean' } },
-    scenario: {
-      name: 'case',
-      options: cases.map(({ label }) => label),
-      control: { type: 'select' },
-    },
+    stacked: { table: { disable: true } },
   },
 };
 
-type TToastStoryArgs = TToastContainerProps & { scenario: string };
+type TToastStoryArgs = TToastContainerProps & {
+  type: TToastTypes;
+  title: string;
+  text: string;
+  buttonText: string;
+  closable: boolean;
+  duration?: number;
+};
 
-const Template: StoryFn<TToastStoryArgs> = ({ scenario, ...args }) => {
-  const showToast = () => cases.find(({ label }) => label === scenario)?.run();
+const ToastStory = ({ type, title, text, buttonText, closable, duration, ...args }: TToastStoryArgs) => {
+  const showToast = useCallback(() => {
+    notify({
+      toastId: CUSTOM_TOAST_ID,
+      type,
+      text,
+      title: title || undefined,
+      closable,
+      duration,
+      actions: buttonText ? [{ buttonText, onClick: () => undefined }] : undefined,
+    });
+  }, [type, title, text, buttonText, closable, duration]);
+
+  useEffect(showToast, [showToast]);
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+    <div>
       <Button type="primary" size="small" buttonText="Show toast" onClick={showToast} />
-      <Button type="secondary" size="small" buttonText="Dismiss all" onClick={() => notify.dismiss()} />
       <_Toast {...args} />
     </div>
   );
 };
 
-export const Toast = Template.bind({});
+export const Toast: StoryFn<TToastStoryArgs> = args => <ToastStory {...args} />;
+
+Toast.argTypes = {
+  type: {
+    options: Object.values(TOAST_TYPE),
+    control: { type: 'select' },
+  },
+  title: { control: { type: 'text' } },
+  text: { control: { type: 'text' } },
+  buttonText: { name: 'button', control: { type: 'text' } },
+  closable: { name: 'close', control: { type: 'boolean' } },
+  duration: { control: { type: 'number' } },
+};
 
 Toast.args = {
+  type: TOAST_TYPE.SUCCESS,
+  title: '',
+  text: 'Template saved',
+  buttonText: '',
+  closable: true,
+  position: 'bottom-center',
+};
+
+type TBehaviorArgs = TToastContainerProps & { scenario: string };
+
+export const Behavior: StoryFn<TBehaviorArgs> = ({ scenario, ...args }) => (
+  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+    <Button
+      type="primary"
+      size="small"
+      buttonText="Show toast"
+      onClick={() => cases.find(({ label }) => label === scenario)?.run()}
+    />
+    <Button type="secondary" size="small" buttonText="Dismiss all" onClick={() => notify.dismiss()} />
+    <_Toast {...args} />
+  </div>
+);
+
+Behavior.argTypes = {
+  scenario: {
+    name: 'behavior',
+    options: cases.map(({ label }) => label),
+    control: { type: 'select' },
+  },
+};
+
+Behavior.args = {
   scenario: cases[0].label,
   position: 'bottom-center',
-  stacked: true,
 };
