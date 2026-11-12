@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import type { TToastContainerProps } from './types';
 
-import { useResetWhenEmpty, useStackFront } from './hooks';
+import { useResetWhenEmpty, useStackLayout } from './hooks';
 import { TOAST_SWIPE_PERCENT } from './consts';
 import { useScreenSize } from '../../hooks';
 
@@ -20,7 +20,7 @@ export const Toast = ({
   const isMobile = useScreenSize() === 'small';
   const resetKey = useResetWhenEmpty();
 
-  useStackFront(rootRef, stacked);
+  useStackLayout(rootRef, stacked);
 
   return (
     <div ref={rootRef} className="toast-root">

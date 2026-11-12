@@ -2,11 +2,21 @@ import type { RefObject } from 'react';
 
 import { useEffect } from 'react';
 
-import { TOAST_FRONT_HEIGHT_VAR } from '../consts';
+import { TOAST_FRONT_HEIGHT_VAR, TOAST_STACK_GAP } from '../consts';
 
 const ACTIVE_TOAST_SELECTOR = '.Toastify__toast[data-in="true"]';
 
-export const useStackFront = (rootRef: RefObject<HTMLElement | null>, enabled: boolean): void => {
+const placeExpandedToasts = (toasts: HTMLElement[]) => {
+  let offset = 0;
+
+  [...toasts].reverse().forEach((toast, index) => {
+    const direction = toast.dataset.pos === 'top' ? 1 : -1;
+    toast.style.setProperty('--y', `${direction * (offset + index * TOAST_STACK_GAP)}px`);
+    offset += toast.offsetHeight;
+  });
+};
+
+export const useStackLayout = (rootRef: RefObject<HTMLElement | null>, enabled: boolean): void => {
   useEffect(() => {
     const root = rootRef.current;
     if (!enabled || !root) {
@@ -14,7 +24,7 @@ export const useStackFront = (rootRef: RefObject<HTMLElement | null>, enabled: b
     }
 
     const sync = () => {
-      const toasts = root.querySelectorAll<HTMLElement>(ACTIVE_TOAST_SELECTOR);
+      const toasts = Array.from(root.querySelectorAll<HTMLElement>(ACTIVE_TOAST_SELECTOR));
       const front = toasts[toasts.length - 1];
 
       if (!front) {
@@ -23,6 +33,10 @@ export const useStackFront = (rootRef: RefObject<HTMLElement | null>, enabled: b
       }
       front.removeAttribute('data-collapsed');
       root.style.setProperty(TOAST_FRONT_HEIGHT_VAR, `${front.offsetHeight}px`);
+
+      if (toasts.some(toast => toast.dataset.collapsed === 'false')) {
+        placeExpandedToasts(toasts);
+      }
     };
 
     const observer = new MutationObserver(sync);

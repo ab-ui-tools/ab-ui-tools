@@ -20,7 +20,7 @@ const getToastOptions = (id: TToastId, props: TToastProps, autoClose: number | f
     customProgressBar: isPending,
     draggable: isPending ? false : 'touch',
     role: type === TOAST_TYPE.ERROR ? 'alert' : 'status',
-    className: `toast-item toast-item--${type}`,
+    className: 'toast-item',
     onClose: () => {
       removeToast(id);
       closeSnackbar?.(id);

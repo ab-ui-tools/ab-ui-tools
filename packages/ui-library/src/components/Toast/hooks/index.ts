@@ -1,3 +1,3 @@
 export * from './useCountdown';
-export * from './useStackFront';
+export * from './useStackLayout';
 export * from './useResetWhenEmpty';

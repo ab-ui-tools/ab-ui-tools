@@ -36,3 +36,5 @@ export const TOAST_CLOSE_LABEL = 'Close notification';
 export const TOAST_FRONT_HEIGHT_VAR = '--ds-toast-front-height';
 
 export const TOAST_RESET_DELAY = 600;
+
+export const TOAST_STACK_GAP = 12;
