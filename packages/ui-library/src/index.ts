@@ -40,7 +40,7 @@ export * from './components/Select';
 export * from './components/ReactSelect';
 export * from './components/SideNavigation';
 export * from './components/SideSheet';
-export * from './components/Snackbar';
+export * from './components/Toast';
 export * from './components/Spinner';
 export * from './components/Status';
 export * from './components/Stepper';
