@@ -9,17 +9,15 @@ type TToastLabelProps = {
 };
 
 export const ToastLabel = ({ title, remaining }: TToastLabelProps): ReactElement | null => {
-  if (!title && remaining === undefined) {
+  if (!title) {
     return null;
   }
 
   return (
     <div className="toast__label">
-      {title ? (
-        <Text as="span" className="toast__title" size="medium" weight="bold" type="inverse">
-          {title}
-        </Text>
-      ) : null}
+      <Text as="span" className="toast__title" size="medium" weight="bold" type="inverse">
+        {title}
+      </Text>
       {remaining !== undefined ? (
         <span className="toast__countdown">
           <span className="toast__dot" aria-hidden="true" />
