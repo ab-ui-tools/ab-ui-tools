@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.39.0-beta.1](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.39.0-beta.0...@ab.uitools/ui-library@1.39.0-beta.1) (2026-11-17)
+
+### Bug Fixes
+
+- **toast:** hide pending countdown when the toast has no title ([8e68c2f](https://github.com/ab-ui-tools/ab-ui-tools/commit/8e68c2fd2d3b8da955940540724827e6d6a74129))
+- **toast:** keep stack layout per position and during animations ([fa29c7d](https://github.com/ab-ui-tools/ab-ui-tools/commit/fa29c7d2b4283200843891e9de30a17908e8f5fa))
+- **toast:** show a toast again right after the same one closes ([1f874fd](https://github.com/ab-ui-tools/ab-ui-tools/commit/1f874fd08bd3ed5c047ab641c416185d46195082))
+
 # [1.39.0-beta.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.8...@ab.uitools/ui-library@1.39.0-beta.0) (2026-11-12)
 
 ### Bug Fixes
