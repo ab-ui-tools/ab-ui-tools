@@ -5,7 +5,6 @@
   --ds-toast-text: var(--grey-50);
   --ds-toast-radius: var(--ds-border-radius-2xl);
   --ds-toast-gap: var(--ds-space-12);
-  --ds-toast-peek: 8px;
   --ds-toast-peek-inset: var(--ds-space-16);
   --ds-toast-peek-1: var(--grey-600);
   --ds-toast-peek-2: var(--ds-color-bg-grey-dark);
@@ -47,18 +46,15 @@
       height: var(--ds-toast-front-height, auto);
       overflow: hidden;
       background-color: var(--ds-toast-peek-1);
+      transform: translate3d(0, var(--y), 0);
       pointer-events: none;
 
       > * {
         visibility: hidden;
       }
 
-      &[data-pos='bot'] {
-        transform: translate3d(0, calc(var(--ds-toast-depth) * var(--ds-toast-peek) * -1), 0);
-      }
-
-      &[data-pos='top'] {
-        transform: translate3d(0, calc(var(--ds-toast-depth) * var(--ds-toast-peek)), 0);
+      &[data-in='false'] {
+        animation-name: ds-toast-fade-out;
       }
 
       &:nth-last-child(n + 3) {
@@ -70,6 +66,13 @@
         opacity: 0;
       }
     }
+  }
+}
+
+@keyframes ds-toast-fade-out {
+  to {
+    opacity: 0;
+    transform: translate3d(0, var(--y), 0);
   }
 }
 

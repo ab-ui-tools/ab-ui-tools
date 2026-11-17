@@ -38,3 +38,7 @@ export const TOAST_FRONT_HEIGHT_VAR = '--ds-toast-front-height';
 export const TOAST_RESET_DELAY = 600;
 
 export const TOAST_STACK_GAP = 12;
+
+export const TOAST_STACK_PEEK = 8;
+
+export const TOAST_STACK_MAX_DEPTH = 2;
