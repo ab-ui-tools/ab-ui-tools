@@ -18,12 +18,7 @@ const RANDOM_TOASTS: { type: TToastTypes; text: string; title?: string }[] = [
   { type: TOAST_TYPE.INFORMATION_BLUE, text: 'We’re preparing your statement.', title: 'Statement' },
 ];
 
-let randomCount = 0;
-
-const showRandomToast = () => {
-  const props = RANDOM_TOASTS[Math.floor(Math.random() * RANDOM_TOASTS.length)];
-  notify({ ...props, toastId: `toast-random-${++randomCount}` });
-};
+const pickRandomToasts = (count: number) => [...RANDOM_TOASTS].sort(() => Math.random() - 0.5).slice(0, count);
 
 const cases: { label: string; run: () => void }[] = [
   { label: 'Success', run: () => notify.success('Template saved') },
@@ -65,7 +60,7 @@ const cases: { label: string; run: () => void }[] = [
     },
   },
   {
-    label: 'Pending with Undo',
+    label: 'Pending action with Undo',
     run: () =>
       notify.pending('The payment will be sent when the timer ends.', {
         title: 'Sending payment',
@@ -93,8 +88,8 @@ const cases: { label: string; run: () => void }[] = [
   {
     label: 'Multiple random toasts',
     run: async () => {
-      for (let i = 0; i < 3; i++) {
-        showRandomToast();
+      for (const props of pickRandomToasts(3)) {
+        notify(props);
         await wait(400);
       }
     },
@@ -122,7 +117,7 @@ type TToastStoryArgs = TToastContainerProps & {
   duration?: number;
 };
 
-const ToastStory = ({ type, title, text, buttonText, closable, duration, ...args }: TToastStoryArgs) => {
+const ToastStory = ({ type, title, text, buttonText, closable, duration, position, ...args }: TToastStoryArgs) => {
   const showToast = useCallback(() => {
     notify({
       toastId: CUSTOM_TOAST_ID,
@@ -135,12 +130,12 @@ const ToastStory = ({ type, title, text, buttonText, closable, duration, ...args
     });
   }, [type, title, text, buttonText, closable, duration]);
 
-  useEffect(showToast, [showToast]);
+  useEffect(showToast, [showToast, position]);
 
   return (
     <div>
       <Button type="primary" size="small" buttonText="Show toast" onClick={showToast} />
-      <_Toast {...args} />
+      <_Toast key={position} position={position} {...args} />
     </div>
   );
 };
@@ -150,7 +145,7 @@ export const Toast: StoryFn<TToastStoryArgs> = args => <ToastStory {...args} />;
 Toast.argTypes = {
   type: {
     options: Object.values(TOAST_TYPE),
-    control: { type: 'select' },
+    control: { type: 'select', labels: { [TOAST_TYPE.PENDING]: 'pending action' } },
   },
   title: { control: { type: 'text' } },
   text: { control: { type: 'text' } },
@@ -179,7 +174,7 @@ export const Behavior: StoryFn<TBehaviorArgs> = ({ scenario, ...args }) => (
       onClick={() => cases.find(({ label }) => label === scenario)?.run()}
     />
     <Button type="secondary" size="small" buttonText="Dismiss all" onClick={() => notify.dismiss()} />
-    <_Toast {...args} />
+    <_Toast key={args.position} {...args} />
   </div>
 );
 

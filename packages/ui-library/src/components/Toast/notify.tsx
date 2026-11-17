@@ -7,8 +7,32 @@ import type { TToastId, TToastOptions, TToastTypes, TToastProps } from './types'
 
 import { getAutoClose, getToastId } from './utils';
 import { getToast, removeToast, saveToast, trimToastStack } from './store';
-import { TOAST_TYPE } from './consts';
+import { TOAST_EXIT_DURATION, TOAST_TYPE } from './consts';
 import { ToastContent } from './components';
+
+const closedAt = new Map<TToastId, number>();
+const delayedShows = new Map<TToastId, ReturnType<typeof setTimeout>>();
+
+const cancelDelayedShow = (id: TToastId) => {
+  clearTimeout(delayedShows.get(id));
+  delayedShows.delete(id);
+};
+
+const showNew = (id: TToastId, content: (props: ToastContentProps) => ReactNode, options: ToastOptions) => {
+  cancelDelayedShow(id);
+  const waitForExit = (closedAt.get(id) ?? 0) + TOAST_EXIT_DURATION - Date.now();
+
+  if (waitForExit > 0) {
+    delayedShows.set(
+      id,
+      setTimeout(() => showNew(id, content, options), waitForExit)
+    );
+    return;
+  }
+  closedAt.delete(id);
+  toast(content, options);
+  trimToastStack();
+};
 
 const getToastOptions = (id: TToastId, props: TToastProps, autoClose: number | false): ToastOptions => {
   const { type = TOAST_TYPE.INFORMATION, closeSnackbar } = props;
@@ -22,6 +46,7 @@ const getToastOptions = (id: TToastId, props: TToastProps, autoClose: number | f
     role: type === TOAST_TYPE.ERROR ? 'alert' : 'status',
     className: 'toast-item',
     onClose: () => {
+      closedAt.set(id, Date.now());
       removeToast(id);
       closeSnackbar?.(id);
     },
@@ -42,8 +67,7 @@ const render = (id: TToastId, props: TToastProps): TToastId => {
   if (existing) {
     toast.update(id, { ...options, render: content, delay: 0 });
   } else {
-    toast(content, options);
-    trimToastStack();
+    showNew(id, content, options);
   }
   return id;
 };
@@ -57,7 +81,14 @@ const update = (id: TToastId, patch: Partial<TToastProps>): void => {
   }
 };
 
-const dismiss = (id?: TToastId): void => toast.dismiss(id);
+const dismiss = (id?: TToastId): void => {
+  if (id === undefined) {
+    delayedShows.forEach((_, delayedId) => cancelDelayedShow(delayedId));
+  } else {
+    cancelDelayedShow(id);
+  }
+  toast.dismiss(id);
+};
 
 const shortcut =
   (type: TToastTypes) =>
