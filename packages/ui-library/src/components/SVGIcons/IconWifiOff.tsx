@@ -20,7 +20,7 @@ export const IconWifiOff = ({
       [`svg-icon__type-${type}`]: type,
       [className]: className,
     })}
-    viewBox="0 0 24 24"
+    viewBox="-2 -2 24 24"
     onClick={onClick}
     ref={refHandler}
     id={id}

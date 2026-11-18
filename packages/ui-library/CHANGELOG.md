@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.39.0-beta.0](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.8...@ab.uitools/ui-library@1.39.0-beta.0) (2026-11-12)
+
+### Bug Fixes
+
+- **toast:** keep hover active between expanded toasts ([b51d953](https://github.com/ab-ui-tools/ab-ui-tools/commit/b51d9536dcb6999e71000da4798dc786e288291e))
+- **toast:** keep stack layout when a toast is updated ([435466c](https://github.com/ab-ui-tools/ab-ui-tools/commit/435466c2d752b81808d61063062756fd3cc59d67))
+
+### Features
+
+- **svg-icons:** add IconWifi and centre IconWifiOff in its viewBox ([a094a1c](https://github.com/ab-ui-tools/ab-ui-tools/commit/a094a1c30dcffcc5453b0932b9562c4c5fba4cf1))
+- **toast:** rebuild Snackbar as Toast on react-toastify 11.2 ([6274c45](https://github.com/ab-ui-tools/ab-ui-tools/commit/6274c4557bb41228ec42b0900da7542ee56b2005))
+
 ## [1.38.8](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.38.7...@ab.uitools/ui-library@1.38.8) (2026-10-23)
 
 ### Bug Fixes
