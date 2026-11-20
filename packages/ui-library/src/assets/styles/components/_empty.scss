@@ -12,6 +12,9 @@
   }
 
   &__icon {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(center);
     margin: auto;
   }
 
