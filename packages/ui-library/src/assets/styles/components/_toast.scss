@@ -10,7 +10,8 @@
   --ds-toast-motion: 200ms;
 
   --toastify-z-index: 100000;
-  --toastify-toast-width: 450px;
+  --toastify-toast-width: 600px;
+  --toastify-toast-min-width: 160px;
   --toastify-toast-min-height: 0;
   --toastify-toast-padding: 0;
   --toastify-toast-bd-radius: var(--ds-toast-radius);
@@ -26,16 +27,49 @@
     margin-bottom: var(--ds-toast-gap);
     background-color: var(--ds-toast-bg);
     cursor: default;
+
+    @media (max-width: 768px) {
+      border-radius: var(--ds-toast-radius);
+    }
   }
+
+  .toast-wrapper.Toastify__toast-container {
+    @media (max-width: 768px) {
+      left: max(var(--ds-space-16), env(safe-area-inset-left));
+      right: max(var(--ds-space-16), env(safe-area-inset-right));
+      bottom: max(var(--ds-space-16), env(safe-area-inset-bottom));
+      margin: 0 auto;
+      transform: none;
+    }
+
+    @media (min-width: 769px) {
+      width: 100%;
+      min-width: var(--toastify-toast-min-width);
+      max-width: var(--toastify-toast-width);
+    }
+
+    &[data-stacked='true'] {
+      max-width: var(--toastify-toast-width);
+
+      @media (max-width: 768px) {
+        width: auto;
+      }
+    }
+  }
+
 
   .toast-wrapper[data-stacked='true'] .Toastify__toast--stacked {
     margin-bottom: 0;
-    transition:
-      transform var(--ds-toast-motion) ease-in-out,
-      left var(--ds-toast-motion) ease-in-out,
-      right var(--ds-toast-motion) ease-in-out,
-      background-color var(--ds-toast-motion) ease-in-out,
-      opacity var(--ds-toast-motion) ease-in-out;
+    transition: transform var(--ds-toast-motion) ease-in-out,
+    left var(--ds-toast-motion) ease-in-out,
+    right var(--ds-toast-motion) ease-in-out,
+    background-color var(--ds-toast-motion) ease-in-out,
+    opacity var(--ds-toast-motion) ease-in-out;
+
+    @media (min-width: 769px) {
+      min-width: var(--toastify-toast-min-width);
+      width: auto;
+    }
 
     &[data-collapsed='true'] {
       --ds-toast-depth: 1;
@@ -72,26 +106,6 @@
   to {
     opacity: 0;
     transform: translate3d(0, var(--y), 0);
-  }
-}
-
-@media (max-width: 768px) {
-  .Toastify {
-    --toastify-toast-width: 360px;
-
-    .toast-wrapper.Toastify__toast-container {
-      left: max(var(--ds-space-16), env(safe-area-inset-left));
-      right: max(var(--ds-space-16), env(safe-area-inset-right));
-      bottom: max(var(--ds-space-16), env(safe-area-inset-bottom));
-      width: auto;
-      max-width: var(--toastify-toast-width);
-      margin: 0 auto;
-      transform: none;
-    }
-
-    .Toastify__toast.toast-item {
-      border-radius: var(--ds-toast-radius);
-    }
   }
 }
 
