@@ -1,20 +1,20 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from "react";
 
-import { useId, useState } from 'react';
-import { motion } from 'framer-motion';
-import classnames from 'classnames';
+import { useId, useState } from "react";
+import { motion } from "framer-motion";
+import classnames from "classnames";
 
-import type { TModalPropTypes } from './types';
+import type { TModalPropTypes } from "./types";
 
-import { Positions } from '../Tooltip/types';
-import { Tooltip } from '../Tooltip';
-import { Text } from '../Text';
-import IconDismiss from '../SVGIcons/IconDismiss';
-import { Checkbox } from '../Checkbox';
-import { ButtonIcon } from '../ButtonIcon';
-import { Button } from '../Button';
-import { useHideBodyScroll, useOnOutsideClick } from '../../hooks';
-import { AnimatePresenceWrapper } from '../../helperComponents/AnimatePresenceWrapper';
+import { Positions } from "../Tooltip/types";
+import { Tooltip } from "../Tooltip";
+import { Text } from "../Text";
+import IconDismiss from "../SVGIcons/IconDismiss";
+import { Checkbox } from "../Checkbox";
+import { ButtonIcon } from "../ButtonIcon";
+import { Button } from "../Button";
+import { useHideBodyScroll, useOnOutsideClick } from "../../hooks";
+import { AnimatePresenceWrapper } from "../../helperComponents/AnimatePresenceWrapper";
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
@@ -28,7 +28,7 @@ const DESKTOP_ANIMATION = {
   },
   transition: {
     duration: 0.4,
-    type: 'spring',
+    type: "spring",
     damping: 55,
     stiffness: 700,
   },
@@ -40,10 +40,11 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     onClose,
     onSubmit,
     titleProps,
+    position = "top",
     subtitle,
     closeIcon,
-    className = '',
-    size = 'medium',
+    className = "",
+    size = "medium",
     buttonProps,
     checkProps,
     children,
@@ -54,19 +55,28 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
   } = props;
 
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null);
-  useOnOutsideClick(containerRef, onClose, closeOnOutsideClick && isOpen, useId());
+  useOnOutsideClick(
+    containerRef,
+    onClose,
+    closeOnOutsideClick && isOpen,
+    useId()
+  );
   useHideBodyScroll(isOpen);
 
   const checkbox = checkProps ? <Checkbox {...checkProps} /> : null;
 
   const buttons = buttonProps ? (
-    <div className={`flexbox ${checkProps ? '' : 'full-width justify-content--end'}`}>
+    <div
+      className={`flexbox ${
+        checkProps ? "" : "full-width justify-content--end"
+      }`}
+    >
       {buttonProps?.cancel ? (
         <Button
           type="tertiary"
           className="modal__footer__btn mr-16"
           onClick={onClose}
-          dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
+          dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ""}
           {...(buttonProps.cancel || {})}
         />
       ) : null}
@@ -75,16 +85,16 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
           {confirmBtnTooltipText ? (
             <Tooltip
               text={confirmBtnTooltipText as string}
-              id={'confirm-btn-tooltip'}
+              id={"confirm-btn-tooltip"}
               position={Positions.TOP_CENTER}
             />
           ) : null}
           <Button
-            id={'confirm-btn-tooltip'}
-            className={'modal__footer__btn'}
+            id={"confirm-btn-tooltip"}
+            className={"modal__footer__btn"}
             type="primary"
             onClick={onSubmit}
-            dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
+            dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ""}
             {...buttonProps.confirm}
           />
         </>
@@ -96,7 +106,12 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     <AnimatePresenceWrapper>
       {isOpen ? (
         <motion.div
-          className={classnames('modal', `modal--${size}`, className)}
+          className={classnames(
+            "modal",
+            `modal--${position}`,
+            `modal--${size}`,
+            className
+          )}
           initial={{
             opacity: 0,
           }}
@@ -106,23 +121,27 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="modal__container" ref={setContainerRef} {...DESKTOP_ANIMATION}>
+          <div
+            className="modal__container"
+            ref={setContainerRef}
+            {...DESKTOP_ANIMATION}
+          >
             {titleProps?.title ? (
               <div className="modal__header">
                 <div>
                   <Text
                     size={titleProps.size}
-                    className={`modal__title-${titleProps.size || 'small'}`}
-                    weight={'bold'}
-                    dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
+                    className={`modal__title-${titleProps.size || "small"}`}
+                    weight={"bold"}
+                    dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ""}
                   >
                     {titleProps.title}
                   </Text>
                   {subtitle ? (
                     <Text
-                      className={'mt-12'}
-                      type={'secondary'}
-                      dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
+                      className={"mt-12"}
+                      type={"secondary"}
+                      dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ""}
                     >
                       {subtitle}
                     </Text>
@@ -130,9 +149,11 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
                 </div>
                 {closeIcon ? (
                   <ButtonIcon
-                    className={'modal__close ml-16'}
-                    size={'large'}
-                    dataId={dataIdPrefix ? `${dataIdPrefix}-modal-close-button` : ''}
+                    className={"modal__close ml-16"}
+                    size={"large"}
+                    dataId={
+                      dataIdPrefix ? `${dataIdPrefix}-modal-close-button` : ""
+                    }
                     iconProps={{ Component: IconDismiss }}
                     onClick={onClose}
                   />
@@ -140,10 +161,18 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
               </div>
             ) : null}
 
-            {children ? <div className="modal__content scrollbar scrollbar--vertical">{children}</div> : null}
+            {children ? (
+              <div className="modal__content scrollbar scrollbar--vertical">
+                {children}
+              </div>
+            ) : null}
 
             {buttons || checkbox || renderCustomFooter ? (
-              <div className={`modal__footer ${checkbox ? 'justify-content--between' : 'justify-content--end'}`}>
+              <div
+                className={`modal__footer ${
+                  checkbox ? "justify-content--between" : "justify-content--end"
+                }`}
+              >
                 {checkbox}
                 {buttons}
                 {renderCustomFooter}

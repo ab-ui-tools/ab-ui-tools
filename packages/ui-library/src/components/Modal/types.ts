@@ -29,6 +29,7 @@ export interface TModalPropTypes {
   className?: string;
   confirmBtnTooltipText?: string;
   hasCancelBtn?: boolean;
+  position?: 'top' | 'center';
 }
 
 export interface TModalConfirmationPropTypes {
