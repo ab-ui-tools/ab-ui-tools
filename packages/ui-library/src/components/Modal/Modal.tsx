@@ -44,6 +44,7 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     closeIcon,
     className = '',
     size = 'medium',
+    position = 'center',
     buttonProps,
     checkProps,
     children,
@@ -96,7 +97,7 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     <AnimatePresenceWrapper>
       {isOpen ? (
         <motion.div
-          className={classnames('modal', `modal--${size}`, className)}
+          className={classnames('modal', `modal--${position}`, `modal--${size}`, className)}
           initial={{
             opacity: 0,
           }}

@@ -79,9 +79,7 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
               {subtitle ? <Text className={'mt-12'}>{subtitle}</Text> : null}
               {children ? <div className={'mt-32'}>{children}</div> : null}
               {buttonProps ? (
-                <div
-                  className={`modal__footer mt-32 ${isFooterInline ? 'modal__footer-inline' : 'modal__footer-block'}`}
-                >
+                <div className={`modal__footer ${isFooterInline ? 'modal__footer-inline' : 'modal__footer-block'}`}>
                   {buttonProps?.cancel ? (
                     <Button
                       type="secondary"
