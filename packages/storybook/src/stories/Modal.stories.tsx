@@ -77,6 +77,7 @@ const ModalConfirmationTemplate: StoryFn<TModalConfirmationPropTypes> = args => 
           closeModal();
           console.log('submit');
         }}
+        isFooterInline={false}
         buttonProps={{
           confirm: {
             buttonText: 'Delete the card',
