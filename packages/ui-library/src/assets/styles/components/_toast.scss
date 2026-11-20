@@ -102,10 +102,12 @@
   --ds-toast-close-color: var(--ds-color-bg-grey);
   --ds-toast-close-bg-hover: rgba(255, 255, 255, 0.08);
   --ds-toast-progress-bg: var(--grey-700);
-  --ds-toast-padding: var(--ds-space-14) var(--ds-space-12);
+  --ds-toast-padding: var(--ds-space-10) var(--ds-space-12);
   --ds-toast-gap: 0;
 
   --ds-toast-content-gap: var(--ds-space-12);
+  --ds-toast-body-gap: var(--ds-space-4);
+  --ds-toast-body-padding: var(--ds-space-4) 0;
   --ds-toast-actions-gap: var(--ds-space-12);
 
   --ds-toast-icon-success: var(--ds-color-bg-brand);
@@ -151,7 +153,10 @@
 
   &__icon {
     @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(center);
     @include mixin.flex-shrink(0);
+    height: var(--ds-size-32);
 
     .svg-icon {
       font-size: var(--ds-toast-icon-size);
@@ -168,8 +173,12 @@
   &__body {
     @include mixin.flexbox;
     @include mixin.flex-direction(column);
+    @include mixin.justify-content(center);
     flex: 1;
     min-width: 0;
+    min-height: var(--ds-size-32);
+    gap: var(--ds-toast-body-gap);
+    padding: var(--ds-toast-body-padding);
   }
 
   &__title,
@@ -186,10 +195,6 @@
   &__title,
   &__text {
     word-break: break-word;
-  }
-
-  &__text {
-    margin-top: var(--ds-space-4);
   }
 
   &__dot {
