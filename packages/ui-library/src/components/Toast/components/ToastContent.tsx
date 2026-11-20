@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import type { TToastId, TToastProps } from '../types';
 
-import { ToastLabel } from './ToastLabel';
+import { ToastTitle } from './ToastTitle';
 import { ToastIcon } from './ToastIcon';
 import { ToastActions } from './ToastActions';
 import { isToastClosable } from '../utils';
@@ -12,6 +12,7 @@ import { useCountdown } from '../hooks';
 import { TOAST_CLOSE_LABEL, TOAST_MAX_ACTIONS, TOAST_TYPE } from '../consts';
 import { Text } from '../../Text';
 import IconDismiss from '../../SVGIcons/IconDismiss';
+import { ButtonIcon } from '../../ButtonIcon';
 import { useScreenSize } from '../../../hooks';
 
 type TToastContentProps = TToastProps & {
@@ -49,7 +50,9 @@ export const ToastContent = (props: TToastContentProps): ReactElement => {
   return (
     <div
       data-id={`${type}-toast-message`}
-      className={classNames('toast', `toast--${type}`, { 'toast--mobile': isMobile })}
+      className={classNames('toast', `toast--${type}`, {
+        'toast--mobile': isMobile,
+      })}
     >
       {countdown ? (
         <div className="toast__progress" style={{ transform: `scaleX(${1 - remaining / countdown})` }} />
@@ -59,21 +62,24 @@ export const ToastContent = (props: TToastContentProps): ReactElement => {
         <ToastIcon type={type} />
 
         <div className="toast__body">
-          <ToastLabel title={title} remaining={countdown ? remaining : undefined} />
-          <Text as="div" className="toast__text" size="standard" type="inverse">
+          <ToastTitle title={title} remaining={countdown ? remaining : undefined} />
+          <Text className="toast__text" type="inverse">
             {text}
           </Text>
         </div>
 
-        {!isMobile ? actionsNode : null}
+        <div className={'toast__content__right'}>
+          {!isMobile ? actionsNode : null}
 
-        {isToastClosable(props) ? (
-          <div className="toast__close">
-            <button type="button" className="toast__close-button" aria-label={closeLabel} onClick={onClose}>
-              <IconDismiss size="small" />
-            </button>
-          </div>
-        ) : null}
+          {isToastClosable(props) ? (
+            <ButtonIcon
+              className="toast__close"
+              aria-label={closeLabel}
+              iconProps={{ Component: IconDismiss }}
+              onClick={onClose}
+            />
+          ) : null}
+        </div>
       </div>
 
       {isMobile ? actionsNode : null}
