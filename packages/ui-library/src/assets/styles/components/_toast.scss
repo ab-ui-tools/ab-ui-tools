@@ -43,9 +43,7 @@
     }
 
     @media (min-width: 769px) {
-      width: 100%;
-      min-width: var(--toastify-toast-min-width);
-      max-width: var(--toastify-toast-width);
+      width: var(--toastify-toast-width);
     }
 
     &[data-stacked='true'] {
@@ -67,8 +65,7 @@
     opacity var(--ds-toast-motion) ease-in-out;
 
     @media (min-width: 769px) {
-      min-width: var(--toastify-toast-min-width);
-      width: auto;
+      width: var(--toastify-toast-width);
     }
 
     &[data-collapsed='true'] {
