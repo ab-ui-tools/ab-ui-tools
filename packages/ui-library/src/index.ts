@@ -27,6 +27,7 @@ export * from './components/FramedIcon';
 export * from './components/Heading';
 export * from './components/Image';
 export * from './components/Input';
+export * from './components/InputField';
 export * from './components/Link';
 export * from './components/Menu';
 export * from './components/Modal';

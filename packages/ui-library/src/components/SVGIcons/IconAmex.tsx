@@ -1,0 +1,56 @@
+import type { ReactElement } from 'react';
+
+import classNames from 'classnames';
+
+import type { ISVGIconProps } from './types';
+
+export const IconAmex = ({ size, className = '', onClick, refHandler, id, dataId }: ISVGIconProps): ReactElement => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={classNames('svg-icon', {
+      [`svg-icon__size-${size}`]: size,
+      [className]: className,
+    })}
+    viewBox="0 0 24 24"
+    fill="none"
+    onClick={onClick}
+    ref={refHandler}
+    id={id}
+    data-id={dataId ? `${dataId}-svg-icon` : ''}
+  >
+    <g transform="translate(0 3.52941) scale(0.705882)">
+      <rect x="0.5" y="0.5" width="33" height="23" rx="5.5" fill="#016FD0" />
+      <rect x="0.5" y="0.5" width="33" height="23" rx="5.5" stroke="#F5F5F5" />
+      <path
+        d="M18.4375 19.8988L27.4734 19.918L28.8925 18.3348L30.3218 19.912H33.0113V17.6021L31.3268 15.7855L33.0113 13.9854V11.7236L18.4375 11.7105V19.8988Z"
+        fill="white"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.4102 19V12.6105H24.8278V14.0824H21.1642V15.0816H24.7404V16.529H21.1642V17.5104H24.8278V19L19.4102 19Z"
+        fill="#006FCF"
+      />
+      <path
+        d="M30.79 12.6106L28.9529 14.6358L27.1211 12.6106H24.8008L27.7986 15.8016L24.8008 19H27.0581L28.9033 16.9546L30.7676 19H33.0106V18.9093L30.0766 15.8016L33.0106 12.6609V12.6106H30.79Z"
+        fill="#006FCF"
+      />
+      <path
+        d="M29.6982 4.44061L28.9477 6.53977L28.1998 4.44061H23.8628V7.24237L22.6289 4.44061H19.1159L15.5078 12.6289H33.0099V4.44061H29.6982Z"
+        fill="white"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20.024 9.00372L20.8742 6.97145L21.7238 9.00372H20.024ZM19.7803 5.3308L16.9453 11.7148H18.8898L19.4246 10.4365H22.3228L22.8572 11.7148H24.85L22.0268 5.3308H19.7803Z"
+        fill="#006FCF"
+      />
+      <path
+        d="M24.8242 11.7156L26.5433 11.7156V7.33038L28.1743 11.7156H29.7194L31.3172 7.34527V11.7305L33.01 11.7156V5.33156H30.3794L28.9639 9.26572L27.5575 5.34098L24.8242 5.33154V11.7156Z"
+        fill="#006FCF"
+      />
+    </g>
+  </svg>
+);
+
+export default IconAmex;
