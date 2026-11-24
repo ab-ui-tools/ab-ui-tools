@@ -36,7 +36,7 @@ export const ToastContent = (props: TToastContentProps): ReactElement => {
     onClose,
     onCommit,
   } = props;
-  const isMobile = useScreenSize() === 'small';
+  const isMobile = useScreenSize() === 'xsmall';
 
   const remaining = useCountdown(countdown, isPaused, () => {
     onCommit?.(id);

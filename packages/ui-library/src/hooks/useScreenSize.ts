@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 
 import { SCREEN_SIZES } from '../consts';
 
-const { SMALL, MEDIUM } = SCREEN_SIZES;
+const { XSMALL, SMALL, MEDIUM } = SCREEN_SIZES;
 
-type ScreenSize = 'small' | 'medium' | 'large';
+type ScreenSize = 'xsmall' | 'small' | 'medium' | 'large';
 
 export const useScreenSize = (): ScreenSize => {
   const [screenSize, setScreenSize] = useState<ScreenSize>(getScreenSize);
@@ -13,6 +13,8 @@ export const useScreenSize = (): ScreenSize => {
     const width = window.innerWidth;
 
     switch (true) {
+      case width <= XSMALL:
+        return 'xsmall';
       case width <= SMALL:
         return 'small';
       case width <= MEDIUM:

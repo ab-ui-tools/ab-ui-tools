@@ -14,6 +14,7 @@ export const IMAGE_MIME_TYPE: string[] = ['.jpeg', '.jpg', '.png', '.heic', '.he
 
 //TODO as a result of discussion with the designers, it was decided to add temporary constants , in the next stage we should correct that
 export const SCREEN_SIZES = {
+  XSMALL: 576,
   SMALL: 768,
   MEDIUM: 992,
   LARGE: 1200,
