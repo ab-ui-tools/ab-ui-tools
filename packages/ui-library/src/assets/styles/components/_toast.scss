@@ -2,7 +2,6 @@
 
 .Toastify {
   --ds-toast-bg: var(--ds-color-bg-grey-extra-darker);
-  --ds-toast-text: var(--grey-50);
   --ds-toast-radius: var(--ds-border-radius-2xl);
   --ds-toast-gap: var(--ds-space-12);
   --ds-toast-peek-inset: var(--ds-space-16);
@@ -11,7 +10,8 @@
   --ds-toast-motion: 200ms;
 
   --toastify-z-index: 100000;
-  --toastify-toast-width: 450px;
+  --toastify-toast-width: 440px;
+  --toastify-toast-min-width: 160px;
   --toastify-toast-min-height: 0;
   --toastify-toast-padding: 0;
   --toastify-toast-bd-radius: var(--ds-toast-radius);
@@ -27,16 +27,46 @@
     margin-bottom: var(--ds-toast-gap);
     background-color: var(--ds-toast-bg);
     cursor: default;
+
+    @media (max-width: 576px) {
+      border-radius: var(--ds-toast-radius);
+    }
   }
+
+  .toast-wrapper.Toastify__toast-container {
+    @media (max-width: 576px) {
+      left: max(var(--ds-space-16), env(safe-area-inset-left));
+      right: max(var(--ds-space-16), env(safe-area-inset-right));
+      bottom: max(var(--ds-space-16), env(safe-area-inset-bottom));
+      margin: 0 auto;
+      transform: none;
+    }
+
+    @media (min-width: 577px) {
+      width: var(--toastify-toast-width);
+    }
+
+    &[data-stacked='true'] {
+      max-width: var(--toastify-toast-width);
+
+      @media (max-width: 576px) {
+        width: auto;
+      }
+    }
+  }
+
 
   .toast-wrapper[data-stacked='true'] .Toastify__toast--stacked {
     margin-bottom: 0;
-    transition:
-      transform var(--ds-toast-motion) ease-in-out,
-      left var(--ds-toast-motion) ease-in-out,
-      right var(--ds-toast-motion) ease-in-out,
-      background-color var(--ds-toast-motion) ease-in-out,
-      opacity var(--ds-toast-motion) ease-in-out;
+    transition: transform var(--ds-toast-motion) ease-in-out,
+    left var(--ds-toast-motion) ease-in-out,
+    right var(--ds-toast-motion) ease-in-out,
+    background-color var(--ds-toast-motion) ease-in-out,
+    opacity var(--ds-toast-motion) ease-in-out;
+
+    @media (min-width: 577px) {
+      width: var(--toastify-toast-width);
+    }
 
     &[data-collapsed='true'] {
       --ds-toast-depth: 1;
@@ -76,52 +106,38 @@
   }
 }
 
-@media (max-width: 768px) {
-  .Toastify {
-    --toastify-toast-width: 100%;
-
-    .toast-wrapper.Toastify__toast-container {
-      left: max(var(--ds-space-16), env(safe-area-inset-left));
-      right: max(var(--ds-space-16), env(safe-area-inset-right));
-      bottom: max(var(--ds-space-16), env(safe-area-inset-bottom));
-      width: auto;
-      max-width: 600px;
-      margin: 0 auto;
-      transform: none;
-    }
-
-    .Toastify__toast.toast-item {
-      border-radius: var(--ds-toast-radius);
-    }
-  }
-}
-
 .toast {
   $this: &;
 
   --ds-toast-icon-size: var(--ds-size-24);
   --ds-toast-close-color: var(--ds-color-bg-grey);
   --ds-toast-close-bg-hover: rgba(255, 255, 255, 0.08);
-  --ds-toast-progress-bg: var(--ds-color-icon-secondary);
-  --ds-toast-actions-padding: var(--ds-space-10) var(--ds-space-10) var(--ds-space-10) 0;
+  --ds-toast-progress-bg: var(--grey-700);
+  --ds-toast-padding: var(--ds-space-10) var(--ds-space-12);
+  --ds-toast-gap: 0;
 
-  --ds-toast-icon-success: var(--brand-500);
-  --ds-toast-icon-error: var(--red-500);
-  --ds-toast-icon-warning: var(--yellow-500);
+  --ds-toast-content-gap: var(--ds-space-12);
+  --ds-toast-body-gap: var(--ds-space-4);
+  --ds-toast-body-padding: var(--ds-space-4) 0;
+  --ds-toast-actions-gap: var(--ds-space-12);
+
+  --ds-toast-icon-success: var(--ds-color-bg-brand);
+  --ds-toast-icon-error: var(--ds-color-bg-danger);
+  --ds-toast-icon-warning: var(--ds-color-bg-warning);
   --ds-toast-icon-information: var(--ds-color-bg-container-darker);
-  --ds-toast-icon-information-blue: var(--blue-500);
-  --ds-toast-icon-offline: var(--yellow-500);
-  --ds-toast-icon-online: var(--brand-500);
+  --ds-toast-icon-information-blue: var(--ds-color-bg-info);
+  --ds-toast-icon-offline: var(--ds-color-bg-warning);
+  --ds-toast-icon-online: var(--ds-color-bg-brand);
 
-  position: relative;
   @include mixin.flexbox;
   @include mixin.flex-direction(column);
+  position: relative;
   width: 100%;
   border-radius: inherit;
   overflow: hidden;
-  padding: 0 var(--ds-space-2);
   box-sizing: border-box;
-  font-family: var(--ds-font-family);
+  padding: var(--ds-toast-padding);
+  gap: var(--ds-toast-gap);
 
   &__progress {
     position: absolute;
@@ -136,13 +152,22 @@
     position: relative;
     @include mixin.flexbox;
     @include mixin.align-items(flex-start);
+    gap: var(--ds-toast-content-gap);
     width: 100%;
+
+    &__right {
+      @include mixin.flexbox;
+      @include mixin.align-items(center);
+      gap: var(--ds-toast-actions-gap);
+    }
   }
 
   &__icon {
     @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(center);
     @include mixin.flex-shrink(0);
-    padding: var(--ds-space-14) 0 var(--ds-space-14) var(--ds-space-12);
+    height: var(--ds-size-32);
 
     .svg-icon {
       font-size: var(--ds-toast-icon-size);
@@ -159,76 +184,54 @@
   &__body {
     @include mixin.flexbox;
     @include mixin.flex-direction(column);
+    @include mixin.justify-content(center);
     flex: 1;
     min-width: 0;
-    gap: var(--ds-space-4);
-    padding: var(--ds-space-14) var(--ds-space-12);
+    min-height: var(--ds-size-32);
+    gap: var(--ds-toast-body-gap);
+    padding: var(--ds-toast-body-padding);
   }
 
-  &__label,
+  &__title,
   &__countdown {
     @include mixin.flexbox;
     @include mixin.align-items(center);
     gap: var(--ds-space-6);
   }
 
-  &__label {
+  &__title {
     @include mixin.flex-wrap(wrap);
   }
 
-  #{$this}__title,
-  #{$this}__text {
-    margin: 0;
-    color: var(--ds-toast-text);
-    word-break: break-word;
-  }
-
+  &__title,
   &__text {
-    padding: var(--ds-space-2) 0;
+    word-break: break-word;
   }
 
   &__dot {
     width: var(--ds-size-4);
     height: var(--ds-size-4);
     border-radius: var(--ds-border-radius-full);
-    background-color: var(--ds-toast-progress-bg);
+    background-color: var(--grey-700);
   }
 
   &__actions {
-    position: relative;
     @include mixin.flexbox;
+    @include mixin.align-items(center);
     @include mixin.flex-shrink(0);
-    gap: var(--ds-space-8);
-    padding: var(--ds-toast-actions-padding);
+    position: relative;
+    gap: var(--ds-toast-actions-gap);
   }
 
   &__close {
-    @include mixin.flexbox;
-    @include mixin.flex-shrink(0);
-    padding: var(--ds-space-14) var(--ds-space-12) var(--ds-space-14) 0;
-  }
-
-  &__close-button {
-    @include mixin.flexbox;
-    @include mixin.align-items(center);
-    @include mixin.justify-content(center);
-    padding: var(--ds-space-2);
-    border: 0;
-    border-radius: var(--ds-border-radius-md);
     background: transparent;
-    cursor: pointer;
 
     .svg-icon path[fill] {
       fill: var(--ds-toast-close-color);
     }
 
     &:hover {
-      background-color: var(--ds-toast-close-bg-hover);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--ds-toast-text);
-      outline-offset: 0;
+      background-color: var(--ds-toast-close-bg-hover) !important;
     }
   }
 
@@ -239,7 +242,7 @@
   }
 
   &--mobile {
-    --ds-toast-actions-padding: 0 var(--ds-space-12) var(--ds-space-14);
+    --ds-toast-gap: var(--ds-space-16);
 
     #{$this}__actions {
       @include mixin.flex-direction(column);

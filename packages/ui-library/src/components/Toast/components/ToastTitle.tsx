@@ -8,24 +8,20 @@ type TToastLabelProps = {
   remaining?: number;
 };
 
-export const ToastLabel = ({ title, remaining }: TToastLabelProps): ReactElement | null => {
+export const ToastTitle = ({ title, remaining }: TToastLabelProps): ReactElement | null => {
   if (!title) {
     return null;
   }
 
   return (
-    <div className="toast__label">
-      <Text as="span" className="toast__title" size="medium" weight="bold" type="inverse">
-        {title}
-      </Text>
+    <Text className="toast__title" size="medium" weight="bold" type="inverse">
+      {title}
       {remaining !== undefined ? (
         <span className="toast__countdown">
           <span className="toast__dot" aria-hidden="true" />
-          <Text as="span" className="toast__title" size="medium" weight="bold" type="inverse">
-            <time>{formatCountdown(remaining)}</time>
-          </Text>
+          <time>{formatCountdown(remaining)}</time>
         </span>
       ) : null}
-    </div>
+    </Text>
   );
 };
