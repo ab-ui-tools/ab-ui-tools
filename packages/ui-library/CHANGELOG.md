@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.39.3](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.39.2...@ab.uitools/ui-library@1.39.3) (2026-11-24)
+
+### Bug Fixes
+
+- added position props for modals and made ui fixes for confirmation modal ([cbe14a5](https://github.com/ab-ui-tools/ab-ui-tools/commit/cbe14a51834ff1ed91a9b414662b096bb8c2aa14))
+
 ## [1.39.2](https://github.com/ab-ui-tools/ab-ui-tools/compare/@ab.uitools/ui-library@1.39.0...@ab.uitools/ui-library@1.39.2) (2026-11-18)
 
 **Note:** Version bump only for package @ab.uitools/ui-library
