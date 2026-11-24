@@ -125,10 +125,12 @@
       @include mixin.align-items(center);
       @include mixin.justify-content(space-between);
       padding: var(--ds-side-sheet-header-padding);
+      min-width: 1px;
 
       &__left , &__right {
         @include mixin.flexbox;
         @include mixin.align-items(center);
+        min-width: 1px;
       }
 
       &__left {
