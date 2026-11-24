@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react';
 import type { TPhoneCountry, TPhoneCountryOption, TPhoneNumberFieldProps } from '../types';
 
 import { formatPhoneNumber, getPhoneDigits, getPhoneLength, getPhonePlaceholder, toPhoneDigits } from '../utils';
-import { PHONE_COUNTRIES, PHONE_COUNTRY_DATA } from '../consts';
+import { DEFAULT_PHONE_COUNTRIES, PHONE_COUNTRY_DATA } from '../consts';
 
 const resolvePhoneCountries = (options: TPhoneCountryOption[]): TPhoneCountry[] =>
   options
@@ -40,7 +40,7 @@ type TUsePhoneNumberProps = Pick<
 };
 
 export const usePhoneNumber = ({
-  countries: countryOptions = PHONE_COUNTRIES,
+  countries: countryOptions = DEFAULT_PHONE_COUNTRIES,
   country,
   defaultCountry,
   onCountryChange,
@@ -57,7 +57,7 @@ export const usePhoneNumber = ({
 
   const countries = useMemo(() => {
     const resolved = resolvePhoneCountries(countryOptions);
-    return resolved.length ? resolved : resolvePhoneCountries(PHONE_COUNTRIES);
+    return resolved.length ? resolved : resolvePhoneCountries(DEFAULT_PHONE_COUNTRIES);
   }, [countryOptions]);
 
   const activeCountry = countries.find(item => item.value === (country ?? innerCountry)) ?? countries[0];

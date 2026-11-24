@@ -250,11 +250,4 @@ export const PHONE_COUNTRY_DATA = {
 
 export const PHONE_COUNTRY_CODES = Object.keys(PHONE_COUNTRY_DATA) as TPhoneCountryCode[];
 
-export const PHONE_COUNTRIES: TPhoneCountryOption[] = [
-  { value: 'AM' },
-  { value: 'GE' },
-  { value: 'RU' },
-  { value: 'FR' },
-  { value: 'IT' },
-  { value: 'ES' },
-];
+export const DEFAULT_PHONE_COUNTRIES: TPhoneCountryOption[] = [{ value: 'AM' }];

@@ -26,8 +26,6 @@ export const CardInputField = forwardRef<HTMLInputElement, TCardInputFieldProps>
       defaultValue,
       onValueChange,
       disabled = false,
-      // Standard HTML autocomplete value for card numbers: lets the browser or password manager
-      // offer the user's saved cards. Related: cc-name, cc-exp, cc-csc.
       autoComplete = 'cc-number',
       placeholder = '1234 1234 1234 1234',
       ...fieldProps
