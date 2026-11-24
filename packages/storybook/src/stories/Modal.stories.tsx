@@ -14,6 +14,10 @@ export default {
       options: ['3xlarge', '2xlarge', 'xlarge', 'large', 'medium', 'small'],
       control: { type: 'radio' },
     },
+    position: {
+      options: ['top', 'center'],
+      control: { type: 'select' },
+    },
   },
 };
 
@@ -48,6 +52,7 @@ const Template: StoryFn<TModalPropTypes> = args => {
 export const Modal = Template.bind({});
 
 Modal.args = {
+  position: 'center',
   size: 'medium',
   titleProps: {
     title: 'Title',
