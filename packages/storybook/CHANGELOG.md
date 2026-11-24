@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.13](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.14.12...@ab.uitools/storybook@1.14.13) (2026-11-24)
+
+### Bug Fixes
+
+- added props position for story ([973f6e3](https://github.com/ab-devtools/uilibrary/commit/973f6e329fb1d2d278b47e5857ff785f1720a5c4))
+
 ## [1.14.12](https://github.com/ab-devtools/uilibrary/compare/@ab.uitools/storybook@1.14.11...@ab.uitools/storybook@1.14.12) (2026-11-18)
 
 **Note:** Version bump only for package @ab.uitools/storybook
